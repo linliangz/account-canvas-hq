@@ -156,11 +156,11 @@ function ProductMockup() {
             {/* Table */}
             <div className="overflow-hidden rounded-lg border border-border">
               <div className="grid grid-cols-12 border-b border-border bg-surface-muted px-3 py-2 text-[10px] uppercase tracking-wider text-muted-foreground">
-                <div className="col-span-5">Account</div>
+                <div className="col-span-4">Account</div>
                 <div className="col-span-2">Stage</div>
                 <div className="col-span-2">Health</div>
-                <div className="col-span-1.5">ARR</div>
-                <div className="col-span-1.5 text-right">Gap</div>
+                <div className="col-span-2">ARR</div>
+                <div className="col-span-2 text-right">Gap</div>
               </div>
               {accounts.map((a) => (
                 <div
@@ -182,8 +182,8 @@ function ProductMockup() {
                     <span className={`h-1.5 w-1.5 rounded-full ${healthDot[a.health]}`} />
                     <span className="capitalize text-muted-foreground">{a.health}</span>
                   </div>
-                  <div className="col-span-1.5 text-foreground">{a.arr}</div>
-                  <div className="col-span-1.5 text-right font-medium text-[color:var(--success)]">{a.gap}</div>
+                  <div className="col-span-2 text-foreground">{a.arr}</div>
+                  <div className="col-span-2 text-right font-medium text-[color:var(--success)]">{a.gap}</div>
                 </div>
               ))}
             </div>
@@ -290,7 +290,7 @@ function LandingPage() {
             ].map((c) => (
               <div key={c.title} className="rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]">
                 <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <c.icon className="h-4.5 w-4.5" />
+                  <c.icon className="h-4 w-4" />
                 </div>
                 <h3 className="text-xl text-foreground">{c.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
