@@ -167,7 +167,7 @@ function ProductMockup() {
                   key={a.name}
                   className="grid grid-cols-12 items-center border-b border-border/60 px-3 py-2.5 text-xs last:border-0 hover:bg-surface/60"
                 >
-                  <div className="col-span-5 flex items-center gap-2">
+                  <div className="col-span-4 flex items-center gap-2">
                     <div className="flex h-6 w-6 items-center justify-center rounded bg-primary/10 text-[10px] font-semibold text-primary">
                       {a.name
                         .split(" ")
