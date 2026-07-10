@@ -478,7 +478,7 @@ function LandingPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>Why Visioner</Eyebrow>
             <h2 className="text-3xl font-bold text-foreground md:text-[40px]">
-              Designed for KAMs, not only Sales VPs.
+              The everyday workspace for strategic accounts.
             </h2>
           </div>
 
