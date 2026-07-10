@@ -100,9 +100,9 @@ function RotatingHighlight({ words }: { words: string[] }) {
 
   useEffect(() => {
     setMounted(true);
-    const timer = setInterval(() => {
-    setIndex((i: number) => (i + 1) % words.length);
-    }, 2500);
+      const timer = setInterval(() => {
+        setIndex((i: number) => (i + 1) % words.length);
+      }, 2500);
     return () => clearInterval(timer);
   }, [words.length]);
 
