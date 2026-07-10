@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import React, { useState, useEffect } from "react";
 import {
   ArrowRight,
   Check,
@@ -88,6 +89,39 @@ function VMark({ size = 32 }: { size?: number }) {
         />
       </svg>
     </div>
+  );
+}
+
+/* ---------- Rotating word highlight ---------- */
+
+function RotatingHighlight({ words }: { words: string[] }) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((i: number) => (i + 1) % words.length);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [words.length]);
+
+  return (
+    <span className="relative inline-block align-bottom">
+      {words.map((word, i) => (
+        <span
+          key={word}
+          className="transition-all duration-500 ease-out"
+          style={{
+            position: i === index ? "relative" : "absolute",
+            left: 0,
+            top: 0,
+            opacity: i === index ? 1 : 0,
+            transform: i === index ? "translateY(0)" : "translateY(12px)",
+          }}
+        >
+          <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{word}</span>
+        </span>
+      ))}
+    </span>
   );
 }
 
@@ -307,7 +341,10 @@ function LandingPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>The Gap</Eyebrow>
             <h2 className="text-3xl font-bold text-foreground md:text-[40px]">
-              Traditional CRMs create rows. Strategic account work happens in relationships.
+              Traditional CRMs create rows. Strategic account work happens{" "}
+              <span className="whitespace-nowrap">
+                in <RotatingHighlight words={["Relationships", "Visibility", "Account Signals"]} />.
+              </span>
             </h2>
             <p className="mt-5 text-[17px] text-muted-foreground">
               Salesforce and HubSpot are optimized for managers, forecasts, and pipeline reviews.
@@ -444,7 +481,7 @@ function LandingPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>Why Visioner</Eyebrow>
             <h2 className="text-3xl font-bold text-foreground md:text-[40px]">
-              Designed for KAMs, not only Sales VPs.
+              The everyday workspace for strategic accounts.
             </h2>
           </div>
 
