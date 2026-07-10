@@ -341,8 +341,10 @@ function LandingPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>The Gap</Eyebrow>
             <h2 className="text-3xl font-bold text-foreground md:text-[40px]">
-              Traditional CRMs create rows. Strategic account work happens in{" "}
-              <RotatingHighlight words={["Relationships", "Visibility", "Account Signals"]} />.
+              Traditional CRMs create rows. Strategic account work happens{" "}
+              <span className="whitespace-nowrap">
+                in <RotatingHighlight words={["Relationships", "Visibility", "Account Signals"]} />.
+              </span>
             </h2>
             <p className="mt-5 text-[17px] text-muted-foreground">
               Salesforce and HubSpot are optimized for managers, forecasts, and pipeline reviews.
