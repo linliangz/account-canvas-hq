@@ -96,13 +96,11 @@ function VMark({ size = 32 }: { size?: number }) {
 
 function RotatingHighlight({ words }: { words: string[] }) {
   const [index, setIndex] = useState(0);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-      const timer = setInterval(() => {
-        setIndex((i: number) => (i + 1) % words.length);
-      }, 2500);
+    const timer = setInterval(() => {
+      setIndex((i: number) => (i + 1) % words.length);
+    }, 2500);
     return () => clearInterval(timer);
   }, [words.length]);
 
@@ -113,8 +111,8 @@ function RotatingHighlight({ words }: { words: string[] }) {
           key={word}
           className="absolute left-0 whitespace-nowrap transition-all duration-500 ease-out"
           style={{
-            opacity: mounted && i === index ? 1 : 0,
-            transform: mounted && i === index ? "translateY(0)" : "translateY(12px)",
+            opacity: i === index ? 1 : 0,
+            transform: i === index ? "translateY(0)" : "translateY(12px)",
           }}
         >
           <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{word}</span>
