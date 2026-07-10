@@ -91,6 +91,38 @@ function VMark({ size = 32 }: { size?: number }) {
   );
 }
 
+/* ---------- Rotating word highlight ---------- */
+
+function RotatingHighlight({ words }: { words: string[] }) {
+  const [index, setIndex] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const timer = setInterval(() => {
+      setIndex((i) => (i + 1) % words.length);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [words.length]);
+
+  return (
+    <span className="relative inline-flex h-[1.1em] items-center align-bottom overflow-hidden">
+      {words.map((word, i) => (
+        <span
+          key={word}
+          className="absolute left-0 whitespace-nowrap transition-all duration-500 ease-out"
+          style={{
+            opacity: mounted && i === index ? 1 : 0,
+            transform: mounted && i === index ? "translateY(0)" : "translateY(12px)",
+          }}
+        >
+          <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{word}</span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
 /* ---------- Buttons ---------- */
 
 function BtnPrimary({ children, className = "" }: { children: React.ReactNode; className?: string }) {
