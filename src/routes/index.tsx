@@ -120,7 +120,7 @@ function RotatingHighlight({ words }: { words: string[] }) {
             transform: i === index ? "translateY(0)" : "translateY(12px)",
           }}
         >
-          <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{word}</span>
+          <span className="text-primary">{word}</span>
         </span>
       ))}
     </span>
