@@ -104,23 +104,21 @@ function RotatingHighlight({ words }: { words: string[] }) {
     return () => clearInterval(timer);
   }, [words.length]);
 
-  const longest = words.reduce((a, b) => (a.length >= b.length ? a : b), "");
-
   return (
-    <span className="relative inline-block min-w-[max-content] overflow-hidden align-bottom">
-      <span aria-hidden="true" className="invisible select-none">
-        {longest}
-      </span>
+    <span className="relative inline-block align-bottom whitespace-nowrap text-primary">
       {words.map((word, i) => (
         <span
           key={word}
-          className="absolute left-0 top-0 whitespace-nowrap transition-all duration-500 ease-out"
+          className="transition-all duration-500 ease-out"
           style={{
+            position: i === index ? "relative" : "absolute",
+            left: 0,
+            top: 0,
             opacity: i === index ? 1 : 0,
             transform: i === index ? "translateY(0)" : "translateY(12px)",
           }}
         >
-          <span className="text-primary">{word}</span>
+          {word}
         </span>
       ))}
     </span>
