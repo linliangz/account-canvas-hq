@@ -105,7 +105,7 @@ function RotatingHighlight({ words }: { words: string[] }) {
   }, [words.length]);
 
   return (
-    <span className="relative inline-block align-bottom text-primary">
+    <span className="relative inline-block align-bottom">
       {words.map((word, i) => (
         <span
           key={word}
@@ -118,7 +118,7 @@ function RotatingHighlight({ words }: { words: string[] }) {
             transform: i === index ? "translateY(0)" : "translateY(12px)",
           }}
         >
-          {word}
+          <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{word}</span>
         </span>
       ))}
     </span>
