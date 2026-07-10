@@ -105,7 +105,7 @@ function RotatingHighlight({ words }: { words: string[] }) {
   }, [words.length]);
 
   return (
-    <span className="relative inline-block align-bottom whitespace-nowrap text-primary">
+    <span className="relative inline-block align-bottom text-primary">
       {words.map((word, i) => (
         <span
           key={word}
