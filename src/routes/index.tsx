@@ -41,35 +41,52 @@ function Logo({ className = "", size = 32 }: { className?: string; size?: number
 function VMark({ size = 32 }: { size?: number }) {
   return (
     <div
-      className="relative flex items-center justify-center rounded-[9px] bg-primary"
+      className="relative flex items-center justify-center rounded-[9px] bg-primary overflow-hidden"
       style={{ width: size, height: size }}
     >
       <svg
         viewBox="0 0 32 32"
         className="text-primary-foreground"
-        style={{ width: size * 0.68, height: size * 0.68 }}
+        style={{ width: size * 0.78, height: size * 0.78 }}
         aria-hidden
       >
-        {/* Open V — like a wide sales funnel */}
+        {/* Vision dot — the insight the funnel is chasing */}
+        <circle cx="16" cy="7.2" r="1.8" fill="var(--insight)" />
+
+        {/* Open V / sales funnel / open book — two page-like planes
+            angling in from the top corners with a wide gap at the bottom */}
         <path
-          d="M6 8 L16 26 L26 8"
+          d="M4.2 10.5 L14 26.5"
           fill="none"
           stroke="currentColor"
-          strokeWidth="3.2"
+          strokeWidth="3.1"
           strokeLinecap="round"
-          strokeLinejoin="round"
+        />
+        <path
+          d="M27.8 10.5 L18 26.5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3.1"
+          strokeLinecap="round"
+        />
+        {/* Inner gutter — a hint of the open book spine between the pages */}
+        <path
+          d="M11.2 13.6 L15.4 22"
+          fill="none"
+          stroke="currentColor"
+          strokeOpacity="0.28"
+          strokeWidth="1"
+          strokeLinecap="round"
+        />
+        <path
+          d="M20.8 13.6 L16.6 22"
+          fill="none"
+          stroke="currentColor"
+          strokeOpacity="0.28"
+          strokeWidth="1"
+          strokeLinecap="round"
         />
       </svg>
-      {/* Vision dot — upper-left of the V */}
-      <span
-        className="absolute rounded-full bg-[color:var(--insight)]"
-        style={{
-          width: Math.max(3, size * 0.11),
-          height: Math.max(3, size * 0.11),
-          top: size * 0.22,
-          left: size * 0.24,
-        }}
-      />
     </div>
   );
 }
