@@ -36,17 +36,22 @@ const LOGIN_URL = "https://app.visioner.cc/login";
 
 /* ---------- Brand mark ---------- */
 
-function Logo({ className = "", size = 32 }: { className?: string; size?: number }) {
+function Logo({ className = "", size = 32, tagline = false }: { className?: string; size?: number; tagline?: boolean }) {
   return (
     <div className={`flex items-center gap-2.5 ${className}`}>
       <VMark size={size} />
-      <div className="flex items-baseline gap-1.5 leading-none">
+      <div className="flex flex-col leading-none">
         <span className="text-[17px] font-bold tracking-tight text-foreground">Visioner</span>
-        <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">CRM</span>
+        {tagline && (
+          <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+            Account Planning CRM
+          </span>
+        )}
       </div>
     </div>
   );
 }
+
 
 function VMark({ size = 32 }: { size?: number }) {
   return (
@@ -413,8 +418,9 @@ const DAY_MOMENTS = [
     time: "1:30 PM",
     icon: UserPlus,
     title: "Expand the org map",
-    body: "Visioner highlights missing roles and relationship gaps. With user-approved Contact Intelligence, you can discover a likely manager, peer, or missing stakeholder and add them to the Org Chart.",
+    body: "Visioner highlights missing roles and relationship gaps. With user-approved Contact Intelligence, you can research a likely manager, peer, or missing stakeholder and choose whether to add them to the Org Chart.",
     outcome: "The account map becomes more complete over time.",
+
     Panel: PanelOrgChart,
   },
   {
@@ -509,7 +515,8 @@ function LandingPage() {
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
-          <Logo />
+          <Logo tagline />
+
           <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
             <a href="#product" className="hover:text-foreground">Product</a>
             <a href="#features" className="hover:text-foreground">Features</a>
@@ -598,7 +605,7 @@ function LandingPage() {
               Everything a Key Account Manager needs to work the account.
             </h2>
             <p className="mt-4 text-[17px] text-muted-foreground">
-              Six memorable capabilities — built for how KAMs actually operate.
+              The credible product pillars for how KAMs actually operate.
             </p>
           </div>
 
@@ -607,9 +614,10 @@ function LandingPage() {
               { icon: Network, title: "Visual Org Chart", body: "Map reporting lines, unknown seats, decision roles, and hidden gaps inside each strategic account." },
               { icon: Heart, title: "Relationship Health", body: "See which relationships are warm, cooling, or stale with visual health indicators and cadence reminders." },
               { icon: Signal, title: "Account Signals", body: "Turn missing stakeholders, stale contacts, renewal risks, and project gaps into clear next actions." },
-              { icon: Mail, title: "BCC Auto Log", body: "BCC outbound emails to Visioner and automatically route conversations to the right account, contact, and project." },
+              { icon: KanbanSquare, title: "Task Board", body: "Prioritize by urgency and importance across accounts. Completed work rolls up into Weekly Progress automatically." },
+              { icon: FolderKanban, title: "Project Workspace", body: "One place for stakeholders, decision chain, risks, next steps, files, and revenue impact per workstream." },
+              { icon: Mail, title: "BCC Auto Log", body: "BCC outbound emails to Visioner and route conversations to the right account, contact, and project." },
               { icon: LayoutGrid, title: "Account Plan", body: "Bring revenue, projects, stakeholders, tasks, notes, and risks into one account plan your team can actually use." },
-              { icon: MessagesSquare, title: "Account Community", body: "Join gated communities for accounts you work on, exchange non-confidential insights, and discover useful patterns." },
             ].map((f) => (
               <div key={f.title} className="group rounded-2xl border border-border bg-card p-6 transition hover:border-accent/50 hover:shadow-[var(--shadow-soft)]">
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
@@ -619,7 +627,24 @@ function LandingPage() {
                 <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{f.body}</p>
               </div>
             ))}
+
+            {/* Community — separate coming-soon card */}
+            <div className="rounded-2xl border border-dashed border-border bg-surface/40 p-6">
+              <div className="mb-4 flex items-center justify-between">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-muted text-muted-foreground">
+                  <MessagesSquare className="h-5 w-5" />
+                </div>
+                <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                  Coming soon
+                </span>
+              </div>
+              <h3 className="text-lg font-semibold text-foreground">Account Community</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
+                Join gated communities around accounts you work on and exchange non-confidential patterns with other operators.
+              </p>
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -666,29 +691,43 @@ function LandingPage() {
               <Eyebrow>Intelligence</Eyebrow>
               <h2 className="text-3xl font-bold text-foreground md:text-[40px]">Signals before surprises.</h2>
               <p className="mt-5 text-[17px] text-muted-foreground">
-                Visioner watches your accounts so you don't have to refresh five tabs. Local Signals come from
-                your CRM data. Cloud Intelligence refreshes news and suggests next actions.
+                Visioner starts with local signals from your own account data: stale contacts, missing stakeholders,
+                quiet projects, renewal windows, and incomplete account plans. Advanced intelligence workflows for
+                news, contact research, and enrichment will roll out gradually as paid cloud features.
               </p>
               <ul className="mt-6 space-y-4 text-[15px]">
                 {[
-                  ["Local Signals", "Generated from your CRM data — gaps, stale contacts, silent projects."],
-                  ["Cloud Intelligence", "News and account changes, summarized with recommended next actions."],
-                  ["Inspire Me", "Contact discovery and outreach drafts tuned to each account."],
-                  ["Contact Enrichment", "Enrichment with user approval — you review before it lands in your CRM."],
-                  ["Visioner Credits", "One shared unit for cloud actions like enrichment, discovery, and Inspire Me."],
-                ].map(([t, d]) => (
+                  { t: "Local Signals", d: "Generated from your own workspace data: relationship gaps, stale contacts, missing project roles, and overdue follow-ups.", status: "Available now", tone: "good" },
+                  { t: "BCC Capture", d: "Paid cloud capture routes outbound email into the right account and contact when you BCC Visioner.", status: "Basic beta", tone: "warn" },
+                  { t: "Inspire Me", d: "Turn account prompts into suggested actions, outreach angles, and draft messages.", status: "Coming soon", tone: "muted" },
+                  { t: "Contact Intelligence", d: "Research missing stakeholders with user approval before anything is added to your workspace.", status: "Coming soon", tone: "muted" },
+                ].map(({ t, d, status, tone }) => (
                   <li key={t} className="flex gap-3">
                     <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[color:var(--insight)]/15">
                       <Sparkles className="h-3 w-3 text-[color:var(--insight)]" />
                     </span>
                     <div>
-                      <div className="font-semibold text-foreground">{t}</div>
-                      <div className="text-muted-foreground">{d}</div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="font-semibold text-foreground">{t}</span>
+                        <span
+                          className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${
+                            tone === "good"
+                              ? "bg-[color:var(--success)]/15 text-[color:var(--success)]"
+                              : tone === "warn"
+                              ? "bg-[color:var(--warning)]/15 text-[color:var(--warning)]"
+                              : "bg-muted text-muted-foreground"
+                          }`}
+                        >
+                          {status}
+                        </span>
+                      </div>
+                      <div className="mt-0.5 text-muted-foreground">{d}</div>
                     </div>
                   </li>
                 ))}
               </ul>
             </div>
+
 
             <div className="rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-lift)]">
               <div className="mb-3 flex items-center justify-between">
@@ -776,12 +815,12 @@ function LandingPage() {
               tagline="For serious operators"
               features={[
                 "Everything in Basic",
-                "Higher email archive limits",
-                "Contact Enrichment",
-                "Daily Signals",
+                "Advanced intelligence",
                 "Cloud backup",
                 "Personal BCC alias",
+                "Higher archive limits",
               ]}
+
               cta="Join Pro Waitlist"
               href="https://app.visioner.cc/signup?plan=pro"
             />
@@ -857,7 +896,7 @@ function LandingPage() {
       {/* Footer */}
       <footer className="border-t border-border/60 bg-surface/60">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-muted-foreground md:flex-row">
-          <Logo />
+          <Logo tagline />
           <div className="flex flex-wrap items-center gap-5">
             <a href="#features" className="hover:text-foreground">Features</a>
             <a href="#pricing" className="hover:text-foreground">Pricing</a>
