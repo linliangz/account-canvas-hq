@@ -28,7 +28,7 @@ Current sitemap coverage:
 - `site.webmanifest` for web app identity
 - 14 keyword landing pages
 - Guides hub
-- 4 educational guide pages
+- 5 educational guide pages
 
 ## 3. Request Indexing For Priority URLs
 
@@ -65,6 +65,7 @@ https://www.visioner.cc/guides/account-mapping-guide-for-key-account-managers
 https://www.visioner.cc/guides/what-should-an-account-plan-include
 https://www.visioner.cc/guides/how-to-map-stakeholders-in-a-strategic-account
 https://www.visioner.cc/guides/crm-for-key-account-managers
+https://www.visioner.cc/guides/how-to-choose-key-account-management-software
 ```
 
 ## 4. First Checks After Submission

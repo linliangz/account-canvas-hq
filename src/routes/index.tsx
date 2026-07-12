@@ -89,6 +89,10 @@ const GUIDE_LINKS = [
     label: "What traditional CRM misses",
     href: "/guides/crm-for-key-account-managers",
   },
+  {
+    label: "How to choose KAM software",
+    href: "/guides/how-to-choose-key-account-management-software",
+  },
 ];
 
 /* ---------- Brand mark ---------- */

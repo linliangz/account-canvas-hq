@@ -34,6 +34,7 @@ Use these repeatedly across LinkedIn, founder DMs, demo videos, and directory su
 | Guide | `https://www.visioner.cc/guides/what-should-an-account-plan-include` | Educational checklist content |
 | Guide | `https://www.visioner.cc/guides/how-to-map-stakeholders-in-a-strategic-account` | Stakeholder mapping education |
 | Guide | `https://www.visioner.cc/guides/crm-for-key-account-managers` | Why traditional CRM misses KAM workflow |
+| Buyer guide | `https://www.visioner.cc/guides/how-to-choose-key-account-management-software` | KAM software evaluation, category education, competitive positioning |
 
 ## LinkedIn Post 1: Problem Framing
 
@@ -138,6 +139,29 @@ For Key Account Managers, this matters because large accounts are not won by upd
 Visioner is built around that daily account map.
 
 Guide: https://www.visioner.cc/guides/account-mapping-guide-for-key-account-managers
+
+## LinkedIn Post 6: Choosing KAM Software
+
+When people search for "key account management software," they are often comparing very different categories:
+
+- Enterprise KAM platforms
+- Salesforce-native account planning tools
+- Generic CRMs
+- Project management workspaces
+- Spreadsheets and account plan templates
+- Personal KAM workspaces
+
+The buying question should start with the real user.
+
+If sales leadership is buying, governance and reporting matter.
+
+If the Key Account Manager is buying, the question is simpler:
+
+"Will I actually open this every morning to work my account?"
+
+That is the wedge Visioner is focused on first: an Account Planning CRM for the KAM doing the daily work.
+
+Guide: https://www.visioner.cc/guides/how-to-choose-key-account-management-software
 
 ## Short Demo Video Outline
 

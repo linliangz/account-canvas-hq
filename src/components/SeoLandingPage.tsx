@@ -58,6 +58,10 @@ const relatedPages = [
     href: "/guides/how-to-map-stakeholders-in-a-strategic-account",
   },
   { label: "What traditional CRM misses", href: "/guides/crm-for-key-account-managers" },
+  {
+    label: "How to choose KAM software",
+    href: "/guides/how-to-choose-key-account-management-software",
+  },
 ];
 
 export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {

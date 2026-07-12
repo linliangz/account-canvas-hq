@@ -34,6 +34,13 @@ const guides = [
       "Why KAMs need a daily account planning workspace, not only a pipeline reporting system.",
     keyword: "CRM for KAMs",
   },
+  {
+    title: "How to choose key account management software",
+    href: "/guides/how-to-choose-key-account-management-software",
+    description:
+      "How to compare enterprise KAM platforms, CRM-native account planning, generic CRMs, and daily KAM workspaces.",
+    keyword: "KAM software buyer guide",
+  },
 ];
 
 const keywordPages = [
