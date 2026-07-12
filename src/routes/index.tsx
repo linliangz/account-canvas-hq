@@ -1018,17 +1018,23 @@ function LandingPage() {
 
       {/* Footer */}
       <footer className="border-t border-border/60 bg-surface/60">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-muted-foreground md:flex-row">
-          <Logo tagline />
-          <div className="flex flex-wrap items-center gap-5">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-10 text-sm text-muted-foreground md:grid-cols-[1fr_auto_auto] md:items-start">
+          <div>
+            <Logo tagline />
+            <p className="mt-4 max-w-sm leading-6">
+              Account Planning CRM for Key Account Managers who need a calmer daily workspace.
+            </p>
+          </div>
+          <nav className="grid grid-cols-2 gap-x-10 gap-y-3 md:grid-cols-3" aria-label="Footer">
             <a href="#features" className="hover:text-foreground">Features</a>
             <a href="#pricing" className="hover:text-foreground">Pricing</a>
+            <a href="/guides" className="hover:text-foreground">Guides</a>
             <a href="/about" className="hover:text-foreground">About</a>
+            <a href="/support" className="hover:text-foreground">Support</a>
             <a href="/privacy" className="hover:text-foreground">Privacy</a>
             <a href="/terms" className="hover:text-foreground">Terms</a>
-            <a href="/support" className="hover:text-foreground">Support</a>
-          </div>
-          <div>© {new Date().getFullYear()} Visioner</div>
+          </nav>
+          <div className="md:text-right">© {new Date().getFullYear()} Visioner</div>
         </div>
       </footer>
     </div>
