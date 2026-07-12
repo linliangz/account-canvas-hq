@@ -690,29 +690,43 @@ function LandingPage() {
               <Eyebrow>Intelligence</Eyebrow>
               <h2 className="text-3xl font-bold text-foreground md:text-[40px]">Signals before surprises.</h2>
               <p className="mt-5 text-[17px] text-muted-foreground">
-                Visioner watches your accounts so you don't have to refresh five tabs. Local Signals come from
-                your CRM data. Cloud Intelligence refreshes news and suggests next actions.
+                Visioner starts with local signals from your own account data: stale contacts, missing stakeholders,
+                quiet projects, renewal windows, and incomplete account plans. Advanced intelligence workflows for
+                news, contact research, and enrichment will roll out gradually as paid cloud features.
               </p>
               <ul className="mt-6 space-y-4 text-[15px]">
                 {[
-                  ["Local Signals", "Generated from your CRM data — gaps, stale contacts, silent projects."],
-                  ["Cloud Intelligence", "News and account changes, summarized with recommended next actions."],
-                  ["Inspire Me", "Contact discovery and outreach drafts tuned to each account."],
-                  ["Contact Enrichment", "Enrichment with user approval — you review before it lands in your CRM."],
-                  ["Visioner Credits", "One shared unit for cloud actions like enrichment, discovery, and Inspire Me."],
-                ].map(([t, d]) => (
+                  { t: "Local Signals", d: "Generated from your own workspace data: relationship gaps, stale contacts, missing project roles, and overdue follow-ups.", status: "Available now", tone: "good" },
+                  { t: "BCC Capture", d: "Paid cloud capture routes outbound email into the right account and contact when you BCC Visioner.", status: "Basic beta", tone: "warn" },
+                  { t: "Inspire Me", d: "Turn account prompts into suggested actions, outreach angles, and draft messages.", status: "Coming soon", tone: "muted" },
+                  { t: "Contact Intelligence", d: "Research missing stakeholders with user approval before anything is added to your workspace.", status: "Coming soon", tone: "muted" },
+                ].map(({ t, d, status, tone }) => (
                   <li key={t} className="flex gap-3">
                     <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[color:var(--insight)]/15">
                       <Sparkles className="h-3 w-3 text-[color:var(--insight)]" />
                     </span>
                     <div>
-                      <div className="font-semibold text-foreground">{t}</div>
-                      <div className="text-muted-foreground">{d}</div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="font-semibold text-foreground">{t}</span>
+                        <span
+                          className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${
+                            tone === "good"
+                              ? "bg-[color:var(--success)]/15 text-[color:var(--success)]"
+                              : tone === "warn"
+                              ? "bg-[color:var(--warning)]/15 text-[color:var(--warning)]"
+                              : "bg-muted text-muted-foreground"
+                          }`}
+                        >
+                          {status}
+                        </span>
+                      </div>
+                      <div className="mt-0.5 text-muted-foreground">{d}</div>
                     </div>
                   </li>
                 ))}
               </ul>
             </div>
+
 
             <div className="rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-lift)]">
               <div className="mb-3 flex items-center justify-between">
