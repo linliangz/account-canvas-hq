@@ -889,7 +889,7 @@ function LandingPage() {
               ]}
 
               cta="Join Pro Waitlist"
-              href="https://app.visioner.cc/signup?plan=pro"
+              href="https://app.visioner.cc/signup?plan=pro&poc=byok"
             />
             <PricingCard
               name="Team"
