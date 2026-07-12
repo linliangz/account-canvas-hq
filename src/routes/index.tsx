@@ -814,12 +814,12 @@ function LandingPage() {
               tagline="For serious operators"
               features={[
                 "Everything in Basic",
-                "Higher email archive limits",
-                "Contact Enrichment",
-                "Daily Signals",
+                "Advanced intelligence",
                 "Cloud backup",
                 "Personal BCC alias",
+                "Higher archive limits",
               ]}
+
               cta="Join Pro Waitlist"
               href="https://app.visioner.cc/signup?plan=pro"
             />
