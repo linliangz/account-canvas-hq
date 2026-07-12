@@ -77,15 +77,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Visioner CRM — CRM for Key Account Managers" },
-      { name: "description", content: "Visioner CRM is the account planning canvas for Key Account Managers. Manage strategic accounts, stakeholders, projects, tasks, and signals in one calm workspace." },
-      { name: "keywords", content: "CRM for Key Account Managers, Key Account Management software, Account planning CRM, Strategic account management, Account plan canvas, CRM for KAM" },
-      { property: "og:title", content: "Visioner CRM — CRM for Key Account Managers" },
-      { property: "og:description", content: "The everyday workspace for strategic accounts. Account planning canvas built for KAMs, not just their managers." },
+      { title: "Visioner — Account Planning CRM for Key Account Managers" },
+      { name: "description", content: "Visioner is an account planning CRM that helps Key Account Managers manage relationships, projects, tasks, and account signals without turning their day into CRM data entry." },
+      { name: "keywords", content: "Account Planning CRM, CRM for Key Account Managers, Key Account Management software, Strategic account management, Account plan canvas, KAM software" },
+      { property: "og:title", content: "Visioner — Account Planning CRM for Key Account Managers" },
+      { property: "og:description", content: "The daily workspace for Key Account Managers. Manage relationships, projects, tasks, and account signals in one calm workspace." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Visioner CRM — CRM for Key Account Managers" },
-      { name: "twitter:description", content: "The everyday workspace for strategic accounts." },
+      { name: "twitter:title", content: "Visioner — Account Planning CRM for Key Account Managers" },
+      { name: "twitter:description", content: "The daily workspace for Key Account Managers." },
     ],
     links: [
       {
