@@ -573,6 +573,7 @@ function LandingPage() {
             <a href="#product" className="hover:text-foreground">Product</a>
             <a href="#features" className="hover:text-foreground">Features</a>
             <a href="/guides" className="hover:text-foreground">Guides</a>
+            <a href="/about" className="hover:text-foreground">About</a>
             <a href="#intelligence" className="hover:text-foreground">Intelligence</a>
             <a href="#pricing" className="hover:text-foreground">Pricing</a>
             <a href={SIGNUP_URL} className="hover:text-foreground">Start</a>
@@ -1010,6 +1011,7 @@ function LandingPage() {
           <div className="flex flex-wrap items-center gap-5">
             <a href="#features" className="hover:text-foreground">Features</a>
             <a href="#pricing" className="hover:text-foreground">Pricing</a>
+            <a href="/about" className="hover:text-foreground">About</a>
             <a href="/privacy" className="hover:text-foreground">Privacy</a>
             <a href="/terms" className="hover:text-foreground">Terms</a>
             <a href="/support" className="hover:text-foreground">Support</a>

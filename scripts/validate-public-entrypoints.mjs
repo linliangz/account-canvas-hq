@@ -55,6 +55,13 @@ assert(appHome.includes("Visioner CRM"), "Web app root must render Visioner CRM 
 await checkPage("/privacy", "Privacy Policy");
 await checkPage("/terms", "Terms of Service");
 await checkPage("/support", "support@visioner.cc");
+const aboutPage = await checkPage("/about", "Visioner is an Account Planning CRM for Key Account Managers");
+assert(home.includes("/about"), "Landing page must internally link to /about.");
+assertCanonical(aboutPage, urlFor(landingUrl, "/about"), "/about");
+assert(
+  aboutPage.includes('"@type":"AboutPage"') && aboutPage.includes('"@type":"BreadcrumbList"'),
+  "/about must include AboutPage and BreadcrumbList JSON-LD.",
+);
 await checkPage("/robots.txt", "Sitemap: https://www.visioner.cc/sitemap.xml");
 await checkPage("/sitemap.xml", "https://www.visioner.cc/");
 const llmsText = await checkPage("/llms.txt", "Account Planning CRM for Key Account Managers");
@@ -79,6 +86,10 @@ assert(
 assert(
   sitemap.includes(urlFor(landingUrl, "/guides")),
   "Sitemap must include /guides.",
+);
+assert(
+  sitemap.includes(urlFor(landingUrl, "/about")),
+  "Sitemap must include /about.",
 );
 assertCanonical(guidesIndex, urlFor(landingUrl, "/guides"), "/guides");
 assert(

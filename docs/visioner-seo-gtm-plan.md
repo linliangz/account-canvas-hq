@@ -18,6 +18,7 @@ Supporting message:
 
 | Intent | Target page | Primary keyword | Searcher mindset |
 | --- | --- | --- | --- |
+| Brand entity | `/about` | About Visioner | Needs a stable explanation of what Visioner is and who it serves |
 | Category | `/account-planning-crm` | Account Planning CRM | Looking for a CRM category that is more account-plan oriented |
 | Persona | `/crm-for-key-account-managers` | CRM for Key Account Managers | KAM wants a tool built for their daily work |
 | Persona | `/key-account-management-crm` | Key Account Management CRM | Looking for a CRM specifically for key account workflows |
@@ -44,7 +45,8 @@ Supporting message:
 - `sitemap.xml` is live at `https://www.visioner.cc/sitemap.xml`.
 - `llms.txt` is live at `https://www.visioner.cc/llms.txt` for AI crawler and summary context.
 - `site.webmanifest` is live at `https://www.visioner.cc/site.webmanifest` for product identity.
-- Sitemap includes the homepage, legal pages, 14 keyword landing pages, and 4 educational guide pages.
+- `/about` is live as the product and brand entity page.
+- Sitemap includes the homepage, About page, legal pages, 14 keyword landing pages, and 4 educational guide pages.
 - Homepage includes internal links to each keyword page and guide page.
 - Each keyword page has a unique title and meta description.
 - Each guide page has a unique title, meta description, internal links, and a signup CTA.
@@ -63,6 +65,7 @@ Detailed submission workflow: `docs/google-search-console-submission-checklist.m
 3. Submit sitemap: `https://www.visioner.cc/sitemap.xml`.
 4. Use URL Inspection and request indexing for:
    - `https://www.visioner.cc/`
+   - `https://www.visioner.cc/about`
    - `https://www.visioner.cc/account-planning-crm`
    - `https://www.visioner.cc/crm-for-key-account-managers`
    - `https://www.visioner.cc/key-account-management-crm`
@@ -87,6 +90,7 @@ Detailed submission workflow: `docs/google-search-console-submission-checklist.m
 ## Content Roadmap
 
 Founder-led content drafts are maintained in `docs/visioner-founder-launch-content.md`.
+Directory and listing copy is maintained in `docs/visioner-directory-submission-kit.md`.
 
 ### Week 1: Founder-led launch content
 
@@ -114,6 +118,7 @@ Founder-led content drafts are maintained in `docs/visioner-founder-launch-conte
 - Submit to startup directories and SaaS directories.
 - Add GitHub repo About links to `https://www.visioner.cc`.
 - Create LinkedIn company page and link back to the homepage.
+- Use `docs/visioner-directory-submission-kit.md` for all directory descriptions and public profile copy.
 - Ask beta users or advisors to mention Visioner in posts or newsletters.
 
 ## Messaging Tests

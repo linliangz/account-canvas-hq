@@ -22,6 +22,7 @@ https://www.visioner.cc/sitemap.xml
 Current sitemap coverage:
 
 - Homepage
+- About / brand entity page
 - Privacy, Terms, Support
 - `llms.txt` for AI crawler context
 - `site.webmanifest` for web app identity
@@ -37,6 +38,7 @@ Use URL Inspection and request indexing in this order.
 
 ```text
 https://www.visioner.cc/
+https://www.visioner.cc/about
 https://www.visioner.cc/account-planning-crm
 https://www.visioner.cc/crm-for-key-account-managers
 https://www.visioner.cc/key-account-management-crm
@@ -99,6 +101,7 @@ Google will not trust a brand only because the site exists. Create early externa
 - Create a LinkedIn company page and link back to the homepage.
 - Publish founder LinkedIn posts using the drafts in `docs/visioner-founder-launch-content.md`.
 - Submit to startup directories and SaaS directories.
+- Use `docs/visioner-directory-submission-kit.md` to keep public descriptions, categories, tags, and backlinks consistent.
 - Ask beta users, advisors, or founder friends to mention Visioner in posts or newsletters.
 - When submitting to directories, use the exact phrase "Account Planning CRM for Key Account Managers" in the product description.
 

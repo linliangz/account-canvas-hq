@@ -26,6 +26,7 @@ import { Route as AccountPlanningSoftwareRouteImport } from './routes/account-pl
 import { Route as AccountPlanningCrmRouteImport } from './routes/account-planning-crm'
 import { Route as AccountPlanTemplateRouteImport } from './routes/account-plan-template'
 import { Route as AccountMappingSoftwareRouteImport } from './routes/account-mapping-software'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GuidesIndexRouteImport } from './routes/guides/index'
 import { Route as GuidesWhatShouldAnAccountPlanIncludeRouteImport } from './routes/guides/what-should-an-account-plan-include'
@@ -125,6 +126,11 @@ const AccountMappingSoftwareRoute = AccountMappingSoftwareRouteImport.update({
   path: '/account-mapping-software',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -162,6 +168,7 @@ const GuidesAccountMappingGuideForKeyAccountManagersRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/account-mapping-software': typeof AccountMappingSoftwareRoute
   '/account-plan-template': typeof AccountPlanTemplateRoute
   '/account-planning-crm': typeof AccountPlanningCrmRoute
@@ -187,6 +194,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/account-mapping-software': typeof AccountMappingSoftwareRoute
   '/account-plan-template': typeof AccountPlanTemplateRoute
   '/account-planning-crm': typeof AccountPlanningCrmRoute
@@ -213,6 +221,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/account-mapping-software': typeof AccountMappingSoftwareRoute
   '/account-plan-template': typeof AccountPlanTemplateRoute
   '/account-planning-crm': typeof AccountPlanningCrmRoute
@@ -240,6 +249,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/account-mapping-software'
     | '/account-plan-template'
     | '/account-planning-crm'
@@ -265,6 +275,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/account-mapping-software'
     | '/account-plan-template'
     | '/account-planning-crm'
@@ -290,6 +301,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/account-mapping-software'
     | '/account-plan-template'
     | '/account-planning-crm'
@@ -316,6 +328,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AccountMappingSoftwareRoute: typeof AccountMappingSoftwareRoute
   AccountPlanTemplateRoute: typeof AccountPlanTemplateRoute
   AccountPlanningCrmRoute: typeof AccountPlanningCrmRoute
@@ -461,6 +474,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountMappingSoftwareRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -508,6 +528,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AccountMappingSoftwareRoute: AccountMappingSoftwareRoute,
   AccountPlanTemplateRoute: AccountPlanTemplateRoute,
   AccountPlanningCrmRoute: AccountPlanningCrmRoute,

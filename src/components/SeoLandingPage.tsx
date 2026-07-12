@@ -26,6 +26,7 @@ export type SeoLandingPageConfig = {
 };
 
 const relatedPages = [
+  { label: "About Visioner", href: "/about" },
   { label: "All KAM guides", href: "/guides" },
   { label: "CRM for Key Account Managers", href: "/crm-for-key-account-managers" },
   { label: "Key Account Management CRM", href: "/key-account-management-crm" },
