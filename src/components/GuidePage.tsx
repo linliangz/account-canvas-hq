@@ -1,0 +1,212 @@
+import { ArrowRight, Check, ChevronRight, FileText, Globe } from "lucide-react";
+
+import { articleJsonLd, breadcrumbJsonLd } from "../lib/seo";
+
+const SIGNUP_URL = "https://app.visioner.cc/signup";
+const APP_URL = "https://app.visioner.cc/";
+
+export type GuidePageConfig = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  path: string;
+  dateModified: string;
+  updatedAt: string;
+  readingTime: string;
+  summary: string[];
+  sections: Array<{
+    title: string;
+    body: string[];
+    checklist?: string[];
+  }>;
+  related: Array<{
+    label: string;
+    href: string;
+  }>;
+};
+
+export function GuidePage({ config }: { config: GuidePageConfig }) {
+  const structuredData = [
+    articleJsonLd({
+      title: config.title,
+      description: config.description,
+      path: config.path,
+      dateModified: config.dateModified,
+    }),
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Guides", path: "/guides" },
+      { name: config.title, path: config.path },
+    ]),
+  ];
+
+  return (
+    <main className="min-h-screen bg-background text-foreground">
+      <header className="border-b border-border/60 bg-background/90">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <a href="/" className="inline-flex items-center gap-2.5">
+            <img src="/visioner-mark.svg" alt="" className="h-9 w-9" />
+            <div className="leading-none">
+              <div className="font-bold tracking-tight">Visioner</div>
+              <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                Account Planning CRM
+              </div>
+            </div>
+          </a>
+          <div className="flex items-center gap-2">
+            <a
+              href={APP_URL}
+              className="hidden h-10 items-center justify-center rounded-lg border border-border bg-card px-4 text-sm font-semibold text-foreground transition hover:bg-surface-muted sm:inline-flex"
+            >
+              Open Web App
+            </a>
+            <a
+              href={SIGNUP_URL}
+              className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg bg-accent px-4 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] transition hover:brightness-105"
+            >
+              Start Free <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <article>
+        {structuredData.map((schema, index) => (
+          <script
+            key={index}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+        <section className="border-b border-border/60">
+          <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <FileText className="h-3.5 w-3.5" />
+              {config.eyebrow}
+            </div>
+            <h1 className="max-w-4xl text-[40px] font-bold leading-[1.05] tracking-tight text-foreground md:text-[58px]">
+              {config.title}
+            </h1>
+            <p className="mt-6 max-w-3xl text-[18px] leading-8 text-muted-foreground">
+              {config.description}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3 text-sm text-muted-foreground">
+              <span>{config.updatedAt}</span>
+              <span aria-hidden>•</span>
+              <span>{config.readingTime}</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-border/60 bg-surface/40">
+          <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-[0.75fr_1.25fr]">
+            <div>
+              <div className="text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                Quick answer
+              </div>
+              <h2 className="mt-3 text-2xl font-bold text-foreground">What to remember</h2>
+            </div>
+            <div className="grid gap-3">
+              {config.summary.map((item) => (
+                <div key={item} className="flex gap-3 rounded-xl border border-border bg-card p-4">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                  <p className="text-[15px] leading-7 text-foreground">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="mx-auto grid max-w-5xl gap-8 px-6 py-16 md:grid-cols-[minmax(0,1fr)_260px] md:py-24">
+            <div className="space-y-12">
+              {config.sections.map((section) => (
+                <section key={section.title}>
+                  <h2 className="text-3xl font-bold tracking-tight text-foreground">{section.title}</h2>
+                  <div className="mt-4 space-y-4">
+                    {section.body.map((paragraph) => (
+                      <p key={paragraph} className="text-[17px] leading-8 text-muted-foreground">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                  {section.checklist && (
+                    <div className="mt-6 rounded-2xl border border-border bg-card p-5">
+                      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                        Practical checklist
+                      </div>
+                      <ul className="mt-4 space-y-3">
+                        {section.checklist.map((item) => (
+                          <li key={item} className="flex gap-3 text-[15px] leading-7 text-foreground">
+                            <Check className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </section>
+              ))}
+            </div>
+
+            <aside className="h-fit rounded-2xl border border-border bg-card p-5 md:sticky md:top-24">
+              <div className="text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                Continue reading
+              </div>
+              <div className="mt-4 space-y-2">
+                {config.related.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="flex items-center justify-between gap-3 rounded-lg border border-border bg-surface px-3 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent/50 hover:bg-secondary/50"
+                  >
+                    <span>{link.label}</span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+                  </a>
+                ))}
+              </div>
+              <div className="mt-6 rounded-xl bg-secondary/50 p-4">
+                <div className="text-sm font-bold text-foreground">Try Visioner with 3 accounts</div>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  Build an account plan, map stakeholders, and manage KAM tasks without a heavy CRM setup.
+                </p>
+                <a
+                  href={SIGNUP_URL}
+                  className="mt-4 inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-lg bg-accent px-4 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] transition hover:brightness-105"
+                >
+                  Start Free <ArrowRight className="h-4 w-4" />
+                </a>
+                <a
+                  href={APP_URL}
+                  className="mt-2 inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-lg border border-border bg-card px-4 text-sm font-semibold text-foreground transition hover:bg-surface-muted"
+                >
+                  <Globe className="h-4 w-4" /> Open Web App
+                </a>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </article>
+
+      <footer className="border-t border-border/60 bg-surface/60">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-muted-foreground md:flex-row">
+          <a href="/" className="font-bold text-foreground">Visioner</a>
+          <div className="flex flex-wrap items-center justify-center gap-5">
+            <a href="/crm-for-key-account-managers" className="hover:text-foreground">
+              CRM for KAMs
+            </a>
+            <a href="/account-planning-crm" className="hover:text-foreground">
+              Account Planning CRM
+            </a>
+            <a href="/account-plan-template" className="hover:text-foreground">
+              Account Plan Template
+            </a>
+            <a href="/guides" className="hover:text-foreground">All Guides</a>
+            <a href="/privacy" className="hover:text-foreground">Privacy</a>
+            <a href="/terms" className="hover:text-foreground">Terms</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+  );
+}

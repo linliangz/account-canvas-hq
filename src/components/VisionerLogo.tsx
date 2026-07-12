@@ -20,12 +20,7 @@ type MarkProps = {
   title?: string;
 };
 
-export function VisionerMark({
-  size = 40,
-  className = "",
-  style,
-  title = "Visioner",
-}: MarkProps) {
+export function VisionerMark({ size = 40, className = "", style, title = "Visioner" }: MarkProps) {
   const r = size * 0.22;
   const inner = size * 0.78;
   const off = size * 0.11;
@@ -41,13 +36,7 @@ export function VisionerMark({
       aria-label={title}
     >
       <title>{title}</title>
-      <rect
-        width={size}
-        height={size}
-        rx={r}
-        ry={r}
-        fill="var(--primary)"
-      />
+      <rect width={size} height={size} rx={r} ry={r} fill="var(--primary)" />
       <g transform={`translate(${off} ${off}) scale(${inner / 32})`}>
         {/* Distant vision dot — the target the funnel is chasing */}
         <circle cx="16" cy="7.2" r="1.8" fill="var(--insight)" />
@@ -94,11 +83,7 @@ type LogoProps = {
   className?: string;
 };
 
-export function VisionerLogo({
-  size = 40,
-  tagline = false,
-  className = "",
-}: LogoProps) {
+export function VisionerLogo({ size = 40, tagline = false, className = "" }: LogoProps) {
   return (
     <div className={`inline-flex items-center gap-3 ${className}`}>
       <VisionerMark size={size} />

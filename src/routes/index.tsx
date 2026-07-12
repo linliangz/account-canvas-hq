@@ -26,20 +26,82 @@ import {
   FileText,
 } from "lucide-react";
 
+import {
+  organizationJsonLd,
+  pageHead,
+  softwareApplicationJsonLd,
+  websiteJsonLd,
+} from "../lib/seo";
+
 export const Route = createFileRoute("/")({
+  head: () => pageHead({
+    title: "Visioner — Account Planning CRM for Key Account Managers",
+    description:
+      "Visioner is the account planning CRM for Key Account Managers. Manage relationships, projects, tasks, and account signals in one daily workspace.",
+    path: "/",
+  }),
   component: LandingPage,
 });
 
 const SIGNUP_URL = "https://app.visioner.cc/signup";
 const APP_URL = "https://app.visioner.cc/";
 const LOGIN_URL = "https://app.visioner.cc/login";
+const SEO_LINKS = [
+  { label: "CRM for Key Account Managers", href: "/crm-for-key-account-managers" },
+  { label: "Key Account Management CRM", href: "/key-account-management-crm" },
+  { label: "Key Account Management Software", href: "/key-account-management-software" },
+  { label: "Key Account Manager Tools", href: "/key-account-manager-tools" },
+  { label: "Account Planning CRM", href: "/account-planning-crm" },
+  { label: "Account Planning Software", href: "/account-planning-software" },
+  { label: "Key Account Planning Software", href: "/key-account-planning-software" },
+  {
+    label: "Strategic Account Management Software",
+    href: "/strategic-account-management-software",
+  },
+  { label: "Stakeholder Mapping CRM", href: "/stakeholder-mapping-crm" },
+  { label: "Account Mapping Software", href: "/account-mapping-software" },
+  { label: "Customer Org Chart Software", href: "/customer-org-chart-software" },
+  { label: "Relationship Mapping Software", href: "/relationship-mapping-software" },
+  { label: "Account Plan Template", href: "/account-plan-template" },
+  {
+    label: "Traditional CRM vs Account Planning CRM",
+    href: "/traditional-crm-vs-account-planning-crm",
+  },
+];
+const GUIDE_LINKS = [
+  {
+    label: "All KAM guides",
+    href: "/guides",
+  },
+  {
+    label: "Account mapping guide",
+    href: "/guides/account-mapping-guide-for-key-account-managers",
+  },
+  {
+    label: "What should an account plan include?",
+    href: "/guides/what-should-an-account-plan-include",
+  },
+  {
+    label: "How to map stakeholders",
+    href: "/guides/how-to-map-stakeholders-in-a-strategic-account",
+  },
+  {
+    label: "What traditional CRM misses",
+    href: "/guides/crm-for-key-account-managers",
+  },
+];
 
 /* ---------- Brand mark ---------- */
 
 function Logo({ className = "", size = 32, tagline = false }: { className?: string; size?: number; tagline?: boolean }) {
   return (
-    <div className={`flex items-center gap-2.5 ${className}`}>
-      <VMark size={size} />
+    <a href="/" className={`flex items-center gap-2.5 ${className}`} aria-label="Visioner home">
+      <img
+        src="/visioner-mark.svg"
+        alt=""
+        className="shrink-0 rounded-[9px]"
+        style={{ width: size, height: size }}
+      />
       <div className="flex flex-col leading-none">
         <span className="text-[17px] font-bold tracking-tight text-foreground">Visioner</span>
         {tagline && (
@@ -48,30 +110,7 @@ function Logo({ className = "", size = 32, tagline = false }: { className?: stri
           </span>
         )}
       </div>
-    </div>
-  );
-}
-
-
-function VMark({ size = 32 }: { size?: number }) {
-  return (
-    <div
-      className="relative flex items-center justify-center rounded-[9px] bg-primary overflow-hidden"
-      style={{ width: size, height: size }}
-    >
-      <svg
-        viewBox="0 0 32 32"
-        className="text-primary-foreground"
-        style={{ width: size * 0.78, height: size * 0.78 }}
-        aria-hidden
-      >
-        <circle cx="16" cy="7.2" r="1.8" fill="var(--insight)" />
-        <path d="M4.2 10.5 L14 26.5" fill="none" stroke="currentColor" strokeWidth="3.1" strokeLinecap="round" />
-        <path d="M27.8 10.5 L18 26.5" fill="none" stroke="currentColor" strokeWidth="3.1" strokeLinecap="round" />
-        <path d="M11.2 13.6 L15.4 22" fill="none" stroke="currentColor" strokeOpacity="0.28" strokeWidth="1" strokeLinecap="round" />
-        <path d="M20.8 13.6 L16.6 22" fill="none" stroke="currentColor" strokeOpacity="0.28" strokeWidth="1" strokeLinecap="round" />
-      </svg>
-    </div>
+    </a>
   );
 }
 
@@ -510,8 +549,21 @@ function DayStory() {
 /* ---------- Page ---------- */
 
 function LandingPage() {
+  const structuredData = [
+    organizationJsonLd(),
+    websiteJsonLd(),
+    softwareApplicationJsonLd(),
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {structuredData.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
@@ -520,6 +572,7 @@ function LandingPage() {
           <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
             <a href="#product" className="hover:text-foreground">Product</a>
             <a href="#features" className="hover:text-foreground">Features</a>
+            <a href="/guides" className="hover:text-foreground">Guides</a>
             <a href="#intelligence" className="hover:text-foreground">Intelligence</a>
             <a href="#pricing" className="hover:text-foreground">Pricing</a>
             <a href={SIGNUP_URL} className="hover:text-foreground">Start</a>
@@ -772,7 +825,8 @@ function LandingPage() {
               Pricing that scales with your book.
             </h2>
             <p className="mt-4 text-[17px] text-muted-foreground">
-              Start free with three accounts. Upgrade only when you need cloud features or a team workspace.
+              Start free with three accounts. Upgrade when you need Basic cloud capture; Pro and
+              Team stay waitlist-only until those workflows are ready.
             </p>
           </div>
 
@@ -873,6 +927,62 @@ function LandingPage() {
                 <p className="mt-3 text-[15px] text-muted-foreground">{a}</p>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Search Intent Links */}
+      <section className="border-t border-border/60 bg-surface/40">
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
+            <div className="grid gap-8 md:grid-cols-[0.85fr_1.15fr] md:items-center">
+              <div>
+                <div className="text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  Explore by search intent
+                </div>
+                <h2 className="mt-3 text-3xl font-bold text-foreground">
+                  Different searches. Same KAM workspace.
+                </h2>
+                <p className="mt-3 text-[15px] leading-7 text-muted-foreground">
+                  Buyers describe this problem in different ways. These pages explain how Visioner
+                  fits each common search path.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <div className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    Product keywords
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {SEO_LINKS.map((page) => (
+                      <a
+                        key={page.href}
+                        href={page.href}
+                        className="rounded-full border border-border bg-surface px-3 py-1.5 text-sm font-semibold text-foreground transition hover:border-accent/50 hover:bg-secondary/50"
+                      >
+                        {page.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <div className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    Practical guides
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {GUIDE_LINKS.map((page) => (
+                      <a
+                        key={page.href}
+                        href={page.href}
+                        className="rounded-full border border-border bg-card px-3 py-1.5 text-sm font-semibold text-foreground transition hover:border-accent/50 hover:bg-secondary/50"
+                      >
+                        {page.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

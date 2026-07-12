@@ -9,38 +9,458 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TraditionalCrmVsAccountPlanningCrmRouteImport } from './routes/traditional-crm-vs-account-planning-crm'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as StrategicAccountManagementSoftwareRouteImport } from './routes/strategic-account-management-software'
+import { Route as StakeholderMappingCrmRouteImport } from './routes/stakeholder-mapping-crm'
+import { Route as RelationshipMappingSoftwareRouteImport } from './routes/relationship-mapping-software'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as KeyAccountPlanningSoftwareRouteImport } from './routes/key-account-planning-software'
+import { Route as KeyAccountManagerToolsRouteImport } from './routes/key-account-manager-tools'
+import { Route as KeyAccountManagementSoftwareRouteImport } from './routes/key-account-management-software'
+import { Route as KeyAccountManagementCrmRouteImport } from './routes/key-account-management-crm'
+import { Route as CustomerOrgChartSoftwareRouteImport } from './routes/customer-org-chart-software'
+import { Route as CrmForKeyAccountManagersRouteImport } from './routes/crm-for-key-account-managers'
+import { Route as AccountPlanningSoftwareRouteImport } from './routes/account-planning-software'
+import { Route as AccountPlanningCrmRouteImport } from './routes/account-planning-crm'
+import { Route as AccountPlanTemplateRouteImport } from './routes/account-plan-template'
+import { Route as AccountMappingSoftwareRouteImport } from './routes/account-mapping-software'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GuidesIndexRouteImport } from './routes/guides/index'
+import { Route as GuidesWhatShouldAnAccountPlanIncludeRouteImport } from './routes/guides/what-should-an-account-plan-include'
+import { Route as GuidesHowToMapStakeholdersInAStrategicAccountRouteImport } from './routes/guides/how-to-map-stakeholders-in-a-strategic-account'
+import { Route as GuidesCrmForKeyAccountManagersRouteImport } from './routes/guides/crm-for-key-account-managers'
+import { Route as GuidesAccountMappingGuideForKeyAccountManagersRouteImport } from './routes/guides/account-mapping-guide-for-key-account-managers'
 
+const TraditionalCrmVsAccountPlanningCrmRoute =
+  TraditionalCrmVsAccountPlanningCrmRouteImport.update({
+    id: '/traditional-crm-vs-account-planning-crm',
+    path: '/traditional-crm-vs-account-planning-crm',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StrategicAccountManagementSoftwareRoute =
+  StrategicAccountManagementSoftwareRouteImport.update({
+    id: '/strategic-account-management-software',
+    path: '/strategic-account-management-software',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const StakeholderMappingCrmRoute = StakeholderMappingCrmRouteImport.update({
+  id: '/stakeholder-mapping-crm',
+  path: '/stakeholder-mapping-crm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RelationshipMappingSoftwareRoute =
+  RelationshipMappingSoftwareRouteImport.update({
+    id: '/relationship-mapping-software',
+    path: '/relationship-mapping-software',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KeyAccountPlanningSoftwareRoute =
+  KeyAccountPlanningSoftwareRouteImport.update({
+    id: '/key-account-planning-software',
+    path: '/key-account-planning-software',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const KeyAccountManagerToolsRoute = KeyAccountManagerToolsRouteImport.update({
+  id: '/key-account-manager-tools',
+  path: '/key-account-manager-tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KeyAccountManagementSoftwareRoute =
+  KeyAccountManagementSoftwareRouteImport.update({
+    id: '/key-account-management-software',
+    path: '/key-account-management-software',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const KeyAccountManagementCrmRoute = KeyAccountManagementCrmRouteImport.update({
+  id: '/key-account-management-crm',
+  path: '/key-account-management-crm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomerOrgChartSoftwareRoute =
+  CustomerOrgChartSoftwareRouteImport.update({
+    id: '/customer-org-chart-software',
+    path: '/customer-org-chart-software',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CrmForKeyAccountManagersRoute =
+  CrmForKeyAccountManagersRouteImport.update({
+    id: '/crm-for-key-account-managers',
+    path: '/crm-for-key-account-managers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AccountPlanningSoftwareRoute = AccountPlanningSoftwareRouteImport.update({
+  id: '/account-planning-software',
+  path: '/account-planning-software',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountPlanningCrmRoute = AccountPlanningCrmRouteImport.update({
+  id: '/account-planning-crm',
+  path: '/account-planning-crm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountPlanTemplateRoute = AccountPlanTemplateRouteImport.update({
+  id: '/account-plan-template',
+  path: '/account-plan-template',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountMappingSoftwareRoute = AccountMappingSoftwareRouteImport.update({
+  id: '/account-mapping-software',
+  path: '/account-mapping-software',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuidesIndexRoute = GuidesIndexRouteImport.update({
+  id: '/guides/',
+  path: '/guides/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesWhatShouldAnAccountPlanIncludeRoute =
+  GuidesWhatShouldAnAccountPlanIncludeRouteImport.update({
+    id: '/guides/what-should-an-account-plan-include',
+    path: '/guides/what-should-an-account-plan-include',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesHowToMapStakeholdersInAStrategicAccountRoute =
+  GuidesHowToMapStakeholdersInAStrategicAccountRouteImport.update({
+    id: '/guides/how-to-map-stakeholders-in-a-strategic-account',
+    path: '/guides/how-to-map-stakeholders-in-a-strategic-account',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesCrmForKeyAccountManagersRoute =
+  GuidesCrmForKeyAccountManagersRouteImport.update({
+    id: '/guides/crm-for-key-account-managers',
+    path: '/guides/crm-for-key-account-managers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesAccountMappingGuideForKeyAccountManagersRoute =
+  GuidesAccountMappingGuideForKeyAccountManagersRouteImport.update({
+    id: '/guides/account-mapping-guide-for-key-account-managers',
+    path: '/guides/account-mapping-guide-for-key-account-managers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account-mapping-software': typeof AccountMappingSoftwareRoute
+  '/account-plan-template': typeof AccountPlanTemplateRoute
+  '/account-planning-crm': typeof AccountPlanningCrmRoute
+  '/account-planning-software': typeof AccountPlanningSoftwareRoute
+  '/crm-for-key-account-managers': typeof CrmForKeyAccountManagersRoute
+  '/customer-org-chart-software': typeof CustomerOrgChartSoftwareRoute
+  '/key-account-management-crm': typeof KeyAccountManagementCrmRoute
+  '/key-account-management-software': typeof KeyAccountManagementSoftwareRoute
+  '/key-account-manager-tools': typeof KeyAccountManagerToolsRoute
+  '/key-account-planning-software': typeof KeyAccountPlanningSoftwareRoute
+  '/privacy': typeof PrivacyRoute
+  '/relationship-mapping-software': typeof RelationshipMappingSoftwareRoute
+  '/stakeholder-mapping-crm': typeof StakeholderMappingCrmRoute
+  '/strategic-account-management-software': typeof StrategicAccountManagementSoftwareRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/traditional-crm-vs-account-planning-crm': typeof TraditionalCrmVsAccountPlanningCrmRoute
+  '/guides/account-mapping-guide-for-key-account-managers': typeof GuidesAccountMappingGuideForKeyAccountManagersRoute
+  '/guides/crm-for-key-account-managers': typeof GuidesCrmForKeyAccountManagersRoute
+  '/guides/how-to-map-stakeholders-in-a-strategic-account': typeof GuidesHowToMapStakeholdersInAStrategicAccountRoute
+  '/guides/what-should-an-account-plan-include': typeof GuidesWhatShouldAnAccountPlanIncludeRoute
+  '/guides/': typeof GuidesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account-mapping-software': typeof AccountMappingSoftwareRoute
+  '/account-plan-template': typeof AccountPlanTemplateRoute
+  '/account-planning-crm': typeof AccountPlanningCrmRoute
+  '/account-planning-software': typeof AccountPlanningSoftwareRoute
+  '/crm-for-key-account-managers': typeof CrmForKeyAccountManagersRoute
+  '/customer-org-chart-software': typeof CustomerOrgChartSoftwareRoute
+  '/key-account-management-crm': typeof KeyAccountManagementCrmRoute
+  '/key-account-management-software': typeof KeyAccountManagementSoftwareRoute
+  '/key-account-manager-tools': typeof KeyAccountManagerToolsRoute
+  '/key-account-planning-software': typeof KeyAccountPlanningSoftwareRoute
+  '/privacy': typeof PrivacyRoute
+  '/relationship-mapping-software': typeof RelationshipMappingSoftwareRoute
+  '/stakeholder-mapping-crm': typeof StakeholderMappingCrmRoute
+  '/strategic-account-management-software': typeof StrategicAccountManagementSoftwareRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/traditional-crm-vs-account-planning-crm': typeof TraditionalCrmVsAccountPlanningCrmRoute
+  '/guides/account-mapping-guide-for-key-account-managers': typeof GuidesAccountMappingGuideForKeyAccountManagersRoute
+  '/guides/crm-for-key-account-managers': typeof GuidesCrmForKeyAccountManagersRoute
+  '/guides/how-to-map-stakeholders-in-a-strategic-account': typeof GuidesHowToMapStakeholdersInAStrategicAccountRoute
+  '/guides/what-should-an-account-plan-include': typeof GuidesWhatShouldAnAccountPlanIncludeRoute
+  '/guides': typeof GuidesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account-mapping-software': typeof AccountMappingSoftwareRoute
+  '/account-plan-template': typeof AccountPlanTemplateRoute
+  '/account-planning-crm': typeof AccountPlanningCrmRoute
+  '/account-planning-software': typeof AccountPlanningSoftwareRoute
+  '/crm-for-key-account-managers': typeof CrmForKeyAccountManagersRoute
+  '/customer-org-chart-software': typeof CustomerOrgChartSoftwareRoute
+  '/key-account-management-crm': typeof KeyAccountManagementCrmRoute
+  '/key-account-management-software': typeof KeyAccountManagementSoftwareRoute
+  '/key-account-manager-tools': typeof KeyAccountManagerToolsRoute
+  '/key-account-planning-software': typeof KeyAccountPlanningSoftwareRoute
+  '/privacy': typeof PrivacyRoute
+  '/relationship-mapping-software': typeof RelationshipMappingSoftwareRoute
+  '/stakeholder-mapping-crm': typeof StakeholderMappingCrmRoute
+  '/strategic-account-management-software': typeof StrategicAccountManagementSoftwareRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/traditional-crm-vs-account-planning-crm': typeof TraditionalCrmVsAccountPlanningCrmRoute
+  '/guides/account-mapping-guide-for-key-account-managers': typeof GuidesAccountMappingGuideForKeyAccountManagersRoute
+  '/guides/crm-for-key-account-managers': typeof GuidesCrmForKeyAccountManagersRoute
+  '/guides/how-to-map-stakeholders-in-a-strategic-account': typeof GuidesHowToMapStakeholdersInAStrategicAccountRoute
+  '/guides/what-should-an-account-plan-include': typeof GuidesWhatShouldAnAccountPlanIncludeRoute
+  '/guides/': typeof GuidesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/account-mapping-software'
+    | '/account-plan-template'
+    | '/account-planning-crm'
+    | '/account-planning-software'
+    | '/crm-for-key-account-managers'
+    | '/customer-org-chart-software'
+    | '/key-account-management-crm'
+    | '/key-account-management-software'
+    | '/key-account-manager-tools'
+    | '/key-account-planning-software'
+    | '/privacy'
+    | '/relationship-mapping-software'
+    | '/stakeholder-mapping-crm'
+    | '/strategic-account-management-software'
+    | '/support'
+    | '/terms'
+    | '/traditional-crm-vs-account-planning-crm'
+    | '/guides/account-mapping-guide-for-key-account-managers'
+    | '/guides/crm-for-key-account-managers'
+    | '/guides/how-to-map-stakeholders-in-a-strategic-account'
+    | '/guides/what-should-an-account-plan-include'
+    | '/guides/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/account-mapping-software'
+    | '/account-plan-template'
+    | '/account-planning-crm'
+    | '/account-planning-software'
+    | '/crm-for-key-account-managers'
+    | '/customer-org-chart-software'
+    | '/key-account-management-crm'
+    | '/key-account-management-software'
+    | '/key-account-manager-tools'
+    | '/key-account-planning-software'
+    | '/privacy'
+    | '/relationship-mapping-software'
+    | '/stakeholder-mapping-crm'
+    | '/strategic-account-management-software'
+    | '/support'
+    | '/terms'
+    | '/traditional-crm-vs-account-planning-crm'
+    | '/guides/account-mapping-guide-for-key-account-managers'
+    | '/guides/crm-for-key-account-managers'
+    | '/guides/how-to-map-stakeholders-in-a-strategic-account'
+    | '/guides/what-should-an-account-plan-include'
+    | '/guides'
+  id:
+    | '__root__'
+    | '/'
+    | '/account-mapping-software'
+    | '/account-plan-template'
+    | '/account-planning-crm'
+    | '/account-planning-software'
+    | '/crm-for-key-account-managers'
+    | '/customer-org-chart-software'
+    | '/key-account-management-crm'
+    | '/key-account-management-software'
+    | '/key-account-manager-tools'
+    | '/key-account-planning-software'
+    | '/privacy'
+    | '/relationship-mapping-software'
+    | '/stakeholder-mapping-crm'
+    | '/strategic-account-management-software'
+    | '/support'
+    | '/terms'
+    | '/traditional-crm-vs-account-planning-crm'
+    | '/guides/account-mapping-guide-for-key-account-managers'
+    | '/guides/crm-for-key-account-managers'
+    | '/guides/how-to-map-stakeholders-in-a-strategic-account'
+    | '/guides/what-should-an-account-plan-include'
+    | '/guides/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountMappingSoftwareRoute: typeof AccountMappingSoftwareRoute
+  AccountPlanTemplateRoute: typeof AccountPlanTemplateRoute
+  AccountPlanningCrmRoute: typeof AccountPlanningCrmRoute
+  AccountPlanningSoftwareRoute: typeof AccountPlanningSoftwareRoute
+  CrmForKeyAccountManagersRoute: typeof CrmForKeyAccountManagersRoute
+  CustomerOrgChartSoftwareRoute: typeof CustomerOrgChartSoftwareRoute
+  KeyAccountManagementCrmRoute: typeof KeyAccountManagementCrmRoute
+  KeyAccountManagementSoftwareRoute: typeof KeyAccountManagementSoftwareRoute
+  KeyAccountManagerToolsRoute: typeof KeyAccountManagerToolsRoute
+  KeyAccountPlanningSoftwareRoute: typeof KeyAccountPlanningSoftwareRoute
+  PrivacyRoute: typeof PrivacyRoute
+  RelationshipMappingSoftwareRoute: typeof RelationshipMappingSoftwareRoute
+  StakeholderMappingCrmRoute: typeof StakeholderMappingCrmRoute
+  StrategicAccountManagementSoftwareRoute: typeof StrategicAccountManagementSoftwareRoute
+  SupportRoute: typeof SupportRoute
+  TermsRoute: typeof TermsRoute
+  TraditionalCrmVsAccountPlanningCrmRoute: typeof TraditionalCrmVsAccountPlanningCrmRoute
+  GuidesAccountMappingGuideForKeyAccountManagersRoute: typeof GuidesAccountMappingGuideForKeyAccountManagersRoute
+  GuidesCrmForKeyAccountManagersRoute: typeof GuidesCrmForKeyAccountManagersRoute
+  GuidesHowToMapStakeholdersInAStrategicAccountRoute: typeof GuidesHowToMapStakeholdersInAStrategicAccountRoute
+  GuidesWhatShouldAnAccountPlanIncludeRoute: typeof GuidesWhatShouldAnAccountPlanIncludeRoute
+  GuidesIndexRoute: typeof GuidesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/traditional-crm-vs-account-planning-crm': {
+      id: '/traditional-crm-vs-account-planning-crm'
+      path: '/traditional-crm-vs-account-planning-crm'
+      fullPath: '/traditional-crm-vs-account-planning-crm'
+      preLoaderRoute: typeof TraditionalCrmVsAccountPlanningCrmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/strategic-account-management-software': {
+      id: '/strategic-account-management-software'
+      path: '/strategic-account-management-software'
+      fullPath: '/strategic-account-management-software'
+      preLoaderRoute: typeof StrategicAccountManagementSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stakeholder-mapping-crm': {
+      id: '/stakeholder-mapping-crm'
+      path: '/stakeholder-mapping-crm'
+      fullPath: '/stakeholder-mapping-crm'
+      preLoaderRoute: typeof StakeholderMappingCrmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/relationship-mapping-software': {
+      id: '/relationship-mapping-software'
+      path: '/relationship-mapping-software'
+      fullPath: '/relationship-mapping-software'
+      preLoaderRoute: typeof RelationshipMappingSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/key-account-planning-software': {
+      id: '/key-account-planning-software'
+      path: '/key-account-planning-software'
+      fullPath: '/key-account-planning-software'
+      preLoaderRoute: typeof KeyAccountPlanningSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/key-account-manager-tools': {
+      id: '/key-account-manager-tools'
+      path: '/key-account-manager-tools'
+      fullPath: '/key-account-manager-tools'
+      preLoaderRoute: typeof KeyAccountManagerToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/key-account-management-software': {
+      id: '/key-account-management-software'
+      path: '/key-account-management-software'
+      fullPath: '/key-account-management-software'
+      preLoaderRoute: typeof KeyAccountManagementSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/key-account-management-crm': {
+      id: '/key-account-management-crm'
+      path: '/key-account-management-crm'
+      fullPath: '/key-account-management-crm'
+      preLoaderRoute: typeof KeyAccountManagementCrmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customer-org-chart-software': {
+      id: '/customer-org-chart-software'
+      path: '/customer-org-chart-software'
+      fullPath: '/customer-org-chart-software'
+      preLoaderRoute: typeof CustomerOrgChartSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crm-for-key-account-managers': {
+      id: '/crm-for-key-account-managers'
+      path: '/crm-for-key-account-managers'
+      fullPath: '/crm-for-key-account-managers'
+      preLoaderRoute: typeof CrmForKeyAccountManagersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account-planning-software': {
+      id: '/account-planning-software'
+      path: '/account-planning-software'
+      fullPath: '/account-planning-software'
+      preLoaderRoute: typeof AccountPlanningSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account-planning-crm': {
+      id: '/account-planning-crm'
+      path: '/account-planning-crm'
+      fullPath: '/account-planning-crm'
+      preLoaderRoute: typeof AccountPlanningCrmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account-plan-template': {
+      id: '/account-plan-template'
+      path: '/account-plan-template'
+      fullPath: '/account-plan-template'
+      preLoaderRoute: typeof AccountPlanTemplateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account-mapping-software': {
+      id: '/account-mapping-software'
+      path: '/account-mapping-software'
+      fullPath: '/account-mapping-software'
+      preLoaderRoute: typeof AccountMappingSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +468,84 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/': {
+      id: '/guides/'
+      path: '/guides'
+      fullPath: '/guides/'
+      preLoaderRoute: typeof GuidesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/what-should-an-account-plan-include': {
+      id: '/guides/what-should-an-account-plan-include'
+      path: '/guides/what-should-an-account-plan-include'
+      fullPath: '/guides/what-should-an-account-plan-include'
+      preLoaderRoute: typeof GuidesWhatShouldAnAccountPlanIncludeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/how-to-map-stakeholders-in-a-strategic-account': {
+      id: '/guides/how-to-map-stakeholders-in-a-strategic-account'
+      path: '/guides/how-to-map-stakeholders-in-a-strategic-account'
+      fullPath: '/guides/how-to-map-stakeholders-in-a-strategic-account'
+      preLoaderRoute: typeof GuidesHowToMapStakeholdersInAStrategicAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/crm-for-key-account-managers': {
+      id: '/guides/crm-for-key-account-managers'
+      path: '/guides/crm-for-key-account-managers'
+      fullPath: '/guides/crm-for-key-account-managers'
+      preLoaderRoute: typeof GuidesCrmForKeyAccountManagersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/account-mapping-guide-for-key-account-managers': {
+      id: '/guides/account-mapping-guide-for-key-account-managers'
+      path: '/guides/account-mapping-guide-for-key-account-managers'
+      fullPath: '/guides/account-mapping-guide-for-key-account-managers'
+      preLoaderRoute: typeof GuidesAccountMappingGuideForKeyAccountManagersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountMappingSoftwareRoute: AccountMappingSoftwareRoute,
+  AccountPlanTemplateRoute: AccountPlanTemplateRoute,
+  AccountPlanningCrmRoute: AccountPlanningCrmRoute,
+  AccountPlanningSoftwareRoute: AccountPlanningSoftwareRoute,
+  CrmForKeyAccountManagersRoute: CrmForKeyAccountManagersRoute,
+  CustomerOrgChartSoftwareRoute: CustomerOrgChartSoftwareRoute,
+  KeyAccountManagementCrmRoute: KeyAccountManagementCrmRoute,
+  KeyAccountManagementSoftwareRoute: KeyAccountManagementSoftwareRoute,
+  KeyAccountManagerToolsRoute: KeyAccountManagerToolsRoute,
+  KeyAccountPlanningSoftwareRoute: KeyAccountPlanningSoftwareRoute,
+  PrivacyRoute: PrivacyRoute,
+  RelationshipMappingSoftwareRoute: RelationshipMappingSoftwareRoute,
+  StakeholderMappingCrmRoute: StakeholderMappingCrmRoute,
+  StrategicAccountManagementSoftwareRoute:
+    StrategicAccountManagementSoftwareRoute,
+  SupportRoute: SupportRoute,
+  TermsRoute: TermsRoute,
+  TraditionalCrmVsAccountPlanningCrmRoute:
+    TraditionalCrmVsAccountPlanningCrmRoute,
+  GuidesAccountMappingGuideForKeyAccountManagersRoute:
+    GuidesAccountMappingGuideForKeyAccountManagersRoute,
+  GuidesCrmForKeyAccountManagersRoute: GuidesCrmForKeyAccountManagersRoute,
+  GuidesHowToMapStakeholdersInAStrategicAccountRoute:
+    GuidesHowToMapStakeholdersInAStrategicAccountRoute,
+  GuidesWhatShouldAnAccountPlanIncludeRoute:
+    GuidesWhatShouldAnAccountPlanIncludeRoute,
+  GuidesIndexRoute: GuidesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -78,24 +78,43 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Visioner — Account Planning CRM for Key Account Managers" },
-      { name: "description", content: "Visioner is an account planning CRM that helps Key Account Managers manage relationships, projects, tasks, and account signals without turning their day into CRM data entry." },
-      { name: "keywords", content: "Account Planning CRM, CRM for Key Account Managers, Key Account Management software, Strategic account management, Account plan canvas, KAM software" },
+      {
+        name: "description",
+        content:
+          "Visioner is the account planning CRM for Key Account Managers. Manage relationships, projects, tasks, and account signals in one daily workspace.",
+      },
+      {
+        name: "keywords",
+        content:
+          "CRM for Key Account Managers, Key Account Management software, Account planning CRM, Strategic account management, Account plan canvas, CRM for KAM",
+      },
       { property: "og:title", content: "Visioner — Account Planning CRM for Key Account Managers" },
-      { property: "og:description", content: "The daily workspace for Key Account Managers. Manage relationships, projects, tasks, and account signals in one calm workspace." },
+      {
+        property: "og:description",
+        content:
+          "The daily workspace for Key Account Managers. Account planning CRM for people who actually work the account.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Visioner" },
+      { property: "og:image", content: "https://www.visioner.cc/visioner-mark.svg" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Visioner — Account Planning CRM for Key Account Managers" },
+      { name: "twitter:title", content: "Visioner — Account Planning CRM for KAMs" },
       { name: "twitter:description", content: "The daily workspace for Key Account Managers." },
+      { name: "twitter:image", content: "https://www.visioner.cc/visioner-mark.svg" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/visioner-mark.svg", type: "image/svg+xml" },
+      { rel: "apple-touch-icon", href: "/visioner-mark.svg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -109,6 +128,52 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "Visioner",
+                url: "https://www.visioner.cc/",
+                logo: "https://www.visioner.cc/visioner-mark.svg",
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  email: "support@visioner.cc",
+                  contactType: "customer support",
+                },
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                name: "Visioner",
+                alternateName: "Visioner CRM",
+                applicationCategory: "BusinessApplication",
+                operatingSystem: "Web",
+                url: "https://www.visioner.cc/",
+                description:
+                  "Account planning CRM for Key Account Managers to manage relationships, projects, tasks, and account signals.",
+                offers: [
+                  {
+                    "@type": "Offer",
+                    name: "Free",
+                    price: "0",
+                    priceCurrency: "USD",
+                    url: "https://app.visioner.cc/signup",
+                  },
+                  {
+                    "@type": "Offer",
+                    name: "Basic",
+                    price: "12",
+                    priceCurrency: "USD",
+                    url: "https://app.visioner.cc/pricing?plan=basic",
+                  },
+                ],
+              },
+            ]),
+          }}
+        />
       </head>
       <body>
         {children}

@@ -7,8 +7,10 @@
     "dev": "vite dev",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "deploy:cloudflare": "npm run build && node scripts/prepare-pages-deploy.mjs && npx wrangler pages deploy dist --project-name visioner-cc && node scripts/prepare-worker-deploy.mjs && npx nitro deploy --prebuilt",
+    "validate:entrypoints": "node scripts/validate-public-entrypoints.mjs",
     "preview": "vite preview",
-    "lint": "eslint .",
+    "lint": "eslint src scripts eslint.config.js vite.config.ts",
     "format": "prettier --write ."
   },
   "dependencies": {
