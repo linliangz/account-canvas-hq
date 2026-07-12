@@ -604,7 +604,7 @@ function LandingPage() {
               Everything a Key Account Manager needs to work the account.
             </h2>
             <p className="mt-4 text-[17px] text-muted-foreground">
-              Six memorable capabilities — built for how KAMs actually operate.
+              The credible product pillars for how KAMs actually operate.
             </p>
           </div>
 
@@ -613,9 +613,10 @@ function LandingPage() {
               { icon: Network, title: "Visual Org Chart", body: "Map reporting lines, unknown seats, decision roles, and hidden gaps inside each strategic account." },
               { icon: Heart, title: "Relationship Health", body: "See which relationships are warm, cooling, or stale with visual health indicators and cadence reminders." },
               { icon: Signal, title: "Account Signals", body: "Turn missing stakeholders, stale contacts, renewal risks, and project gaps into clear next actions." },
-              { icon: Mail, title: "BCC Auto Log", body: "BCC outbound emails to Visioner and automatically route conversations to the right account, contact, and project." },
+              { icon: KanbanSquare, title: "Task Board", body: "Prioritize by urgency and importance across accounts. Completed work rolls up into Weekly Progress automatically." },
+              { icon: FolderKanban, title: "Project Workspace", body: "One place for stakeholders, decision chain, risks, next steps, files, and revenue impact per workstream." },
+              { icon: Mail, title: "BCC Auto Log", body: "BCC outbound emails to Visioner and route conversations to the right account, contact, and project." },
               { icon: LayoutGrid, title: "Account Plan", body: "Bring revenue, projects, stakeholders, tasks, notes, and risks into one account plan your team can actually use." },
-              { icon: MessagesSquare, title: "Account Community", body: "Join gated communities for accounts you work on, exchange non-confidential insights, and discover useful patterns." },
             ].map((f) => (
               <div key={f.title} className="group rounded-2xl border border-border bg-card p-6 transition hover:border-accent/50 hover:shadow-[var(--shadow-soft)]">
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
@@ -625,7 +626,24 @@ function LandingPage() {
                 <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{f.body}</p>
               </div>
             ))}
+
+            {/* Community — separate coming-soon card */}
+            <div className="rounded-2xl border border-dashed border-border bg-surface/40 p-6">
+              <div className="mb-4 flex items-center justify-between">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-muted text-muted-foreground">
+                  <MessagesSquare className="h-5 w-5" />
+                </div>
+                <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                  Coming soon
+                </span>
+              </div>
+              <h3 className="text-lg font-semibold text-foreground">Account Community</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
+                Join gated communities around accounts you work on and exchange non-confidential patterns with other operators.
+              </p>
+            </div>
           </div>
+
         </div>
       </section>
 
