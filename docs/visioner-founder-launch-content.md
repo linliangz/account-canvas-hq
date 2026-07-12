@@ -35,6 +35,7 @@ Use these repeatedly across LinkedIn, founder DMs, demo videos, and directory su
 | Guide | `https://www.visioner.cc/guides/how-to-map-stakeholders-in-a-strategic-account` | Stakeholder mapping education |
 | Guide | `https://www.visioner.cc/guides/crm-for-key-account-managers` | Why traditional CRM misses KAM workflow |
 | Buyer guide | `https://www.visioner.cc/guides/how-to-choose-key-account-management-software` | KAM software evaluation, category education, competitive positioning |
+| Comparison guide | `https://www.visioner.cc/guides/account-planning-crm-vs-key-account-management-platform` | Account planning CRM vs enterprise KAM platform positioning |
 
 ## LinkedIn Post 1: Problem Framing
 
@@ -162,6 +163,31 @@ If the Key Account Manager is buying, the question is simpler:
 That is the wedge Visioner is focused on first: an Account Planning CRM for the KAM doing the daily work.
 
 Guide: https://www.visioner.cc/guides/how-to-choose-key-account-management-software
+
+## LinkedIn Post 7: Account Planning CRM vs KAM Platform
+
+Not every Key Account Manager needs a full enterprise KAM platform on day one.
+
+Sometimes the first problem is much simpler:
+
+"I manage a few important accounts, and my daily account work is scattered across CRM, email, notes, spreadsheets, calendar, and memory."
+
+Enterprise KAM platforms are valuable when a company needs governance, methodology, manager visibility, and CRM integration across a team.
+
+But an individual KAM often needs something closer to the work:
+
+- Which account needs attention today?
+- Which project is moving?
+- Who influences the decision?
+- Which relationship is getting cold?
+- What stakeholder role is still unknown?
+- What should I do next?
+
+That is why I think "Account Planning CRM" is a useful category.
+
+It starts with the account owner, not the reporting process.
+
+Guide: https://www.visioner.cc/guides/account-planning-crm-vs-key-account-management-platform
 
 ## Short Demo Video Outline
 

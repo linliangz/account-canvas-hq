@@ -41,6 +41,13 @@ const guides = [
       "How to compare enterprise KAM platforms, CRM-native account planning, generic CRMs, and daily KAM workspaces.",
     keyword: "KAM software buyer guide",
   },
+  {
+    title: "Account Planning CRM vs Key Account Management Platform",
+    href: "/guides/account-planning-crm-vs-key-account-management-platform",
+    description:
+      "When to choose a daily account planning CRM versus an enterprise KAM platform for team governance.",
+    keyword: "Account planning CRM vs KAM platform",
+  },
 ];
 
 const keywordPages = [

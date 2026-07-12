@@ -33,6 +33,7 @@ import { Route as GuidesWhatShouldAnAccountPlanIncludeRouteImport } from './rout
 import { Route as GuidesHowToMapStakeholdersInAStrategicAccountRouteImport } from './routes/guides/how-to-map-stakeholders-in-a-strategic-account'
 import { Route as GuidesHowToChooseKeyAccountManagementSoftwareRouteImport } from './routes/guides/how-to-choose-key-account-management-software'
 import { Route as GuidesCrmForKeyAccountManagersRouteImport } from './routes/guides/crm-for-key-account-managers'
+import { Route as GuidesAccountPlanningCrmVsKeyAccountManagementPlatformRouteImport } from './routes/guides/account-planning-crm-vs-key-account-management-platform'
 import { Route as GuidesAccountMappingGuideForKeyAccountManagersRouteImport } from './routes/guides/account-mapping-guide-for-key-account-managers'
 
 const TraditionalCrmVsAccountPlanningCrmRoute =
@@ -166,6 +167,12 @@ const GuidesCrmForKeyAccountManagersRoute =
     path: '/guides/crm-for-key-account-managers',
     getParentRoute: () => rootRouteImport,
   } as any)
+const GuidesAccountPlanningCrmVsKeyAccountManagementPlatformRoute =
+  GuidesAccountPlanningCrmVsKeyAccountManagementPlatformRouteImport.update({
+    id: '/guides/account-planning-crm-vs-key-account-management-platform',
+    path: '/guides/account-planning-crm-vs-key-account-management-platform',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const GuidesAccountMappingGuideForKeyAccountManagersRoute =
   GuidesAccountMappingGuideForKeyAccountManagersRouteImport.update({
     id: '/guides/account-mapping-guide-for-key-account-managers',
@@ -194,6 +201,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/traditional-crm-vs-account-planning-crm': typeof TraditionalCrmVsAccountPlanningCrmRoute
   '/guides/account-mapping-guide-for-key-account-managers': typeof GuidesAccountMappingGuideForKeyAccountManagersRoute
+  '/guides/account-planning-crm-vs-key-account-management-platform': typeof GuidesAccountPlanningCrmVsKeyAccountManagementPlatformRoute
   '/guides/crm-for-key-account-managers': typeof GuidesCrmForKeyAccountManagersRoute
   '/guides/how-to-choose-key-account-management-software': typeof GuidesHowToChooseKeyAccountManagementSoftwareRoute
   '/guides/how-to-map-stakeholders-in-a-strategic-account': typeof GuidesHowToMapStakeholdersInAStrategicAccountRoute
@@ -221,6 +229,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/traditional-crm-vs-account-planning-crm': typeof TraditionalCrmVsAccountPlanningCrmRoute
   '/guides/account-mapping-guide-for-key-account-managers': typeof GuidesAccountMappingGuideForKeyAccountManagersRoute
+  '/guides/account-planning-crm-vs-key-account-management-platform': typeof GuidesAccountPlanningCrmVsKeyAccountManagementPlatformRoute
   '/guides/crm-for-key-account-managers': typeof GuidesCrmForKeyAccountManagersRoute
   '/guides/how-to-choose-key-account-management-software': typeof GuidesHowToChooseKeyAccountManagementSoftwareRoute
   '/guides/how-to-map-stakeholders-in-a-strategic-account': typeof GuidesHowToMapStakeholdersInAStrategicAccountRoute
@@ -249,6 +258,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/traditional-crm-vs-account-planning-crm': typeof TraditionalCrmVsAccountPlanningCrmRoute
   '/guides/account-mapping-guide-for-key-account-managers': typeof GuidesAccountMappingGuideForKeyAccountManagersRoute
+  '/guides/account-planning-crm-vs-key-account-management-platform': typeof GuidesAccountPlanningCrmVsKeyAccountManagementPlatformRoute
   '/guides/crm-for-key-account-managers': typeof GuidesCrmForKeyAccountManagersRoute
   '/guides/how-to-choose-key-account-management-software': typeof GuidesHowToChooseKeyAccountManagementSoftwareRoute
   '/guides/how-to-map-stakeholders-in-a-strategic-account': typeof GuidesHowToMapStakeholdersInAStrategicAccountRoute
@@ -278,6 +288,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/traditional-crm-vs-account-planning-crm'
     | '/guides/account-mapping-guide-for-key-account-managers'
+    | '/guides/account-planning-crm-vs-key-account-management-platform'
     | '/guides/crm-for-key-account-managers'
     | '/guides/how-to-choose-key-account-management-software'
     | '/guides/how-to-map-stakeholders-in-a-strategic-account'
@@ -305,6 +316,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/traditional-crm-vs-account-planning-crm'
     | '/guides/account-mapping-guide-for-key-account-managers'
+    | '/guides/account-planning-crm-vs-key-account-management-platform'
     | '/guides/crm-for-key-account-managers'
     | '/guides/how-to-choose-key-account-management-software'
     | '/guides/how-to-map-stakeholders-in-a-strategic-account'
@@ -332,6 +344,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/traditional-crm-vs-account-planning-crm'
     | '/guides/account-mapping-guide-for-key-account-managers'
+    | '/guides/account-planning-crm-vs-key-account-management-platform'
     | '/guides/crm-for-key-account-managers'
     | '/guides/how-to-choose-key-account-management-software'
     | '/guides/how-to-map-stakeholders-in-a-strategic-account'
@@ -360,6 +373,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   TraditionalCrmVsAccountPlanningCrmRoute: typeof TraditionalCrmVsAccountPlanningCrmRoute
   GuidesAccountMappingGuideForKeyAccountManagersRoute: typeof GuidesAccountMappingGuideForKeyAccountManagersRoute
+  GuidesAccountPlanningCrmVsKeyAccountManagementPlatformRoute: typeof GuidesAccountPlanningCrmVsKeyAccountManagementPlatformRoute
   GuidesCrmForKeyAccountManagersRoute: typeof GuidesCrmForKeyAccountManagersRoute
   GuidesHowToChooseKeyAccountManagementSoftwareRoute: typeof GuidesHowToChooseKeyAccountManagementSoftwareRoute
   GuidesHowToMapStakeholdersInAStrategicAccountRoute: typeof GuidesHowToMapStakeholdersInAStrategicAccountRoute
@@ -537,6 +551,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesCrmForKeyAccountManagersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/account-planning-crm-vs-key-account-management-platform': {
+      id: '/guides/account-planning-crm-vs-key-account-management-platform'
+      path: '/guides/account-planning-crm-vs-key-account-management-platform'
+      fullPath: '/guides/account-planning-crm-vs-key-account-management-platform'
+      preLoaderRoute: typeof GuidesAccountPlanningCrmVsKeyAccountManagementPlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guides/account-mapping-guide-for-key-account-managers': {
       id: '/guides/account-mapping-guide-for-key-account-managers'
       path: '/guides/account-mapping-guide-for-key-account-managers'
@@ -571,6 +592,8 @@ const rootRouteChildren: RootRouteChildren = {
     TraditionalCrmVsAccountPlanningCrmRoute,
   GuidesAccountMappingGuideForKeyAccountManagersRoute:
     GuidesAccountMappingGuideForKeyAccountManagersRoute,
+  GuidesAccountPlanningCrmVsKeyAccountManagementPlatformRoute:
+    GuidesAccountPlanningCrmVsKeyAccountManagementPlatformRoute,
   GuidesCrmForKeyAccountManagersRoute: GuidesCrmForKeyAccountManagersRoute,
   GuidesHowToChooseKeyAccountManagementSoftwareRoute:
     GuidesHowToChooseKeyAccountManagementSoftwareRoute,

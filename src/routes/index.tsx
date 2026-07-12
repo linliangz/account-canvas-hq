@@ -93,6 +93,10 @@ const GUIDE_LINKS = [
     label: "How to choose KAM software",
     href: "/guides/how-to-choose-key-account-management-software",
   },
+  {
+    label: "Account Planning CRM vs KAM Platform",
+    href: "/guides/account-planning-crm-vs-key-account-management-platform",
+  },
 ];
 
 /* ---------- Brand mark ---------- */

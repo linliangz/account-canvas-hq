@@ -129,6 +129,10 @@ const seoPages = [
     "/guides/how-to-choose-key-account-management-software",
     "How to choose key account management software",
   ],
+  [
+    "/guides/account-planning-crm-vs-key-account-management-platform",
+    "Account Planning CRM vs Key Account Management Platform",
+  ],
 ];
 
 for (const [path, expectedText] of seoPages) {

@@ -78,6 +78,9 @@ Visioner should keep building around these clusters:
 - `/guides/how-to-choose-key-account-management-software`
   - High-intent buyer guide that explains the difference between enterprise KAM platforms, CRM-native planning tools, generic CRMs, spreadsheets/workspaces, and a daily KAM account planning CRM.
 
+- `/guides/account-planning-crm-vs-key-account-management-platform`
+  - Comparison guide that clarifies Visioner's early category wedge: daily account planning CRM for the individual KAM before enterprise KAM governance.
+
 ## Next Content Ideas
 
 Prioritize content that helps the individual KAM evaluate the daily-work problem:
@@ -96,7 +99,7 @@ External references matter more than more internal pages right now. The highest 
 
 - Verify `visioner.cc` in Google Search Console.
 - Submit `https://www.visioner.cc/sitemap.xml`.
-- Request indexing for homepage, `/about`, `/account-planning-crm`, `/crm-for-key-account-managers`, and `/guides/how-to-choose-key-account-management-software`.
+- Request indexing for homepage, `/about`, `/account-planning-crm`, `/crm-for-key-account-managers`, `/guides/how-to-choose-key-account-management-software`, and `/guides/account-planning-crm-vs-key-account-management-platform`.
 - Add website links to both GitHub repository About sections.
 - Create a LinkedIn company page and link to `https://www.visioner.cc/`.
 - Publish the founder LinkedIn posts in `docs/visioner-founder-launch-content.md`.
