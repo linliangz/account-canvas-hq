@@ -57,6 +57,18 @@ await checkPage("/terms", "Terms of Service");
 await checkPage("/support", "support@visioner.cc");
 await checkPage("/robots.txt", "Sitemap: https://www.visioner.cc/sitemap.xml");
 await checkPage("/sitemap.xml", "https://www.visioner.cc/");
+const llmsText = await checkPage("/llms.txt", "Account Planning CRM for Key Account Managers");
+assert(
+  llmsText.includes("Visioner V1.0 is SaaS-first") && llmsText.includes("https://app.visioner.cc/"),
+  "/llms.txt must explain the SaaS-first app and web app URL.",
+);
+const manifest = await checkPage("/site.webmanifest", "Visioner CRM");
+assert(
+  manifest.includes('"categories"') && manifest.includes('"business"'),
+  "/site.webmanifest must describe Visioner as a business web app.",
+);
+assert(home.includes('/llms.txt'), "Landing page must expose /llms.txt as alternate context.");
+assert(home.includes('/site.webmanifest'), "Landing page must link the web app manifest.");
 
 const sitemap = await fetchText(urlFor(landingUrl, "/sitemap.xml"));
 const guidesIndex = await checkPage("/guides", "Practical guides for Key Account Managers");

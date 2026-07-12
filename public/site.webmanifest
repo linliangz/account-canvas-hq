@@ -1,0 +1,21 @@
+{
+  "name": "Visioner CRM",
+  "short_name": "Visioner",
+  "description": "Account Planning CRM for Key Account Managers.",
+  "start_url": "https://app.visioner.cc/",
+  "scope": "https://app.visioner.cc/",
+  "display": "standalone",
+  "background_color": "#f7f9f5",
+  "theme_color": "#123c2a",
+  "categories": ["business", "productivity", "sales"],
+  "icons": [
+    {
+      "src": "https://www.visioner.cc/visioner-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

@@ -109,6 +109,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/visioner-mark.svg", type: "image/svg+xml" },
       { rel: "apple-touch-icon", href: "/visioner-mark.svg" },
+      { rel: "manifest", href: "/site.webmanifest" },
+      {
+        rel: "alternate",
+        href: "/llms.txt",
+        type: "text/plain",
+        title: "Visioner LLM context",
+      },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

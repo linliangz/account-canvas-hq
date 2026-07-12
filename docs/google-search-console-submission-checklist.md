@@ -23,6 +23,8 @@ Current sitemap coverage:
 
 - Homepage
 - Privacy, Terms, Support
+- `llms.txt` for AI crawler context
+- `site.webmanifest` for web app identity
 - 14 keyword landing pages
 - Guides hub
 - 4 educational guide pages
@@ -98,6 +100,7 @@ Google will not trust a brand only because the site exists. Create early externa
 - Publish founder LinkedIn posts using the drafts in `docs/visioner-founder-launch-content.md`.
 - Submit to startup directories and SaaS directories.
 - Ask beta users, advisors, or founder friends to mention Visioner in posts or newsletters.
+- When submitting to directories, use the exact phrase "Account Planning CRM for Key Account Managers" in the product description.
 
 ## 7. Minimum Success Criteria
 

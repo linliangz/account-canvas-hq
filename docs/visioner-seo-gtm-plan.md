@@ -42,6 +42,8 @@ Supporting message:
 
 - `robots.txt` is live at `https://www.visioner.cc/robots.txt`.
 - `sitemap.xml` is live at `https://www.visioner.cc/sitemap.xml`.
+- `llms.txt` is live at `https://www.visioner.cc/llms.txt` for AI crawler and summary context.
+- `site.webmanifest` is live at `https://www.visioner.cc/site.webmanifest` for product identity.
 - Sitemap includes the homepage, legal pages, 14 keyword landing pages, and 4 educational guide pages.
 - Homepage includes internal links to each keyword page and guide page.
 - Each keyword page has a unique title and meta description.
