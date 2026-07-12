@@ -97,6 +97,10 @@ const GUIDE_LINKS = [
     label: "Account Planning CRM vs KAM Platform",
     href: "/guides/account-planning-crm-vs-key-account-management-platform",
   },
+  {
+    label: "KAM daily workflow",
+    href: "/guides/key-account-manager-daily-workflow",
+  },
 ];
 
 /* ---------- Brand mark ---------- */

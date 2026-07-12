@@ -133,6 +133,10 @@ const seoPages = [
     "/guides/account-planning-crm-vs-key-account-management-platform",
     "Account Planning CRM vs Key Account Management Platform",
   ],
+  [
+    "/guides/key-account-manager-daily-workflow",
+    "Key Account Manager Daily Workflow: What to Check Every Morning",
+  ],
 ];
 
 for (const [path, expectedText] of seoPages) {

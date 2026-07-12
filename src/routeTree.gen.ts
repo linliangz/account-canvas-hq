@@ -30,6 +30,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GuidesIndexRouteImport } from './routes/guides/index'
 import { Route as GuidesWhatShouldAnAccountPlanIncludeRouteImport } from './routes/guides/what-should-an-account-plan-include'
+import { Route as GuidesKeyAccountManagerDailyWorkflowRouteImport } from './routes/guides/key-account-manager-daily-workflow'
 import { Route as GuidesHowToMapStakeholdersInAStrategicAccountRouteImport } from './routes/guides/how-to-map-stakeholders-in-a-strategic-account'
 import { Route as GuidesHowToChooseKeyAccountManagementSoftwareRouteImport } from './routes/guides/how-to-choose-key-account-management-software'
 import { Route as GuidesCrmForKeyAccountManagersRouteImport } from './routes/guides/crm-for-key-account-managers'
@@ -149,6 +150,12 @@ const GuidesWhatShouldAnAccountPlanIncludeRoute =
     path: '/guides/what-should-an-account-plan-include',
     getParentRoute: () => rootRouteImport,
   } as any)
+const GuidesKeyAccountManagerDailyWorkflowRoute =
+  GuidesKeyAccountManagerDailyWorkflowRouteImport.update({
+    id: '/guides/key-account-manager-daily-workflow',
+    path: '/guides/key-account-manager-daily-workflow',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const GuidesHowToMapStakeholdersInAStrategicAccountRoute =
   GuidesHowToMapStakeholdersInAStrategicAccountRouteImport.update({
     id: '/guides/how-to-map-stakeholders-in-a-strategic-account',
@@ -205,6 +212,7 @@ export interface FileRoutesByFullPath {
   '/guides/crm-for-key-account-managers': typeof GuidesCrmForKeyAccountManagersRoute
   '/guides/how-to-choose-key-account-management-software': typeof GuidesHowToChooseKeyAccountManagementSoftwareRoute
   '/guides/how-to-map-stakeholders-in-a-strategic-account': typeof GuidesHowToMapStakeholdersInAStrategicAccountRoute
+  '/guides/key-account-manager-daily-workflow': typeof GuidesKeyAccountManagerDailyWorkflowRoute
   '/guides/what-should-an-account-plan-include': typeof GuidesWhatShouldAnAccountPlanIncludeRoute
   '/guides/': typeof GuidesIndexRoute
 }
@@ -233,6 +241,7 @@ export interface FileRoutesByTo {
   '/guides/crm-for-key-account-managers': typeof GuidesCrmForKeyAccountManagersRoute
   '/guides/how-to-choose-key-account-management-software': typeof GuidesHowToChooseKeyAccountManagementSoftwareRoute
   '/guides/how-to-map-stakeholders-in-a-strategic-account': typeof GuidesHowToMapStakeholdersInAStrategicAccountRoute
+  '/guides/key-account-manager-daily-workflow': typeof GuidesKeyAccountManagerDailyWorkflowRoute
   '/guides/what-should-an-account-plan-include': typeof GuidesWhatShouldAnAccountPlanIncludeRoute
   '/guides': typeof GuidesIndexRoute
 }
@@ -262,6 +271,7 @@ export interface FileRoutesById {
   '/guides/crm-for-key-account-managers': typeof GuidesCrmForKeyAccountManagersRoute
   '/guides/how-to-choose-key-account-management-software': typeof GuidesHowToChooseKeyAccountManagementSoftwareRoute
   '/guides/how-to-map-stakeholders-in-a-strategic-account': typeof GuidesHowToMapStakeholdersInAStrategicAccountRoute
+  '/guides/key-account-manager-daily-workflow': typeof GuidesKeyAccountManagerDailyWorkflowRoute
   '/guides/what-should-an-account-plan-include': typeof GuidesWhatShouldAnAccountPlanIncludeRoute
   '/guides/': typeof GuidesIndexRoute
 }
@@ -292,6 +302,7 @@ export interface FileRouteTypes {
     | '/guides/crm-for-key-account-managers'
     | '/guides/how-to-choose-key-account-management-software'
     | '/guides/how-to-map-stakeholders-in-a-strategic-account'
+    | '/guides/key-account-manager-daily-workflow'
     | '/guides/what-should-an-account-plan-include'
     | '/guides/'
   fileRoutesByTo: FileRoutesByTo
@@ -320,6 +331,7 @@ export interface FileRouteTypes {
     | '/guides/crm-for-key-account-managers'
     | '/guides/how-to-choose-key-account-management-software'
     | '/guides/how-to-map-stakeholders-in-a-strategic-account'
+    | '/guides/key-account-manager-daily-workflow'
     | '/guides/what-should-an-account-plan-include'
     | '/guides'
   id:
@@ -348,6 +360,7 @@ export interface FileRouteTypes {
     | '/guides/crm-for-key-account-managers'
     | '/guides/how-to-choose-key-account-management-software'
     | '/guides/how-to-map-stakeholders-in-a-strategic-account'
+    | '/guides/key-account-manager-daily-workflow'
     | '/guides/what-should-an-account-plan-include'
     | '/guides/'
   fileRoutesById: FileRoutesById
@@ -377,6 +390,7 @@ export interface RootRouteChildren {
   GuidesCrmForKeyAccountManagersRoute: typeof GuidesCrmForKeyAccountManagersRoute
   GuidesHowToChooseKeyAccountManagementSoftwareRoute: typeof GuidesHowToChooseKeyAccountManagementSoftwareRoute
   GuidesHowToMapStakeholdersInAStrategicAccountRoute: typeof GuidesHowToMapStakeholdersInAStrategicAccountRoute
+  GuidesKeyAccountManagerDailyWorkflowRoute: typeof GuidesKeyAccountManagerDailyWorkflowRoute
   GuidesWhatShouldAnAccountPlanIncludeRoute: typeof GuidesWhatShouldAnAccountPlanIncludeRoute
   GuidesIndexRoute: typeof GuidesIndexRoute
 }
@@ -530,6 +544,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesWhatShouldAnAccountPlanIncludeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/key-account-manager-daily-workflow': {
+      id: '/guides/key-account-manager-daily-workflow'
+      path: '/guides/key-account-manager-daily-workflow'
+      fullPath: '/guides/key-account-manager-daily-workflow'
+      preLoaderRoute: typeof GuidesKeyAccountManagerDailyWorkflowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guides/how-to-map-stakeholders-in-a-strategic-account': {
       id: '/guides/how-to-map-stakeholders-in-a-strategic-account'
       path: '/guides/how-to-map-stakeholders-in-a-strategic-account'
@@ -599,6 +620,8 @@ const rootRouteChildren: RootRouteChildren = {
     GuidesHowToChooseKeyAccountManagementSoftwareRoute,
   GuidesHowToMapStakeholdersInAStrategicAccountRoute:
     GuidesHowToMapStakeholdersInAStrategicAccountRoute,
+  GuidesKeyAccountManagerDailyWorkflowRoute:
+    GuidesKeyAccountManagerDailyWorkflowRoute,
   GuidesWhatShouldAnAccountPlanIncludeRoute:
     GuidesWhatShouldAnAccountPlanIncludeRoute,
   GuidesIndexRoute: GuidesIndexRoute,

@@ -40,6 +40,7 @@ Supporting message:
 | Guide | `/guides/crm-for-key-account-managers` | CRM for Key Account Managers | Researching why standard CRM is not enough for KAM daily work |
 | Guide | `/guides/how-to-choose-key-account-management-software` | How to choose key account management software | Comparing enterprise KAM platforms, CRM-native planning tools, generic CRMs, and daily KAM workspaces |
 | Guide | `/guides/account-planning-crm-vs-key-account-management-platform` | Account Planning CRM vs Key Account Management Platform | Deciding whether daily KAM adoption or enterprise KAM governance is the priority |
+| Guide | `/guides/key-account-manager-daily-workflow` | Key Account Manager daily workflow | Wants a practical daily operating rhythm for portfolio review, tasks, stakeholders, relationship health, and follow-ups |
 
 ## Technical SEO Checklist
 
@@ -48,7 +49,7 @@ Supporting message:
 - `llms.txt` is live at `https://www.visioner.cc/llms.txt` for AI crawler and summary context.
 - `site.webmanifest` is live at `https://www.visioner.cc/site.webmanifest` for product identity.
 - `/about` is live as the product and brand entity page.
-- Sitemap includes the homepage, About page, legal pages, 14 keyword landing pages, and 6 educational guide pages.
+- Sitemap includes the homepage, About page, legal pages, 14 keyword landing pages, and 7 educational guide pages.
 - Homepage includes internal links to each keyword page and guide page.
 - Each keyword page has a unique title and meta description.
 - Each guide page has a unique title, meta description, internal links, and a signup CTA.
@@ -89,6 +90,7 @@ Detailed submission workflow: `docs/google-search-console-submission-checklist.m
    - `https://www.visioner.cc/guides/crm-for-key-account-managers`
    - `https://www.visioner.cc/guides/how-to-choose-key-account-management-software`
    - `https://www.visioner.cc/guides/account-planning-crm-vs-key-account-management-platform`
+   - `https://www.visioner.cc/guides/key-account-manager-daily-workflow`
 5. Check coverage and indexing status after 3-7 days.
 
 ## Content Roadmap
@@ -111,6 +113,7 @@ Directory and listing copy is maintained in `docs/visioner-directory-submission-
 - Published: "CRM for Key Account Managers: what traditional CRM misses"
 - Published: "How to choose key account management software"
 - Published: "Account Planning CRM vs Key Account Management Platform"
+- Published: "Key Account Manager Daily Workflow: What to Check Every Morning"
 - Next: turn each guide into one LinkedIn founder post and one short demo clip script.
 
 ### Week 3: Product-led proof

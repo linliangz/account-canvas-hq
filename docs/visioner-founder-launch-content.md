@@ -36,6 +36,7 @@ Use these repeatedly across LinkedIn, founder DMs, demo videos, and directory su
 | Guide | `https://www.visioner.cc/guides/crm-for-key-account-managers` | Why traditional CRM misses KAM workflow |
 | Buyer guide | `https://www.visioner.cc/guides/how-to-choose-key-account-management-software` | KAM software evaluation, category education, competitive positioning |
 | Comparison guide | `https://www.visioner.cc/guides/account-planning-crm-vs-key-account-management-platform` | Account planning CRM vs enterprise KAM platform positioning |
+| Workflow guide | `https://www.visioner.cc/guides/key-account-manager-daily-workflow` | Daily KAM operating rhythm, task flow, relationship health, and follow-up workflow |
 
 ## LinkedIn Post 1: Problem Framing
 
@@ -188,6 +189,35 @@ That is why I think "Account Planning CRM" is a useful category.
 It starts with the account owner, not the reporting process.
 
 Guide: https://www.visioner.cc/guides/account-planning-crm-vs-key-account-management-platform
+
+## LinkedIn Post 8: Daily KAM Workflow
+
+The first question a Key Account Manager asks each morning is usually not:
+
+"Which CRM field should I update?"
+
+It is:
+
+- Which account needs attention today?
+- Which project can move this week?
+- Which relationship is getting cold?
+- Which stakeholder role is still unknown?
+- Which customer email needs a reply or follow-up?
+- What did I actually complete this week?
+
+That is why Visioner is designed around a daily KAM workflow:
+
+1. Check portfolio, target gap, and active projects
+2. Review urgent and important tasks
+3. Open the account that needs attention
+4. Check stakeholder gaps and relationship health
+5. Send the follow-up from normal email
+6. Capture the activity without retyping the whole story
+7. Turn completed tasks into weekly progress
+
+The goal is simple: make account planning useful every morning, not only before the account review.
+
+Guide: https://www.visioner.cc/guides/key-account-manager-daily-workflow
 
 ## Short Demo Video Outline
 

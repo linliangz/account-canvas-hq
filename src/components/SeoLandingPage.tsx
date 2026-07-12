@@ -66,6 +66,10 @@ const relatedPages = [
     label: "Account Planning CRM vs KAM Platform",
     href: "/guides/account-planning-crm-vs-key-account-management-platform",
   },
+  {
+    label: "KAM daily workflow",
+    href: "/guides/key-account-manager-daily-workflow",
+  },
 ];
 
 export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {

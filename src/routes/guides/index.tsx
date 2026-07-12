@@ -48,6 +48,13 @@ const guides = [
       "When to choose a daily account planning CRM versus an enterprise KAM platform for team governance.",
     keyword: "Account planning CRM vs KAM platform",
   },
+  {
+    title: "Key Account Manager Daily Workflow: What to Check Every Morning",
+    href: "/guides/key-account-manager-daily-workflow",
+    description:
+      "A practical morning workflow for portfolio review, tasks, projects, stakeholder gaps, relationship health, and follow-ups.",
+    keyword: "KAM daily workflow",
+  },
 ];
 
 const keywordPages = [
