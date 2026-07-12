@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Check,
   Minus,
-  Apple,
   Globe,
   Users,
   KanbanSquare,
@@ -18,12 +17,22 @@ import {
   Heart,
   MessagesSquare,
   LayoutGrid,
-  Map,
+  Sunrise,
+  Target,
+  FolderKanban,
+  Send,
+  UserPlus,
+  Lightbulb,
+  FileText,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
 });
+
+const SIGNUP_URL = "https://app.visioner.cc/signup";
+const APP_URL = "https://app.visioner.cc/";
+const LOGIN_URL = "https://app.visioner.cc/login";
 
 /* ---------- Brand mark ---------- */
 
@@ -51,42 +60,11 @@ function VMark({ size = 32 }: { size?: number }) {
         style={{ width: size * 0.78, height: size * 0.78 }}
         aria-hidden
       >
-        {/* Vision dot — the insight the funnel is chasing */}
         <circle cx="16" cy="7.2" r="1.8" fill="var(--insight)" />
-
-        {/* Open V / sales funnel / open book — two page-like planes
-            angling in from the top corners with a wide gap at the bottom */}
-        <path
-          d="M4.2 10.5 L14 26.5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3.1"
-          strokeLinecap="round"
-        />
-        <path
-          d="M27.8 10.5 L18 26.5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3.1"
-          strokeLinecap="round"
-        />
-        {/* Inner gutter — a hint of the open book spine between the pages */}
-        <path
-          d="M11.2 13.6 L15.4 22"
-          fill="none"
-          stroke="currentColor"
-          strokeOpacity="0.28"
-          strokeWidth="1"
-          strokeLinecap="round"
-        />
-        <path
-          d="M20.8 13.6 L16.6 22"
-          fill="none"
-          stroke="currentColor"
-          strokeOpacity="0.28"
-          strokeWidth="1"
-          strokeLinecap="round"
-        />
+        <path d="M4.2 10.5 L14 26.5" fill="none" stroke="currentColor" strokeWidth="3.1" strokeLinecap="round" />
+        <path d="M27.8 10.5 L18 26.5" fill="none" stroke="currentColor" strokeWidth="3.1" strokeLinecap="round" />
+        <path d="M11.2 13.6 L15.4 22" fill="none" stroke="currentColor" strokeOpacity="0.28" strokeWidth="1" strokeLinecap="round" />
+        <path d="M20.8 13.6 L16.6 22" fill="none" stroke="currentColor" strokeOpacity="0.28" strokeWidth="1" strokeLinecap="round" />
       </svg>
     </div>
   );
@@ -96,7 +74,6 @@ function VMark({ size = 32 }: { size?: number }) {
 
 function RotatingHighlight({ words }: { words: string[] }) {
   const [index, setIndex] = useState(0);
-
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((i: number) => (i + 1) % words.length);
@@ -127,24 +104,32 @@ function RotatingHighlight({ words }: { words: string[] }) {
 
 /* ---------- Buttons ---------- */
 
-function BtnPrimary({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <button
-      className={`inline-flex h-11 items-center justify-center gap-1.5 rounded-lg bg-accent px-5 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] transition hover:brightness-105 active:brightness-95 ${className}`}
-    >
-      {children}
-    </button>
-  );
+function BtnPrimary({
+  children,
+  className = "",
+  href,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  href?: string;
+}) {
+  const cls = `inline-flex h-11 items-center justify-center gap-1.5 rounded-lg bg-accent px-5 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] transition hover:brightness-105 active:brightness-95 ${className}`;
+  if (href) return <a href={href} className={cls}>{children}</a>;
+  return <button className={cls}>{children}</button>;
 }
 
-function BtnSecondary({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <button
-      className={`inline-flex h-11 items-center justify-center gap-1.5 rounded-lg border border-border bg-card px-5 text-sm font-semibold text-foreground transition hover:bg-surface-muted ${className}`}
-    >
-      {children}
-    </button>
-  );
+function BtnSecondary({
+  children,
+  className = "",
+  href,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  href?: string;
+}) {
+  const cls = `inline-flex h-11 items-center justify-center gap-1.5 rounded-lg border border-border bg-card px-5 text-sm font-semibold text-foreground transition hover:bg-surface-muted ${className}`;
+  if (href) return <a href={href} className={cls}>{children}</a>;
+  return <button className={cls}>{children}</button>;
 }
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -155,122 +140,364 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* ---------- Product Mockup ---------- */
+/* ---------- Focused UI panels used in the day story ---------- */
 
-function ProductMockup() {
-  const accounts = [
-    { name: "Acme Robotics", stage: "Expansion", health: "strong", arr: "$1.4M", gap: "+$320K" },
-    { name: "Northwind Logistics", stage: "Renewal", health: "watch", arr: "$860K", gap: "+$180K" },
-    { name: "Helios Energy Systems", stage: "Discovery", health: "risk", arr: "$0", gap: "+$500K" },
-    { name: "Aria Financial Group", stage: "Expansion", health: "strong", arr: "$2.1M", gap: "+$410K" },
-    { name: "Meridian BioSystems", stage: "Renewal", health: "watch", arr: "$540K", gap: "+$95K" },
-  ];
-  const healthDot: Record<string, string> = {
-    strong: "bg-[color:var(--success)]",
-    watch: "bg-[color:var(--warning)]",
-    risk: "bg-[color:var(--destructive)]",
-  };
-
+function PanelFrame({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="relative w-full">
-      <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-to-br from-accent/10 via-secondary/40 to-transparent blur-2xl" />
-      <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-lift)]">
-        <div className="flex items-center gap-2 border-b border-border bg-surface-muted px-4 py-2.5">
-          <div className="flex gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--destructive)]/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--warning)]/80" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--success)]/80" />
-          </div>
-          <div className="mx-auto text-xs text-muted-foreground">Visioner CRM · Portfolio Overview</div>
+    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-lift)]">
+      <div className="flex items-center gap-2 border-b border-border bg-surface-muted px-4 py-2">
+        <div className="flex gap-1.5">
+          <span className="h-2 w-2 rounded-full bg-[color:var(--destructive)]/60" />
+          <span className="h-2 w-2 rounded-full bg-[color:var(--warning)]/70" />
+          <span className="h-2 w-2 rounded-full bg-[color:var(--success)]/70" />
         </div>
+        <div className="mx-auto text-[11px] font-medium text-muted-foreground">{title}</div>
+      </div>
+      <div className="p-5">{children}</div>
+    </div>
+  );
+}
 
-        <div className="grid grid-cols-12">
-          <aside className="col-span-3 border-r border-border bg-surface/60 p-4">
-            <Logo size={26} />
-            <nav className="mt-6 space-y-1 text-sm">
-              {[
-                { label: "Portfolio", icon: Building2, active: true },
-                { label: "Accounts", icon: Users },
-                { label: "Tasks", icon: ListChecks },
-                { label: "Projects", icon: KanbanSquare },
-                { label: "Contacts", icon: Users },
-                { label: "Intelligence", icon: Sparkles },
-                { label: "Email Log", icon: Mail },
-              ].map((i) => (
-                <div
-                  key={i.label}
-                  className={`flex items-center gap-2 rounded-md px-2.5 py-1.5 ${
-                    i.active ? "bg-secondary text-primary font-medium" : "text-muted-foreground"
-                  }`}
-                >
-                  <i.icon className="h-3.5 w-3.5" />
-                  <span>{i.label}</span>
-                </div>
-              ))}
-            </nav>
-          </aside>
+function PanelPortfolioHome() {
+  return (
+    <PanelFrame title="Portfolio Home">
+      <div className="grid grid-cols-3 gap-3">
+        {[
+          { k: "ARR", v: "$4.9M" },
+          { k: "Target Gap", v: "+$1.5M" },
+          { k: "Active Projects", v: "12" },
+        ].map((s) => (
+          <div key={s.k} className="rounded-lg border border-border bg-surface/60 p-3">
+            <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{s.k}</div>
+            <div className="mt-1 text-xl font-bold text-foreground">{s.v}</div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 rounded-lg border border-border">
+        <div className="border-b border-border bg-surface-muted px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+          Today · Top tasks
+        </div>
+        {[
+          "Prep QBR — Acme Robotics",
+          "Reply to Northwind renewal ping",
+          "Intro call: Aria Financial · Head of Ops",
+        ].map((t) => (
+          <div key={t} className="flex items-center gap-2 border-b border-border/60 px-3 py-2 text-sm text-foreground last:border-0">
+            <span className="h-3 w-3 rounded-full border border-border" />
+            <span>{t}</span>
+          </div>
+        ))}
+      </div>
+    </PanelFrame>
+  );
+}
 
-          <main className="col-span-9 p-5">
-            <div className="mb-5 flex items-end justify-between">
-              <div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Portfolio</div>
-                <div className="mt-0.5 text-lg font-semibold text-foreground">5 Key Accounts</div>
-              </div>
-              <div className="hidden gap-2 md:flex">
-                <div className="rounded-md border border-border bg-card px-2.5 py-1 text-xs text-muted-foreground">
-                  This Quarter
-                </div>
-                <div className="rounded-md bg-accent px-2.5 py-1 text-xs font-medium text-accent-foreground">+ Account</div>
-              </div>
-            </div>
-
-            <div className="mb-5 grid grid-cols-3 gap-3">
-              {[
-                { k: "Coverage", v: "72%", sub: "stakeholders mapped" },
-                { k: "Revenue Gap", v: "+$1.5M", sub: "next 4 quarters" },
-                { k: "Signals", v: "8 new", sub: "since Monday" },
-              ].map((s) => (
-                <div key={s.k} className="rounded-lg border border-border bg-surface/70 p-3">
-                  <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{s.k}</div>
-                  <div className="mt-1 text-xl font-bold text-foreground">{s.v}</div>
-                  <div className="text-[11px] text-muted-foreground">{s.sub}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="overflow-hidden rounded-lg border border-border">
-              <div className="grid grid-cols-12 border-b border-border bg-surface-muted px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                <div className="col-span-4">Account</div>
-                <div className="col-span-2">Stage</div>
-                <div className="col-span-2">Health</div>
-                <div className="col-span-2">ARR</div>
-                <div className="col-span-2 text-right">Gap</div>
-              </div>
-              {accounts.map((a) => (
-                <div
-                  key={a.name}
-                  className="grid grid-cols-12 items-center border-b border-border/60 px-3 py-2.5 text-xs last:border-0 hover:bg-surface/60"
-                >
-                  <div className="col-span-4 flex items-center gap-2">
-                    <div className="flex h-6 w-6 items-center justify-center rounded bg-secondary text-[10px] font-semibold text-primary">
-                      {a.name.split(" ").map((w) => w[0]).slice(0, 2).join("")}
-                    </div>
-                    <span className="font-medium text-foreground">{a.name}</span>
-                  </div>
-                  <div className="col-span-2 text-muted-foreground">{a.stage}</div>
-                  <div className="col-span-2 flex items-center gap-1.5">
-                    <span className={`h-1.5 w-1.5 rounded-full ${healthDot[a.health]}`} />
-                    <span className="capitalize text-muted-foreground">{a.health}</span>
-                  </div>
-                  <div className="col-span-2 text-foreground">{a.arr}</div>
-                  <div className="col-span-2 text-right font-semibold text-[color:var(--success)]">{a.gap}</div>
+function PanelTaskBoard() {
+  const quads = [
+    { k: "Do now", tone: "bg-[color:var(--destructive)]/15 text-[color:var(--destructive)]", tasks: ["QBR deck — Acme", "Renewal reply — Northwind"] },
+    { k: "Schedule", tone: "bg-[color:var(--warning)]/15 text-[color:var(--warning)]", tasks: ["Discovery — Helios", "Exec intro — Aria"] },
+    { k: "Delegate", tone: "bg-[color:var(--insight)]/15 text-[color:var(--insight)]", tasks: ["SOW draft to legal"] },
+    { k: "Later", tone: "bg-muted text-muted-foreground", tasks: ["Refresh org chart — Meridian"] },
+  ];
+  return (
+    <PanelFrame title="Task Board · Today">
+      <div className="grid grid-cols-2 gap-3">
+        {quads.map((q) => (
+          <div key={q.k} className="rounded-lg border border-border bg-surface/60 p-3">
+            <span className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${q.tone}`}>
+              {q.k}
+            </span>
+            <div className="mt-2 space-y-1.5">
+              {q.tasks.map((t) => (
+                <div key={t} className="rounded-md border border-border bg-card px-2.5 py-1.5 text-xs text-foreground">
+                  {t}
                 </div>
               ))}
             </div>
-          </main>
+          </div>
+        ))}
+      </div>
+    </PanelFrame>
+  );
+}
+
+function PanelProjectDrawer() {
+  return (
+    <PanelFrame title="Project · Acme Robotics — Platform Expansion">
+      <div className="flex items-center justify-between">
+        <div>
+          <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Revenue impact</div>
+          <div className="mt-0.5 text-xl font-bold text-foreground">+$320K ARR</div>
+        </div>
+        <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
+          Expansion
+        </span>
+      </div>
+      <div className="mt-4 grid grid-cols-2 gap-3 text-xs">
+        <div className="rounded-lg border border-border bg-surface/60 p-3">
+          <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Decision chain</div>
+          <div className="mt-2 space-y-1 text-foreground">
+            <div>• J. Rivera — VP Ops (Champion)</div>
+            <div>• M. Chen — CFO (Approver)</div>
+            <div>• A. Patel — Head of IT (Blocker?)</div>
+          </div>
+        </div>
+        <div className="rounded-lg border border-border bg-surface/60 p-3">
+          <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Next steps</div>
+          <div className="mt-2 space-y-1 text-foreground">
+            <div>• Security review deck by Fri</div>
+            <div>• Align on rollout scope</div>
+            <div>• Confirm CFO sign-off window</div>
+          </div>
         </div>
       </div>
-    </div>
+      <div className="mt-3 flex items-center gap-2 text-[11px] text-muted-foreground">
+        <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--warning)]" />
+        Risk: IT security review not scheduled
+      </div>
+    </PanelFrame>
+  );
+}
+
+function PanelBccLog() {
+  return (
+    <PanelFrame title="Activity · Aria Financial Group">
+      <div className="space-y-2">
+        <div className="rounded-lg border border-border bg-surface/60 p-3">
+          <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
+            <Send className="h-3 w-3" /> Sent · 2 min ago · via BCC
+          </div>
+          <div className="mt-1.5 text-sm font-medium text-foreground">Follow-up: renewal timing & exec intro</div>
+          <div className="mt-0.5 text-xs text-muted-foreground">to J. Rivera · captured to Aria Financial › Renewal FY26</div>
+        </div>
+        <div className="rounded-lg border border-dashed border-border p-3 text-xs text-muted-foreground">
+          Auto-linked to contact, account and project. No form to fill in.
+        </div>
+      </div>
+    </PanelFrame>
+  );
+}
+
+function PanelRelationshipHealth() {
+  const rows = [
+    { n: "J. Rivera — VP Ops", level: 82, tone: "bg-[color:var(--success)]" },
+    { n: "M. Chen — CFO", level: 46, tone: "bg-[color:var(--warning)]" },
+    { n: "A. Patel — Head of IT", level: 22, tone: "bg-[color:var(--destructive)]" },
+  ];
+  return (
+    <PanelFrame title="Relationship Health">
+      <div className="space-y-3">
+        {rows.map((r) => (
+          <div key={r.n}>
+            <div className="flex items-center justify-between text-xs">
+              <span className="font-medium text-foreground">{r.n}</span>
+              <span className="text-muted-foreground">{r.level}%</span>
+            </div>
+            <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-muted">
+              <div className={`h-full ${r.tone}`} style={{ width: `${r.level}%` }} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </PanelFrame>
+  );
+}
+
+function PanelOrgChart() {
+  return (
+    <PanelFrame title="Org Chart · Acme Robotics">
+      <div className="flex flex-col items-center gap-2 text-xs">
+        <div className="rounded-md border border-border bg-surface/70 px-3 py-1.5 text-foreground">M. Chen — CFO</div>
+        <div className="h-3 w-px bg-border" />
+        <div className="flex items-start gap-3">
+          <div className="rounded-md border border-border bg-surface/70 px-3 py-1.5 text-foreground">J. Rivera — VP Ops</div>
+          <div className="rounded-md border-2 border-dashed border-accent bg-secondary/40 px-3 py-1.5 text-primary">
+            + D. Ono — Director, Data <span className="ml-1 rounded-full bg-accent px-1.5 py-px text-[9px] font-bold uppercase tracking-wider text-accent-foreground">new</span>
+          </div>
+        </div>
+      </div>
+      <div className="mt-4 flex items-center gap-2 text-[11px] text-muted-foreground">
+        <Sparkles className="h-3 w-3 text-[color:var(--insight)]" />
+        Discovered via Contact Intelligence · pending your approval
+      </div>
+    </PanelFrame>
+  );
+}
+
+function PanelInspire() {
+  return (
+    <PanelFrame title="Inspire Me · Data security expansion">
+      <div className="rounded-lg border border-border bg-surface/60 p-3 text-xs text-foreground">
+        "I want to expand this account into the data security team."
+      </div>
+      <div className="mt-3 space-y-2">
+        {[
+          { r: "Head of InfoSec", why: "Owns security tooling budget" },
+          { r: "SecOps Lead", why: "Day-to-day operator, needs quick wins" },
+          { r: "CISO", why: "Executive sponsor for enterprise deals" },
+        ].map((p) => (
+          <div key={p.r} className="rounded-md border border-border bg-card px-3 py-2 text-xs">
+            <div className="font-semibold text-foreground">{p.r}</div>
+            <div className="text-muted-foreground">{p.why}</div>
+          </div>
+        ))}
+      </div>
+    </PanelFrame>
+  );
+}
+
+function PanelWeekly() {
+  return (
+    <PanelFrame title="Weekly Progress · This week">
+      <div className="grid grid-cols-3 gap-3 text-center">
+        {[
+          { k: "Tasks done", v: "18" },
+          { k: "Meetings", v: "7" },
+          { k: "Emails logged", v: "42" },
+        ].map((s) => (
+          <div key={s.k} className="rounded-lg border border-border bg-surface/60 p-3">
+            <div className="text-lg font-bold text-foreground">{s.v}</div>
+            <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{s.k}</div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 rounded-lg border border-border bg-surface/60 p-3 text-xs text-foreground">
+        <div className="font-semibold">Highlights</div>
+        <ul className="mt-1 space-y-1 text-muted-foreground">
+          <li>• Acme QBR shipped — CFO confirmed FY26 scope</li>
+          <li>• Northwind renewal timing locked to Feb</li>
+          <li>• Aria org map expanded (+3 stakeholders)</li>
+        </ul>
+      </div>
+    </PanelFrame>
+  );
+}
+
+/* ---------- A Typical Day for a KAM ---------- */
+
+const DAY_MOMENTS = [
+  {
+    time: "8:30 AM",
+    icon: Sunrise,
+    title: "Start from the daily workspace",
+    body: "Visioner opens with Portfolio Home and today's Task Board. You see current ARR, target gap, active projects, and the most important tasks across accounts.",
+    outcome: "Start the day knowing what matters.",
+    Panel: PanelPortfolioHome,
+  },
+  {
+    time: "9:15 AM",
+    icon: Target,
+    title: "Prioritize without pressure",
+    body: "Tasks are organized by urgency and importance. Completed work is automatically archived into Weekly Progress, so real work becomes useful reporting material later.",
+    outcome: "Less task anxiety, more visible progress.",
+    Panel: PanelTaskBoard,
+  },
+  {
+    time: "10:30 AM",
+    icon: FolderKanban,
+    title: "Work the project, not the database",
+    body: "Inside a Project, you see stakeholders, decision chain, risks, activities, files, next steps, and revenue impact in one place.",
+    outcome: "Every deal has context, not just a stage.",
+    Panel: PanelProjectDrawer,
+  },
+  {
+    time: "11:00 AM",
+    icon: Send,
+    title: "Follow up and log automatically",
+    body: "A key decision maker's relationship health is low. You send a follow-up email from your normal inbox and BCC Visioner. The email is automatically captured in the right account, project, and contact activity log.",
+    outcome: "Communication history builds itself.",
+    Panel: PanelBccLog,
+    Panel2: PanelRelationshipHealth,
+  },
+  {
+    time: "1:30 PM",
+    icon: UserPlus,
+    title: "Expand the org map",
+    body: "Visioner highlights missing roles and relationship gaps. With user-approved Contact Intelligence, you can discover a likely manager, peer, or missing stakeholder and add them to the Org Chart.",
+    outcome: "The account map becomes more complete over time.",
+    Panel: PanelOrgChart,
+  },
+  {
+    time: "3:00 PM",
+    icon: Lightbulb,
+    title: "Inspire Me",
+    body: "You ask: \"I want to expand this account into the data security team.\" Visioner suggests three possible target personas, why they matter, and a draft outreach message.",
+    outcome: "Better account expansion ideas without starting from a blank page.",
+    Panel: PanelInspire,
+  },
+  {
+    time: "5:30 PM",
+    icon: FileText,
+    title: "End with a useful record",
+    body: "Completed tasks, project notes, email activity, and relationship touches become Weekly Progress. Later, Visioner can turn this into a manager update or account plan summary.",
+    outcome: "Reporting becomes a byproduct of real work.",
+    Panel: PanelWeekly,
+  },
+];
+
+function DayStory() {
+  return (
+    <section id="product" className="border-t border-border/60 bg-surface/40">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-3xl text-center">
+          <Eyebrow>A Typical Day</Eyebrow>
+          <h2 className="text-3xl font-bold text-foreground md:text-[44px]">A Typical Day for a KAM</h2>
+          <p className="mt-4 text-[17px] text-muted-foreground">
+            From morning priorities to project follow-ups, Visioner keeps revenue, relationships, tasks,
+            and account signals in one calm workspace.
+          </p>
+        </div>
+
+        <div className="relative mt-16">
+          {/* Vertical timeline spine (desktop) */}
+          <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-border to-transparent md:block" />
+
+          <div className="space-y-20 md:space-y-28">
+            {DAY_MOMENTS.map((m, i) => {
+              const flip = i % 2 === 1;
+              const Icon = m.icon;
+              return (
+                <div
+                  key={m.title}
+                  className="relative grid gap-8 md:grid-cols-2 md:items-center md:gap-14"
+                >
+                  {/* Dot on spine */}
+                  <div className="pointer-events-none absolute left-1/2 top-6 hidden -translate-x-1/2 md:block">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card shadow-[var(--shadow-soft)]">
+                      <Icon className="h-4 w-4 text-primary" />
+                    </div>
+                  </div>
+
+                  {/* Text */}
+                  <div className={`${flip ? "md:order-2 md:pl-14" : "md:pr-14"}`}>
+                    <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-primary">
+                      <Icon className="h-3.5 w-3.5 md:hidden" />
+                      {m.time}
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground md:text-[28px]">{m.title}</h3>
+                    <p className="mt-3 text-[16px] leading-relaxed text-muted-foreground md:text-[17px]">
+                      {m.body}
+                    </p>
+                    <div className="mt-4 flex items-start gap-2 rounded-lg border-l-2 border-accent bg-secondary/40 px-3 py-2 text-[14px] font-medium text-foreground">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                      {m.outcome}
+                    </div>
+                  </div>
+
+                  {/* Panel(s) */}
+                  <div className={`${flip ? "md:order-1 md:pr-14" : "md:pl-14"}`}>
+                    <div className="space-y-4">
+                      <m.Panel />
+                      {m.Panel2 && <m.Panel2 />}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -288,11 +515,11 @@ function LandingPage() {
             <a href="#features" className="hover:text-foreground">Features</a>
             <a href="#intelligence" className="hover:text-foreground">Intelligence</a>
             <a href="#pricing" className="hover:text-foreground">Pricing</a>
-            <a href="#download" className="hover:text-foreground">Download</a>
-            <a href="#" className="hover:text-foreground">Sign in</a>
+            <a href={SIGNUP_URL} className="hover:text-foreground">Start</a>
+            <a href={LOGIN_URL} className="hover:text-foreground">Sign in</a>
           </nav>
           <div className="flex items-center gap-2">
-            <BtnPrimary>Start for Free <ArrowRight className="h-4 w-4" /></BtnPrimary>
+            <BtnPrimary href={SIGNUP_URL}>Start for Free <ArrowRight className="h-4 w-4" /></BtnPrimary>
           </div>
         </div>
       </header>
@@ -302,35 +529,26 @@ function LandingPage() {
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute -top-40 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-secondary/50 blur-3xl" />
         </div>
-        <div className="mx-auto max-w-7xl px-6 pt-16 pb-16 md:pt-20">
-          <div className="mx-auto max-w-4xl text-center">
-            <Eyebrow>
-              <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--insight)]" />
-              CRM for Key Account Managers
-            </Eyebrow>
-            <h1 className="text-[40px] font-bold text-foreground md:text-[56px]">
-              CRM built for Key Account Managers,{" "}
-              <span className="text-accent">not just their bosses.</span>
-            </h1>
-            <p className="mt-5 text-lg font-medium text-foreground/80 md:text-xl">
-              The everyday workspace for strategic accounts.
-            </p>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-[17px]">
-              Visioner helps account owners manage revenue, projects, stakeholders, relationship health,
-              email logs, and account signals in one calm operating canvas.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <BtnPrimary>Start for Free <ArrowRight className="h-4 w-4" /></BtnPrimary>
-              <BtnSecondary><Apple className="h-4 w-4" /> Download Mac Beta</BtnSecondary>
-            </div>
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-5 text-sm font-medium text-muted-foreground">
-              <a href="#product" className="hover:text-foreground">See Product Demo →</a>
-              <a href="#pricing" className="hover:text-foreground">View Pricing →</a>
-            </div>
+        <div className="mx-auto max-w-4xl px-6 pt-20 pb-20 text-center md:pt-28 md:pb-24">
+          <Eyebrow>
+            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--insight)]" />
+            Account Planning CRM for Key Account Managers
+          </Eyebrow>
+          <h1 className="text-[42px] font-bold leading-[1.05] text-foreground md:text-[64px]">
+            The daily workspace for{" "}
+            <span className="text-accent">Key Account Managers.</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-[17px] leading-relaxed text-muted-foreground md:text-[19px]">
+            Visioner is an account planning CRM that helps strategic account owners manage relationships,
+            projects, tasks, and account signals without turning their day into CRM data entry.
+          </p>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+            <BtnPrimary href={SIGNUP_URL}>Start for Free <ArrowRight className="h-4 w-4" /></BtnPrimary>
+            <BtnSecondary href={APP_URL}><Globe className="h-4 w-4" /> Open Web App</BtnSecondary>
           </div>
-
-          <div className="mt-14">
-            <ProductMockup />
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-5 text-sm font-medium text-muted-foreground">
+            <a href="#product" className="hover:text-foreground">See a Typical Day →</a>
+            <a href="#pricing" className="hover:text-foreground">View Pricing →</a>
           </div>
         </div>
       </section>
@@ -355,21 +573,9 @@ function LandingPage() {
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
-              {
-                icon: Network,
-                title: "Relationship coverage",
-                body: "See which stakeholders you know, who's cold, and which decision makers you've never met.",
-              },
-              {
-                icon: KanbanSquare,
-                title: "Project clarity",
-                body: "Track every workstream inside an account — with owners, revenue impact, and next steps.",
-              },
-              {
-                icon: Signal,
-                title: "Account signals",
-                body: "Get alerted on changes worth acting on: org moves, quiet accounts, renewal risk, gaps.",
-              },
+              { icon: Network, title: "Relationship coverage", body: "See which stakeholders you know, who's cold, and which decision makers you've never met." },
+              { icon: KanbanSquare, title: "Project clarity", body: "Track every workstream inside an account — with owners, revenue impact, and next steps." },
+              { icon: Signal, title: "Account signals", body: "Get alerted on changes worth acting on: org moves, quiet accounts, renewal risk, gaps." },
             ].map((c) => (
               <div key={c.title} className="rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]">
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-primary">
@@ -398,41 +604,14 @@ function LandingPage() {
 
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {[
-              {
-                icon: Network,
-                title: "Visual Org Chart",
-                body: "Map reporting lines, unknown seats, decision roles, and hidden gaps inside each strategic account.",
-              },
-              {
-                icon: Heart,
-                title: "Relationship Health",
-                body: "See which relationships are warm, cooling, or stale with visual health indicators and cadence reminders.",
-              },
-              {
-                icon: Signal,
-                title: "Account Signals",
-                body: "Turn missing stakeholders, stale contacts, renewal risks, and project gaps into clear next actions.",
-              },
-              {
-                icon: Mail,
-                title: "BCC Auto Log",
-                body: "BCC outbound emails to Visioner and automatically route conversations to the right account, contact, and project.",
-              },
-              {
-                icon: LayoutGrid,
-                title: "Account Plan",
-                body: "Bring revenue, projects, stakeholders, tasks, notes, and risks into one account plan your team can actually use.",
-              },
-              {
-                icon: MessagesSquare,
-                title: "Account Community",
-                body: "Join gated communities for accounts you work on, exchange non-confidential insights, and discover useful patterns.",
-              },
+              { icon: Network, title: "Visual Org Chart", body: "Map reporting lines, unknown seats, decision roles, and hidden gaps inside each strategic account." },
+              { icon: Heart, title: "Relationship Health", body: "See which relationships are warm, cooling, or stale with visual health indicators and cadence reminders." },
+              { icon: Signal, title: "Account Signals", body: "Turn missing stakeholders, stale contacts, renewal risks, and project gaps into clear next actions." },
+              { icon: Mail, title: "BCC Auto Log", body: "BCC outbound emails to Visioner and automatically route conversations to the right account, contact, and project." },
+              { icon: LayoutGrid, title: "Account Plan", body: "Bring revenue, projects, stakeholders, tasks, notes, and risks into one account plan your team can actually use." },
+              { icon: MessagesSquare, title: "Account Community", body: "Join gated communities for accounts you work on, exchange non-confidential insights, and discover useful patterns." },
             ].map((f) => (
-              <div
-                key={f.title}
-                className="group rounded-2xl border border-border bg-card p-6 transition hover:border-accent/50 hover:shadow-[var(--shadow-soft)]"
-              >
+              <div key={f.title} className="group rounded-2xl border border-border bg-card p-6 transition hover:border-accent/50 hover:shadow-[var(--shadow-soft)]">
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                   <f.icon className="h-5 w-5" />
                 </div>
@@ -444,36 +623,8 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Simple 3-step workflow */}
-      <section id="product" className="border-t border-border/60 bg-surface/40">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow>How it works</Eyebrow>
-            <h2 className="text-3xl font-bold text-foreground md:text-[40px]">
-              From account chaos to next best action.
-            </h2>
-          </div>
-
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {[
-              { n: "1", icon: Map, title: "Map the account", body: "Import contacts, build the org chart, and identify stakeholder gaps." },
-              { n: "2", icon: KanbanSquare, title: "Work the account", body: "Manage projects, tasks, meetings, and relationship health from one account canvas." },
-              { n: "3", icon: Sparkles, title: "Capture and learn", body: "Log emails, refresh signals, and turn account intelligence into next actions." },
-            ].map((s) => (
-              <div key={s.n} className="rounded-2xl border border-border bg-card p-6">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-sm font-bold text-accent-foreground">
-                    {s.n}
-                  </div>
-                  <s.icon className="h-5 w-5 text-primary" />
-                </div>
-                <h3 className="mt-4 text-lg font-semibold text-foreground">{s.title}</h3>
-                <p className="mt-2 text-[15px] text-muted-foreground">{s.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* A Typical Day for a KAM */}
+      <DayStory />
 
       {/* Differentiation */}
       <section className="border-t border-border/60">
@@ -491,7 +642,7 @@ function LandingPage() {
                 <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Traditional CRM</div>
               </div>
               <div className="border-b border-border bg-secondary/50 p-5">
-                <div className="text-xs font-semibold uppercase tracking-wider text-primary">Visioner CRM</div>
+                <div className="text-xs font-semibold uppercase tracking-wider text-primary">Visioner</div>
               </div>
               {[
                 ["Pipeline reporting", "Everyday account canvas"],
@@ -573,54 +724,6 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Local + Cloud */}
-      <section className="border-t border-border/60">
-        <div className="mx-auto max-w-5xl px-6 py-20 md:py-24">
-          <div className="text-center">
-            <Eyebrow>Local-first + Cloud</Eyebrow>
-            <h2 className="text-3xl font-bold text-foreground md:text-[40px]">
-              Start locally. Add cloud only when it helps.
-            </h2>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-card p-6">
-              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-foreground">
-                <Apple className="h-4 w-4" /> Free local core
-              </div>
-              <ul className="space-y-2 text-[15px] text-muted-foreground">
-                {[
-                  "Free local core — accounts, contacts, projects, org chart, tasks",
-                  "Browser app with sync when you sign in",
-                  "Mac app with optional local-only mode (cloud off entirely)",
-                  "CSV import and export",
-                ].map((x) => (
-                  <li key={x} className="flex gap-2">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" /> {x}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-accent/30 bg-secondary/40 p-6">
-              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-foreground">
-                <Globe className="h-4 w-4" /> Paid cloud features
-              </div>
-              <ul className="space-y-2 text-[15px] text-muted-foreground">
-                {[
-                  "BCC email capture and routing",
-                  "Cloud backup and multi-device sync",
-                  "Intelligence, enrichment, and Visioner Credits",
-                  "Team workspace and shared accounts",
-                ].map((x) => (
-                  <li key={x} className="flex gap-2">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" /> {x}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Pricing */}
       <section id="pricing" className="border-t border-border/60 bg-surface/40">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
@@ -641,13 +744,14 @@ function LandingPage() {
               tagline="For getting started"
               features={[
                 "3 accounts",
-                "Local contacts, projects, org chart, tasks",
-                "CSV import/export",
-                "Local signals",
-                "3 Inspire Me runs/day after login",
+                "Contacts, projects, tasks, org chart",
+                "CSV import & export",
+                "Account signals",
+                "Browser workspace cache",
                 "No BCC capture",
               ]}
-              cta="Select Free"
+              cta="Start Free"
+              href={SIGNUP_URL}
             />
             <PricingCard
               name="Basic"
@@ -656,75 +760,48 @@ function LandingPage() {
               features={[
                 "10 accounts",
                 "BCC outbound archive",
-                "300 Visioner Credits/month",
                 "100 archived emails/month",
-                "Basic Intelligence",
                 "Manual review queue",
+                "Verified sender routing",
+                "Cloud login required",
               ]}
-              cta="Select Basic"
+              cta="Request Basic"
+              href="https://app.visioner.cc/pricing?plan=basic"
+              highlight
             />
             <PricingCard
               name="Pro"
               price="$29"
+              badge="Coming soon"
               tagline="For serious operators"
               features={[
-                "Unlimited accounts",
-                "1,500 Visioner Credits/month",
-                "1,000 archived emails/month",
+                "Everything in Basic",
+                "Higher email archive limits",
                 "Contact Enrichment",
                 "Daily Signals",
                 "Cloud backup",
                 "Personal BCC alias",
               ]}
-              cta="Select Pro"
-              highlight
+              cta="Join Pro Waitlist"
+              href="https://app.visioner.cc/signup?plan=pro"
             />
             <PricingCard
               name="Team"
               price="$49"
               perUser
+              badge="Coming soon"
               tagline="For KAM teams"
               features={[
                 "Team workspace",
-                "5,000 shared Visioner Credits/month",
                 "Shared accounts",
-                "Roles",
+                "Roles & permissions",
                 "Team BCC routing",
                 "Manager export",
                 "Priority support",
               ]}
-              cta="Select Team"
+              cta="Join Team Waitlist"
+              href="https://app.visioner.cc/signup?plan=team"
             />
-          </div>
-        </div>
-      </section>
-
-      {/* Download */}
-      <section id="download" className="border-t border-border/60">
-        <div className="mx-auto max-w-5xl px-6 py-20 md:py-24">
-          <div className="text-center">
-            <Eyebrow>Download</Eyebrow>
-            <h2 className="text-3xl font-bold text-foreground md:text-[40px]">
-              Use Visioner in the browser or on your Mac.
-            </h2>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-card p-8">
-              <Globe className="h-6 w-6 text-accent" />
-              <h3 className="mt-4 text-xl font-semibold text-foreground">Start Free in Browser</h3>
-              <p className="mt-2 text-[15px] text-muted-foreground">
-                The browser version supports cloud sync and all paid cloud features. No install required.
-              </p>
-              <BtnPrimary className="mt-6">Open Web App <ArrowRight className="h-4 w-4" /></BtnPrimary>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-8">
-              <Apple className="h-6 w-6 text-foreground" />
-              <h3 className="mt-4 text-xl font-semibold text-foreground">Download Mac Beta</h3>
-              <p className="mt-2 text-[15px] text-muted-foreground">
-                The Mac version supports local-first usage and optional sync. Turn cloud off entirely if you prefer.
-              </p>
-              <BtnSecondary className="mt-6">Download for macOS</BtnSecondary>
-            </div>
           </div>
         </div>
       </section>
@@ -738,12 +815,13 @@ function LandingPage() {
           </div>
           <div className="mt-10 space-y-3">
             {[
-              ["Is Visioner replacing Salesforce?", "No. Visioner is the account planning canvas KAMs use daily. Many customers keep Salesforce as the system of record for pipeline reporting and use Visioner for strategic account management."],
-              ["Can I use it without cloud sync?", "Yes. The Mac app runs fully local. Cloud features are opt-in and only activate when you sign in."],
-              ["What is BCC Capture?", "A silent BCC alias that archives your outbound email against the right account and contact automatically — so email history builds itself."],
-              ["Can I import contacts from HubSpot or Zoho?", "Yes, via CSV. Map columns once and Visioner will keep the mapping for future imports."],
-              ["What are Visioner Credits?", "A shared unit used for cloud actions like contact enrichment, org discovery, and Inspire Me runs. Plans include a monthly allowance."],
-              ["Can teams share accounts?", "Yes, on the Team plan. Shared accounts, roles, team BCC routing, and manager exports are included."],
+              ["Is Visioner replacing Salesforce?", "No. Visioner is the account planning CRM KAMs use daily. Many customers keep Salesforce as the system of record for pipeline reporting and use Visioner for strategic account management."],
+              ["Do I need to install a Mac app?", "No. V1.0 is SaaS-first. Start in the browser with three free accounts."],
+              ["What is BCC Capture?", "A paid cloud beta that archives outbound email against the right account and contact by verified sender and customer domain. When the project is unclear, Visioner creates a review item instead of guessing."],
+              ["Who is Visioner for?", "Visioner is built for Key Account Managers, Strategic Account Managers, and founders who personally work a small number of high-value accounts."],
+              ["What makes Visioner different from a traditional CRM?", "Traditional CRMs are optimized for records, forecasts, and manager reporting. Visioner is optimized for daily account work: relationships, stakeholder coverage, tasks, signals, and account planning."],
+              ["Can I use Visioner for only 3–5 strategic accounts?", "Yes. That is the ideal starting point. Visioner is designed for depth inside a few important accounts, not high-volume lead management."],
+              ["What is free, and what requires a paid plan?", "The free plan supports three accounts with contacts, projects, org charts, tasks, CSV import/export, and account signals. Paid plans add cloud workflows such as BCC capture and future backup or team features."],
             ].map(([q, a]) => (
               <details
                 key={q as string}
@@ -770,8 +848,8 @@ function LandingPage() {
             Free to try. No pipeline reviews required. Just the account planning CRM your day actually needs.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <BtnPrimary>Start for Free <ArrowRight className="h-4 w-4" /></BtnPrimary>
-            <BtnSecondary><Apple className="h-4 w-4" /> Download Mac Beta</BtnSecondary>
+            <BtnPrimary href={SIGNUP_URL}>Start for Free <ArrowRight className="h-4 w-4" /></BtnPrimary>
+            <BtnSecondary href={APP_URL}><Globe className="h-4 w-4" /> Open Web App</BtnSecondary>
           </div>
         </div>
       </section>
@@ -783,9 +861,9 @@ function LandingPage() {
           <div className="flex flex-wrap items-center gap-5">
             <a href="#features" className="hover:text-foreground">Features</a>
             <a href="#pricing" className="hover:text-foreground">Pricing</a>
-            <a href="#download" className="hover:text-foreground">Download</a>
-            <a href="#" className="hover:text-foreground">Privacy</a>
-            <a href="#" className="hover:text-foreground">Terms</a>
+            <a href="/privacy" className="hover:text-foreground">Privacy</a>
+            <a href="/terms" className="hover:text-foreground">Terms</a>
+            <a href="/support" className="hover:text-foreground">Support</a>
           </div>
           <div>© {new Date().getFullYear()} Visioner</div>
         </div>
@@ -818,6 +896,8 @@ function PricingCard({
   features,
   cta,
   highlight,
+  badge,
+  href,
 }: {
   name: string;
   price: string;
@@ -826,13 +906,13 @@ function PricingCard({
   features: string[];
   cta: string;
   highlight?: boolean;
+  badge?: string;
+  href?: string;
 }) {
   return (
     <div
       className={`flex flex-col rounded-2xl border p-6 ${
-        highlight
-          ? "border-accent bg-card shadow-[var(--shadow-lift)]"
-          : "border-border bg-card"
+        highlight ? "border-accent bg-card shadow-[var(--shadow-lift)]" : "border-border bg-card"
       }`}
     >
       <div className="flex items-center justify-between">
@@ -840,6 +920,11 @@ function PricingCard({
         {highlight && (
           <span className="rounded-full bg-accent px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
             Popular
+          </span>
+        )}
+        {!highlight && badge && (
+          <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+            {badge}
           </span>
         )}
       </div>
@@ -857,9 +942,9 @@ function PricingCard({
         ))}
       </ul>
       {highlight ? (
-        <BtnPrimary className="mt-6 w-full">{cta}</BtnPrimary>
+        <BtnPrimary href={href} className="mt-6 w-full">{cta}</BtnPrimary>
       ) : (
-        <BtnSecondary className="mt-6 w-full">{cta}</BtnSecondary>
+        <BtnSecondary href={href} className="mt-6 w-full">{cta}</BtnSecondary>
       )}
     </div>
   );
