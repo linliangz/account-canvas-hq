@@ -36,17 +36,22 @@ const LOGIN_URL = "https://app.visioner.cc/login";
 
 /* ---------- Brand mark ---------- */
 
-function Logo({ className = "", size = 32 }: { className?: string; size?: number }) {
+function Logo({ className = "", size = 32, tagline = false }: { className?: string; size?: number; tagline?: boolean }) {
   return (
     <div className={`flex items-center gap-2.5 ${className}`}>
       <VMark size={size} />
-      <div className="flex items-baseline gap-1.5 leading-none">
+      <div className="flex flex-col leading-none">
         <span className="text-[17px] font-bold tracking-tight text-foreground">Visioner</span>
-        <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">CRM</span>
+        {tagline && (
+          <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+            Account Planning CRM
+          </span>
+        )}
       </div>
     </div>
   );
 }
+
 
 function VMark({ size = 32 }: { size?: number }) {
   return (
