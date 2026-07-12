@@ -515,7 +515,8 @@ function LandingPage() {
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
-          <Logo />
+          <Logo tagline />
+
           <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
             <a href="#product" className="hover:text-foreground">Product</a>
             <a href="#features" className="hover:text-foreground">Features</a>
