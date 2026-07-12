@@ -418,8 +418,9 @@ const DAY_MOMENTS = [
     time: "1:30 PM",
     icon: UserPlus,
     title: "Expand the org map",
-    body: "Visioner highlights missing roles and relationship gaps. With user-approved Contact Intelligence, you can discover a likely manager, peer, or missing stakeholder and add them to the Org Chart.",
+    body: "Visioner highlights missing roles and relationship gaps. With user-approved Contact Intelligence, you can research a likely manager, peer, or missing stakeholder and choose whether to add them to the Org Chart.",
     outcome: "The account map becomes more complete over time.",
+
     Panel: PanelOrgChart,
   },
   {
