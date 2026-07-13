@@ -46,63 +46,6 @@ export const Route = createFileRoute("/")({
 const SIGNUP_URL = "https://app.visioner.cc/signup";
 const APP_URL = "https://app.visioner.cc/";
 const LOGIN_URL = "https://app.visioner.cc/login";
-const SEO_LINKS = [
-  { label: "CRM for Key Account Managers", href: "/crm-for-key-account-managers" },
-  { label: "Key Account Management CRM", href: "/key-account-management-crm" },
-  { label: "Key Account Management Software", href: "/key-account-management-software" },
-  { label: "Key Account Manager Tools", href: "/key-account-manager-tools" },
-  { label: "Account Planning CRM", href: "/account-planning-crm" },
-  { label: "Account Planning Software", href: "/account-planning-software" },
-  { label: "Key Account Planning Software", href: "/key-account-planning-software" },
-  {
-    label: "Strategic Account Management Software",
-    href: "/strategic-account-management-software",
-  },
-  { label: "Stakeholder Mapping CRM", href: "/stakeholder-mapping-crm" },
-  { label: "Account Mapping Software", href: "/account-mapping-software" },
-  { label: "Customer Org Chart Software", href: "/customer-org-chart-software" },
-  { label: "Relationship Mapping Software", href: "/relationship-mapping-software" },
-  { label: "Account Plan Template", href: "/account-plan-template" },
-  {
-    label: "Traditional CRM vs Account Planning CRM",
-    href: "/traditional-crm-vs-account-planning-crm",
-  },
-];
-const GUIDE_LINKS = [
-  {
-    label: "All KAM guides",
-    href: "/guides",
-  },
-  {
-    label: "Account mapping guide",
-    href: "/guides/account-mapping-guide-for-key-account-managers",
-  },
-  {
-    label: "What should an account plan include?",
-    href: "/guides/what-should-an-account-plan-include",
-  },
-  {
-    label: "How to map stakeholders",
-    href: "/guides/how-to-map-stakeholders-in-a-strategic-account",
-  },
-  {
-    label: "What traditional CRM misses",
-    href: "/guides/crm-for-key-account-managers",
-  },
-  {
-    label: "How to choose KAM software",
-    href: "/guides/how-to-choose-key-account-management-software",
-  },
-  {
-    label: "Account Planning CRM vs KAM Platform",
-    href: "/guides/account-planning-crm-vs-key-account-management-platform",
-  },
-  {
-    label: "KAM daily workflow",
-    href: "/guides/key-account-manager-daily-workflow",
-  },
-];
-
 /* ---------- Brand mark ---------- */
 
 function Logo({ className = "", size = 32, tagline = false }: { className?: string; size?: number; tagline?: boolean }) {
@@ -940,62 +883,6 @@ function LandingPage() {
                 <p className="mt-3 text-[15px] text-muted-foreground">{a}</p>
               </details>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Search Intent Links */}
-      <section className="border-t border-border/60 bg-surface/40">
-        <div className="mx-auto max-w-7xl px-6 py-16">
-          <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-            <div className="grid gap-8 md:grid-cols-[0.85fr_1.15fr] md:items-center">
-              <div>
-                <div className="text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                  Explore by search intent
-                </div>
-                <h2 className="mt-3 text-3xl font-bold text-foreground">
-                  Different searches. Same KAM workspace.
-                </h2>
-                <p className="mt-3 text-[15px] leading-7 text-muted-foreground">
-                  Buyers describe this problem in different ways. These pages explain how Visioner
-                  fits each common search path.
-                </p>
-              </div>
-              <div className="space-y-4">
-                <div>
-                  <div className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                    Product keywords
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {SEO_LINKS.map((page) => (
-                      <a
-                        key={page.href}
-                        href={page.href}
-                        className="rounded-full border border-border bg-surface px-3 py-1.5 text-sm font-semibold text-foreground transition hover:border-accent/50 hover:bg-secondary/50"
-                      >
-                        {page.label}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <div className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                    Practical guides
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {GUIDE_LINKS.map((page) => (
-                      <a
-                        key={page.href}
-                        href={page.href}
-                        className="rounded-full border border-border bg-card px-3 py-1.5 text-sm font-semibold text-foreground transition hover:border-accent/50 hover:bg-secondary/50"
-                      >
-                        {page.label}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
