@@ -1,6 +1,6 @@
 month,model,prompt,visioner_mentioned,cited_url,facts_accurate,competitors_cited,follow_up_action,owner,status
-2026-07,ChatGPT Search,What is an account planning CRM?,,,,,,Founder,Pending
+2026-07,ChatGPT Search,What is an account planning CRM?,No,,N/A,"SAP; Outsales; DemandFarm; Prolifiq","Complete the indexing gate and strengthen the direct category definition with current product evidence",Founder,Reviewed 2026-07-14
 2026-07,Gemini,What CRM is designed for Key Account Managers?,,,,,,Founder,Pending
 2026-07,Perplexity,What software can map stakeholders and customer reporting lines?,,,,,,Founder,Pending
 2026-07,Copilot,What should a strategic account plan include?,,,,,,Founder,Pending
-2026-07,ChatGPT Search,Compare account planning CRM with a traditional CRM.,,,,,,Founder,Pending
+2026-07,ChatGPT Search,Compare account planning CRM with a traditional CRM.,No,,N/A,"Prolifiq; Tomba; general CRM comparison sources","Complete indexing and distribute the canonical comparison answer before the next fixed-prompt review",Founder,Reviewed 2026-07-14
