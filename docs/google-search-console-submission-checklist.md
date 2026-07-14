@@ -64,7 +64,6 @@ https://www.visioner.cc/guides
 https://www.visioner.cc/guides/account-mapping-guide-for-key-account-managers
 https://www.visioner.cc/guides/what-should-an-account-plan-include
 https://www.visioner.cc/guides/how-to-map-stakeholders-in-a-strategic-account
-https://www.visioner.cc/guides/crm-for-key-account-managers
 https://www.visioner.cc/guides/how-to-choose-key-account-management-software
 https://www.visioner.cc/guides/account-planning-crm-vs-key-account-management-platform
 https://www.visioner.cc/guides/key-account-manager-daily-workflow

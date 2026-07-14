@@ -29,13 +29,6 @@ const guides = [
     keyword: "Stakeholder mapping guide",
   },
   {
-    title: "CRM for Key Account Managers: what traditional CRM misses",
-    href: "/guides/crm-for-key-account-managers",
-    description:
-      "Why KAMs need a daily account planning workspace, not only a pipeline reporting system.",
-    keyword: "CRM for KAMs",
-  },
-  {
     title: "How to choose key account management software",
     href: "/guides/how-to-choose-key-account-management-software",
     description:

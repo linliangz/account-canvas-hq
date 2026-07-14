@@ -121,10 +121,6 @@ const seoPages = [
     "How to map stakeholders in a strategic account",
   ],
   [
-    "/guides/crm-for-key-account-managers",
-    "CRM for Key Account Managers: what traditional CRM misses",
-  ],
-  [
     "/guides/how-to-choose-key-account-management-software",
     "How to choose key account management software",
   ],

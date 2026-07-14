@@ -44,7 +44,6 @@ const productMarketingSources = [
   "src/routes/key-account-manager-tools.tsx",
   "src/routes/strategic-account-management-software.tsx",
   "src/routes/guides/account-planning-crm-vs-key-account-management-platform.tsx",
-  "src/routes/guides/crm-for-key-account-managers.tsx",
 ];
 
 for (const path of productMarketingSources) {
@@ -160,6 +159,12 @@ assert(
 assert(
   sitemapGenerator.includes("createFileRoute") && sitemapGenerator.includes("gitDate"),
   "Sitemap generation must discover public routes and use reviewed or Git modification dates.",
+);
+assert(
+  read("src/server.ts").includes(
+    '["/guides/crm-for-key-account-managers", "/crm-for-key-account-managers"]',
+  ) && !sitemapUrls.includes("https://www.visioner.cc/guides/crm-for-key-account-managers"),
+  "The overlapping KAM guide must permanently consolidate into the canonical persona page.",
 );
 for (const path of requiredRoutes) {
   const expected = `https://www.visioner.cc${path === "/" ? "/" : path}`;

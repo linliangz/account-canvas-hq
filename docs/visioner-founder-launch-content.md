@@ -16,27 +16,27 @@ Use these repeatedly across LinkedIn, founder DMs, demo videos, and directory su
 
 ## Primary Pages to Promote
 
-| Topic | URL | Use when posting about |
-| --- | --- | --- |
-| Category | `https://www.visioner.cc/account-planning-crm` | Account planning CRM, account plan software, account plan workflows |
-| Category | `https://www.visioner.cc/account-planning-software` | Account planning software, account plan tooling, planning workflow |
-| Persona | `https://www.visioner.cc/crm-for-key-account-managers` | KAM tools, CRM for KAMs, daily KAM workflow |
-| Persona | `https://www.visioner.cc/key-account-management-crm` | Key account management CRM, KAM CRM, CRM for strategic account owners |
-| Persona | `https://www.visioner.cc/key-account-planning-software` | Key account planning, KAM workflow, strategic account planning |
-| Strategy | `https://www.visioner.cc/strategic-account-management-software` | SAM software, strategic account management |
-| Stakeholders | `https://www.visioner.cc/stakeholder-mapping-crm` | Org charts, stakeholder maps, decision chains |
-| Mapping | `https://www.visioner.cc/account-mapping-software` | Account mapping, account maps, customer org structure |
-| Org chart | `https://www.visioner.cc/customer-org-chart-software` | Customer org charts, reporting lines, decision maps |
-| Relationships | `https://www.visioner.cc/relationship-mapping-software` | Relationship mapping, reporting lines, relationship health |
-| Comparison | `https://www.visioner.cc/traditional-crm-vs-account-planning-crm` | Traditional CRM limits, account planning CRM, pipeline reporting vs account work |
-| Template | `https://www.visioner.cc/account-plan-template` | Account plan templates, QBR prep, account review |
-| Guide | `https://www.visioner.cc/guides/account-mapping-guide-for-key-account-managers` | Account mapping education, customer org chart guide, stakeholder coverage |
-| Guide | `https://www.visioner.cc/guides/what-should-an-account-plan-include` | Educational checklist content |
-| Guide | `https://www.visioner.cc/guides/how-to-map-stakeholders-in-a-strategic-account` | Stakeholder mapping education |
-| Guide | `https://www.visioner.cc/guides/crm-for-key-account-managers` | Why traditional CRM misses KAM workflow |
-| Buyer guide | `https://www.visioner.cc/guides/how-to-choose-key-account-management-software` | KAM software evaluation, category education, competitive positioning |
-| Comparison guide | `https://www.visioner.cc/guides/account-planning-crm-vs-key-account-management-platform` | Account planning CRM vs enterprise KAM platform positioning |
-| Workflow guide | `https://www.visioner.cc/guides/key-account-manager-daily-workflow` | Daily KAM operating rhythm, task flow, relationship health, and follow-up workflow |
+| Topic            | URL                                                                                      | Use when posting about                                                             |
+| ---------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Category         | `https://www.visioner.cc/account-planning-crm`                                           | Account planning CRM, account plan software, account plan workflows                |
+| Category         | `https://www.visioner.cc/account-planning-software`                                      | Account planning software, account plan tooling, planning workflow                 |
+| Persona          | `https://www.visioner.cc/crm-for-key-account-managers`                                   | KAM tools, CRM for KAMs, daily KAM workflow                                        |
+| Persona          | `https://www.visioner.cc/key-account-management-crm`                                     | Key account management CRM, KAM CRM, CRM for strategic account owners              |
+| Persona          | `https://www.visioner.cc/key-account-planning-software`                                  | Key account planning, KAM workflow, strategic account planning                     |
+| Strategy         | `https://www.visioner.cc/strategic-account-management-software`                          | SAM software, strategic account management                                         |
+| Stakeholders     | `https://www.visioner.cc/stakeholder-mapping-crm`                                        | Org charts, stakeholder maps, decision chains                                      |
+| Mapping          | `https://www.visioner.cc/account-mapping-software`                                       | Account mapping, account maps, customer org structure                              |
+| Org chart        | `https://www.visioner.cc/customer-org-chart-software`                                    | Customer org charts, reporting lines, decision maps                                |
+| Relationships    | `https://www.visioner.cc/relationship-mapping-software`                                  | Relationship mapping, reporting lines, relationship health                         |
+| Comparison       | `https://www.visioner.cc/traditional-crm-vs-account-planning-crm`                        | Traditional CRM limits, account planning CRM, pipeline reporting vs account work   |
+| Template         | `https://www.visioner.cc/account-plan-template`                                          | Account plan templates, QBR prep, account review                                   |
+| Guide            | `https://www.visioner.cc/guides/account-mapping-guide-for-key-account-managers`          | Account mapping education, customer org chart guide, stakeholder coverage          |
+| Guide            | `https://www.visioner.cc/guides/what-should-an-account-plan-include`                     | Educational checklist content                                                      |
+| Guide            | `https://www.visioner.cc/guides/how-to-map-stakeholders-in-a-strategic-account`          | Stakeholder mapping education                                                      |
+| Persona          | `https://www.visioner.cc/crm-for-key-account-managers`                                   | Why traditional CRM misses the daily KAM workflow                                  |
+| Buyer guide      | `https://www.visioner.cc/guides/how-to-choose-key-account-management-software`           | KAM software evaluation, category education, competitive positioning               |
+| Comparison guide | `https://www.visioner.cc/guides/account-planning-crm-vs-key-account-management-platform` | Account planning CRM vs enterprise KAM platform positioning                        |
+| Workflow guide   | `https://www.visioner.cc/guides/key-account-manager-daily-workflow`                      | Daily KAM operating rhythm, task flow, relationship health, and follow-up workflow |
 
 ## LinkedIn Post 1: Problem Framing
 

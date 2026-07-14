@@ -73,7 +73,10 @@ const relatedPages = [
     label: "How to map stakeholders",
     href: "/guides/how-to-map-stakeholders-in-a-strategic-account",
   },
-  { label: "What traditional CRM misses", href: "/guides/crm-for-key-account-managers" },
+  {
+    label: "A KAM's daily workflow",
+    href: "/guides/key-account-manager-daily-workflow",
+  },
   {
     label: "How to choose KAM software",
     href: "/guides/how-to-choose-key-account-management-software",

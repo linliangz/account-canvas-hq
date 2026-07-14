@@ -16,31 +16,30 @@ Supporting message:
 
 ## Search Intent Cluster
 
-| Intent | Target page | Primary keyword | Searcher mindset |
-| --- | --- | --- | --- |
-| Brand entity | `/about` | About Visioner | Needs a stable explanation of what Visioner is and who it serves |
-| Category | `/account-planning-crm` | Account Planning CRM | Looking for a CRM category that is more account-plan oriented |
-| Persona | `/crm-for-key-account-managers` | CRM for Key Account Managers | KAM wants a tool built for their daily work |
-| Persona | `/key-account-management-crm` | Key Account Management CRM | Looking for a CRM specifically for key account workflows |
-| Persona | `/key-account-management-software` | Key Account Management Software | Evaluating software for the broader KAM workflow |
-| Persona | `/key-account-manager-tools` | Key Account Manager Tools | Looking for practical tools for an individual KAM workflow |
-| Category | `/account-planning-software` | Account Planning Software | Looking for account planning tooling before deciding whether it is a CRM |
-| Category | `/key-account-planning-software` | Key Account Planning Software | Looking for planning software specifically for key accounts |
-| Market | `/strategic-account-management-software` | Strategic Account Management Software | Searching broader SAM/KAM tooling |
-| Feature | `/stakeholder-mapping-crm` | Stakeholder Mapping CRM | Wants org chart, decision chain, and stakeholder coverage |
-| Feature | `/account-mapping-software` | Account Mapping Software | Wants to map account structure, contacts, projects, and relationship gaps |
-| Feature | `/customer-org-chart-software` | Customer Org Chart Software | Wants a customer org chart with reporting lines and decision context |
-| Feature | `/relationship-mapping-software` | Relationship Mapping Software | Wants visibility into reporting lines, influence, and relationship health |
-| Template | `/account-plan-template` | Account Plan Template | Wants a practical account plan format or structure |
-| Comparison | `/traditional-crm-vs-account-planning-crm` | Traditional CRM vs Account Planning CRM | Comparing pipeline CRM with account planning workflows |
-| Content hub | `/guides` | Key Account Manager guides | Wants educational content before evaluating software |
-| Guide | `/guides/account-mapping-guide-for-key-account-managers` | Account mapping guide | Wants a practical process for account maps, org charts, and stakeholder coverage |
-| Guide | `/guides/what-should-an-account-plan-include` | What should an account plan include | Wants a checklist for a useful account plan |
-| Guide | `/guides/how-to-map-stakeholders-in-a-strategic-account` | How to map stakeholders in a strategic account | Wants a practical stakeholder mapping process |
-| Guide | `/guides/crm-for-key-account-managers` | CRM for Key Account Managers | Researching why standard CRM is not enough for KAM daily work |
-| Guide | `/guides/how-to-choose-key-account-management-software` | How to choose key account management software | Comparing enterprise KAM platforms, CRM-native planning tools, generic CRMs, and daily KAM workspaces |
-| Guide | `/guides/account-planning-crm-vs-key-account-management-platform` | Account Planning CRM vs Key Account Management Platform | Deciding whether daily KAM adoption or enterprise KAM governance is the priority |
-| Guide | `/guides/key-account-manager-daily-workflow` | Key Account Manager daily workflow | Wants a practical daily operating rhythm for portfolio review, tasks, stakeholders, relationship health, and follow-ups |
+| Intent       | Target page                                                       | Primary keyword                                         | Searcher mindset                                                                                                        |
+| ------------ | ----------------------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Brand entity | `/about`                                                          | About Visioner                                          | Needs a stable explanation of what Visioner is and who it serves                                                        |
+| Category     | `/account-planning-crm`                                           | Account Planning CRM                                    | Looking for a CRM category that is more account-plan oriented                                                           |
+| Persona      | `/crm-for-key-account-managers`                                   | CRM for Key Account Managers                            | KAM wants a tool built for their daily work                                                                             |
+| Persona      | `/key-account-management-crm`                                     | Key Account Management CRM                              | Looking for a CRM specifically for key account workflows                                                                |
+| Persona      | `/key-account-management-software`                                | Key Account Management Software                         | Evaluating software for the broader KAM workflow                                                                        |
+| Persona      | `/key-account-manager-tools`                                      | Key Account Manager Tools                               | Looking for practical tools for an individual KAM workflow                                                              |
+| Category     | `/account-planning-software`                                      | Account Planning Software                               | Looking for account planning tooling before deciding whether it is a CRM                                                |
+| Category     | `/key-account-planning-software`                                  | Key Account Planning Software                           | Looking for planning software specifically for key accounts                                                             |
+| Market       | `/strategic-account-management-software`                          | Strategic Account Management Software                   | Searching broader SAM/KAM tooling                                                                                       |
+| Feature      | `/stakeholder-mapping-crm`                                        | Stakeholder Mapping CRM                                 | Wants org chart, decision chain, and stakeholder coverage                                                               |
+| Feature      | `/account-mapping-software`                                       | Account Mapping Software                                | Wants to map account structure, contacts, projects, and relationship gaps                                               |
+| Feature      | `/customer-org-chart-software`                                    | Customer Org Chart Software                             | Wants a customer org chart with reporting lines and decision context                                                    |
+| Feature      | `/relationship-mapping-software`                                  | Relationship Mapping Software                           | Wants visibility into reporting lines, influence, and relationship health                                               |
+| Template     | `/account-plan-template`                                          | Account Plan Template                                   | Wants a practical account plan format or structure                                                                      |
+| Comparison   | `/traditional-crm-vs-account-planning-crm`                        | Traditional CRM vs Account Planning CRM                 | Comparing pipeline CRM with account planning workflows                                                                  |
+| Content hub  | `/guides`                                                         | Key Account Manager guides                              | Wants educational content before evaluating software                                                                    |
+| Guide        | `/guides/account-mapping-guide-for-key-account-managers`          | Account mapping guide                                   | Wants a practical process for account maps, org charts, and stakeholder coverage                                        |
+| Guide        | `/guides/what-should-an-account-plan-include`                     | What should an account plan include                     | Wants a checklist for a useful account plan                                                                             |
+| Guide        | `/guides/how-to-map-stakeholders-in-a-strategic-account`          | How to map stakeholders in a strategic account          | Wants a practical stakeholder mapping process                                                                           |
+| Guide        | `/guides/how-to-choose-key-account-management-software`           | How to choose key account management software           | Comparing enterprise KAM platforms, CRM-native planning tools, generic CRMs, and daily KAM workspaces                   |
+| Guide        | `/guides/account-planning-crm-vs-key-account-management-platform` | Account Planning CRM vs Key Account Management Platform | Deciding whether daily KAM adoption or enterprise KAM governance is the priority                                        |
+| Guide        | `/guides/key-account-manager-daily-workflow`                      | Key Account Manager daily workflow                      | Wants a practical daily operating rhythm for portfolio review, tasks, stakeholders, relationship health, and follow-ups |
 
 ## Technical SEO Checklist
 
@@ -49,7 +48,7 @@ Supporting message:
 - `llms.txt` is live at `https://www.visioner.cc/llms.txt` for AI crawler and summary context.
 - `site.webmanifest` is live at `https://www.visioner.cc/site.webmanifest` for product identity.
 - `/about` is live as the product and brand entity page.
-- Sitemap includes the homepage, About page, legal pages, 14 keyword landing pages, and 7 educational guide pages.
+- Sitemap includes the homepage, About page, legal pages, focused product pages, and six educational guide pages. The overlapping KAM guide permanently redirects to the canonical persona page.
 - Homepage includes internal links to each keyword page and guide page.
 - Each keyword page has a unique title and meta description.
 - Each guide page has a unique title, meta description, internal links, and a signup CTA.
@@ -87,7 +86,6 @@ Detailed submission workflow: `docs/google-search-console-submission-checklist.m
    - `https://www.visioner.cc/guides/account-mapping-guide-for-key-account-managers`
    - `https://www.visioner.cc/guides/what-should-an-account-plan-include`
    - `https://www.visioner.cc/guides/how-to-map-stakeholders-in-a-strategic-account`
-   - `https://www.visioner.cc/guides/crm-for-key-account-managers`
    - `https://www.visioner.cc/guides/how-to-choose-key-account-management-software`
    - `https://www.visioner.cc/guides/account-planning-crm-vs-key-account-management-platform`
    - `https://www.visioner.cc/guides/key-account-manager-daily-workflow`
@@ -110,7 +108,7 @@ Directory and listing copy is maintained in `docs/visioner-directory-submission-
 - Published: "Account Mapping Guide for Key Account Managers"
 - Published: "What should an account plan include?"
 - Published: "How to map stakeholders in a strategic account"
-- Published: "CRM for Key Account Managers: what traditional CRM misses"
+- Consolidated: the overlapping "CRM for Key Account Managers" guide now redirects to the stronger persona page.
 - Published: "How to choose key account management software"
 - Published: "Account Planning CRM vs Key Account Management Platform"
 - Published: "Key Account Manager Daily Workflow: What to Check Every Morning"

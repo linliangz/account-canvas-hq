@@ -38,6 +38,7 @@ or positioning. Do not compensate by producing near-duplicate keyword pages.
 4. Date every guide and review product claims whenever plan capabilities change.
 5. Never describe Preview features as generally available.
 6. GEO is not keyword stuffing for AI. It is consistent facts, clear entity names, crawlable pages, direct answers, and evidence that can be cited.
+7. Redirect overlapping pages into the strongest canonical answer. On 2026-07-14, the duplicate KAM guide was consolidated into `/crm-for-key-account-managers` with a permanent redirect.
 
 ## Week 1: technical baseline
 

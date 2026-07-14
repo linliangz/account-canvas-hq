@@ -9,6 +9,10 @@ type ServerEntry = {
 
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
+const PERMANENT_REDIRECTS = new Map([
+  ["/guides/crm-for-key-account-managers", "/crm-for-key-account-managers"],
+]);
+
 async function getServerEntry(): Promise<ServerEntry> {
   if (!serverEntryPromise) {
     serverEntryPromise = import("@tanstack/react-start/server-entry").then(
@@ -47,6 +51,13 @@ function isH3SwallowedErrorBody(body: string): boolean {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const url = new URL(request.url);
+      const redirectPath = PERMANENT_REDIRECTS.get(url.pathname.replace(/\/$/, ""));
+      if (redirectPath) {
+        url.pathname = redirectPath;
+        return Response.redirect(url, 301);
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
