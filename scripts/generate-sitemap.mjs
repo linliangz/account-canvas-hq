@@ -7,6 +7,7 @@ const routesRoot = "src/routes";
 const outputPath = "public/sitemap.xml";
 const checkOnly = process.argv.includes("--check");
 const existingDates = existingLastModifiedDates();
+const shallowRepository = gitOutput(["rev-parse", "--is-shallow-repository"]) === "true";
 
 const routes = routeFiles(routesRoot)
   .map((file) => routeRecord(file))
@@ -82,12 +83,15 @@ function reviewedDate(source) {
 }
 
 function gitDate(file, path) {
-  const result = spawnSync("git", ["log", "-1", "--format=%cs", "--", relative(".", file)], {
-    encoding: "utf8",
-  });
-  const value = result.status === 0 ? result.stdout.trim() : "";
+  if (shallowRepository && existingDates.has(path)) return existingDates.get(path);
+  const value = gitOutput(["log", "-1", "--format=%cs", "--", relative(".", file)]);
   if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
   return existingDates.get(path) || new Date().toISOString().slice(0, 10);
+}
+
+function gitOutput(args) {
+  const result = spawnSync("git", args, { encoding: "utf8" });
+  return result.status === 0 ? result.stdout.trim() : "";
 }
 
 function existingLastModifiedDates() {
