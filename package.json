@@ -18,6 +18,7 @@
     "report:seo-geo-weekly": "node scripts/generate-seo-geo-weekly-brief.mjs",
     "report:growth": "node scripts/report-growth-performance.mjs",
     "growth:links": "node scripts/generate-growth-links.mjs",
+    "growth:content-kit": "node scripts/generate-seo-geo-content-kit.mjs",
     "indexnow:submit": "node scripts/submit-indexnow.mjs",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",

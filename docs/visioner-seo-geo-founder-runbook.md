@@ -32,6 +32,8 @@ Completion evidence belongs in GitHub issue
 ### 1. Read evidence — 15 minutes
 
 - Open the current `SEO/GEO growth sprint` GitHub issue.
+- Use the generated `seo-geo-content-kit.md` drafts as a starting point. Replace every bracketed
+  prompt with first-hand evidence or remove it; the kit must never invent customer results.
 - Read technical audit status, non-brand impressions and clicks, signup-to-first-Account activation,
   and paid conversions.
 - Treat an unconnected source as missing, never as zero.

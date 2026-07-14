@@ -32,6 +32,8 @@ jobs:
         run: node scripts/report-growth-performance.mjs
       - name: Generate channel-specific tracked links
         run: node scripts/generate-growth-links.mjs
+      - name: Generate the founder content execution kit
+        run: node scripts/generate-seo-geo-content-kit.mjs
       - name: Generate the weekly SEO and GEO operating brief
         run: node scripts/generate-seo-geo-weekly-brief.mjs
       - name: Create the weekly growth task
@@ -61,6 +63,10 @@ jobs:
             cat artifacts/growth-links.md >> "$BODY_FILE"
             printf '\n---\n\n' >> "$BODY_FILE"
           fi
+          if [ -f artifacts/seo-geo-content-kit.md ]; then
+            cat artifacts/seo-geo-content-kit.md >> "$BODY_FILE"
+            printf '\n---\n\n' >> "$BODY_FILE"
+          fi
           gh issue create --repo "$GH_REPO" --title "$TITLE" --body-file "$BODY_FILE"
       - name: Upload product acquisition evidence
         uses: actions/upload-artifact@v4
@@ -72,6 +78,8 @@ jobs:
             artifacts/growth-performance.md
             artifacts/growth-links.json
             artifacts/growth-links.md
+            artifacts/seo-geo-content-kit.json
+            artifacts/seo-geo-content-kit.md
             artifacts/seo-live-audit.json
             artifacts/seo-geo-performance.json
             artifacts/seo-geo-weekly-brief.json

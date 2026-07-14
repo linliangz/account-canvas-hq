@@ -93,6 +93,10 @@ identity or workspace content:
 
 Each sprint also generates `artifacts/growth-links.md` with one distinct tracked URL for the two
 LinkedIn posts, community contribution, and KAM review request. Use those URLs exactly as generated.
+It also generates `artifacts/seo-geo-content-kit.md`, containing week-specific drafts for those four
+actions. The drafts include the week's product evidence, one meaningful limitation, and explicit
+placeholders for founder experience; every placeholder must be replaced truthfully or removed before
+publication.
 The same artifact includes that week's required product evidence, distribution commitment,
 measurement target, four content angles, and a seven-day decision record. This keeps execution
 grounded in first-hand evidence rather than auto-publishing generic marketing copy.

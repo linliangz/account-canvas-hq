@@ -21,6 +21,7 @@ const marketingLinks = read("src/lib/marketing-links.ts");
 const performanceReport = read("scripts/report-seo-geo-performance.mjs");
 const growthReport = read("scripts/report-growth-performance.mjs");
 const growthLinks = read("scripts/generate-growth-links.mjs");
+const contentKit = read("scripts/generate-seo-geo-content-kit.mjs");
 const weeklyBrief = read("scripts/generate-seo-geo-weekly-brief.mjs");
 const attribution = read("src/components/MarketingAttribution.tsx");
 const weeklyAudit = read(".github/workflows/seo-live-audit.yml");
@@ -138,7 +139,12 @@ assert(
     growthLinks.includes("Seven-day evidence") &&
     growthLinks.includes("Do not invent customer results") &&
     weeklyGrowthSprint.includes("generate-growth-links.mjs") &&
-    weeklyGrowthSprint.includes("growth-links.md"),
+    weeklyGrowthSprint.includes("growth-links.md") &&
+    weeklyGrowthSprint.includes("generate-seo-geo-content-kit.mjs") &&
+    weeklyGrowthSprint.includes("seo-geo-content-kit.md") &&
+    contentKit.includes("Replace every bracketed prompt") &&
+    contentKit.includes("Do not name a customer") &&
+    contentKit.includes("Seven-day record"),
   "Every weekly sprint must provide a focused evidence brief, channel-specific tracked links, and a seven-day decision record.",
 );
 assert(
