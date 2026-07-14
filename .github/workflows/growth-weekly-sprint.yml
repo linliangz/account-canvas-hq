@@ -30,8 +30,15 @@ jobs:
         run: |
           WEEK="$(date -u +%G-W%V)"
           TITLE="SEO/GEO growth sprint — ${WEEK}"
-          if gh issue list --repo "$GH_REPO" --state all --search "${TITLE} in:title" --json title --jq '.[].title' | grep -Fxq "$TITLE"; then
-            echo "Weekly growth task already exists: $TITLE"
+          EXISTING_ISSUE="$(gh issue list --repo "$GH_REPO" --state all --search "${TITLE} in:title" --json number,title --jq '.[] | select(.title == "'"$TITLE"'") | .number' | head -1)"
+          if [ -n "$EXISTING_ISSUE" ]; then
+            echo "Weekly growth task already exists: #${EXISTING_ISSUE}"
+            if [ -f artifacts/growth-performance.md ]; then
+              UPDATE_FILE="$(mktemp)"
+              printf '## Updated product evidence\n\n' > "$UPDATE_FILE"
+              cat artifacts/growth-performance.md >> "$UPDATE_FILE"
+              gh issue comment "$EXISTING_ISSUE" --repo "$GH_REPO" --body-file "$UPDATE_FILE"
+            fi
             exit 0
           fi
           BODY_FILE="$(mktemp)"

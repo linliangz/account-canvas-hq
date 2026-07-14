@@ -74,7 +74,9 @@ assert(
     growthReport.includes("Product acquisition baseline") &&
     growthReport.includes("Privacy boundary") &&
     weeklyGrowthSprint.includes("VISIONER_ADMIN_TOKEN") &&
-    weeklyGrowthSprint.includes("visioner-growth-performance"),
+    weeklyGrowthSprint.includes("visioner-growth-performance") &&
+    weeklyGrowthSprint.includes("Updated product evidence") &&
+    weeklyGrowthSprint.includes("gh issue comment"),
   "The weekly growth sprint must attach privacy-safe signup, first-Account, and paid conversion evidence.",
 );
 assert(new Set(sitemapUrls).size === sitemapUrls.length, "Sitemap URLs must be unique.");
