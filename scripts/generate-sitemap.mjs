@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { spawnSync } from "node:child_process";
 
@@ -6,6 +6,7 @@ const siteUrl = "https://www.visioner.cc";
 const routesRoot = "src/routes";
 const outputPath = "public/sitemap.xml";
 const checkOnly = process.argv.includes("--check");
+const existingDates = existingLastModifiedDates();
 
 const routes = routeFiles(routesRoot)
   .map((file) => routeRecord(file))
@@ -64,7 +65,7 @@ function routeRecord(file) {
   if (path.includes("$") || path.includes("*")) return null;
   return {
     path,
-    lastModified: reviewedDate(source) || gitDate(file),
+    lastModified: reviewedDate(source) || gitDate(file, path),
     changeFrequency:
       path === "/" || path === "/guides" || !path.startsWith("/guides/") ? "weekly" : "monthly",
     priority: priority(path),
@@ -80,12 +81,25 @@ function reviewedDate(source) {
   return source.match(/dateModified:\s*["'](\d{4}-\d{2}-\d{2})["']/)?.[1] || "";
 }
 
-function gitDate(file) {
+function gitDate(file, path) {
   const result = spawnSync("git", ["log", "-1", "--format=%cs", "--", relative(".", file)], {
     encoding: "utf8",
   });
   const value = result.status === 0 ? result.stdout.trim() : "";
-  return /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : new Date().toISOString().slice(0, 10);
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
+  return existingDates.get(path) || new Date().toISOString().slice(0, 10);
+}
+
+function existingLastModifiedDates() {
+  if (!existsSync(outputPath)) return new Map();
+  const xml = readFileSync(outputPath, "utf8");
+  return new Map(
+    [
+      ...xml.matchAll(
+        /<url>\s*<loc>https:\/\/www\.visioner\.cc([^<]*)<\/loc>\s*<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/g,
+      ),
+    ].map((match) => [normalizePath(match[1] || "/"), match[2]]),
+  );
 }
 
 function priority(path) {
