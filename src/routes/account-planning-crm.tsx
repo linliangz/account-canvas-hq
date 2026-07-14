@@ -11,6 +11,10 @@ const page: SeoLandingPageConfig = {
   path: "/account-planning-crm",
   primaryKeyword: "Account Planning CRM",
   audience: "account owners who need account plans to guide real work, not just quarterly reviews",
+  dateModified: "2026-07-14",
+  updatedAt: "Updated July 14, 2026",
+  directAnswer:
+    "An account planning CRM is a daily workspace for managing a strategic customer across revenue, projects, stakeholders, relationships, and next actions. Unlike a pipeline CRM, it is organized around the depth of work inside a few key accounts rather than the volume of opportunities across a sales team.",
   problem:
     "Account plans often live in slides, spreadsheets, or static CRM fields. They become outdated because they are separated from the work itself. Visioner treats account planning as a daily operating system: every project update, task, relationship touch, and signal makes the plan more useful.",
   outcomes: [
@@ -18,6 +22,39 @@ const page: SeoLandingPageConfig = {
     "See project risk and stakeholder coverage together",
     "Use completed tasks and activity as account plan evidence",
     "Export or summarize a clearer account plan later",
+  ],
+  evidence: {
+    image: "/product-screenshots/visioner-account-overview.png",
+    alt: "Visioner account overview showing strategic account tasks, projects, revenue progress, and local signals",
+    caption:
+      "A current Visioner account workspace. Revenue context stays visible, while tasks, projects, stakeholder gaps, and relationship signals remain close to the work.",
+  },
+  fit: {
+    for: [
+      "Key Account Managers responsible for a small number of complex, high-value customers",
+      "Account plans where stakeholder coverage and relationship cadence affect project outcomes",
+      "Teams that keep a corporate CRM but need a practical daily account workspace",
+    ],
+    notFor: [
+      "High-volume lead capture, marketing automation, or SDR sequencing",
+      "Replacing a finance-grade forecasting or enterprise system of record",
+      "Automatically scraping private customer data without user review",
+    ],
+  },
+  related: [
+    { label: "CRM for Key Account Managers", href: "/crm-for-key-account-managers" },
+    {
+      label: "Traditional CRM vs Account Planning CRM",
+      href: "/traditional-crm-vs-account-planning-crm",
+    },
+    {
+      label: "What should an account plan include?",
+      href: "/guides/what-should-an-account-plan-include",
+    },
+    {
+      label: "How to choose KAM software",
+      href: "/guides/how-to-choose-key-account-management-software",
+    },
   ],
   sections: [
     {

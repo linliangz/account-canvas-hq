@@ -1,6 +1,6 @@
 import { ArrowRight, Check, ChevronRight, Globe, Network, Signal } from "lucide-react";
 
-import { breadcrumbJsonLd, faqJsonLd } from "../lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "../lib/seo";
 import { marketingSignupUrl } from "../lib/marketing-links";
 
 const APP_URL = "https://app.visioner.cc/";
@@ -13,6 +13,19 @@ export type SeoLandingPageConfig = {
   primaryKeyword: string;
   audience: string;
   problem: string;
+  directAnswer?: string;
+  dateModified?: string;
+  updatedAt?: string;
+  evidence?: {
+    image: string;
+    alt: string;
+    caption: string;
+  };
+  fit?: {
+    for: string[];
+    notFor: string[];
+  };
+  related?: Array<{ label: string; href: string }>;
   outcomes: string[];
   sections: Array<{
     title: string;
@@ -78,6 +91,16 @@ const relatedPages = [
 export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
   const signupUrl = marketingSignupUrl("seo_landing", config.path);
   const structuredData = [
+    ...(config.dateModified
+      ? [
+          articleJsonLd({
+            title: config.title,
+            description: config.subtitle,
+            path: config.path,
+            dateModified: config.dateModified,
+          }),
+        ]
+      : []),
     faqJsonLd(config.faq),
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
@@ -134,6 +157,9 @@ export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
             <p className="mt-6 max-w-2xl text-[18px] leading-8 text-muted-foreground">
               {config.subtitle}
             </p>
+            {config.updatedAt && (
+              <div className="mt-4 text-sm text-muted-foreground">{config.updatedAt}</div>
+            )}
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href={signupUrl}
@@ -171,6 +197,17 @@ export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
         </div>
       </section>
 
+      {config.directAnswer && (
+        <section className="border-b border-border/60 bg-surface/40">
+          <div className="mx-auto grid max-w-5xl gap-6 px-6 py-12 md:grid-cols-[220px_1fr] md:items-start">
+            <div className="text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+              Direct answer
+            </div>
+            <p className="text-[18px] leading-8 text-foreground">{config.directAnswer}</p>
+          </div>
+        </section>
+      )}
+
       <section className="border-b border-border/60 bg-surface/40">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
           <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-start">
@@ -184,6 +221,26 @@ export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
           </div>
         </div>
       </section>
+
+      {config.evidence && (
+        <section className="border-b border-border/60">
+          <figure className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+            <div className="overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-lift)]">
+              <img
+                src={config.evidence.image}
+                alt={config.evidence.alt}
+                className="block h-auto w-full"
+                loading="lazy"
+                width="1600"
+                height="1000"
+              />
+            </div>
+            <figcaption className="mt-4 text-center text-sm leading-6 text-muted-foreground">
+              {config.evidence.caption}
+            </figcaption>
+          </figure>
+        </section>
+      )}
 
       <section>
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
@@ -208,6 +265,37 @@ export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
           </div>
         </div>
       </section>
+
+      {config.fit && (
+        <section className="border-t border-border/60 bg-surface/40">
+          <div className="mx-auto grid max-w-5xl gap-5 px-6 py-16 md:grid-cols-2 md:py-20">
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h2 className="text-xl font-bold text-foreground">Visioner is a strong fit when</h2>
+              <ul className="mt-4 space-y-3 text-[15px] leading-7 text-muted-foreground">
+                {config.fit.for.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <Check className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h2 className="text-xl font-bold text-foreground">Visioner is not designed for</h2>
+              <ul className="mt-4 space-y-3 text-[15px] leading-7 text-muted-foreground">
+                {config.fit.notFor.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="mt-1 text-muted-foreground" aria-hidden>
+                      -
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="border-y border-border/60 bg-surface/40">
         <div className="mx-auto max-w-3xl px-6 py-16 md:py-20">
@@ -249,7 +337,7 @@ export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
                 </p>
               </div>
               <div className="flex max-w-2xl flex-wrap gap-2">
-                {relatedPages.map((page) => (
+                {(config.related ?? relatedPages).map((page) => (
                   <a
                     key={page.href}
                     href={page.href}
