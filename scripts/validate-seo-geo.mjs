@@ -24,6 +24,7 @@ const weeklyAudit = read(".github/workflows/seo-live-audit.yml");
 const monthlyGeoReview = read(".github/workflows/geo-monthly-review.yml");
 const geoScorecard = read("docs/geo-answer-monitoring.csv");
 const directoryKit = read("docs/visioner-directory-submission-kit.md");
+const liveSeoAudit = read("scripts/audit-live-seo.mjs");
 
 const authorityRoutes = [
   "account-planning-crm.tsx",
@@ -200,6 +201,13 @@ assert(
     geoScorecard.includes("facts_accurate") &&
     geoScorecard.includes("cited_url"),
   "GEO monitoring must create a monthly review task and record citations plus factual accuracy.",
+);
+assert(
+  liveSeoAudit.includes("https://app.visioner.cc") &&
+    liveSeoAudit.includes("sharedPlanFacts") &&
+    liveSeoAudit.includes("Create account for Basic") &&
+    liveSeoAudit.includes("Public product facts agree"),
+  "The live SEO/GEO audit must catch pricing and entitlement facts drifting between the website, app, and LLM context.",
 );
 
 const guideDir = "src/routes/guides";

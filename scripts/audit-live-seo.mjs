@@ -3,6 +3,7 @@ const canonicalBaseUrl = (process.env.SEO_CANONICAL_BASE_URL || "https://www.vis
   /\/$/,
   "",
 );
+const appBaseUrl = (process.env.VISIONER_APP_URL || "https://app.visioner.cc").replace(/\/$/, "");
 
 const pages = [
   {
@@ -45,13 +46,17 @@ const fail = (message) => {
 };
 
 async function fetchText(path) {
-  const response = await fetch(`${baseUrl}${path}`, {
+  return fetchAbsoluteText(`${baseUrl}${path}`, path);
+}
+
+async function fetchAbsoluteText(url, label) {
+  const response = await fetch(url, {
     headers: { "user-agent": "VisionerSEOAudit/1.0 (+https://www.visioner.cc/)" },
     redirect: "follow",
   });
   const text = await response.text();
-  if (!response.ok) fail(`${path} returned ${response.status}.`);
-  else pass(`${path} returned ${response.status}.`);
+  if (!response.ok) fail(`${label} returned ${response.status}.`);
+  else pass(`${label} returned ${response.status}.`);
   return text;
 }
 
@@ -89,9 +94,33 @@ for (const page of pages) {
   }
 }
 
+const llms = await fetchText("/llms.txt");
+const appPricing = await fetchAbsoluteText(`${appBaseUrl}/pricing`, "App pricing");
+const sharedPlanFacts = [
+  ["Free: $0", "3 accounts"],
+  ["Basic: $12/month", "100 Visioner Credits / month"],
+  ["Pro: $29/month", "1,500 Visioner Credits / month"],
+  ["Team: $49/user/month", "/ user / mo"],
+];
+for (const [llmsFact, pricingFact] of sharedPlanFacts) {
+  if (llms.includes(llmsFact) && appPricing.includes(pricingFact)) {
+    pass(`Public product facts agree for ${llmsFact.split(":")[0]}.`);
+  } else {
+    fail(`Public product facts disagree for ${llmsFact.split(":")[0]}.`);
+  }
+}
+if (
+  appPricing.includes("Start with three accounts. Scale into intelligence and teamwork.") &&
+  appPricing.includes("Create account for Basic")
+) {
+  pass("App pricing is publicly readable and hands paid visitors to account creation.");
+} else {
+  fail("App pricing is not publicly readable or its account-creation handoff is missing.");
+}
+
 if (failures.length) {
   console.error(`\nLive SEO audit failed with ${failures.length} issue(s).`);
   process.exit(1);
 }
 
-console.log(`\nLive SEO audit passed for ${pages.length} authority pages.`);
+console.log(`\nLive SEO audit passed for ${pages.length} authority pages and shared plan facts.`);
