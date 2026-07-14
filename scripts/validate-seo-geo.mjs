@@ -23,6 +23,7 @@ const attribution = read("src/components/MarketingAttribution.tsx");
 const weeklyAudit = read(".github/workflows/seo-live-audit.yml");
 const monthlyGeoReview = read(".github/workflows/geo-monthly-review.yml");
 const geoScorecard = read("docs/geo-answer-monitoring.csv");
+const directoryKit = read("docs/visioner-directory-submission-kit.md");
 
 const authorityRoutes = [
   "account-planning-crm.tsx",
@@ -135,6 +136,12 @@ for (const fact of [
 ]) {
   assert(llmsFull.includes(fact), `llms-full.txt is missing: ${fact}.`);
 }
+assert(
+  directoryKit.includes("Free, Basic, Pro, and Team") &&
+    directoryKit.includes("Apollo contact enrichment remains Preview") &&
+    directoryKit.includes("private BYOK integration"),
+  "Directory and external-reference copy must match current plan and provider boundaries.",
+);
 
 assert(
   !/Pro and Team (are|stay).*(waitlist|coming-soon)/i.test(llms),

@@ -70,7 +70,7 @@ function SupportPage() {
             {
               icon: Globe,
               title: "SaaS Beta",
-              body: "Visioner V1.0 is SaaS-first. Free users can start online with up to three accounts before upgrading to Basic.",
+              body: "Visioner is SaaS-first. Free users can start online with up to three accounts, while Basic, Pro, and Team add paid cloud capabilities for different workflows.",
             },
             {
               icon: ShieldCheck,

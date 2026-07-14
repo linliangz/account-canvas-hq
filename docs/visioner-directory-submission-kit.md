@@ -30,9 +30,9 @@ Visioner is an Account Planning CRM built for Key Account Managers, Strategic Ac
 
 Visioner is an Account Planning CRM for Key Account Managers and strategic account owners. It is designed for relationship-led revenue work inside complex accounts, where the biggest risk is often not a missing CRM field but an unmapped decision chain, a cold stakeholder, an unknown economic buyer, or a follow-up that never happened.
 
-Visioner combines portfolio overview, account plans, project workspaces, contacts, tasks, customer org charts, stakeholder mapping, relationship health, local account signals, notes, files, and BCC email capture. The product is SaaS-first in V1.0, with a free plan for three accounts and a Basic plan for cloud email capture beta.
+Visioner combines portfolio overview, account plans, project workspaces, contacts, tasks, customer org charts, stakeholder mapping, relationship health, account signals, notes, files, and BCC email capture. The hosted product offers Free, Basic, Pro, and Team plans. Free supports up to three accounts and cloud sync; paid plans add BCC capture, Visioner Credits, source-linked Intelligence, private organization mapping, Account Plan export, and governed team workspaces according to plan.
 
-Visioner is not a high-volume lead database or generic sales automation platform. It is built for the person working a few important accounts every day.
+Visioner is not a high-volume lead database or generic sales automation platform. It is built for the person working a few important accounts every day. THE ORG is a private BYOK integration on Pro and Team; Apollo contact enrichment remains Preview and should not be presented as a generally available core feature.
 
 ## Category Options
 
