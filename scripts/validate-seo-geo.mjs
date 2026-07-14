@@ -34,6 +34,32 @@ const evaluationScorecard = read(
   "public/resources/key-account-management-software-evaluation-scorecard.csv",
 );
 
+const productMarketingSources = [
+  "src/lib/seo.ts",
+  "src/routes/index.tsx",
+  "src/routes/account-planning-software.tsx",
+  "src/routes/crm-for-key-account-managers.tsx",
+  "src/routes/key-account-management-crm.tsx",
+  "src/routes/key-account-management-software.tsx",
+  "src/routes/key-account-manager-tools.tsx",
+  "src/routes/strategic-account-management-software.tsx",
+  "src/routes/guides/account-planning-crm-vs-key-account-management-platform.tsx",
+  "src/routes/guides/crm-for-key-account-managers.tsx",
+];
+
+for (const path of productMarketingSources) {
+  const source = read(path);
+  assert(
+    !/BCC (?:email )?capture beta/i.test(source) && !/paid cloud beta/i.test(source),
+    `${path} must describe available BCC Capture as a current paid feature, not a beta.`,
+  );
+  assert(
+    !/future team workflows/i.test(source),
+    `${path} must not describe available Team workspaces as a future feature.`,
+  );
+  assert(!/\bV1\.0\b/.test(source), `${path} must not expose an internal release label.`);
+}
+
 const authorityRoutes = [
   "account-planning-crm.tsx",
   "crm-for-key-account-managers.tsx",
@@ -187,6 +213,10 @@ assert(
 assert(
   !/name="Team"[\s\S]{0,180}badge="Coming soon"/.test(home),
   "Team must not be marked Coming soon.",
+);
+assert(
+  home.includes("Account Community") && home.includes("Early access"),
+  "Home must describe the gated Account Community as Early access, not Coming soon.",
 );
 assert(
   home.includes('marketingSignupUrl("homepage_pricing", "pro", "/pricing?plan=pro")'),

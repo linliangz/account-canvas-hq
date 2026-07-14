@@ -115,7 +115,7 @@ export function softwareApplicationJsonLd() {
       "Customer org charts",
       "Relationship health tracking",
       "Account signals",
-      "BCC email capture beta",
+      "BCC email capture",
     ],
   };
 }

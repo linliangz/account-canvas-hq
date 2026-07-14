@@ -80,7 +80,7 @@ const page: SeoLandingPageConfig = {
       body: "The goal is to reduce the feeling of 'feeding the CRM.' Visioner turns everyday work into useful account records: tasks, project notes, BCC email activity, and account signals.",
       bullets: [
         "Optional fields instead of blocking required forms",
-        "BCC capture beta for outbound email logging",
+        "BCC Capture for outbound email logging",
         "Account signals from your own workspace data",
       ],
     },

@@ -73,13 +73,13 @@ const guide: GuidePageConfig = {
       title: "Where Visioner fits",
       body: [
         "Visioner is intentionally starting as an account planning CRM for Key Account Managers. The first product promise is not to replace every enterprise sales system. It is to make the daily work of a strategic account owner clearer and lighter.",
-        "That focus shapes the product: portfolio home, account overview, project workspaces, contacts, org chart, stakeholder gaps, relationship health, tasks, local signals, and cloud email capture beta.",
+        "That focus shapes the product: portfolio home, account overview, project workspaces, contacts, org chart, stakeholder gaps, relationship health, tasks, local signals, and cloud email capture.",
       ],
       checklist: [
         "Start free with a few accounts",
         "Use Visioner as the daily KAM workspace",
         "Use CRM or enterprise systems as systems of record when required",
-        "Upgrade to cloud capture and future team workflows when the daily value is proven",
+        "Upgrade to cloud capture, org intelligence, or Team workspaces when the daily value is proven",
       ],
     },
   ],

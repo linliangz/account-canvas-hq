@@ -59,12 +59,12 @@ const guide: GuidePageConfig = {
       title: "Where Visioner fits in the stack",
       body: [
         "Visioner can coexist with Salesforce, HubSpot, or another corporate CRM. The positioning is a KAM daily workspace and account planning CRM, not a rip-and-replace sales database on day one.",
-        "That makes adoption easier for individual account owners: start free, build three key accounts, and upgrade when cloud capture or future team workflows create enough value.",
+        "That makes adoption easier for individual account owners: start free, build three key accounts, and upgrade when cloud capture, org intelligence, or team workflows create enough value.",
       ],
       checklist: [
         "Free SaaS workspace for three accounts",
         "Basic cloud capture for outbound email logging",
-        "Future integrations for teams and systems of record",
+        "Team workspaces with roles, review, and shared account ownership",
       ],
     },
   ],

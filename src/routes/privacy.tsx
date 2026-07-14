@@ -27,7 +27,7 @@ const sections = [
     body: [
       "Account and registration information may include your name, email address, company, role, plan interest, workspace identifier, and support messages.",
       "Product data may include account names, customer domains, contacts, titles, phone numbers, notes, tags, projects, tasks, org charts, files, relationship health, account signals, and activity logs that you choose to enter, import, or sync.",
-      "If you use optional cloud features such as BCC email capture, sync, backup, contact enrichment, or intelligence workflows, Visioner may process the selected data needed to provide those features. For email capture, this can include sender, recipients, subject, timestamps, attachments, message body, routing metadata, summaries, and project classification status.",
+      "If you use optional cloud features such as BCC email capture, sync, backup, contact enrichment, or intelligence workflows, Visioner may process the selected data needed to provide those features. For email capture, this can include sender, recipients, subject, timestamps, readable message text, attachment names and sizes, routing metadata, summaries, and project classification status. Visioner does not currently retain raw MIME or binary attachment files.",
       "Usage and device information may include page views, feature events, browser or app version, operating system, timestamps, IP-derived rough region, errors, and diagnostic logs.",
     ],
   },

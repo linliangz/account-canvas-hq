@@ -41,7 +41,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "CRM as a byproduct",
-      body: "Visioner is designed to make useful CRM records emerge from daily work: tasks, notes, project updates, contact activity, and BCC email capture beta.",
+      body: "Visioner is designed to make useful CRM records emerge from daily work: tasks, notes, project updates, contact activity, and BCC email capture.",
       bullets: [
         "Optional fields and soft completion",
         "Task board and weekly progress",

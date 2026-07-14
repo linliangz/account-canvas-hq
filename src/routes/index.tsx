@@ -765,14 +765,14 @@ function LandingPage() {
               </div>
             ))}
 
-            {/* Community — separate coming-soon card */}
+            {/* Community — separately gated early-access card */}
             <div className="rounded-2xl border border-dashed border-border bg-surface/40 p-6">
               <div className="mb-4 flex items-center justify-between">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-muted text-muted-foreground">
                   <MessagesSquare className="h-5 w-5" />
                 </div>
                 <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                  Coming soon
+                  Early access
                 </span>
               </div>
               <h3 className="text-lg font-semibold text-foreground">Account Community</h3>
@@ -836,8 +836,8 @@ function LandingPage() {
               <p className="mt-5 text-[17px] text-muted-foreground">
                 Visioner starts with local signals from your own account data: stale contacts,
                 missing stakeholders, quiet projects, renewal windows, and incomplete account plans.
-                Advanced intelligence workflows for news, contact research, and enrichment will roll
-                out gradually as paid cloud features.
+                Paid plans add source-linked news, contact research, and private organization
+                intelligence. Apollo contact enrichment remains a clearly labeled Preview.
               </p>
               <ul className="mt-6 space-y-4 text-[15px]">
                 {[
@@ -861,7 +861,7 @@ function LandingPage() {
                   },
                   {
                     t: "Org Intelligence",
-                    d: "Pro users can connect their own THE ORG account to preview reporting lines and reveal direct managers before importing anything.",
+                    d: "Pro users can connect their own THE ORG account to review reporting lines and reveal direct managers before importing anything.",
                     status: "Pro",
                     tone: "good",
                   },
@@ -1049,11 +1049,11 @@ function LandingPage() {
               ],
               [
                 "Do I need to install a Mac app?",
-                "No. V1.0 is SaaS-first. Start in the browser with three free accounts.",
+                "No. Visioner is SaaS-first. Start in the browser with three free accounts.",
               ],
               [
                 "What is BCC Capture?",
-                "A paid cloud beta that archives outbound email against the right account and contact by verified sender and customer domain. When the project is unclear, Visioner creates a review item instead of guessing.",
+                "A paid cloud feature that archives outbound email against the right account and contact by verified sender and customer domain. When the project is unclear, Visioner creates a review item instead of guessing.",
               ],
               [
                 "Who is Visioner for?",

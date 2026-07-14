@@ -44,7 +44,7 @@ const page: SeoLandingPageConfig = {
       bullets: [
         "Task board and weekly progress",
         "Project workspace and activity logs",
-        "BCC capture beta for outbound email history",
+        "BCC Capture for outbound email history",
       ],
     },
   ],

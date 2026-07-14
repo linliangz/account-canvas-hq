@@ -45,7 +45,7 @@ const page: SeoLandingPageConfig = {
       bullets: [
         "Optional fields instead of hard blockers",
         "Tasks and weekly progress as planning evidence",
-        "BCC capture beta for outbound activity logging",
+        "BCC Capture for outbound activity logging",
       ],
     },
   ],
