@@ -1,20 +1,19 @@
 # Visioner SERP and Competitive Notes
 
-Last updated: July 12, 2026
+Last updated: July 14, 2026
 
 Purpose: record the search result pattern for Visioner's early SEO work so future landing pages, founder posts, and directory submissions stay aligned with real search intent.
 
 ## Current Search Reality
 
-Visioner is not yet visible in public Google-style search results for brand or category queries. Queries such as `site:visioner.cc Visioner CRM` and `site:visioner.cc Account Planning CRM` still return no Visioner pages.
+Visioner is not yet visible in public Google-style results for the brand query `Visioner CRM` or for broad account-planning category queries. Google Search Console is verified, the sitemap is submitted, and the first non-branded baseline is six impressions with no clicks. This is an indexing and authority-building phase, not evidence that the category has no demand.
 
 This means the immediate bottleneck is not only page content. The next gate is:
 
-- Google Search Console verification
-- Sitemap submission
-- URL inspection and manual indexing requests
+- Search Console sitemap processing and indexing requests for authority pages
 - External references and backlinks
-- Time for crawl and index processing
+- Practitioner distribution that earns branded searches and qualified visits
+- Time for crawl, index, and ranking signals to accumulate
 
 ## Search Result Pattern
 
@@ -27,7 +26,14 @@ Searches around account planning CRM and key account management software are cur
 - Generic CRM and account management education pages
 - Gartner/review/listicle pages
 
-Observed examples include DemandFarm, Kapta, Valkre, Altify, ARPEDIO, Salesforce, Pipedrive, monday CRM, and other broader account-management content.
+The July 14 query snapshot surfaced four especially relevant solution patterns:
+
+- CRM-native account planning: ARPEDIO, DemandFarm, and Salesforce-adjacent relationship mapping tools
+- AI research and generated account plans: Backstory, Kandir, Accountforge, and free account-plan generators
+- Specialist stakeholder and influence mapping: Powerscope, Prolifiq, Traction Complete, and DMU Insights
+- Generic education and community discussions: CRM comparison articles, Reddit threads, templates, and account-management training content
+
+The result mix confirms that Visioner should not compete on "AI writes an account plan" alone. Research generation is becoming crowded. The more specific opening is the maintained daily workspace after the first plan exists.
 
 ## Implication For Visioner Positioning
 
@@ -72,6 +78,9 @@ Visioner should keep building around these clusters:
 
 ## Pages Added Or Strengthened
 
+- `/account-planning-crm`
+  - Answer-first category page with current product evidence and a neutral comparison of CRM-native planning, AI plan generation, flexible documents, and Visioner's daily-workspace approach.
+
 - `/about`
   - Brand/entity anchor for Visioner.
 
@@ -99,9 +108,9 @@ Avoid publishing thin "alternative to X" pages until Visioner has enough product
 
 External references matter more than more internal pages right now. The highest leverage next actions are:
 
-- Verify `visioner.cc` in Google Search Console.
-- Submit `https://www.visioner.cc/sitemap.xml`.
+- Wait for Google to process the submitted sitemap and record indexed/excluded counts.
 - Request indexing for homepage, `/about`, `/account-planning-crm`, `/crm-for-key-account-managers`, `/guides/how-to-choose-key-account-management-software`, `/guides/account-planning-crm-vs-key-account-management-platform`, and `/guides/key-account-manager-daily-workflow`.
+- Import the verified property into Bing Webmaster Tools and confirm the same sitemap.
 - Add website links to both GitHub repository About sections.
 - Create a LinkedIn company page and link to `https://www.visioner.cc/`.
 - Publish the founder LinkedIn posts in `docs/visioner-founder-launch-content.md`.
