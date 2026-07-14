@@ -20,6 +20,7 @@ const marketingLinks = read("src/lib/marketing-links.ts");
 const performanceReport = read("scripts/report-seo-geo-performance.mjs");
 const growthReport = read("scripts/report-growth-performance.mjs");
 const growthLinks = read("scripts/generate-growth-links.mjs");
+const weeklyBrief = read("scripts/generate-seo-geo-weekly-brief.mjs");
 const attribution = read("src/components/MarketingAttribution.tsx");
 const weeklyAudit = read(".github/workflows/seo-live-audit.yml");
 const monthlyGeoReview = read(".github/workflows/geo-monthly-review.yml");
@@ -68,15 +69,17 @@ assert(
   "SEO/GEO must have a 12-week owner, evidence, distribution, and measurement roadmap.",
 );
 assert(
-  weeklyGrowthSprint.includes("seo-geo-90-day-roadmap.csv"),
+  weeklyBrief.includes("seo-geo-90-day-roadmap.csv") &&
+    weeklyGrowthSprint.includes("generate-seo-geo-weekly-brief.mjs"),
   "The weekly growth task must link to the 90-day execution roadmap.",
 );
 assert(
   weeklyGrowthSprint.includes("Visioner weekly growth sprint") &&
-    weeklyGrowthSprint.includes("Acquisition to paid") &&
-    weeklyGrowthSprint.includes("seo-geo-weekly-scorecard.csv") &&
-    weeklyGrowthSprint.includes("two founder LinkedIn posts") &&
-    weeklyGrowthSprint.includes("one practicing KAM"),
+    weeklyGrowthSprint.includes("audit-live-seo.mjs") &&
+    weeklyGrowthSprint.includes("report-seo-geo-performance.mjs") &&
+    weeklyBrief.includes("seo-geo-weekly-scorecard.csv") &&
+    weeklyBrief.includes("practicing KAM") &&
+    weeklyBrief.includes("GEO discipline"),
   "SEO/GEO must have a weekly execution loop for measurement, canonical-page evidence, distribution, and practitioner feedback.",
 );
 assert(
@@ -85,7 +88,7 @@ assert(
     growthReport.includes("Privacy boundary") &&
     weeklyGrowthSprint.includes("VISIONER_ADMIN_TOKEN") &&
     weeklyGrowthSprint.includes("visioner-growth-performance") &&
-    weeklyGrowthSprint.includes("Updated product evidence") &&
+    weeklyGrowthSprint.includes("seo-geo-weekly-brief.md") &&
     weeklyGrowthSprint.includes("gh issue comment"),
   "The weekly growth sprint must attach privacy-safe signup, first-Account, and paid conversion evidence.",
 );

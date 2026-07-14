@@ -1,9 +1,13 @@
+import { mkdirSync, writeFileSync } from "node:fs";
+import { dirname } from "node:path";
+
 const baseUrl = (process.env.SEO_AUDIT_BASE_URL || "https://www.visioner.cc").replace(/\/$/, "");
 const canonicalBaseUrl = (process.env.SEO_CANONICAL_BASE_URL || "https://www.visioner.cc").replace(
   /\/$/,
   "",
 );
 const appBaseUrl = (process.env.VISIONER_APP_URL || "https://app.visioner.cc").replace(/\/$/, "");
+const outputPath = process.env.SEO_AUDIT_OUTPUT || "artifacts/seo-live-audit.json";
 
 const pages = [
   {
@@ -39,9 +43,14 @@ const pages = [
 ];
 
 const failures = [];
-const pass = (message) => console.log(`PASS ${message}`);
+const checks = [];
+const pass = (message) => {
+  checks.push({ status: "passed", message });
+  console.log(`PASS ${message}`);
+};
 const fail = (message) => {
   failures.push(message);
+  checks.push({ status: "failed", message });
   console.error(`FAIL ${message}`);
 };
 
@@ -130,6 +139,19 @@ if (
 } else {
   fail("App pricing is not publicly readable or its account-creation handoff is missing.");
 }
+
+const report = {
+  generatedAt: new Date().toISOString(),
+  status: failures.length ? "failed" : "passed",
+  baseUrl,
+  appBaseUrl,
+  authorityPagesAudited: pages.length,
+  checksPassed: checks.filter((check) => check.status === "passed").length,
+  checksFailed: failures.length,
+  checks,
+};
+mkdirSync(dirname(outputPath), { recursive: true });
+writeFileSync(outputPath, `${JSON.stringify(report, null, 2)}\n`);
 
 if (failures.length) {
   console.error(`\nLive SEO audit failed with ${failures.length} issue(s).`);

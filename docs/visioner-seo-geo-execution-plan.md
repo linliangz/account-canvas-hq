@@ -44,7 +44,7 @@ or positioning. Do not compensate by producing near-duplicate keyword pages.
 - [ ] Add Bing Webmaster Tools and submit the same sitemap.
 - [x] Confirm `/robots.txt`, `/sitemap.xml`, `/llms.txt`, and `/llms-full.txt` return HTTP 200 without a browser challenge.
 - [x] Run `npm run validate:seo-geo` in every website pull request.
-- [x] Run `npm run audit:seo-live` every Monday against the public site through GitHub Actions.
+- [x] Run `npm run audit:seo-live` every Monday as part of the consolidated growth sprint.
 - [x] Host an IndexNow verification key and use `npm run indexnow:submit -- /changed-path` after publishing materially updated pages.
 - [x] Connect signup events to source, landing page, and campaign parameters without storing sensitive account content.
 - [ ] Capture baseline branded and non-branded impressions, clicks, CTR, indexed pages, signup conversion, and Core Web Vitals.
@@ -145,6 +145,12 @@ plan into an operating checklist. Complete one canonical-page improvement, two f
 posts, one relevant community contribution, one KAM review request, and one measurement update.
 The goal is one evidence-producing cycle per week, not a larger volume of lightly differentiated
 pages.
+
+Before creating the issue, the workflow now generates one consolidated operating brief from the live
+technical audit, Search Console, aggregate signup-to-paid attribution, and the current row of the
+12-week roadmap. An unconnected source is labeled `Manual setup required`; it is never converted to
+zero. The resulting JSON and Markdown artifacts are retained for 90 days, while the manually updated
+scorecard remains the historical decision log.
 
 The week-by-week owner, deliverable, and completion evidence are tracked in
 `docs/seo-geo-90-day-roadmap.csv`. A row is complete only when its URL, distribution links, reviewer

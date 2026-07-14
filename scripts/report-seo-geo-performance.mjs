@@ -17,6 +17,12 @@ if (!credentialsJson) {
     console.log(`::warning title=Search Console reporting inactive::${message}`);
   }
   appendSummary(`## Visioner SEO/GEO performance\n\n⚪ ${message}\n`);
+  writeReport({
+    status: "not_connected",
+    generatedAt: new Date().toISOString(),
+    property: siteUrl,
+    message,
+  });
   if (required) process.exit(1);
   process.exit(0);
 }
@@ -38,8 +44,7 @@ const current = await fetchPeriod(accessToken, ranges.current);
 const previous = await fetchPeriod(accessToken, ranges.previous);
 const report = buildReport(current, previous, ranges);
 
-mkdirSync(dirname(outputPath), { recursive: true });
-writeFileSync(outputPath, `${JSON.stringify(report, null, 2)}\n`);
+writeReport(report);
 const markdown = renderMarkdown(report);
 console.log(markdown);
 appendSummary(markdown);
@@ -128,6 +133,7 @@ function buildReport(current, previous, ranges) {
   const nonBranded = subtract(current.totals, branded);
   const previousNonBranded = subtract(previous.totals, previousBranded);
   return {
+    status: "connected",
     generatedAt: new Date().toISOString(),
     property: siteUrl,
     ranges,
@@ -141,6 +147,11 @@ function buildReport(current, previous, ranges) {
       .sort((a, b) => b.impressions - a.impressions)
       .slice(0, 10),
   };
+}
+
+function writeReport(report) {
+  mkdirSync(dirname(outputPath), { recursive: true });
+  writeFileSync(outputPath, `${JSON.stringify(report, null, 2)}\n`);
 }
 
 function renderMarkdown(report) {

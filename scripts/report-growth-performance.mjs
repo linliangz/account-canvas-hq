@@ -14,6 +14,12 @@ if (!token) {
     "Visioner product activation reporting is ready but not connected. Add the website repository secret VISIONER_ADMIN_TOKEN to include privacy-safe 28-day signup, first-Account, and paid conversion data in this sprint.";
   const markdown = `## Product acquisition baseline\n\n⚪ ${message}\n`;
   writeMarkdown(markdown);
+  writeJson({
+    ok: false,
+    status: "not_connected",
+    generatedAt: new Date().toISOString(),
+    message,
+  });
   console.log(markdown);
   appendSummary(markdown);
   if (required) process.exit(1);
@@ -30,8 +36,7 @@ if (!response.ok || !report.ok) {
   );
 }
 
-mkdirSync(dirname(jsonOutput), { recursive: true });
-writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
+writeJson(report);
 const markdown = renderMarkdown(report);
 writeMarkdown(markdown);
 console.log(markdown);
@@ -86,6 +91,11 @@ function readOptional(path) {
 function writeMarkdown(markdown) {
   mkdirSync(dirname(markdownOutput), { recursive: true });
   writeFileSync(markdownOutput, markdown);
+}
+
+function writeJson(report) {
+  mkdirSync(dirname(jsonOutput), { recursive: true });
+  writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
 }
 
 function appendSummary(markdown) {

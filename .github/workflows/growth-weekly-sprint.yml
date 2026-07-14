@@ -18,6 +18,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Audit the live website and shared product facts
+        run: node scripts/audit-live-seo.mjs
+      - name: Build the Search Console baseline
+        env:
+          GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON }}
+          SEO_GSC_SITE_URL: sc-domain:visioner.cc
+        run: node scripts/report-seo-geo-performance.mjs
       - name: Build the privacy-safe product acquisition baseline
         env:
           VISIONER_ADMIN_TOKEN: ${{ secrets.VISIONER_ADMIN_TOKEN }}
@@ -25,6 +32,8 @@ jobs:
         run: node scripts/report-growth-performance.mjs
       - name: Generate channel-specific tracked links
         run: node scripts/generate-growth-links.mjs
+      - name: Generate the weekly SEO and GEO operating brief
+        run: node scripts/generate-seo-geo-weekly-brief.mjs
       - name: Create the weekly growth task
         env:
           GH_TOKEN: ${{ github.token }}
@@ -35,11 +44,8 @@ jobs:
           EXISTING_ISSUE="$(gh issue list --repo "$GH_REPO" --state all --search "${TITLE} in:title" --json number,title --jq '.[] | select(.title == "'"$TITLE"'") | .number' | head -1)"
           if [ -n "$EXISTING_ISSUE" ]; then
             echo "Weekly growth task already exists: #${EXISTING_ISSUE}"
-            if [ -f artifacts/growth-performance.md ]; then
-              UPDATE_FILE="$(mktemp)"
-              printf '## Updated product evidence\n\n' > "$UPDATE_FILE"
-              cat artifacts/growth-performance.md >> "$UPDATE_FILE"
-              gh issue comment "$EXISTING_ISSUE" --repo "$GH_REPO" --body-file "$UPDATE_FILE"
+            if [ -f artifacts/seo-geo-weekly-brief.md ]; then
+              gh issue comment "$EXISTING_ISSUE" --repo "$GH_REPO" --body-file artifacts/seo-geo-weekly-brief.md
             fi
             if [ -f artifacts/growth-links.md ]; then
               gh issue comment "$EXISTING_ISSUE" --repo "$GH_REPO" --body-file artifacts/growth-links.md
@@ -47,39 +53,14 @@ jobs:
             exit 0
           fi
           BODY_FILE="$(mktemp)"
-          if [ -f artifacts/growth-performance.md ]; then
-            cat artifacts/growth-performance.md >> "$BODY_FILE"
+          if [ -f artifacts/seo-geo-weekly-brief.md ]; then
+            cat artifacts/seo-geo-weekly-brief.md >> "$BODY_FILE"
             printf '\n---\n\n' >> "$BODY_FILE"
           fi
           if [ -f artifacts/growth-links.md ]; then
             cat artifacts/growth-links.md >> "$BODY_FILE"
             printf '\n---\n\n' >> "$BODY_FILE"
           fi
-          cat >> "$BODY_FILE" <<'EOF'
-          Complete one focused discovery-to-activation cycle this week.
-
-          ## Measure
-          - [ ] Review the latest `Visioner live SEO audit` summary and Search Console artifact.
-          - [ ] Add one dated row to `docs/seo-geo-weekly-scorecard.csv`.
-          - [ ] In Founder Ops, review `Acquisition to paid`: signups, first Account, and paid by source/campaign.
-
-          ## Improve one canonical page
-          - [ ] Pick one row from `docs/seo-geo-keyword-map.csv`; do not create a near-duplicate page.
-          - [ ] Add one original evidence item: current screenshot, workflow example, practitioner quote, limitation, or comparison.
-          - [ ] Confirm title, direct answer, internal links, CTA, structured data, sitemap, mobile layout, and current plan facts.
-          - [ ] Run `npm run validate:seo-geo`, `npm run build`, and the live audit after deployment.
-
-          ## Distribute
-          - [ ] Publish two founder LinkedIn posts: one practical KAM insight and one product workflow, each linking to the canonical page only when useful.
-          - [ ] Contribute one useful answer in a relevant KAM/sales community without promotional keyword stuffing.
-          - [ ] Ask one practicing KAM to review the page or workflow; record approved feedback and objections.
-
-          ## Decide
-          - [ ] Record the changed URL, distribution links, impressions/clicks/signups available so far, and next evidence in the issue.
-          - [ ] Choose one: keep, refresh title/snippet, strengthen evidence, consolidate, or retire.
-
-          References: `docs/visioner-seo-geo-execution-plan.md`, `docs/seo-geo-90-day-roadmap.csv`, and `docs/seo-geo-keyword-map.csv`.
-          EOF
           gh issue create --repo "$GH_REPO" --title "$TITLE" --body-file "$BODY_FILE"
       - name: Upload product acquisition evidence
         uses: actions/upload-artifact@v4
@@ -90,5 +71,9 @@ jobs:
             artifacts/growth-performance.md
             artifacts/growth-links.json
             artifacts/growth-links.md
+            artifacts/seo-live-audit.json
+            artifacts/seo-geo-performance.json
+            artifacts/seo-geo-weekly-brief.json
+            artifacts/seo-geo-weekly-brief.md
           if-no-files-found: warn
           retention-days: 90
