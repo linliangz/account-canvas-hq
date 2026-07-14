@@ -25,6 +25,15 @@ export type SeoLandingPageConfig = {
     for: string[];
     notFor: string[];
   };
+  comparison?: {
+    title: string;
+    intro: string;
+    rows: Array<{
+      approach: string;
+      bestFor: string;
+      tradeoff: string;
+    }>;
+  };
   related?: Array<{ label: string; href: string }>;
   outcomes: string[];
   sections: Array<{
@@ -296,6 +305,75 @@ export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {config.comparison && (
+        <section className="border-t border-border/60">
+          <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+            <div className="max-w-3xl">
+              <div className="text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                Choosing an approach
+              </div>
+              <h2 className="mt-3 text-3xl font-bold text-foreground">{config.comparison.title}</h2>
+              <p className="mt-4 text-[17px] leading-8 text-muted-foreground">
+                {config.comparison.intro}
+              </p>
+            </div>
+
+            <div className="mt-8 hidden overflow-x-auto border-y border-border md:block">
+              <table className="w-full min-w-[760px] border-collapse text-left">
+                <thead>
+                  <tr className="border-b border-border text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                    <th className="px-4 py-3">Approach</th>
+                    <th className="px-4 py-3">Best fit</th>
+                    <th className="px-4 py-3">Tradeoff to expect</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {config.comparison.rows.map((row) => (
+                    <tr key={row.approach} className="border-b border-border last:border-0">
+                      <th className="px-4 py-4 align-top text-[15px] font-semibold text-foreground">
+                        {row.approach}
+                      </th>
+                      <td className="px-4 py-4 align-top text-[15px] leading-7 text-muted-foreground">
+                        {row.bestFor}
+                      </td>
+                      <td className="px-4 py-4 align-top text-[15px] leading-7 text-muted-foreground">
+                        {row.tradeoff}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="mt-8 border-y border-border md:hidden">
+              {config.comparison.rows.map((row) => (
+                <article key={row.approach} className="border-b border-border py-5 last:border-0">
+                  <h3 className="text-[16px] font-semibold text-foreground">{row.approach}</h3>
+                  <dl className="mt-4 space-y-4">
+                    <div>
+                      <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                        Best fit
+                      </dt>
+                      <dd className="mt-1.5 text-[15px] leading-7 text-muted-foreground">
+                        {row.bestFor}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                        Tradeoff to expect
+                      </dt>
+                      <dd className="mt-1.5 text-[15px] leading-7 text-muted-foreground">
+                        {row.tradeoff}
+                      </dd>
+                    </div>
+                  </dl>
+                </article>
+              ))}
             </div>
           </div>
         </section>

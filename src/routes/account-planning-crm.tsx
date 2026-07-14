@@ -41,6 +41,41 @@ const page: SeoLandingPageConfig = {
       "Automatically scraping private customer data without user review",
     ],
   },
+  comparison: {
+    title: "Choose the account-planning system that matches the work",
+    intro:
+      "Account planning products solve different jobs. The right choice depends on whether the immediate need is corporate governance, rapid research, flexible documentation, or a workspace the account owner will use every day.",
+    rows: [
+      {
+        approach: "CRM-native account planning",
+        bestFor:
+          "Organizations that need shared governance, standardized fields, permissions, and account plans inside the existing system of record.",
+        tradeoff:
+          "Implementation and field maintenance can be heavier for an individual KAM who mainly needs a fast daily operating view.",
+      },
+      {
+        approach: "AI account research and plan generation",
+        bestFor:
+          "Preparing an initial account brief, researching a company, or generating hypotheses before a meeting.",
+        tradeoff:
+          "A generated plan still needs a living home for tasks, relationships, project activity, and evidence gathered after the first brief.",
+      },
+      {
+        approach: "Documents, spreadsheets, and whiteboards",
+        bestFor:
+          "Teams that value maximum flexibility and already have a disciplined process for keeping plans current.",
+        tradeoff:
+          "Relationship cadence, stakeholder gaps, project activity, and follow-up reminders remain manual and easy to separate from the plan.",
+      },
+      {
+        approach: "Visioner daily account workspace",
+        bestFor:
+          "KAMs working a small number of complex accounts who want projects, people, tasks, signals, and account-plan evidence in one calm workspace.",
+        tradeoff:
+          "Visioner complements rather than replaces enterprise forecasting, marketing automation, and company-wide CRM governance today.",
+      },
+    ],
+  },
   related: [
     { label: "CRM for Key Account Managers", href: "/crm-for-key-account-managers" },
     {

@@ -31,6 +31,7 @@ const directoryKit = read("docs/visioner-directory-submission-kit.md");
 const liveSeoAudit = read("scripts/audit-live-seo.mjs");
 const sitemapGenerator = read("scripts/generate-sitemap.mjs");
 const buyerGuide = read("src/routes/guides/how-to-choose-key-account-management-software.tsx");
+const accountPlanningCrm = read("src/routes/account-planning-crm.tsx");
 const evaluationScorecard = read(
   "public/resources/key-account-management-software-evaluation-scorecard.csv",
 );
@@ -287,6 +288,12 @@ assert(
     evaluationScorecard.includes("Daily usefulness for the KAM") &&
     evaluationScorecard.includes("TOTAL,100"),
   "The KAM software buyer guide must offer a neutral, ungated evaluation scorecard.",
+);
+assert(
+  accountPlanningCrm.includes("CRM-native account planning") &&
+    accountPlanningCrm.includes("AI account research and plan generation") &&
+    accountPlanningCrm.includes("Visioner daily account workspace"),
+  "The Account Planning CRM category page must compare the major solution approaches without keyword stuffing.",
 );
 
 const guideDir = "src/routes/guides";
