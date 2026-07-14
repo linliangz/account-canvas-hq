@@ -109,6 +109,8 @@ export const Route = createFileRoute("/account-mapping-software")({
       description:
         "Visioner is account mapping software for KAMs to map contacts, org charts, reporting lines, stakeholder roles, relationship health, projects, and account gaps.",
       path: "/account-mapping-software",
+      type: "article",
+      image: "/product-screenshots/visioner-org-chart.png",
     }),
   component: () => <SeoLandingPage config={page} />,
 });

@@ -98,6 +98,7 @@ export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
             description: config.subtitle,
             path: config.path,
             dateModified: config.dateModified,
+            image: config.evidence?.image,
           }),
         ]
       : []),

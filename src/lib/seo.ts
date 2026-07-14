@@ -8,6 +8,7 @@ type PageHeadOptions = {
   description: string;
   path: string;
   type?: "website" | "article";
+  image?: string;
 };
 
 export function absoluteUrl(path: string) {
@@ -15,8 +16,15 @@ export function absoluteUrl(path: string) {
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
-export function pageHead({ title, description, path, type = "website" }: PageHeadOptions) {
+export function pageHead({
+  title,
+  description,
+  path,
+  type = "website",
+  image = DEFAULT_IMAGE,
+}: PageHeadOptions) {
   const url = absoluteUrl(path);
+  const socialImage = absoluteUrl(image);
 
   return {
     meta: [
@@ -29,11 +37,11 @@ export function pageHead({ title, description, path, type = "website" }: PageHea
       { property: "og:type", content: type },
       { property: "og:url", content: url },
       { property: "og:site_name", content: SITE_NAME },
-      { property: "og:image", content: DEFAULT_IMAGE },
+      { property: "og:image", content: socialImage },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
-      { name: "twitter:image", content: DEFAULT_IMAGE },
+      { name: "twitter:image", content: socialImage },
     ],
     links: [{ rel: "canonical", href: url }],
   };
@@ -117,11 +125,13 @@ export function articleJsonLd({
   description,
   path,
   dateModified,
+  image = DEFAULT_IMAGE,
 }: {
   title: string;
   description: string;
   path: string;
   dateModified: string;
+  image?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -142,7 +152,7 @@ export function articleJsonLd({
       },
     },
     mainEntityOfPage: absoluteUrl(path),
-    image: DEFAULT_IMAGE,
+    image: absoluteUrl(image),
     datePublished: dateModified,
     dateModified,
   };

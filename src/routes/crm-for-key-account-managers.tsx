@@ -111,6 +111,8 @@ export const Route = createFileRoute("/crm-for-key-account-managers")({
       description:
         "Visioner is an account planning CRM for Key Account Managers who manage strategic accounts, stakeholders, projects, tasks, and relationship health.",
       path: "/crm-for-key-account-managers",
+      type: "article",
+      image: "/product-screenshots/visioner-portfolio-home.png",
     }),
   component: () => <SeoLandingPage config={page} />,
 });

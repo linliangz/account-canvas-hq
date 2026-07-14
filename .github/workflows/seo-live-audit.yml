@@ -1,0 +1,17 @@
+name: Visioner live SEO audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 15 * * 1"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/audit-live-seo.mjs

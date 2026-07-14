@@ -111,6 +111,8 @@ export const Route = createFileRoute("/account-planning-crm")({
       description:
         "Visioner is an account planning CRM for revenue, projects, stakeholders, tasks, relationship health, and strategic account signals.",
       path: "/account-planning-crm",
+      type: "article",
+      image: "/product-screenshots/visioner-account-overview.png",
     }),
   component: () => <SeoLandingPage config={page} />,
 });

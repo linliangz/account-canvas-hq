@@ -15,6 +15,13 @@ const llms = read("public/llms.txt");
 const llmsFull = read("public/llms-full.txt");
 const marketingLinks = read("src/lib/marketing-links.ts");
 
+const authorityRoutes = [
+  "account-planning-crm.tsx",
+  "crm-for-key-account-managers.tsx",
+  "account-mapping-software.tsx",
+  "customer-org-chart-software.tsx",
+];
+
 const requiredRoutes = [
   "/",
   "/about",
@@ -112,6 +119,18 @@ for (const file of readdirSync(guideDir).filter(
   assert(source.includes("dateModified:"), `${file} must expose a reviewed date.`);
   assert(source.includes("summary:"), `${file} must provide a direct-answer summary.`);
   assert(source.includes("related:"), `${file} must link to related canonical content.`);
+}
+
+for (const file of authorityRoutes) {
+  const source = read(join("src/routes", file));
+  assert(source.includes("directAnswer:"), `${file} must provide a direct category answer.`);
+  assert(source.includes("dateModified:"), `${file} must expose a reviewed date.`);
+  assert(source.includes("evidence:"), `${file} must show current product evidence.`);
+  assert(source.includes('type: "article"'), `${file} must publish article social metadata.`);
+  assert(
+    source.includes('image: "/product-screenshots/'),
+    `${file} must use real product evidence for social sharing.`,
+  );
 }
 
 if (failures.length) {

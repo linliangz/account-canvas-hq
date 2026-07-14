@@ -109,6 +109,8 @@ export const Route = createFileRoute("/customer-org-chart-software")({
       description:
         "Visioner is customer org chart software for KAMs to map reporting lines, departments, stakeholder roles, relationship health, and project decision coverage.",
       path: "/customer-org-chart-software",
+      type: "article",
+      image: "/product-screenshots/visioner-org-chart.png",
     }),
   component: () => <SeoLandingPage config={page} />,
 });

@@ -27,19 +27,20 @@ Within 90 days, establish repeatable discovery rather than publishing more near-
 - [ ] Verify the `visioner.cc` Domain Property in Google Search Console.
 - [ ] Submit `https://www.visioner.cc/sitemap.xml` and record indexed/excluded counts.
 - [ ] Add Bing Webmaster Tools and submit the same sitemap.
-- [ ] Confirm `/robots.txt`, `/sitemap.xml`, `/llms.txt`, and `/llms-full.txt` return HTTP 200 without a browser challenge.
-- [ ] Run `npm run validate:seo-geo` in every website pull request.
-- [ ] Connect signup events to source, landing page, and campaign parameters without storing sensitive account content.
+- [x] Confirm `/robots.txt`, `/sitemap.xml`, `/llms.txt`, and `/llms-full.txt` return HTTP 200 without a browser challenge.
+- [x] Run `npm run validate:seo-geo` in every website pull request.
+- [x] Run `npm run audit:seo-live` every Monday against the public site through GitHub Actions.
+- [x] Connect signup events to source, landing page, and campaign parameters without storing sensitive account content.
 - [ ] Capture baseline branded and non-branded impressions, clicks, CTR, indexed pages, signup conversion, and Core Web Vitals.
 
 ## Weeks 2-4: category authority
 
 Refresh these pages before adding new ones:
 
-1. `/account-planning-crm`: category definition, who it is for, workflow, limits, and comparison with a corporate CRM.
-2. `/crm-for-key-account-managers`: persona pain, daily workflow, and why manager-oriented CRM is insufficient.
-3. `/account-mapping-software`: org chart, stakeholder roles, relationship health, and unknown seats.
-4. `/customer-org-chart-software`: reporting-line workflow, private imports, provider boundaries, and screenshots.
+1. [x] `/account-planning-crm`: category definition, who it is for, workflow, limits, and comparison with a corporate CRM.
+2. [x] `/crm-for-key-account-managers`: persona pain, daily workflow, and why manager-oriented CRM is insufficient.
+3. [x] `/account-mapping-software`: org chart, stakeholder roles, relationship health, and unknown seats.
+4. [x] `/customer-org-chart-software`: reporting-line workflow, private imports, provider boundaries, and screenshots.
 5. `/guides/how-to-choose-key-account-management-software`: neutral category comparison and evaluation checklist.
 
 Each refresh must include a direct answer, one original product screenshot, one practical checklist, internal links to two related pages, an updated date, and a CTA matched to the visitor's intent.
