@@ -994,7 +994,7 @@ function LandingPage() {
                 "Saved News and Inspire Me",
               ]}
               cta="Select Basic"
-              href="https://app.visioner.cc/pricing?plan=basic"
+              href={marketingSignupUrl("homepage_pricing", "basic", "/pricing?plan=basic")}
               highlight
             />
             <PricingCard
@@ -1010,7 +1010,7 @@ function LandingPage() {
                 "Account Plan PDF export",
               ]}
               cta="Select Pro"
-              href="https://app.visioner.cc/pricing?plan=pro"
+              href={marketingSignupUrl("homepage_pricing", "pro", "/pricing?plan=pro")}
             />
             <PricingCard
               name="Team"
@@ -1026,7 +1026,7 @@ function LandingPage() {
                 "Seat limits and audit trail",
               ]}
               cta="Select Team"
-              href="https://app.visioner.cc/pricing?plan=team"
+              href={marketingSignupUrl("homepage_pricing", "team", "/pricing?plan=team")}
             />
           </div>
         </div>

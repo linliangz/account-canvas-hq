@@ -99,6 +99,12 @@ The monthly GitHub workflow creates a dated review issue automatically. Record t
 
 ## Measurement dashboard
 
+Every Monday, the `Visioner weekly growth sprint` workflow creates one GitHub issue that turns this
+plan into an operating checklist. Complete one canonical-page improvement, two founder LinkedIn
+posts, one relevant community contribution, one KAM review request, and one measurement update.
+The goal is one evidence-producing cycle per week, not a larger volume of lightly differentiated
+pages.
+
 Review weekly:
 
 - Indexed canonical URLs and crawl errors.

@@ -13,6 +13,7 @@ const robots = read("public/robots.txt");
 const sitemap = read("public/sitemap.xml");
 const llms = read("public/llms.txt");
 const llmsFull = read("public/llms-full.txt");
+const weeklyGrowthSprint = read(".github/workflows/growth-weekly-sprint.yml");
 const marketingLinks = read("src/lib/marketing-links.ts");
 const performanceReport = read("scripts/report-seo-geo-performance.mjs");
 const weeklyAudit = read(".github/workflows/seo-live-audit.yml");
@@ -47,6 +48,14 @@ const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) =>
 assert(
   (sitemap.match(/<url>/g) ?? []).length === (sitemap.match(/<\/url>/g) ?? []).length,
   "Sitemap must have balanced url elements.",
+);
+assert(
+  weeklyGrowthSprint.includes("Visioner weekly growth sprint") &&
+    weeklyGrowthSprint.includes("Acquisition to paid") &&
+    weeklyGrowthSprint.includes("seo-geo-weekly-scorecard.csv") &&
+    weeklyGrowthSprint.includes("two founder LinkedIn posts") &&
+    weeklyGrowthSprint.includes("one practicing KAM"),
+  "SEO/GEO must have a weekly execution loop for measurement, canonical-page evidence, distribution, and practitioner feedback.",
 );
 assert(new Set(sitemapUrls).size === sitemapUrls.length, "Sitemap URLs must be unique.");
 for (const path of requiredRoutes) {
@@ -97,12 +106,12 @@ assert(
   "Team must not be marked Coming soon.",
 );
 assert(
-  home.includes('href="https://app.visioner.cc/pricing?plan=pro"'),
-  "Home must link Pro to hosted pricing.",
+  home.includes('marketingSignupUrl("homepage_pricing", "pro", "/pricing?plan=pro")'),
+  "Home must attribute Pro signup and continue to hosted pricing.",
 );
 assert(
-  home.includes('href="https://app.visioner.cc/pricing?plan=team"'),
-  "Home must link Team to hosted pricing.",
+  home.includes('marketingSignupUrl("homepage_pricing", "team", "/pricing?plan=team")'),
+  "Home must attribute Team signup and continue to hosted pricing.",
 );
 assert(
   root.includes('name: "Pro"') && root.includes('name: "Team"'),

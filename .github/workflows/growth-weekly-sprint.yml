@@ -1,0 +1,55 @@
+name: Visioner weekly growth sprint
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "37 16 * * 1"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  create-sprint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - name: Create the weekly growth task
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          WEEK="$(date -u +%G-W%V)"
+          TITLE="SEO/GEO growth sprint — ${WEEK}"
+          if gh issue list --repo "$GH_REPO" --state all --search "${TITLE} in:title" --json title --jq '.[].title' | grep -Fxq "$TITLE"; then
+            echo "Weekly growth task already exists: $TITLE"
+            exit 0
+          fi
+          BODY_FILE="$(mktemp)"
+          cat > "$BODY_FILE" <<'EOF'
+          Complete one focused discovery-to-activation cycle this week.
+
+          ## Measure
+          - [ ] Review the latest `Visioner live SEO audit` summary and Search Console artifact.
+          - [ ] Add one dated row to `docs/seo-geo-weekly-scorecard.csv`.
+          - [ ] In Founder Ops, review `Acquisition to paid`: signups, first Account, and paid by source/campaign.
+
+          ## Improve one canonical page
+          - [ ] Pick one row from `docs/seo-geo-keyword-map.csv`; do not create a near-duplicate page.
+          - [ ] Add one original evidence item: current screenshot, workflow example, practitioner quote, limitation, or comparison.
+          - [ ] Confirm title, direct answer, internal links, CTA, structured data, sitemap, mobile layout, and current plan facts.
+          - [ ] Run `npm run validate:seo-geo`, `npm run build`, and the live audit after deployment.
+
+          ## Distribute
+          - [ ] Publish two founder LinkedIn posts: one practical KAM insight and one product workflow, each linking to the canonical page only when useful.
+          - [ ] Contribute one useful answer in a relevant KAM/sales community without promotional keyword stuffing.
+          - [ ] Ask one practicing KAM to review the page or workflow; record approved feedback and objections.
+
+          ## Decide
+          - [ ] Record the changed URL, distribution links, impressions/clicks/signups available so far, and next evidence in the issue.
+          - [ ] Choose one: keep, refresh title/snippet, strengthen evidence, consolidate, or retire.
+
+          References: `docs/visioner-seo-geo-execution-plan.md` and `docs/seo-geo-keyword-map.csv`.
+          EOF
+          gh issue create --repo "$GH_REPO" --title "$TITLE" --body-file "$BODY_FILE"
