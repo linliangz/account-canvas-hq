@@ -12,8 +12,8 @@ produce an activated Visioner workspace.
 
 Complete this before interpreting rankings or impressions.
 
-1. Verify the `visioner.cc` Domain Property in Google Search Console with a DNS TXT record.
-2. Submit `https://www.visioner.cc/sitemap.xml` and record the accepted URL count.
+1. ~~Verify the `visioner.cc` Domain Property in Google Search Console with a DNS TXT record.~~ Completed 2026-07-14.
+2. Submit `https://www.visioner.cc/sitemap.xml` and record the accepted URL count. Resubmitted successfully 2026-07-14; wait for asynchronous processing before recording discovered pages.
 3. Create a read-only Search Console service account and save its JSON key in the website GitHub
    secret `GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON`.
 4. Add `visioner.cc` to Bing Webmaster Tools by importing the Search Console property or using DNS
@@ -21,6 +21,8 @@ Complete this before interpreting rankings or impressions.
 5. Run the `Visioner live SEO audit` GitHub workflow once and confirm that its artifact contains
    Search Console data rather than `Manual setup required`.
 6. Delete any unencrypted local service-account JSON file after the GitHub secret works.
+
+Current live baseline: 6 non-branded impressions, 0 clicks, and average position 58. Google page-indexing data is still processing. These values establish measurement; they are not yet evidence for changing titles or creating more pages.
 
 Completion evidence belongs in GitHub issue
 [`One-time SEO indexing gate — Search Console and Bing`](https://github.com/linliangz/account-canvas-hq/issues/2).

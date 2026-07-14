@@ -41,16 +41,29 @@ or positioning. Do not compensate by producing near-duplicate keyword pages.
 
 ## Week 1: technical baseline
 
-- [ ] Verify the `visioner.cc` Domain Property in Google Search Console.
-- [ ] Submit `https://www.visioner.cc/sitemap.xml` and record indexed/excluded counts.
+- [x] Verify the `visioner.cc` Domain Property in Google Search Console.
+- [x] Submit `https://www.visioner.cc/sitemap.xml`. It was resubmitted successfully on 2026-07-14 after the first asynchronous fetch failed; keep this item under observation until Google reports discovered pages.
+- [ ] Record indexed/excluded counts after Search Console finishes processing page-indexing data.
 - [ ] Add Bing Webmaster Tools and submit the same sitemap.
 - [x] Confirm `/robots.txt`, `/sitemap.xml`, `/llms.txt`, and `/llms-full.txt` return HTTP 200 without a browser challenge.
 - [x] Run `npm run validate:seo-geo` in every website pull request.
 - [x] Run `npm run audit:seo-live` every Monday as part of the consolidated growth sprint.
 - [x] Host an IndexNow verification key and use `npm run indexnow:submit -- /changed-path` after publishing materially updated pages.
 - [x] Connect signup events to source, landing page, and campaign parameters without storing sensitive account content.
-- [ ] Capture baseline branded and non-branded impressions, clicks, CTR, indexed pages, signup conversion, and Core Web Vitals.
+- [x] Capture the first search baseline: 6 non-branded impressions, 0 clicks, 0% CTR, and average position 58 on 2026-07-14. The first five queries were `account planning software`, `best key account management software`, `account mapping`, `account management software`, and `mapping accounts`.
+- [ ] Add indexed/excluded pages, Core Web Vitals, and organic signup conversion after those reports contain data.
 - [x] Add a weekly Search Console report for 28-day branded/non-branded performance, top queries, top pages, and low-CTR opportunities.
+
+### First live baseline — 2026-07-14
+
+- Domain Property: verified for `visioner.cc`.
+- Search visibility: 6 impressions, 0 clicks, 0% CTR, average position 58.
+- Query evidence: five early non-branded queries aligned with account planning and account mapping.
+- Page indexing: Google is still processing data; unavailable is intentionally left blank in the scorecard.
+- Sitemap: both the canonical `www` URL and apex URL returned HTTP 200 with valid XML. The apex sitemap was resubmitted successfully in Search Console after the first fetch failure.
+- Product acquisition baseline: 3 signups, 1 activated workspace, and 1 paid workspace across all sources. Do not label these as organic until attribution data proves it.
+
+The immediate decision is to improve and distribute the existing canonical account-planning pages. Six impressions are directional evidence, not enough volume for title or CTR experiments.
 
 ### Search Console automation setup
 
