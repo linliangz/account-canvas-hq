@@ -23,6 +23,8 @@ jobs:
           VISIONER_ADMIN_TOKEN: ${{ secrets.VISIONER_ADMIN_TOKEN }}
           VISIONER_APP_URL: https://app.visioner.cc
         run: node scripts/report-growth-performance.mjs
+      - name: Generate channel-specific tracked links
+        run: node scripts/generate-growth-links.mjs
       - name: Create the weekly growth task
         env:
           GH_TOKEN: ${{ github.token }}
@@ -39,11 +41,18 @@ jobs:
               cat artifacts/growth-performance.md >> "$UPDATE_FILE"
               gh issue comment "$EXISTING_ISSUE" --repo "$GH_REPO" --body-file "$UPDATE_FILE"
             fi
+            if [ -f artifacts/growth-links.md ]; then
+              gh issue comment "$EXISTING_ISSUE" --repo "$GH_REPO" --body-file artifacts/growth-links.md
+            fi
             exit 0
           fi
           BODY_FILE="$(mktemp)"
           if [ -f artifacts/growth-performance.md ]; then
             cat artifacts/growth-performance.md >> "$BODY_FILE"
+            printf '\n---\n\n' >> "$BODY_FILE"
+          fi
+          if [ -f artifacts/growth-links.md ]; then
+            cat artifacts/growth-links.md >> "$BODY_FILE"
             printf '\n---\n\n' >> "$BODY_FILE"
           fi
           cat >> "$BODY_FILE" <<'EOF'
@@ -79,5 +88,7 @@ jobs:
           path: |
             artifacts/growth-performance.json
             artifacts/growth-performance.md
+            artifacts/growth-links.json
+            artifacts/growth-links.md
           if-no-files-found: warn
           retention-days: 90

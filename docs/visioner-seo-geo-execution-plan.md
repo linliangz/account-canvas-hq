@@ -75,6 +75,13 @@ identity or workspace content:
    source/campaign/landing breakdown.
 4. Confirm that the `visioner-growth-performance` artifact contains aggregate data only.
 
+Each sprint also generates `artifacts/growth-links.md` with one distinct tracked URL for the two
+LinkedIn posts, community contribution, and KAM review request. Use those URLs exactly as generated.
+The website keeps the latest campaign parameters in session storage and passes them to signup, so a
+visitor may browse another Visioner page before registering without becoming `direct / unknown`.
+Campaign URLs contain only channel metadata; never put a person's name, email, company, account, or
+other customer information in UTM parameters.
+
 The dedicated endpoint does not return names, email addresses, account names, customer domains,
 prompts, or workspace content. Do not substitute the broader Founder Ops registrations endpoint in
 growth automation.

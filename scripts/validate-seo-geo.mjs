@@ -18,6 +18,8 @@ const roadmap = read("docs/seo-geo-90-day-roadmap.csv");
 const marketingLinks = read("src/lib/marketing-links.ts");
 const performanceReport = read("scripts/report-seo-geo-performance.mjs");
 const growthReport = read("scripts/report-growth-performance.mjs");
+const growthLinks = read("scripts/generate-growth-links.mjs");
+const attribution = read("src/components/MarketingAttribution.tsx");
 const weeklyAudit = read(".github/workflows/seo-live-audit.yml");
 const monthlyGeoReview = read(".github/workflows/geo-monthly-review.yml");
 const geoScorecard = read("docs/geo-answer-monitoring.csv");
@@ -78,6 +80,23 @@ assert(
     weeklyGrowthSprint.includes("Updated product evidence") &&
     weeklyGrowthSprint.includes("gh issue comment"),
   "The weekly growth sprint must attach privacy-safe signup, first-Account, and paid conversion evidence.",
+);
+assert(
+  growthLinks.includes("utm_source") &&
+    growthLinks.includes("utm_medium") &&
+    growthLinks.includes("utm_campaign") &&
+    growthLinks.includes("utm_content") &&
+    growthLinks.includes("privacyBoundary") &&
+    weeklyGrowthSprint.includes("generate-growth-links.mjs") &&
+    weeklyGrowthSprint.includes("growth-links.md"),
+  "Every weekly sprint must provide channel-specific, privacy-safe tracked links.",
+);
+assert(
+  attribution.includes("sessionStorage") &&
+    attribution.includes('destination.hostname !== "app.visioner.cc"') &&
+    attribution.includes('destination.searchParams.set("landing_path"') &&
+    root.match(/^\s*<Outlet \/>/gm)?.length === 1,
+  "External campaign attribution must survive the website-to-signup handoff without duplicate route rendering.",
 );
 assert(new Set(sitemapUrls).size === sitemapUrls.length, "Sitemap URLs must be unique.");
 for (const path of requiredRoutes) {

@@ -13,6 +13,7 @@
     "audit:seo-live": "node scripts/audit-live-seo.mjs",
     "report:seo-geo": "node scripts/report-seo-geo-performance.mjs",
     "report:growth": "node scripts/report-growth-performance.mjs",
+    "growth:links": "node scripts/generate-growth-links.mjs",
     "indexnow:submit": "node scripts/submit-indexnow.mjs",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
