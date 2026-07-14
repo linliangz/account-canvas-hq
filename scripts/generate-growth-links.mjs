@@ -8,7 +8,7 @@ const jsonOutput = process.env.GROWTH_LINKS_OUTPUT || "artifacts/growth-links.js
 const now = new Date(process.env.GROWTH_LINKS_DATE || Date.now());
 const sprint = isoSprint(now);
 const roadmapWeek = selectedRoadmapWeek(now);
-const row = roadmapRow(roadmapWeek);
+const row = parseCsv(roadmap).find((entry) => Number(entry.week) === roadmapWeek);
 if (!row) throw new Error(`No SEO/GEO roadmap row exists for week ${roadmapWeek}.`);
 
 const campaign = `seo_geo_${sprint.toLowerCase().replace("-", "_")}`;
@@ -24,9 +24,9 @@ const report = {
   sprint,
   roadmapWeek,
   campaign,
-  primaryGoal: row.primaryGoal,
-  canonicalPage: row.canonicalPage,
-  productEvidence: row.productEvidence,
+  primaryGoal: row.primary_goal,
+  canonicalPage: row.canonical_page,
+  productEvidence: row.product_evidence,
   distribution: row.distribution,
   measurement: row.measurement,
   links,
@@ -41,7 +41,7 @@ writeFileSync(markdownOutput, markdown);
 console.log(markdown);
 
 function tracked(label, source, medium, content) {
-  const url = new URL(row.canonicalPage);
+  const url = new URL(row.canonical_page);
   url.searchParams.set("utm_source", source);
   url.searchParams.set("utm_medium", medium);
   url.searchParams.set("utm_campaign", campaign);
@@ -59,22 +59,39 @@ function selectedRoadmapWeek(date) {
   return Math.min(12, Math.floor(elapsed / 604_800_000) + 1);
 }
 
-function roadmapRow(week) {
-  for (const line of roadmap.split(/\r?\n/)) {
-    const match = line.match(
-      /^(\d+),"([^"]*)","([^"]*)","([^"]*)","([^"]*)","([^"]*)",([^,]+),([^,]+)$/,
-    );
-    if (Number(match?.[1]) === week) {
-      return {
-        primaryGoal: match[2],
-        canonicalPage: match[3],
-        productEvidence: match[4],
-        distribution: match[5],
-        measurement: match[6],
-      };
-    }
+function parseCsv(source) {
+  const rows = [];
+  let row = [];
+  let field = "";
+  let quoted = false;
+  const normalized = source.replace(/^\uFEFF/, "");
+  for (let index = 0; index < normalized.length; index += 1) {
+    const character = normalized[index];
+    if (quoted) {
+      if (character === '"' && normalized[index + 1] === '"') {
+        field += '"';
+        index += 1;
+      } else if (character === '"') quoted = false;
+      else field += character;
+    } else if (character === '"') quoted = true;
+    else if (character === ",") {
+      row.push(field);
+      field = "";
+    } else if (character === "\n") {
+      row.push(field.replace(/\r$/, ""));
+      if (row.some((value) => value.length)) rows.push(row);
+      row = [];
+      field = "";
+    } else field += character;
   }
-  return null;
+  if (field.length || row.length) {
+    row.push(field.replace(/\r$/, ""));
+    rows.push(row);
+  }
+  const [headers, ...values] = rows;
+  return values.map((columns) =>
+    Object.fromEntries(headers.map((header, index) => [header, columns[index] || ""])),
+  );
 }
 
 function isoSprint(date) {
