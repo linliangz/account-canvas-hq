@@ -140,7 +140,10 @@ const seoPages = [
 
 for (const [path, expectedText] of seoPages) {
   const body = await checkPage(path, expectedText);
-  assert(home.includes(path), `Landing page must internally link to SEO page ${path}.`);
+  assert(
+    guidesIndex.includes(path),
+    `Guides hub must internally link to SEO or guide page ${path}.`,
+  );
   assert(sitemap.includes(urlFor(landingUrl, path)), `Sitemap must include ${path}.`);
   assertCanonical(body, urlFor(landingUrl, path), path);
   assert(
