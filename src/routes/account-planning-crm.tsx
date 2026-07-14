@@ -58,6 +58,16 @@ const page: SeoLandingPageConfig = {
   ],
   sections: [
     {
+      title: "A 10-minute daily account planning check",
+      body: "A useful account plan should answer today's questions before it asks the KAM to maintain more fields. Review the account in this order, then update only what changed.",
+      bullets: [
+        "Confirm today's urgent and important tasks",
+        "Review the next step, owner, and target date for active projects",
+        "Check missing decision roles and relationships that need attention",
+        "Log one meaningful update and leave incomplete information as a visible signal",
+      ],
+    },
+    {
       title: "Overview before detail",
       body: "Start from the account overview: current ARR, target gap, projects, tasks, signals, and relationship reminders. Then drill into projects and stakeholders only when needed.",
       bullets: [
@@ -84,6 +94,15 @@ const page: SeoLandingPageConfig = {
         "Project quiet for too long",
       ],
     },
+    {
+      title: "Use it beside the corporate CRM",
+      body: "Visioner is designed as the KAM's daily account workspace. A corporate CRM can remain the system of record for company-wide pipeline governance, forecasting, permissions, and finance workflows; Visioner focuses on the people, projects, tasks, and evidence inside each strategic account.",
+      bullets: [
+        "Corporate CRM: shared pipeline governance and management reporting",
+        "Visioner: daily account planning, stakeholder coverage, and next actions",
+        "Current limitation: Visioner does not yet replace enterprise forecasting or marketing automation",
+      ],
+    },
   ],
   faq: [
     {
@@ -100,6 +119,11 @@ const page: SeoLandingPageConfig = {
       question: "Can I start without complete data?",
       answer:
         "Yes. Visioner uses soft completion. Empty fields become signals and gaps, not blockers.",
+    },
+    {
+      question: "Does an account planning CRM replace Salesforce or another corporate CRM?",
+      answer:
+        "Not necessarily. Many KAMs can use Visioner as their daily account workspace while the corporate CRM remains the company system of record for shared pipeline and forecasting.",
     },
   ],
 };
