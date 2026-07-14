@@ -63,6 +63,22 @@ The weekly workflow is operational without credentials and becomes data-producin
 
 The reporter requests only the official `webmasters.readonly` scope. It never changes sitemaps or Search Console settings.
 
+### Product acquisition automation setup
+
+The weekly sprint can also include a rolling 28-day signup-to-paid baseline without exposing user
+identity or workspace content:
+
+1. Add the existing Visioner Founder Ops token to the website repository secret
+   `VISIONER_ADMIN_TOKEN`.
+2. Run `Visioner weekly growth sprint` manually once.
+3. Confirm that the issue includes signups, first Account, activation rate, paid conversion, and the
+   source/campaign/landing breakdown.
+4. Confirm that the `visioner-growth-performance` artifact contains aggregate data only.
+
+The dedicated endpoint does not return names, email addresses, account names, customer domains,
+prompts, or workspace content. Do not substitute the broader Founder Ops registrations endpoint in
+growth automation.
+
 ## Weeks 2-4: category authority
 
 Refresh these pages before adding new ones:

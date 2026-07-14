@@ -12,6 +12,7 @@
     "validate:seo-geo": "node scripts/validate-seo-geo.mjs",
     "audit:seo-live": "node scripts/audit-live-seo.mjs",
     "report:seo-geo": "node scripts/report-seo-geo-performance.mjs",
+    "report:growth": "node scripts/report-growth-performance.mjs",
     "indexnow:submit": "node scripts/submit-indexnow.mjs",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",

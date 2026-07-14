@@ -15,6 +15,14 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build the privacy-safe product acquisition baseline
+        env:
+          VISIONER_ADMIN_TOKEN: ${{ secrets.VISIONER_ADMIN_TOKEN }}
+          VISIONER_APP_URL: https://app.visioner.cc
+        run: node scripts/report-growth-performance.mjs
       - name: Create the weekly growth task
         env:
           GH_TOKEN: ${{ github.token }}
@@ -27,7 +35,11 @@ jobs:
             exit 0
           fi
           BODY_FILE="$(mktemp)"
-          cat > "$BODY_FILE" <<'EOF'
+          if [ -f artifacts/growth-performance.md ]; then
+            cat artifacts/growth-performance.md >> "$BODY_FILE"
+            printf '\n---\n\n' >> "$BODY_FILE"
+          fi
+          cat >> "$BODY_FILE" <<'EOF'
           Complete one focused discovery-to-activation cycle this week.
 
           ## Measure
@@ -53,3 +65,12 @@ jobs:
           References: `docs/visioner-seo-geo-execution-plan.md`, `docs/seo-geo-90-day-roadmap.csv`, and `docs/seo-geo-keyword-map.csv`.
           EOF
           gh issue create --repo "$GH_REPO" --title "$TITLE" --body-file "$BODY_FILE"
+      - name: Upload product acquisition evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: visioner-growth-performance
+          path: |
+            artifacts/growth-performance.json
+            artifacts/growth-performance.md
+          if-no-files-found: warn
+          retention-days: 90

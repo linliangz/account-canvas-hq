@@ -17,6 +17,7 @@ const weeklyGrowthSprint = read(".github/workflows/growth-weekly-sprint.yml");
 const roadmap = read("docs/seo-geo-90-day-roadmap.csv");
 const marketingLinks = read("src/lib/marketing-links.ts");
 const performanceReport = read("scripts/report-seo-geo-performance.mjs");
+const growthReport = read("scripts/report-growth-performance.mjs");
 const weeklyAudit = read(".github/workflows/seo-live-audit.yml");
 const monthlyGeoReview = read(".github/workflows/geo-monthly-review.yml");
 const geoScorecard = read("docs/geo-answer-monitoring.csv");
@@ -67,6 +68,14 @@ assert(
     weeklyGrowthSprint.includes("two founder LinkedIn posts") &&
     weeklyGrowthSprint.includes("one practicing KAM"),
   "SEO/GEO must have a weekly execution loop for measurement, canonical-page evidence, distribution, and practitioner feedback.",
+);
+assert(
+  growthReport.includes("/api/admin/growth-performance") &&
+    growthReport.includes("Product acquisition baseline") &&
+    growthReport.includes("Privacy boundary") &&
+    weeklyGrowthSprint.includes("VISIONER_ADMIN_TOKEN") &&
+    weeklyGrowthSprint.includes("visioner-growth-performance"),
+  "The weekly growth sprint must attach privacy-safe signup, first-Account, and paid conversion evidence.",
 );
 assert(new Set(sitemapUrls).size === sitemapUrls.length, "Sitemap URLs must be unique.");
 for (const path of requiredRoutes) {
