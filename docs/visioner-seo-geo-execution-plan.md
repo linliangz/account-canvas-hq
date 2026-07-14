@@ -33,6 +33,20 @@ Within 90 days, establish repeatable discovery rather than publishing more near-
 - [x] Host an IndexNow verification key and use `npm run indexnow:submit -- /changed-path` after publishing materially updated pages.
 - [x] Connect signup events to source, landing page, and campaign parameters without storing sensitive account content.
 - [ ] Capture baseline branded and non-branded impressions, clicks, CTR, indexed pages, signup conversion, and Core Web Vitals.
+- [x] Add a weekly Search Console report for 28-day branded/non-branded performance, top queries, top pages, and low-CTR opportunities.
+
+### Search Console automation setup
+
+The weekly workflow is operational without credentials and becomes data-producing after this one-time setup:
+
+1. Create a Google Cloud service account dedicated to Search Console reporting.
+2. Enable the Search Console API in that Google Cloud project.
+3. In the `visioner.cc` Search Console property, add the service account email as a user. Read-only access is sufficient.
+4. Download one JSON key and store its complete contents in the website GitHub repository secret `GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON`.
+5. Run the `Visioner live SEO audit` workflow manually once. Confirm that its summary contains 28-day metrics and that the `visioner-seo-performance` artifact is present.
+6. Delete any unencrypted local copy of the JSON key after the GitHub secret is verified.
+
+The reporter requests only the official `webmasters.readonly` scope. It never changes sitemaps or Search Console settings.
 
 ## Weeks 2-4: category authority
 
@@ -80,6 +94,8 @@ Once per month, test the same neutral prompt set in ChatGPT search, Gemini, Perp
 - Compare account planning CRM with a traditional CRM.
 
 Record whether Visioner is mentioned, which URL is cited, whether plan facts are accurate, and which competitors are cited. Improve the cited canonical page; do not create doorway pages for each model.
+
+The monthly GitHub workflow creates a dated review issue automatically. Record the comparable results in `docs/geo-answer-monitoring.csv`. Treat an isolated personalized answer as directional evidence, not as a ranking claim.
 
 ## Measurement dashboard
 

@@ -11,6 +11,7 @@
     "validate:entrypoints": "node scripts/validate-public-entrypoints.mjs",
     "validate:seo-geo": "node scripts/validate-seo-geo.mjs",
     "audit:seo-live": "node scripts/audit-live-seo.mjs",
+    "report:seo-geo": "node scripts/report-seo-geo-performance.mjs",
     "indexnow:submit": "node scripts/submit-indexnow.mjs",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",

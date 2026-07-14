@@ -21,6 +21,7 @@ dist-ssr
 .wrangler/
 .dev.vars
 public/downloads/
+artifacts/
 
 # Editor directories and files
 .vscode/*

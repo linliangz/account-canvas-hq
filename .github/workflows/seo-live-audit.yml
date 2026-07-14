@@ -15,3 +15,15 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/audit-live-seo.mjs
+      - name: Report Search Console performance
+        env:
+          GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON }}
+          SEO_GSC_SITE_URL: sc-domain:visioner.cc
+        run: node scripts/report-seo-geo-performance.mjs
+      - name: Upload SEO performance evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: visioner-seo-performance
+          path: artifacts/seo-geo-performance.json
+          if-no-files-found: ignore
+          retention-days: 90

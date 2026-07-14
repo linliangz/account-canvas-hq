@@ -1,0 +1,45 @@
+name: Visioner monthly GEO answer review
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 16 1 * *"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  create-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - name: Create the monthly GEO review task
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          MONTH="$(date -u +%Y-%m)"
+          TITLE="GEO answer review — ${MONTH}"
+          if gh issue list --repo "$GH_REPO" --state all --search "${TITLE} in:title" --json title --jq '.[].title' | grep -Fxq "$TITLE"; then
+            echo "Monthly GEO review already exists: $TITLE"
+            exit 0
+          fi
+          BODY_FILE="$(mktemp)"
+          cat > "$BODY_FILE" <<EOF
+          Run the fixed neutral prompt set in ChatGPT Search, Gemini, Perplexity, and Copilot.
+
+          Record results in \`docs/geo-answer-monitoring.csv\`:
+
+          - whether Visioner is mentioned;
+          - which canonical Visioner URL is cited;
+          - whether plan and product facts are accurate;
+          - which competitors are cited;
+          - one concrete follow-up change to the cited canonical page.
+
+          Keep the wording neutral and unchanged month to month. Do not create doorway pages or claim rankings based on one personalized answer.
+
+          Reference: \`docs/visioner-seo-geo-execution-plan.md\`
+          EOF
+          gh issue create --repo "$GH_REPO" --title "$TITLE" --body-file "$BODY_FILE"

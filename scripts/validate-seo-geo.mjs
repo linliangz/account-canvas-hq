@@ -14,6 +14,10 @@ const sitemap = read("public/sitemap.xml");
 const llms = read("public/llms.txt");
 const llmsFull = read("public/llms-full.txt");
 const marketingLinks = read("src/lib/marketing-links.ts");
+const performanceReport = read("scripts/report-seo-geo-performance.mjs");
+const weeklyAudit = read(".github/workflows/seo-live-audit.yml");
+const monthlyGeoReview = read(".github/workflows/geo-monthly-review.yml");
+const geoScorecard = read("docs/geo-answer-monitoring.csv");
 
 const authorityRoutes = [
   "account-planning-crm.tsx",
@@ -109,6 +113,28 @@ assert(
     marketingLinks.includes('utm_medium", "website"') &&
     marketingLinks.includes("utm_campaign"),
   "Website signup links must preserve first-party acquisition attribution.",
+);
+assert(
+  performanceReport.includes("webmasters.readonly") &&
+    performanceReport.includes('["query"], 500') &&
+    performanceReport.includes('["page"], 500') &&
+    performanceReport.includes("nonBranded") &&
+    performanceReport.includes("opportunities"),
+  "Weekly reporting must use read-only Search Console data for query, page, non-branded, and CTR-opportunity analysis.",
+);
+assert(
+  weeklyAudit.includes("GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON") &&
+    weeklyAudit.includes("report-seo-geo-performance.mjs") &&
+    weeklyAudit.includes("upload-artifact@v4"),
+  "The weekly live audit must publish Search Console evidence when credentials are configured.",
+);
+assert(
+  monthlyGeoReview.includes("schedule:") &&
+    monthlyGeoReview.includes("GEO answer review") &&
+    monthlyGeoReview.includes("issues: write") &&
+    geoScorecard.includes("facts_accurate") &&
+    geoScorecard.includes("cited_url"),
+  "GEO monitoring must create a monthly review task and record citations plus factual accuracy.",
 );
 
 const guideDir = "src/routes/guides";
