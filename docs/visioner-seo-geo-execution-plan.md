@@ -4,6 +4,8 @@ Updated: 2026-07-14
 Owner: Founder until a growth owner is assigned
 Primary category: Account Planning CRM for Key Account Managers
 
+Weekly operating instructions: `docs/visioner-seo-geo-founder-runbook.md`
+
 ## Outcomes
 
 Within 90 days, establish repeatable discovery rather than publishing more near-duplicate keyword pages.
@@ -145,6 +147,9 @@ plan into an operating checklist. Complete one canonical-page improvement, two f
 posts, one relevant community contribution, one KAM review request, and one measurement update.
 The goal is one evidence-producing cycle per week, not a larger volume of lightly differentiated
 pages.
+
+Use the founder runbook's two-hour timebox: 15 minutes to read evidence, 30 minutes to improve one
+canonical answer, 60 minutes to distribute useful evidence, and 15 minutes to record a decision.
 
 Before creating the issue, the workflow now generates one consolidated operating brief from the live
 technical audit, Search Console, aggregate signup-to-paid attribution, and the current row of the

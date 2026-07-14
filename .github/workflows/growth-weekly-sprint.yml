@@ -67,6 +67,7 @@ jobs:
         with:
           name: visioner-growth-performance
           path: |
+            docs/visioner-seo-geo-founder-runbook.md
             artifacts/growth-performance.json
             artifacts/growth-performance.md
             artifacts/growth-links.json

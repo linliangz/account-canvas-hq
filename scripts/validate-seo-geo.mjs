@@ -16,6 +16,7 @@ const llms = read("public/llms.txt");
 const llmsFull = read("public/llms-full.txt");
 const weeklyGrowthSprint = read(".github/workflows/growth-weekly-sprint.yml");
 const roadmap = read("docs/seo-geo-90-day-roadmap.csv");
+const founderRunbook = read("docs/visioner-seo-geo-founder-runbook.md");
 const marketingLinks = read("src/lib/marketing-links.ts");
 const performanceReport = read("scripts/report-seo-geo-performance.mjs");
 const growthReport = read("scripts/report-growth-performance.mjs");
@@ -72,6 +73,16 @@ assert(
   weeklyBrief.includes("seo-geo-90-day-roadmap.csv") &&
     weeklyGrowthSprint.includes("generate-seo-geo-weekly-brief.mjs"),
   "The weekly growth task must link to the 90-day execution roadmap.",
+);
+assert(
+  founderRunbook.includes("Weekly two-hour cycle") &&
+    founderRunbook.includes("One-time indexing gate") &&
+    founderRunbook.includes("Monthly GEO cycle") &&
+    founderRunbook.includes("Decision rules") &&
+    weeklyBrief.includes("15 min — Evidence") &&
+    weeklyBrief.includes("60 min — Distribution") &&
+    weeklyGrowthSprint.includes("visioner-seo-geo-founder-runbook.md"),
+  "SEO/GEO must provide a time-boxed founder runbook and include it in every weekly growth artifact.",
 );
 assert(
   weeklyGrowthSprint.includes("Visioner weekly growth sprint") &&

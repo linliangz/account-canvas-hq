@@ -111,13 +111,14 @@ ${product}
 
 ## Execution checklist
 
+- [ ] **15 min — Evidence:** read the live audit, Search Console state, and signup-to-paid baseline; missing is not zero.
+- [ ] **30 min — Canonical answer:** improve one page with the named first-hand evidence and verify its title, direct answer, internal links, current screenshot, structured data, mobile layout, and CTA.
+- [ ] **60 min — Distribution:** publish two tracked founder posts, contribute one useful KAM answer, and ask one practicing KAM for a critical review.
+- [ ] **15 min — Decision:** record links and metrics, then choose keep, improve snippet, strengthen evidence, consolidate, or retire.
 - [ ] Complete any manual setup shown above before interpreting missing metrics.
-- [ ] Improve the canonical page with the named first-hand product evidence; do not create a near-duplicate keyword page.
-- [ ] Verify title, direct answer, internal links, current screenshot, structured data, mobile layout, and one clear signup CTA.
-- [ ] Complete the planned distribution using tracked links from the growth artifact.
-- [ ] Ask one practicing KAM for specific feedback and record approved evidence or objections.
 - [ ] Add one dated row to \`docs/seo-geo-weekly-scorecard.csv\` only after real metrics are available.
-- [ ] Record links and choose one decision: keep, improve snippet, strengthen evidence, consolidate, or retire.
+
+Operating instructions: \`docs/visioner-seo-geo-founder-runbook.md\`
 
 ## GEO discipline
 
