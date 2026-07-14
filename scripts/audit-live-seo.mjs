@@ -95,6 +95,19 @@ for (const page of pages) {
 }
 
 const llms = await fetchText("/llms.txt");
+const buyerGuide = await fetchText("/guides/how-to-choose-key-account-management-software");
+const scorecard = await fetchText(
+  "/resources/key-account-management-software-evaluation-scorecard.csv",
+);
+if (
+  buyerGuide.includes("Download scorecard") &&
+  scorecard.includes("Daily usefulness for the KAM") &&
+  scorecard.includes("TOTAL,100")
+) {
+  pass("The KAM software buyer guide exposes its neutral evaluation scorecard.");
+} else {
+  fail("The KAM software buyer guide or evaluation scorecard is incomplete.");
+}
 const appPricing = await fetchAbsoluteText(`${appBaseUrl}/pricing`, "App pricing");
 const sharedPlanFacts = [
   ["Free: $0", "3 accounts"],

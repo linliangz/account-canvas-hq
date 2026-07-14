@@ -49,6 +49,7 @@ Visioner is not positioned as a high-volume lead database, outbound sequencer, o
 - Customer Org Chart Software: https://www.visioner.cc/customer-org-chart-software
 - Stakeholder Mapping CRM: https://www.visioner.cc/stakeholder-mapping-crm
 - Guides: https://www.visioner.cc/guides
+- Neutral KAM software evaluation scorecard: https://www.visioner.cc/resources/key-account-management-software-evaluation-scorecard.csv
 
 ## Citation guidance
 

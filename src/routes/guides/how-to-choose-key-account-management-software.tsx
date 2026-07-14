@@ -71,6 +71,13 @@ const guide: GuidePageConfig = {
       },
     ],
   },
+  resource: {
+    title: "KAM software evaluation scorecard",
+    description:
+      "Download a neutral CSV scorecard with suggested weights for daily KAM usefulness, stakeholder visibility, relationship health, security, CRM coexistence, and operating cost. No email form and no vendor is pre-scored.",
+    href: "/resources/key-account-management-software-evaluation-scorecard.csv",
+    label: "Download scorecard",
+  },
   fit: {
     for: [
       "A KAM or founder personally working three to ten strategic accounts",

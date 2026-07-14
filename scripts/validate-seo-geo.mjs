@@ -1,5 +1,6 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import { spawnSync } from "node:child_process";
 
 const failures = [];
 const read = (path) => readFileSync(path, "utf8");
@@ -25,6 +26,11 @@ const monthlyGeoReview = read(".github/workflows/geo-monthly-review.yml");
 const geoScorecard = read("docs/geo-answer-monitoring.csv");
 const directoryKit = read("docs/visioner-directory-submission-kit.md");
 const liveSeoAudit = read("scripts/audit-live-seo.mjs");
+const sitemapGenerator = read("scripts/generate-sitemap.mjs");
+const buyerGuide = read("src/routes/guides/how-to-choose-key-account-management-software.tsx");
+const evaluationScorecard = read(
+  "public/resources/key-account-management-software-evaluation-scorecard.csv",
+);
 
 const authorityRoutes = [
   "account-planning-crm.tsx",
@@ -104,6 +110,17 @@ assert(
   "External campaign attribution must survive the website-to-signup handoff without duplicate route rendering.",
 );
 assert(new Set(sitemapUrls).size === sitemapUrls.length, "Sitemap URLs must be unique.");
+const sitemapCheck = spawnSync(process.execPath, ["scripts/generate-sitemap.mjs", "--check"], {
+  encoding: "utf8",
+});
+assert(
+  sitemapCheck.status === 0,
+  sitemapCheck.stderr.trim() || sitemapCheck.stdout.trim() || "Generated sitemap is stale.",
+);
+assert(
+  sitemapGenerator.includes("createFileRoute") && sitemapGenerator.includes("gitDate"),
+  "Sitemap generation must discover public routes and use reviewed or Git modification dates.",
+);
 for (const path of requiredRoutes) {
   const expected = `https://www.visioner.cc${path === "/" ? "/" : path}`;
   assert(sitemapUrls.includes(expected), `Sitemap is missing ${expected}.`);
@@ -208,6 +225,13 @@ assert(
     liveSeoAudit.includes("Create account for Basic") &&
     liveSeoAudit.includes("Public product facts agree"),
   "The live SEO/GEO audit must catch pricing and entitlement facts drifting between the website, app, and LLM context.",
+);
+assert(
+  buyerGuide.includes("/resources/key-account-management-software-evaluation-scorecard.csv") &&
+    buyerGuide.includes("No email form and no vendor is pre-scored") &&
+    evaluationScorecard.includes("Daily usefulness for the KAM") &&
+    evaluationScorecard.includes("TOTAL,100"),
+  "The KAM software buyer guide must offer a neutral, ungated evaluation scorecard.",
 );
 
 const guideDir = "src/routes/guides";

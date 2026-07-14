@@ -1,4 +1,4 @@
-import { ArrowRight, Check, ChevronRight, FileText, Globe } from "lucide-react";
+import { ArrowRight, Check, ChevronRight, Download, FileText, Globe } from "lucide-react";
 
 import { articleJsonLd, breadcrumbJsonLd } from "../lib/seo";
 import { marketingSignupUrl } from "../lib/marketing-links";
@@ -27,6 +27,12 @@ export type GuidePageConfig = {
       criterion: string;
       values: string[];
     }>;
+  };
+  resource?: {
+    title: string;
+    description: string;
+    href: string;
+    label: string;
   };
   fit?: {
     for: string[];
@@ -199,6 +205,33 @@ export function GuidePage({ config }: { config: GuidePageConfig }) {
                     ))}
                   </tbody>
                 </table>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {config.resource && (
+          <section className="border-b border-border/60">
+            <div className="mx-auto max-w-5xl px-6 py-12 md:py-16">
+              <div className="grid gap-5 rounded-lg border border-accent/25 bg-accent/5 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">
+                <div>
+                  <div className="text-sm font-semibold uppercase tracking-[0.14em] text-accent">
+                    Practical resource
+                  </div>
+                  <h2 className="mt-2 text-2xl font-bold text-foreground">
+                    {config.resource.title}
+                  </h2>
+                  <p className="mt-3 max-w-3xl text-[15px] leading-7 text-muted-foreground">
+                    {config.resource.description}
+                  </p>
+                </div>
+                <a
+                  href={config.resource.href}
+                  download
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-accent px-5 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] transition hover:brightness-105"
+                >
+                  <Download className="h-4 w-4" /> {config.resource.label}
+                </a>
               </div>
             </div>
           </section>
