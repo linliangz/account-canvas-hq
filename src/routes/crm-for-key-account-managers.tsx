@@ -11,6 +11,10 @@ const page: SeoLandingPageConfig = {
   path: "/crm-for-key-account-managers",
   primaryKeyword: "CRM for Key Account Managers",
   audience: "Key Account Managers managing a small number of high-value strategic accounts",
+  dateModified: "2026-07-14",
+  updatedAt: "Updated July 14, 2026",
+  directAnswer:
+    "A CRM for Key Account Managers should help an account owner run a small number of complex customers every day. It should connect revenue goals, projects, stakeholders, relationship health, tasks, and account signals without turning the KAM's workspace into another pipeline reporting form.",
   problem:
     "Most CRMs were designed to help managers inspect pipeline, forecast revenue, and standardize reporting. KAMs need something different: a practical workspace that helps them decide who to contact, which project needs attention, where the relationship risk is, and what to do next inside a complex account.",
   outcomes: [
@@ -18,6 +22,39 @@ const page: SeoLandingPageConfig = {
     "Track projects, stakeholders, tasks, and relationship health together",
     "Turn missing roles and stale relationships into account signals",
     "Keep Salesforce or HubSpot as the record system if your company already uses one",
+  ],
+  evidence: {
+    image: "/product-screenshots/visioner-portfolio-home.png",
+    alt: "Visioner portfolio workspace showing revenue progress and projects across strategic accounts",
+    caption:
+      "Visioner's portfolio workspace keeps revenue progress and active account work together, then lets the KAM move into the project, contact, task, or org-chart context that needs attention.",
+  },
+  fit: {
+    for: [
+      "KAMs responsible for a few strategic accounts with long, multi-stakeholder buying cycles",
+      "Account owners who need a daily workspace alongside an existing corporate CRM",
+      "Renewal and expansion work where relationship coverage matters as much as pipeline stage",
+    ],
+    notFor: [
+      "High-volume outbound prospecting, marketing automation, or lead scoring",
+      "Replacing an enterprise CRM's finance, territory, or compensation workflows",
+      "Managers who only need a roll-up forecast and do not work individual accounts",
+    ],
+  },
+  related: [
+    { label: "Account Planning CRM", href: "/account-planning-crm" },
+    {
+      label: "A KAM's daily workflow",
+      href: "/guides/key-account-manager-daily-workflow",
+    },
+    {
+      label: "Traditional CRM vs Account Planning CRM",
+      href: "/traditional-crm-vs-account-planning-crm",
+    },
+    {
+      label: "How to choose KAM software",
+      href: "/guides/how-to-choose-key-account-management-software",
+    },
   ],
   sections: [
     {

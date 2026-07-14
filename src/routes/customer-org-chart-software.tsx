@@ -12,6 +12,10 @@ const page: SeoLandingPageConfig = {
   primaryKeyword: "Customer Org Chart Software",
   audience:
     "KAMs who need to understand customer structure, reporting lines, and decision influence inside strategic accounts",
+  dateModified: "2026-07-14",
+  updatedAt: "Updated July 14, 2026",
+  directAnswer:
+    "Customer org chart software gives account teams a visual map of reporting lines, departments, stakeholder roles, and relationship coverage inside a customer. For KAMs, the useful version connects that hierarchy to projects and next actions instead of stopping at a static company diagram.",
   problem:
     "A customer org chart is not just a diagram. For a Key Account Manager, it should show who reports to whom, which contacts matter for each project, which roles are unknown, whose relationship is cooling, and where the next action should happen. Visioner makes the customer org chart part of the account plan instead of a static side artifact.",
   outcomes: [
@@ -19,6 +23,36 @@ const page: SeoLandingPageConfig = {
     "Show reporting lines, departments, and unknown seats",
     "Connect org chart contacts to projects and stakeholder roles",
     "Use relationship health to decide who needs attention",
+  ],
+  evidence: {
+    image: "/product-screenshots/visioner-org-chart.png",
+    alt: "Visioner customer org chart with reporting lines, departments, and relationship health",
+    caption:
+      "Visioner's customer org chart displays reporting lines and relationship status in the account workspace. The KAM can keep the chart focused on relevant contacts rather than importing an entire company directory.",
+  },
+  fit: {
+    for: [
+      "Customer hierarchies that change often or span several buying departments",
+      "KAMs who need reporting structure and project influence in the same account plan",
+      "Teams that want unknown roles to remain visible until they are verified",
+    ],
+    notFor: [
+      "Publishing a complete private employee directory",
+      "Assuming job title alone determines buying influence",
+      "Replacing user review with unverified third-party organization data",
+    ],
+  },
+  related: [
+    { label: "Account Mapping Software", href: "/account-mapping-software" },
+    { label: "Relationship Mapping Software", href: "/relationship-mapping-software" },
+    {
+      label: "Account mapping guide for KAMs",
+      href: "/guides/account-mapping-guide-for-key-account-managers",
+    },
+    {
+      label: "How to map stakeholders",
+      href: "/guides/how-to-map-stakeholders-in-a-strategic-account",
+    },
   ],
   sections: [
     {

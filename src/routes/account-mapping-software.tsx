@@ -12,6 +12,10 @@ const page: SeoLandingPageConfig = {
   primaryKeyword: "Account Mapping Software",
   audience:
     "KAMs and strategic account owners who need to understand how a customer account really works",
+  dateModified: "2026-07-14",
+  updatedAt: "Updated July 14, 2026",
+  directAnswer:
+    "Account mapping software helps a strategic account owner understand how a customer actually works: who reports to whom, which departments and projects connect people, where influence sits, how strong each relationship is, and which important roles are still unknown.",
   problem:
     "A large account is not a flat contact list. It is a changing map of departments, reporting lines, decision roles, champions, blockers, relationship strength, and project-specific influence. Account mapping software should help the account owner see that structure clearly and decide where to act next.",
   outcomes: [
@@ -19,6 +23,36 @@ const page: SeoLandingPageConfig = {
     "Connect account maps to active projects and decision roles",
     "Track relationship health and last meaningful touch",
     "Turn account gaps into local signals and next actions",
+  ],
+  evidence: {
+    image: "/product-screenshots/visioner-org-chart.png",
+    alt: "Visioner account map showing customer reporting lines and relationship health",
+    caption:
+      "A Visioner account map combines reporting lines with department and relationship-health context. Contacts remain connected to the wider account plan instead of living in an isolated diagram.",
+  },
+  fit: {
+    for: [
+      "Strategic accounts with several departments, projects, and decision roles",
+      "KAMs who need to expose unknown managers, weak relationships, or missing stakeholders",
+      "Account plans where the same contact can influence more than one project",
+    ],
+    notFor: [
+      "A static employee directory with no account or project context",
+      "Automatic bulk import of every employee at a customer regardless of relevance",
+      "Treating inferred reporting lines as verified facts without KAM review",
+    ],
+  },
+  related: [
+    { label: "Customer Org Chart Software", href: "/customer-org-chart-software" },
+    { label: "Stakeholder Mapping CRM", href: "/stakeholder-mapping-crm" },
+    {
+      label: "Account mapping guide for KAMs",
+      href: "/guides/account-mapping-guide-for-key-account-managers",
+    },
+    {
+      label: "How to map stakeholders",
+      href: "/guides/how-to-map-stakeholders-in-a-strategic-account",
+    },
   ],
   sections: [
     {
