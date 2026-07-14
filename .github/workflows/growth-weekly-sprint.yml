@@ -52,6 +52,9 @@ jobs:
             if [ -f artifacts/growth-links.md ]; then
               gh issue comment "$EXISTING_ISSUE" --repo "$GH_REPO" --body-file artifacts/growth-links.md
             fi
+            if [ -f artifacts/seo-geo-content-kit.md ]; then
+              gh issue comment "$EXISTING_ISSUE" --repo "$GH_REPO" --body-file artifacts/seo-geo-content-kit.md
+            fi
             exit 0
           fi
           BODY_FILE="$(mktemp)"
