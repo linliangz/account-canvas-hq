@@ -50,6 +50,6 @@ jobs:
           - [ ] Record the changed URL, distribution links, impressions/clicks/signups available so far, and next evidence in the issue.
           - [ ] Choose one: keep, refresh title/snippet, strengthen evidence, consolidate, or retire.
 
-          References: `docs/visioner-seo-geo-execution-plan.md` and `docs/seo-geo-keyword-map.csv`.
+          References: `docs/visioner-seo-geo-execution-plan.md`, `docs/seo-geo-90-day-roadmap.csv`, and `docs/seo-geo-keyword-map.csv`.
           EOF
           gh issue create --repo "$GH_REPO" --title "$TITLE" --body-file "$BODY_FILE"

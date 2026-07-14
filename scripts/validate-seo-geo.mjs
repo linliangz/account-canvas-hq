@@ -14,6 +14,7 @@ const sitemap = read("public/sitemap.xml");
 const llms = read("public/llms.txt");
 const llmsFull = read("public/llms-full.txt");
 const weeklyGrowthSprint = read(".github/workflows/growth-weekly-sprint.yml");
+const roadmap = read("docs/seo-geo-90-day-roadmap.csv");
 const marketingLinks = read("src/lib/marketing-links.ts");
 const performanceReport = read("scripts/report-seo-geo-performance.mjs");
 const weeklyAudit = read(".github/workflows/seo-live-audit.yml");
@@ -48,6 +49,16 @@ const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) =>
 assert(
   (sitemap.match(/<url>/g) ?? []).length === (sitemap.match(/<\/url>/g) ?? []).length,
   "Sitemap must have balanced url elements.",
+);
+assert(
+  roadmap.includes("Connect measurement baseline") &&
+    roadmap.includes("Consolidate and decide") &&
+    roadmap.split("\n").filter(Boolean).length === 13,
+  "SEO/GEO must have a 12-week owner, evidence, distribution, and measurement roadmap.",
+);
+assert(
+  weeklyGrowthSprint.includes("seo-geo-90-day-roadmap.csv"),
+  "The weekly growth task must link to the 90-day execution roadmap.",
 );
 assert(
   weeklyGrowthSprint.includes("Visioner weekly growth sprint") &&

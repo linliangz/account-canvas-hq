@@ -13,6 +13,21 @@ Within 90 days, establish repeatable discovery rather than publishing more near-
 - AI search systems can retrieve a current, factual description of Visioner, its plan boundaries, and canonical sources.
 - Organic visitors can be connected to signup, activation, and paid conversion events.
 
+### 90-day operating targets
+
+These are execution targets, not ranking promises. Search demand, crawl timing, and AI answers are
+outside Visioner's direct control.
+
+| Checkpoint | Controllable target                                                                    | Evidence target                                                                                      |
+| ---------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Day 14     | Search Console and Bing verified; sitemap accepted; weekly report connected            | Baseline indexed/excluded URLs and first branded-query record                                        |
+| Day 30     | Four authority pages refreshed; eight founder posts; four practitioner review requests | Brand query indexed; first non-branded impressions recorded                                          |
+| Day 60     | Four evidence-led guides distributed; eight useful community contributions             | At least 100 non-branded impressions in 28 days and five attributed organic signups                  |
+| Day 90     | Twelve weekly cycles completed; weak pages refreshed or consolidated                   | At least 500 non-branded impressions in 28 days, ten organic signups, and three activated workspaces |
+
+If evidence targets are missed, keep the execution cadence but change the page, distribution channel,
+or positioning. Do not compensate by producing near-duplicate keyword pages.
+
 ## Operating rules
 
 1. Keep one canonical page per search intent. Improve or consolidate weak pages instead of cloning another keyword variation.
@@ -104,6 +119,10 @@ plan into an operating checklist. Complete one canonical-page improvement, two f
 posts, one relevant community contribution, one KAM review request, and one measurement update.
 The goal is one evidence-producing cycle per week, not a larger volume of lightly differentiated
 pages.
+
+The week-by-week owner, deliverable, and completion evidence are tracked in
+`docs/seo-geo-90-day-roadmap.csv`. A row is complete only when its URL, distribution links, reviewer
+feedback, and measured result are recorded in the weekly GitHub issue.
 
 Review weekly:
 
