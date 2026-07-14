@@ -30,6 +30,7 @@ Within 90 days, establish repeatable discovery rather than publishing more near-
 - [x] Confirm `/robots.txt`, `/sitemap.xml`, `/llms.txt`, and `/llms-full.txt` return HTTP 200 without a browser challenge.
 - [x] Run `npm run validate:seo-geo` in every website pull request.
 - [x] Run `npm run audit:seo-live` every Monday against the public site through GitHub Actions.
+- [x] Host an IndexNow verification key and use `npm run indexnow:submit -- /changed-path` after publishing materially updated pages.
 - [x] Connect signup events to source, landing page, and campaign parameters without storing sensitive account content.
 - [ ] Capture baseline branded and non-branded impressions, clicks, CTR, indexed pages, signup conversion, and Core Web Vitals.
 
@@ -42,6 +43,10 @@ Refresh these pages before adding new ones:
 3. [x] `/account-mapping-software`: org chart, stakeholder roles, relationship health, and unknown seats.
 4. [x] `/customer-org-chart-software`: reporting-line workflow, private imports, provider boundaries, and screenshots.
 5. `/guides/how-to-choose-key-account-management-software`: neutral category comparison and evaluation checklist.
+
+After a page is deployed and the live SEO audit passes, notify IndexNow only for the URLs changed
+in that release. IndexNow complements Bing Webmaster Tools; it does not replace Google Search
+Console or guarantee crawling and ranking.
 
 Each refresh must include a direct answer, one original product screenshot, one practical checklist, internal links to two related pages, an updated date, and a CTA matched to the visitor's intent.
 
