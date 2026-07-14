@@ -14,6 +14,24 @@ export type GuidePageConfig = {
   updatedAt: string;
   readingTime: string;
   summary: string[];
+  evidence?: {
+    image: string;
+    alt: string;
+    caption: string;
+  };
+  comparison?: {
+    title: string;
+    description: string;
+    columns: string[];
+    rows: Array<{
+      criterion: string;
+      values: string[];
+    }>;
+  };
+  fit?: {
+    for: string[];
+    notFor: string[];
+  };
   sections: Array<{
     title: string;
     body: string[];
@@ -33,6 +51,7 @@ export function GuidePage({ config }: { config: GuidePageConfig }) {
       description: config.description,
       path: config.path,
       dateModified: config.dateModified,
+      image: config.evidence?.image,
     }),
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
@@ -117,6 +136,108 @@ export function GuidePage({ config }: { config: GuidePageConfig }) {
             </div>
           </div>
         </section>
+
+        {config.evidence && (
+          <section className="border-b border-border/60">
+            <figure className="mx-auto max-w-5xl px-6 py-12 md:py-16">
+              <div className="overflow-hidden rounded-lg border border-border bg-card shadow-[var(--shadow-soft)]">
+                <img
+                  src={config.evidence.image}
+                  alt={config.evidence.alt}
+                  className="h-auto w-full"
+                  loading="eager"
+                />
+              </div>
+              <figcaption className="mt-4 max-w-4xl text-sm leading-6 text-muted-foreground">
+                {config.evidence.caption}
+              </figcaption>
+            </figure>
+          </section>
+        )}
+
+        {config.comparison && (
+          <section className="border-b border-border/60 bg-surface/40">
+            <div className="mx-auto max-w-5xl px-6 py-14 md:py-20">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                {config.comparison.title}
+              </h2>
+              <p className="mt-4 max-w-3xl text-[17px] leading-8 text-muted-foreground">
+                {config.comparison.description}
+              </p>
+              <div className="mt-8 overflow-x-auto rounded-lg border border-border bg-card">
+                <table className="w-full min-w-[760px] border-collapse text-left">
+                  <thead className="bg-secondary/60">
+                    <tr>
+                      <th className="border-b border-border px-4 py-3 text-sm font-bold text-foreground">
+                        Decision criterion
+                      </th>
+                      {config.comparison.columns.map((column) => (
+                        <th
+                          key={column}
+                          className="border-b border-border px-4 py-3 text-sm font-bold text-foreground"
+                        >
+                          {column}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {config.comparison.rows.map((row) => (
+                      <tr key={row.criterion} className="border-b border-border/70 last:border-0">
+                        <th className="px-4 py-4 align-top text-sm font-semibold text-foreground">
+                          {row.criterion}
+                        </th>
+                        {row.values.map((value, index) => (
+                          <td
+                            key={`${row.criterion}-${config.comparison?.columns[index]}`}
+                            className="px-4 py-4 align-top text-sm leading-6 text-muted-foreground"
+                          >
+                            {value}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {config.fit && (
+          <section className="border-b border-border/60">
+            <div className="mx-auto grid max-w-5xl gap-6 px-6 py-14 md:grid-cols-2 md:py-20">
+              <div className="rounded-lg border border-border bg-card p-6">
+                <h2 className="text-xl font-bold text-foreground">A strong fit</h2>
+                <ul className="mt-5 space-y-3">
+                  {config.fit.for.map((item) => (
+                    <li key={item} className="flex gap-3 text-[15px] leading-7 text-foreground">
+                      <Check className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-lg border border-border bg-surface/50 p-6">
+                <h2 className="text-xl font-bold text-foreground">Probably not the right fit</h2>
+                <ul className="mt-5 space-y-3">
+                  {config.fit.notFor.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-[15px] leading-7 text-muted-foreground"
+                    >
+                      <span
+                        aria-hidden
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground"
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+        )}
 
         <section>
           <div className="mx-auto grid max-w-5xl gap-8 px-6 py-16 md:grid-cols-[minmax(0,1fr)_260px] md:py-24">

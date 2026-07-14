@@ -9,21 +9,31 @@ const pages = [
     path: "/account-planning-crm",
     title: "Account Planning CRM | Visioner",
     image: "/product-screenshots/visioner-account-overview.png",
+    answerMarker: "Direct answer",
   },
   {
     path: "/crm-for-key-account-managers",
     title: "CRM for Key Account Managers | Visioner",
     image: "/product-screenshots/visioner-portfolio-home.png",
+    answerMarker: "Direct answer",
   },
   {
     path: "/account-mapping-software",
     title: "Account Mapping Software | Visioner",
     image: "/product-screenshots/visioner-org-chart.png",
+    answerMarker: "Direct answer",
   },
   {
     path: "/customer-org-chart-software",
     title: "Customer Org Chart Software | Visioner",
     image: "/product-screenshots/visioner-org-chart.png",
+    answerMarker: "Direct answer",
+  },
+  {
+    path: "/guides/how-to-choose-key-account-management-software",
+    title: "How to Choose Key Account Management Software | Visioner",
+    image: "/product-screenshots/visioner-account-overview.png",
+    answerMarker: "Quick answer",
   },
 ];
 
@@ -67,7 +77,7 @@ for (const page of pages) {
       "article Open Graph type",
     ],
     [html.includes(expectedImage), "real product social image"],
-    [html.includes("Direct answer"), "direct answer content"],
+    [html.includes(page.answerMarker), "direct answer content"],
     [
       html.includes('\\\"@type\\\":\\\"Article\\\"') || html.includes('"@type":"Article"'),
       "Article structured data",
