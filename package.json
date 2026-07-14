@@ -9,6 +9,8 @@
     "build:dev": "vite build --mode development",
     "deploy:cloudflare": "npm run build && node scripts/prepare-pages-deploy.mjs && npx wrangler pages deploy dist --project-name visioner-cc && node scripts/prepare-worker-deploy.mjs && npx nitro deploy --prebuilt",
     "validate:entrypoints": "node scripts/validate-public-entrypoints.mjs",
+    "validate:seo-geo": "node scripts/validate-seo-geo.mjs",
+    "typecheck": "tsc --noEmit",
     "preview": "vite preview",
     "lint": "eslint src scripts eslint.config.js vite.config.ts",
     "format": "prettier --write ."

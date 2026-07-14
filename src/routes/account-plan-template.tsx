@@ -10,7 +10,8 @@ const page: SeoLandingPageConfig = {
     "Visioner gives KAMs the structure of an account plan template without trapping the plan in a static slide: revenue, projects, stakeholders, tasks, risks, notes, and relationship health stay connected.",
   path: "/account-plan-template",
   primaryKeyword: "Account Plan Template",
-  audience: "KAMs and founders who need a practical strategic account plan they will actually update",
+  audience:
+    "KAMs and founders who need a practical strategic account plan they will actually update",
   problem:
     "Most account plan templates are useful once and stale a week later. They ask the right questions but live outside the account owner's daily workflow. Visioner turns the template into a living workspace where project updates, relationship touches, and completed tasks keep the plan current.",
   outcomes: [
@@ -22,8 +23,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "What a useful account plan needs",
-      body:
-        "A practical account plan should answer: where are we against target, which projects matter, who influences the decision, what risks exist, and what action comes next?",
+      body: "A practical account plan should answer: where are we against target, which projects matter, who influences the decision, what risks exist, and what action comes next?",
       bullets: [
         "Revenue target and gap",
         "Active projects and next steps",
@@ -32,8 +32,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "From template to operating rhythm",
-      body:
-        "Visioner keeps the plan close to the work. Tasks, notes, project activity, and email logs become the evidence behind the account plan.",
+      body: "Visioner keeps the plan close to the work. Tasks, notes, project activity, and email logs become the evidence behind the account plan.",
       bullets: [
         "Four-quadrant task board",
         "Project activity and notes",
@@ -42,8 +41,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "No required-field anxiety",
-      body:
-        "A good template should guide thinking, not block progress. Visioner uses soft completion: missing fields become signals instead of errors.",
+      body: "A good template should guide thinking, not block progress. Visioner uses soft completion: missing fields become signals instead of errors.",
       bullets: [
         "Unknown economic buyer",
         "Missing executive sponsor",
@@ -71,11 +69,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/account-plan-template")({
-  head: () => pageHead({
-    title: "Account Plan Template for KAMs | Visioner",
-    description:
-      "A practical account plan template for KAMs: revenue, projects, stakeholders, tasks, risks, relationship health, and account signals in Visioner.",
-    path: "/account-plan-template",
-  }),
+  head: () =>
+    pageHead({
+      title: "Account Plan Template for KAMs | Visioner",
+      description:
+        "A practical account plan template for KAMs: revenue, projects, stakeholders, tasks, risks, relationship health, and account signals in Visioner.",
+      path: "/account-plan-template",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

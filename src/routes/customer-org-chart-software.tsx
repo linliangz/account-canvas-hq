@@ -10,7 +10,8 @@ const page: SeoLandingPageConfig = {
     "Visioner helps Key Account Managers build customer org charts with reporting lines, departments, stakeholder roles, relationship health, and project context.",
   path: "/customer-org-chart-software",
   primaryKeyword: "Customer Org Chart Software",
-  audience: "KAMs who need to understand customer structure, reporting lines, and decision influence inside strategic accounts",
+  audience:
+    "KAMs who need to understand customer structure, reporting lines, and decision influence inside strategic accounts",
   problem:
     "A customer org chart is not just a diagram. For a Key Account Manager, it should show who reports to whom, which contacts matter for each project, which roles are unknown, whose relationship is cooling, and where the next action should happen. Visioner makes the customer org chart part of the account plan instead of a static side artifact.",
   outcomes: [
@@ -22,8 +23,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "Org chart inside the account plan",
-      body:
-        "Visioner treats the customer org chart as part of daily account work. Contacts, departments, reporting lines, tasks, notes, and projects stay connected.",
+      body: "Visioner treats the customer org chart as part of daily account work. Contacts, departments, reporting lines, tasks, notes, and projects stay connected.",
       bullets: [
         "Account-level org chart view",
         "Department and report-to structure",
@@ -32,8 +32,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Decision roles beyond hierarchy",
-      body:
-        "The person with the title is not always the person with influence. Visioner lets projects carry roles like economic buyer, executive sponsor, champion, blocker, technical owner, and procurement.",
+      body: "The person with the title is not always the person with influence. Visioner lets projects carry roles like economic buyer, executive sponsor, champion, blocker, technical owner, and procurement.",
       bullets: [
         "Project-specific stakeholder roles",
         "Unknown executive or buyer placeholders",
@@ -42,8 +41,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Relationship health on the map",
-      body:
-        "A useful org chart should show relationship context. Visioner highlights stale contacts, weak coverage, and relationship reminders so the KAM can act before a project stalls.",
+      body: "A useful org chart should show relationship context. Visioner highlights stale contacts, weak coverage, and relationship reminders so the KAM can act before a project stalls.",
       bullets: [
         "Last meaningful touch context",
         "Relationship health indicators",
@@ -71,11 +69,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/customer-org-chart-software")({
-  head: () => pageHead({
-    title: "Customer Org Chart Software | Visioner",
-    description:
-      "Visioner is customer org chart software for KAMs to map reporting lines, departments, stakeholder roles, relationship health, and project decision coverage.",
-    path: "/customer-org-chart-software",
-  }),
+  head: () =>
+    pageHead({
+      title: "Customer Org Chart Software | Visioner",
+      description:
+        "Visioner is customer org chart software for KAMs to map reporting lines, departments, stakeholder roles, relationship health, and project decision coverage.",
+      path: "/customer-org-chart-software",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

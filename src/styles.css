@@ -41,51 +41,55 @@
   --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --shadow-soft: 0 1px 2px rgb(23 59 46 / 0.05), 0 8px 24px rgb(23 59 46 / 0.06);
-  --shadow-lift: 0 4px 12px rgb(23 59 46 / 0.08), 0 24px 60px rgb(23 59 46 / 0.10);
+  --shadow-lift: 0 4px 12px rgb(23 59 46 / 0.08), 0 24px 60px rgb(23 59 46 / 0.1);
 }
 
 :root {
   --radius: 0.625rem;
 
   /* Visioner brand palette */
-  --background: #F6F8F4;                /* Surface */
-  --foreground: #18221D;                /* Ink */
+  --background: #f6f8f4; /* Surface */
+  --foreground: #18221d; /* Ink */
 
-  --surface: #FBFCF9;
-  --surface-muted: #EEF2EA;
+  --surface: #fbfcf9;
+  --surface-muted: #eef2ea;
 
-  --card: #FFFFFF;
-  --card-foreground: #18221D;
-  --popover: #FFFFFF;
-  --popover-foreground: #18221D;
+  --card: #ffffff;
+  --card-foreground: #18221d;
+  --popover: #ffffff;
+  --popover-foreground: #18221d;
 
-  --primary: #173B2E;                   /* Primary Forest */
-  --primary-foreground: #FBFCF9;
+  --primary: #173b2e; /* Primary Forest */
+  --primary-foreground: #fbfcf9;
 
-  --accent: #1F7A55;                    /* Action Green */
-  --accent-foreground: #FBFCF9;
+  --accent: #1f7a55; /* Action Green */
+  --accent-foreground: #fbfcf9;
 
-  --secondary: #DFF2E7;                 /* Soft Mint */
-  --secondary-foreground: #173B2E;
+  --secondary: #dff2e7; /* Soft Mint */
+  --secondary-foreground: #173b2e;
 
-  --mint: #DFF2E7;
+  --mint: #dff2e7;
 
-  --muted: #EEF2EA;
-  --muted-foreground: #68756D;
+  --muted: #eef2ea;
+  --muted-foreground: #68756d;
 
-  --border: #E1E7DE;
-  --input: #E1E7DE;
-  --ring: #1F7A55;
+  --border: #e1e7de;
+  --input: #e1e7de;
+  --ring: #1f7a55;
 
-  --success: #1F7A55;
-  --warning: #D6A03A;                   /* Signal Amber */
-  --destructive: #D85C52;               /* Risk Red */
-  --insight: #6D8DFF;                   /* Insight Blue */
+  --success: #1f7a55;
+  --warning: #d6a03a; /* Signal Amber */
+  --destructive: #d85c52; /* Risk Red */
+  --insight: #6d8dff; /* Insight Blue */
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -95,13 +99,23 @@
     font-size: 17px;
     line-height: 1.6;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: 0;
     color: var(--color-foreground);
   }
-  h1 { line-height: 1.1; }
-  h2 { line-height: 1.15; }
-  h3, h4 { line-height: 1.25; }
+  h1 {
+    line-height: 1.1;
+  }
+  h2 {
+    line-height: 1.15;
+  }
+  h3,
+  h4 {
+    line-height: 1.25;
+  }
 }

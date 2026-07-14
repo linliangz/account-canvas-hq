@@ -122,7 +122,9 @@ export function GuidePage({ config }: { config: GuidePageConfig }) {
             <div className="space-y-12">
               {config.sections.map((section) => (
                 <section key={section.title}>
-                  <h2 className="text-3xl font-bold tracking-tight text-foreground">{section.title}</h2>
+                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                    {section.title}
+                  </h2>
                   <div className="mt-4 space-y-4">
                     {section.body.map((paragraph) => (
                       <p key={paragraph} className="text-[17px] leading-8 text-muted-foreground">
@@ -137,7 +139,10 @@ export function GuidePage({ config }: { config: GuidePageConfig }) {
                       </div>
                       <ul className="mt-4 space-y-3">
                         {section.checklist.map((item) => (
-                          <li key={item} className="flex gap-3 text-[15px] leading-7 text-foreground">
+                          <li
+                            key={item}
+                            className="flex gap-3 text-[15px] leading-7 text-foreground"
+                          >
                             <Check className="mt-1 h-4 w-4 shrink-0 text-accent" />
                             <span>{item}</span>
                           </li>
@@ -166,9 +171,12 @@ export function GuidePage({ config }: { config: GuidePageConfig }) {
                 ))}
               </div>
               <div className="mt-6 rounded-xl bg-secondary/50 p-4">
-                <div className="text-sm font-bold text-foreground">Try Visioner with 3 accounts</div>
+                <div className="text-sm font-bold text-foreground">
+                  Try Visioner with 3 accounts
+                </div>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                  Build an account plan, map stakeholders, and manage KAM tasks without a heavy CRM setup.
+                  Build an account plan, map stakeholders, and manage KAM tasks without a heavy CRM
+                  setup.
                 </p>
                 <a
                   href={SIGNUP_URL}
@@ -190,7 +198,9 @@ export function GuidePage({ config }: { config: GuidePageConfig }) {
 
       <footer className="border-t border-border/60 bg-surface/60">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-muted-foreground md:flex-row">
-          <a href="/" className="font-bold text-foreground">Visioner</a>
+          <a href="/" className="font-bold text-foreground">
+            Visioner
+          </a>
           <div className="flex flex-wrap items-center justify-center gap-5">
             <a href="/crm-for-key-account-managers" className="hover:text-foreground">
               CRM for KAMs
@@ -201,9 +211,15 @@ export function GuidePage({ config }: { config: GuidePageConfig }) {
             <a href="/account-plan-template" className="hover:text-foreground">
               Account Plan Template
             </a>
-            <a href="/guides" className="hover:text-foreground">All Guides</a>
-            <a href="/privacy" className="hover:text-foreground">Privacy</a>
-            <a href="/terms" className="hover:text-foreground">Terms</a>
+            <a href="/guides" className="hover:text-foreground">
+              All Guides
+            </a>
+            <a href="/privacy" className="hover:text-foreground">
+              Privacy
+            </a>
+            <a href="/terms" className="hover:text-foreground">
+              Terms
+            </a>
           </div>
         </div>
       </footer>

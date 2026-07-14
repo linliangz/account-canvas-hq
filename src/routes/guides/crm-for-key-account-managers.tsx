@@ -71,17 +71,21 @@ const guide: GuidePageConfig = {
   related: [
     { label: "CRM for Key Account Managers", href: "/crm-for-key-account-managers" },
     { label: "Account Planning CRM", href: "/account-planning-crm" },
-    { label: "Strategic Account Management Software", href: "/strategic-account-management-software" },
+    {
+      label: "Strategic Account Management Software",
+      href: "/strategic-account-management-software",
+    },
   ],
 };
 
 export const Route = createFileRoute("/guides/crm-for-key-account-managers")({
-  head: () => pageHead({
-    title: "CRM for Key Account Managers: What Traditional CRM Misses | Visioner",
-    description:
-      "Why Key Account Managers need a different CRM workflow: daily account planning, stakeholder coverage, relationship health, local signals, and KAM tasks.",
-    path: "/guides/crm-for-key-account-managers",
-    type: "article",
-  }),
+  head: () =>
+    pageHead({
+      title: "CRM for Key Account Managers: What Traditional CRM Misses | Visioner",
+      description:
+        "Why Key Account Managers need a different CRM workflow: daily account planning, stakeholder coverage, relationship health, local signals, and KAM tasks.",
+      path: "/guides/crm-for-key-account-managers",
+      type: "article",
+    }),
   component: () => <GuidePage config={guide} />,
 });

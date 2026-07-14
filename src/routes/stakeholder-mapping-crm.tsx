@@ -10,7 +10,8 @@ const page: SeoLandingPageConfig = {
     "Visioner helps KAMs map org charts, decision roles, unknown seats, relationship health, and project stakeholders so the account plan reflects how decisions really happen.",
   path: "/stakeholder-mapping-crm",
   primaryKeyword: "Stakeholder Mapping CRM",
-  audience: "KAMs working accounts where buying committees, reporting lines, and influence paths matter",
+  audience:
+    "KAMs working accounts where buying committees, reporting lines, and influence paths matter",
   problem:
     "Complex deals are rarely decided by one contact. The sponsor, business owner, economic buyer, procurement team, legal team, IT, security, champion, and blocker can all change the outcome. A stakeholder mapping CRM makes those people and gaps visible before they surprise the deal.",
   outcomes: [
@@ -22,8 +23,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "Org chart as a working surface",
-      body:
-        "Visioner treats the org chart as a core account planning view, not an optional CRM decoration.",
+      body: "Visioner treats the org chart as a core account planning view, not an optional CRM decoration.",
       bullets: [
         "Reporting lines and department context",
         "Known contacts and placeholder seats",
@@ -32,8 +32,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Decision chain by project",
-      body:
-        "Different projects inside the same account can have different stakeholders. Visioner connects people to the workstream where they matter.",
+      body: "Different projects inside the same account can have different stakeholders. Visioner connects people to the workstream where they matter.",
       bullets: [
         "Executive sponsor",
         "Economic buyer",
@@ -42,8 +41,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Signals from missing coverage",
-      body:
-        "Stakeholder mapping is useful because it reveals what is missing. Visioner turns unknown roles and cooling relationships into prompts for action.",
+      body: "Stakeholder mapping is useful because it reveals what is missing. Visioner turns unknown roles and cooling relationships into prompts for action.",
       bullets: [
         "Unknown decision maker",
         "No champion assigned",
@@ -71,11 +69,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/stakeholder-mapping-crm")({
-  head: () => pageHead({
-    title: "Stakeholder Mapping CRM | Visioner",
-    description:
-      "Visioner is a stakeholder mapping CRM for org charts, decision roles, relationship health, project stakeholders, and account planning signals.",
-    path: "/stakeholder-mapping-crm",
-  }),
+  head: () =>
+    pageHead({
+      title: "Stakeholder Mapping CRM | Visioner",
+      description:
+        "Visioner is a stakeholder mapping CRM for org charts, decision roles, relationship health, project stakeholders, and account planning signals.",
+      path: "/stakeholder-mapping-crm",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

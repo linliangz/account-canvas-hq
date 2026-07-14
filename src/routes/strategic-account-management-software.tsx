@@ -22,8 +22,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "Portfolio clarity",
-      body:
-        "See the accounts that matter, current ARR, target gap, projected revenue, and active work without opening five disconnected tools.",
+      body: "See the accounts that matter, current ARR, target gap, projected revenue, and active work without opening five disconnected tools.",
       bullets: [
         "Revenue and project overview",
         "Account-level task queue",
@@ -32,8 +31,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Coverage and influence",
-      body:
-        "Strategic account management depends on knowing who matters, who reports to whom, and which relationships need care.",
+      body: "Strategic account management depends on knowing who matters, who reports to whom, and which relationships need care.",
       bullets: [
         "Visual org chart",
         "Relationship health indicators",
@@ -42,8 +40,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Daily execution",
-      body:
-        "Visioner brings the work back to a daily rhythm: prioritize, follow up, log activity, improve the account map, and turn progress into useful records.",
+      body: "Visioner brings the work back to a daily rhythm: prioritize, follow up, log activity, improve the account map, and turn progress into useful records.",
       bullets: [
         "Task board and weekly progress",
         "Project workspace and activity logs",
@@ -71,11 +68,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/strategic-account-management-software")({
-  head: () => pageHead({
-    title: "Strategic Account Management Software | Visioner",
-    description:
-      "Strategic account management software for KAMs to manage revenue, projects, org charts, relationship health, tasks, and account signals.",
-    path: "/strategic-account-management-software",
-  }),
+  head: () =>
+    pageHead({
+      title: "Strategic Account Management Software | Visioner",
+      description:
+        "Strategic account management software for KAMs to manage revenue, projects, org charts, relationship health, tasks, and account signals.",
+      path: "/strategic-account-management-software",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

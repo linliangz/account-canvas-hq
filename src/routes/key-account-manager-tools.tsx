@@ -10,7 +10,8 @@ const page: SeoLandingPageConfig = {
     "Visioner gives KAMs a calm workspace for tasks, account plans, stakeholders, projects, relationship health, and signals without turning every update into CRM admin.",
   path: "/key-account-manager-tools",
   primaryKeyword: "Key Account Manager Tools",
-  audience: "individual KAMs, strategic account managers, and founders who personally work important accounts",
+  audience:
+    "individual KAMs, strategic account managers, and founders who personally work important accounts",
   problem:
     "Most KAMs already use too many tools: CRM for reporting, spreadsheets for account plans, notes for customer context, email for activity history, and memory for relationship cadence. The problem is not a lack of software; it is that the daily account workflow is scattered.",
   outcomes: [
@@ -22,8 +23,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "A home screen for account work",
-      body:
-        "Visioner is designed to be the place a KAM opens first: portfolio status, target gap, project priorities, urgent tasks, and relationship signals across important accounts.",
+      body: "Visioner is designed to be the place a KAM opens first: portfolio status, target gap, project priorities, urgent tasks, and relationship signals across important accounts.",
       bullets: [
         "Portfolio home",
         "Four-quadrant task board",
@@ -32,8 +32,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Tools for people and projects",
-      body:
-        "KAM work is built around people. Visioner keeps contacts, stakeholders, decision roles, org chart, projects, and activity history connected inside each account.",
+      body: "KAM work is built around people. Visioner keeps contacts, stakeholders, decision roles, org chart, projects, and activity history connected inside each account.",
       bullets: [
         "Contacts and relationship health",
         "Stakeholder roles and decision chains",
@@ -42,8 +41,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Less switching, less re-entry",
-      body:
-        "The best KAM tool should reduce repeated input. Visioner turns tasks, notes, and captured email activity into account context that can support account reviews later.",
+      body: "The best KAM tool should reduce repeated input. Visioner turns tasks, notes, and captured email activity into account context that can support account reviews later.",
       bullets: [
         "Soft completion instead of required-field anxiety",
         "Weekly progress from completed tasks",
@@ -71,11 +69,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/key-account-manager-tools")({
-  head: () => pageHead({
-    title: "Key Account Manager Tools | Visioner",
-    description:
-      "Visioner gives Key Account Managers tools for account planning, stakeholders, projects, tasks, relationship health, signals, and activity capture.",
-    path: "/key-account-manager-tools",
-  }),
+  head: () =>
+    pageHead({
+      title: "Key Account Manager Tools | Visioner",
+      description:
+        "Visioner gives Key Account Managers tools for account planning, stakeholders, projects, tasks, relationship health, signals, and activity capture.",
+      path: "/key-account-manager-tools",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

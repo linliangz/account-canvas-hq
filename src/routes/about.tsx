@@ -17,8 +17,14 @@ const APP_URL = "https://app.visioner.cc/";
 
 const facts = [
   ["Category", "Account Planning CRM"],
-  ["Primary users", "Key Account Managers, Strategic Account Managers, and founders working a small number of high-value accounts"],
-  ["Best fit", "Complex accounts where stakeholders, reporting lines, relationship health, projects, and follow-up timing matter"],
+  [
+    "Primary users",
+    "Key Account Managers, Strategic Account Managers, and founders working a small number of high-value accounts",
+  ],
+  [
+    "Best fit",
+    "Complex accounts where stakeholders, reporting lines, relationship health, projects, and follow-up timing matter",
+  ],
   ["Launch model", "SaaS-first V1.0 with a free three-account plan"],
   ["Product status", "Early commercial beta"],
   ["Support", "support@visioner.cc"],
@@ -28,20 +34,17 @@ const pillars = [
   {
     icon: Target,
     title: "Revenue context",
-    body:
-      "Visioner starts with the account owner's daily view: current ARR, target gap, active projects, and the work that changes the outcome.",
+    body: "Visioner starts with the account owner's daily view: current ARR, target gap, active projects, and the work that changes the outcome.",
   },
   {
     icon: Network,
     title: "Stakeholder visibility",
-    body:
-      "Customer org charts, account maps, missing roles, decision chains, and relationship health sit close to the project work.",
+    body: "Customer org charts, account maps, missing roles, decision chains, and relationship health sit close to the project work.",
   },
   {
     icon: ClipboardList,
     title: "Daily execution",
-    body:
-      "Tasks, notes, account signals, activity history, and BCC email capture are designed to reduce separate CRM update work.",
+    body: "Tasks, notes, account signals, activity history, and BCC email capture are designed to reduce separate CRM update work.",
   },
 ];
 

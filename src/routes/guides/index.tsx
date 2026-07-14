@@ -65,7 +65,10 @@ const keywordPages = [
   { label: "Account Planning CRM", href: "/account-planning-crm" },
   { label: "Account Planning Software", href: "/account-planning-software" },
   { label: "Key Account Planning Software", href: "/key-account-planning-software" },
-  { label: "Strategic Account Management Software", href: "/strategic-account-management-software" },
+  {
+    label: "Strategic Account Management Software",
+    href: "/strategic-account-management-software",
+  },
   { label: "Stakeholder Mapping CRM", href: "/stakeholder-mapping-crm" },
   { label: "Account Mapping Software", href: "/account-mapping-software" },
   { label: "Customer Org Chart Software", href: "/customer-org-chart-software" },
@@ -82,11 +85,12 @@ const description =
   "Guides for Key Account Managers on account planning, stakeholder mapping, strategic account management, relationship health, and CRM workflows.";
 
 export const Route = createFileRoute("/guides/")({
-  head: () => pageHead({
-    title: `${title} | Visioner`,
-    description,
-    path: "/guides",
-  }),
+  head: () =>
+    pageHead({
+      title: `${title} | Visioner`,
+      description,
+      path: "/guides",
+    }),
   component: GuidesIndex,
 });
 
@@ -148,12 +152,17 @@ function GuidesIndex() {
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
           <div className="grid gap-5 md:grid-cols-3">
             {guides.map((guide) => (
-              <article key={guide.href} className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]">
+              <article
+                key={guide.href}
+                className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]"
+              >
                 <div className="mb-4 inline-flex rounded-full bg-secondary px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
                   {guide.keyword}
                 </div>
                 <h2 className="text-xl font-bold leading-tight text-foreground">{guide.title}</h2>
-                <p className="mt-3 text-[15px] leading-7 text-muted-foreground">{guide.description}</p>
+                <p className="mt-3 text-[15px] leading-7 text-muted-foreground">
+                  {guide.description}
+                </p>
                 <a
                   href={guide.href}
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent"
@@ -174,7 +183,8 @@ function GuidesIndex() {
                   Explore the product by keyword.
                 </h2>
                 <p className="mt-3 text-[15px] leading-7 text-muted-foreground">
-                  These pages explain Visioner by the phrases KAMs and founders are likely to search.
+                  These pages explain Visioner by the phrases KAMs and founders are likely to
+                  search.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -215,7 +225,10 @@ function GuidesIndex() {
               "Stakeholder mapping should expose missing influence, not hide it in notes.",
               "CRM should reduce account work friction, not add more required fields.",
             ].map((item) => (
-              <div key={item} className="flex gap-2 rounded-xl border border-border bg-surface/40 p-4">
+              <div
+                key={item}
+                className="flex gap-2 rounded-xl border border-border bg-surface/40 p-4"
+              >
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span>{item}</span>
               </div>

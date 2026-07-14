@@ -91,7 +91,10 @@ const guide: GuidePageConfig = {
     { label: "Key Account Management Software", href: "/key-account-management-software" },
     { label: "CRM for Key Account Managers", href: "/crm-for-key-account-managers" },
     { label: "Account Planning CRM", href: "/account-planning-crm" },
-    { label: "Traditional CRM vs Account Planning CRM", href: "/traditional-crm-vs-account-planning-crm" },
+    {
+      label: "Traditional CRM vs Account Planning CRM",
+      href: "/traditional-crm-vs-account-planning-crm",
+    },
   ],
 };
 

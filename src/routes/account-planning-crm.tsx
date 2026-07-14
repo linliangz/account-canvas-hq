@@ -22,8 +22,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "Overview before detail",
-      body:
-        "Start from the account overview: current ARR, target gap, projects, tasks, signals, and relationship reminders. Then drill into projects and stakeholders only when needed.",
+      body: "Start from the account overview: current ARR, target gap, projects, tasks, signals, and relationship reminders. Then drill into projects and stakeholders only when needed.",
       bullets: [
         "Portfolio and account overview",
         "Revenue path to target",
@@ -32,8 +31,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Stakeholder-aware projects",
-      body:
-        "Every strategic project depends on a decision chain. Visioner lets projects carry stakeholders, roles, risks, activity, and notes instead of only a stage and close date.",
+      body: "Every strategic project depends on a decision chain. Visioner lets projects carry stakeholders, roles, risks, activity, and notes instead of only a stage and close date.",
       bullets: [
         "Decision roles and missing seats",
         "Project activity and files",
@@ -42,8 +40,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Signals from incomplete plans",
-      body:
-        "A strong account planning CRM should not punish missing information. It should surface the gap and help the account owner decide what to do next.",
+      body: "A strong account planning CRM should not punish missing information. It should surface the gap and help the account owner decide what to do next.",
       bullets: [
         "Economic buyer unknown",
         "Champion relationship cooling",
@@ -71,11 +68,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/account-planning-crm")({
-  head: () => pageHead({
-    title: "Account Planning CRM | Visioner",
-    description:
-      "Visioner is an account planning CRM for revenue, projects, stakeholders, tasks, relationship health, and strategic account signals.",
-    path: "/account-planning-crm",
-  }),
+  head: () =>
+    pageHead({
+      title: "Account Planning CRM | Visioner",
+      description:
+        "Visioner is an account planning CRM for revenue, projects, stakeholders, tasks, relationship health, and strategic account signals.",
+      path: "/account-planning-crm",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

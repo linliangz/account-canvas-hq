@@ -10,7 +10,8 @@ const page: SeoLandingPageConfig = {
     "Visioner gives Key Account Managers a daily CRM workspace for account plans, projects, contacts, org charts, relationship health, tasks, and account signals.",
   path: "/key-account-management-crm",
   primaryKeyword: "Key Account Management CRM",
-  audience: "Key Account Managers who need a CRM view built around strategic account work, not only pipeline reporting",
+  audience:
+    "Key Account Managers who need a CRM view built around strategic account work, not only pipeline reporting",
   problem:
     "A key account management CRM should help the account owner understand the account, not only update fields for management review. KAMs need to see revenue context, active projects, stakeholder coverage, relationship health, follow-ups, and risks together. Visioner is built around that daily operating rhythm.",
   outcomes: [
@@ -22,8 +23,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "Account-first CRM",
-      body:
-        "Visioner starts from the account and the work inside it: revenue path, projects, stakeholders, tasks, notes, email activity, and relationship coverage.",
+      body: "Visioner starts from the account and the work inside it: revenue path, projects, stakeholders, tasks, notes, email activity, and relationship coverage.",
       bullets: [
         "Portfolio home across key accounts",
         "Account overview for each customer",
@@ -32,8 +32,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "People before fields",
-      body:
-        "Key account management depends on people and influence. Visioner keeps contacts, reporting lines, stakeholder roles, and relationship health close to every project.",
+      body: "Key account management depends on people and influence. Visioner keeps contacts, reporting lines, stakeholder roles, and relationship health close to every project.",
       bullets: [
         "Org chart per account",
         "Decision roles per project",
@@ -42,8 +41,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "CRM as a byproduct",
-      body:
-        "Visioner is designed to make useful CRM records emerge from daily work: tasks, notes, project updates, contact activity, and BCC email capture beta.",
+      body: "Visioner is designed to make useful CRM records emerge from daily work: tasks, notes, project updates, contact activity, and BCC email capture beta.",
       bullets: [
         "Optional fields and soft completion",
         "Task board and weekly progress",
@@ -71,11 +69,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/key-account-management-crm")({
-  head: () => pageHead({
-    title: "Key Account Management CRM | Visioner",
-    description:
-      "Visioner is a key account management CRM for KAMs to manage account plans, projects, contacts, org charts, relationship health, tasks, and signals.",
-    path: "/key-account-management-crm",
-  }),
+  head: () =>
+    pageHead({
+      title: "Key Account Management CRM | Visioner",
+      description:
+        "Visioner is a key account management CRM for KAMs to manage account plans, projects, contacts, org charts, relationship health, tasks, and signals.",
+      path: "/key-account-management-crm",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

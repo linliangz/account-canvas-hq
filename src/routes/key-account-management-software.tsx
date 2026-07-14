@@ -10,7 +10,8 @@ const page: SeoLandingPageConfig = {
     "Visioner helps KAMs manage strategic accounts through account plans, projects, stakeholder maps, relationship health, tasks, and local account signals.",
   path: "/key-account-management-software",
   primaryKeyword: "Key Account Management Software",
-  audience: "Key Account Managers who own renewal, expansion, stakeholder coverage, and executive relationships",
+  audience:
+    "Key Account Managers who own renewal, expansion, stakeholder coverage, and executive relationships",
   problem:
     "Key account management is not the same as high-volume sales pipeline management. A KAM needs to understand people, influence, timing, renewal risk, expansion projects, and relationship health across a small number of important accounts. Standard CRM views often hide that work behind opportunity fields.",
   outcomes: [
@@ -22,8 +23,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "Designed for account depth",
-      body:
-        "Visioner is built for KAMs who manage a few complex accounts, not hundreds of leads. The workspace starts from account context, relationship coverage, project status, and next actions.",
+      body: "Visioner is built for KAMs who manage a few complex accounts, not hundreds of leads. The workspace starts from account context, relationship coverage, project status, and next actions.",
       bullets: [
         "Portfolio home for account-level priorities",
         "Account overview for revenue and active work",
@@ -32,8 +32,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Make stakeholder coverage visible",
-      body:
-        "Large accounts move through committees, influencers, and reporting lines. Visioner makes stakeholder roles, unknown seats, and relationship health visible before gaps become surprises.",
+      body: "Large accounts move through committees, influencers, and reporting lines. Visioner makes stakeholder roles, unknown seats, and relationship health visible before gaps become surprises.",
       bullets: [
         "Visual org chart per account",
         "Decision roles tied to projects",
@@ -42,8 +41,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Reduce CRM busywork",
-      body:
-        "The goal is to turn daily account work into useful records without forcing the KAM to maintain a separate reporting database.",
+      body: "The goal is to turn daily account work into useful records without forcing the KAM to maintain a separate reporting database.",
       bullets: [
         "Task board and weekly progress",
         "Optional fields and soft completion",
@@ -71,11 +69,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/key-account-management-software")({
-  head: () => pageHead({
-    title: "Key Account Management Software | Visioner",
-    description:
-      "Visioner is key account management software for KAMs to manage account plans, stakeholders, projects, tasks, relationship health, and account signals.",
-    path: "/key-account-management-software",
-  }),
+  head: () =>
+    pageHead({
+      title: "Key Account Management Software | Visioner",
+      description:
+        "Visioner is key account management software for KAMs to manage account plans, stakeholders, projects, tasks, relationship health, and account signals.",
+      path: "/key-account-management-software",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

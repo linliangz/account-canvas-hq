@@ -10,7 +10,8 @@ const page: SeoLandingPageConfig = {
     "Visioner helps account owners manage account plans, revenue targets, active projects, stakeholder coverage, relationship health, tasks, and account signals without living in spreadsheets.",
   path: "/account-planning-software",
   primaryKeyword: "Account Planning Software",
-  audience: "KAMs, founders, and strategic account owners who need account plans to guide real action",
+  audience:
+    "KAMs, founders, and strategic account owners who need account plans to guide real action",
   problem:
     "Most account planning software is either a static template or a heavy CRM add-on. The account plan looks polished during review, then drifts away from daily work. Visioner keeps the plan connected to projects, contacts, tasks, activity, and relationship health so the account plan improves as the account owner works.",
   outcomes: [
@@ -22,8 +23,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "Start with the account",
-      body:
-        "Visioner starts from the account overview: current ARR, target gap, active projects, urgent tasks, relationship reminders, and local account signals.",
+      body: "Visioner starts from the account overview: current ARR, target gap, active projects, urgent tasks, relationship reminders, and local account signals.",
       bullets: [
         "Portfolio home across key accounts",
         "Account overview for revenue and work in progress",
@@ -32,8 +32,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Make the people visible",
-      body:
-        "Strategic accounts move through people, influence, reporting lines, and timing. Visioner gives the account plan a living stakeholder map instead of hiding relationships in notes.",
+      body: "Strategic accounts move through people, influence, reporting lines, and timing. Visioner gives the account plan a living stakeholder map instead of hiding relationships in notes.",
       bullets: [
         "Org chart and reporting lines",
         "Decision roles per project",
@@ -42,8 +41,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Reduce account plan upkeep",
-      body:
-        "The best account plan is the one the account owner actually updates. Visioner uses optional fields, soft completion, task progress, and email activity capture to reduce manual reporting.",
+      body: "The best account plan is the one the account owner actually updates. Visioner uses optional fields, soft completion, task progress, and email activity capture to reduce manual reporting.",
       bullets: [
         "Optional fields instead of hard blockers",
         "Tasks and weekly progress as planning evidence",
@@ -71,11 +69,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/account-planning-software")({
-  head: () => pageHead({
-    title: "Account Planning Software | Visioner",
-    description:
-      "Visioner is account planning software for revenue targets, active projects, stakeholder coverage, relationship health, tasks, and account signals.",
-    path: "/account-planning-software",
-  }),
+  head: () =>
+    pageHead({
+      title: "Account Planning Software | Visioner",
+      description:
+        "Visioner is account planning software for revenue targets, active projects, stakeholder coverage, relationship health, tasks, and account signals.",
+      path: "/account-planning-software",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

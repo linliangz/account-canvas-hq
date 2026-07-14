@@ -84,10 +84,16 @@ const guide: GuidePageConfig = {
     },
   ],
   related: [
-    { label: "How to choose KAM software", href: "/guides/how-to-choose-key-account-management-software" },
+    {
+      label: "How to choose KAM software",
+      href: "/guides/how-to-choose-key-account-management-software",
+    },
     { label: "Account Planning CRM", href: "/account-planning-crm" },
     { label: "Key Account Management Software", href: "/key-account-management-software" },
-    { label: "Traditional CRM vs Account Planning CRM", href: "/traditional-crm-vs-account-planning-crm" },
+    {
+      label: "Traditional CRM vs Account Planning CRM",
+      href: "/traditional-crm-vs-account-planning-crm",
+    },
   ],
 };
 

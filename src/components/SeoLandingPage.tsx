@@ -52,7 +52,10 @@ const relatedPages = [
     label: "Account mapping guide",
     href: "/guides/account-mapping-guide-for-key-account-managers",
   },
-  { label: "What should an account plan include?", href: "/guides/what-should-an-account-plan-include" },
+  {
+    label: "What should an account plan include?",
+    href: "/guides/what-should-an-account-plan-include",
+  },
   {
     label: "How to map stakeholders",
     href: "/guides/how-to-map-stakeholders-in-a-strategic-account",

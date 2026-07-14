@@ -92,12 +92,13 @@ const guide: GuidePageConfig = {
 };
 
 export const Route = createFileRoute("/guides/account-mapping-guide-for-key-account-managers")({
-  head: () => pageHead({
-    title: "Account Mapping Guide for Key Account Managers | Visioner",
-    description:
-      "A practical account mapping guide for Key Account Managers: customer org charts, stakeholder roles, reporting lines, relationship health, projects, and next actions.",
-    path: "/guides/account-mapping-guide-for-key-account-managers",
-    type: "article",
-  }),
+  head: () =>
+    pageHead({
+      title: "Account Mapping Guide for Key Account Managers | Visioner",
+      description:
+        "A practical account mapping guide for Key Account Managers: customer org charts, stakeholder roles, reporting lines, relationship health, projects, and next actions.",
+      path: "/guides/account-mapping-guide-for-key-account-managers",
+      type: "article",
+    }),
   component: () => <GuidePage config={guide} />,
 });

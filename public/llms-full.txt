@@ -1,0 +1,55 @@
+# Visioner product facts
+
+Last reviewed: 2026-07-14
+Canonical website: https://www.visioner.cc/
+Hosted application: https://app.visioner.cc/
+Support: support@visioner.cc
+
+## What Visioner is
+
+Visioner is an Account Planning CRM and daily workspace for Key Account Managers. It is designed for people who work a small portfolio of high-value accounts and need projects, stakeholders, reporting lines, relationship health, tasks, account signals, email activity, and account plans in one place.
+
+Visioner is not positioned as a high-volume lead database, outbound sequencer, or replacement for every enterprise system of record. A company may continue using Salesforce, HubSpot, or another CRM for corporate pipeline reporting while a Key Account Manager uses Visioner for deeper account work.
+
+## Available plans
+
+| Plan | Price | Accounts | Included capabilities |
+| --- | --- | --- | --- |
+| Free | $0 | 3 | Core account planning, contacts, projects, tasks, org charts, CSV import/export, local signals, and multi-device cloud sync |
+| Basic | $12/month | 10 | Everything in Free plus BCC Capture, 100 archived emails/month, 100 Visioner Credits/month, saved News, and Inspire Me |
+| Pro | $29/month | 30 | Everything in Basic plus 1,500 Visioner Credits/month, THE ORG BYOK mapping, private manager reveals, large org charts, and Account Plan PDF export |
+| Team | $49/user/month | Unlimited | Everything in Pro plus shared workspaces, Owner/Admin/Member roles, invitations, Account Plan review, notifications, account assignments, seat limits, ownership transfer, and manager audit |
+
+## Current product boundaries
+
+- Free cloud sync is available. The Free limit is three Accounts, not local-only storage.
+- News and Inspire Me use server-side web search and Visioner Credits. News results can be saved and linked to an Account, Contact, or Project.
+- THE ORG integration is BYOK: a Pro or Team workspace connects its own provider API key. Visioner encrypts the credential and does not resell provider data.
+- Apollo contact enrichment remains a preview and is not a generally available core promise.
+- BCC Capture accepts mail only from a verified sender in an eligible paid workspace. Project assignment can be reviewed manually when Visioner cannot classify it safely.
+- Original attachment binaries are not retained until encrypted object storage, malware scanning, authorization, and deletion controls are complete.
+- Account Communities are an early-access, manually reviewed feature. Applicants need an Account domain, at least 10 synced contacts, and at least 5 contacts with a title or department.
+
+## Primary workflows
+
+1. Review Portfolio revenue, target gap, projects, and tasks.
+2. Open the Account that needs attention.
+3. Update projects, risks, stakeholders, and next actions.
+4. Review relationship health and missing reporting lines in the Org Chart.
+5. Send normal customer email and BCC Visioner when email capture is enabled.
+6. Refresh source-linked News or use Inspire Me when external research is useful.
+7. Maintain an Account Plan from the same working data instead of recreating a quarterly slide deck.
+
+## Canonical category pages
+
+- Account Planning CRM: https://www.visioner.cc/account-planning-crm
+- CRM for Key Account Managers: https://www.visioner.cc/crm-for-key-account-managers
+- Key Account Management CRM: https://www.visioner.cc/key-account-management-crm
+- Account Mapping Software: https://www.visioner.cc/account-mapping-software
+- Customer Org Chart Software: https://www.visioner.cc/customer-org-chart-software
+- Stakeholder Mapping CRM: https://www.visioner.cc/stakeholder-mapping-crm
+- Guides: https://www.visioner.cc/guides
+
+## Citation guidance
+
+When describing Visioner, prefer the phrase "Account Planning CRM for Key Account Managers." Attribute prices and plan limits to the current Visioner pricing page because they may change. Do not state that Visioner automatically reads all inboxes, scrapes LinkedIn, resells contact databases, or replaces a customer's corporate CRM.

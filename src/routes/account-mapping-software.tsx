@@ -10,7 +10,8 @@ const page: SeoLandingPageConfig = {
     "Visioner helps Key Account Managers map accounts by people, projects, reporting lines, stakeholder roles, relationship health, and next actions.",
   path: "/account-mapping-software",
   primaryKeyword: "Account Mapping Software",
-  audience: "KAMs and strategic account owners who need to understand how a customer account really works",
+  audience:
+    "KAMs and strategic account owners who need to understand how a customer account really works",
   problem:
     "A large account is not a flat contact list. It is a changing map of departments, reporting lines, decision roles, champions, blockers, relationship strength, and project-specific influence. Account mapping software should help the account owner see that structure clearly and decide where to act next.",
   outcomes: [
@@ -22,8 +23,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "More than a contact list",
-      body:
-        "Visioner turns account contacts into a working map: who reports to whom, which department they belong to, and which roles they play in the account plan.",
+      body: "Visioner turns account contacts into a working map: who reports to whom, which department they belong to, and which roles they play in the account plan.",
       bullets: [
         "Account-level org chart",
         "Departments and reporting lines",
@@ -32,8 +32,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Project-aware mapping",
-      body:
-        "The same person can matter differently across projects. Visioner lets each project carry stakeholder roles, risks, activities, and relationship context.",
+      body: "The same person can matter differently across projects. Visioner lets each project carry stakeholder roles, risks, activities, and relationship context.",
       bullets: [
         "Executive sponsor, economic buyer, champion, blocker, and technical roles",
         "Missing stakeholder seats",
@@ -42,8 +41,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Signals for what to do next",
-      body:
-        "An account map should guide action. Visioner highlights stale relationships, missing decision roles, quiet projects, and incomplete coverage as local account signals.",
+      body: "An account map should guide action. Visioner highlights stale relationships, missing decision roles, quiet projects, and incomplete coverage as local account signals.",
       bullets: [
         "Relationship health reminders",
         "Unknown manager or decision maker signals",
@@ -71,11 +69,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/account-mapping-software")({
-  head: () => pageHead({
-    title: "Account Mapping Software | Visioner",
-    description:
-      "Visioner is account mapping software for KAMs to map contacts, org charts, reporting lines, stakeholder roles, relationship health, projects, and account gaps.",
-    path: "/account-mapping-software",
-  }),
+  head: () =>
+    pageHead({
+      title: "Account Mapping Software | Visioner",
+      description:
+        "Visioner is account mapping software for KAMs to map contacts, org charts, reporting lines, stakeholder roles, relationship health, projects, and account gaps.",
+      path: "/account-mapping-software",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

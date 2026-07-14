@@ -22,8 +22,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "Traditional CRM is the system of record",
-      body:
-        "Salesforce, HubSpot, and similar CRMs are useful for company-wide records, pipeline stages, revenue reporting, and management dashboards.",
+      body: "Salesforce, HubSpot, and similar CRMs are useful for company-wide records, pipeline stages, revenue reporting, and management dashboards.",
       bullets: [
         "Opportunity records and forecast fields",
         "Manager dashboards and pipeline reviews",
@@ -32,8 +31,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Account planning CRM is the working layer",
-      body:
-        "Visioner focuses on the account owner's daily questions: relationship coverage, stakeholder roles, project risks, tasks, notes, and signals.",
+      body: "Visioner focuses on the account owner's daily questions: relationship coverage, stakeholder roles, project risks, tasks, notes, and signals.",
       bullets: [
         "Account overview before form fields",
         "Org chart and stakeholder coverage",
@@ -42,8 +40,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "The best path can be both",
-      body:
-        "A KAM can use Visioner to work the account while keeping the existing CRM for official reporting. Over time, useful account context becomes cleaner and easier to share.",
+      body: "A KAM can use Visioner to work the account while keeping the existing CRM for official reporting. Over time, useful account context becomes cleaner and easier to share.",
       bullets: [
         "Start with three strategic accounts",
         "Capture work without forcing a CRM cleanup project",
@@ -71,11 +68,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/traditional-crm-vs-account-planning-crm")({
-  head: () => pageHead({
-    title: "Traditional CRM vs Account Planning CRM | Visioner",
-    description:
-      "Compare traditional CRM with account planning CRM. Visioner helps KAMs work strategic accounts with stakeholders, projects, tasks, relationship health, and signals.",
-    path: "/traditional-crm-vs-account-planning-crm",
-  }),
+  head: () =>
+    pageHead({
+      title: "Traditional CRM vs Account Planning CRM | Visioner",
+      description:
+        "Compare traditional CRM with account planning CRM. Visioner helps KAMs work strategic accounts with stakeholders, projects, tasks, relationship health, and signals.",
+      path: "/traditional-crm-vs-account-planning-crm",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

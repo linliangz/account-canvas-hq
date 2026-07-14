@@ -70,18 +70,25 @@ const guide: GuidePageConfig = {
   ],
   related: [
     { label: "Stakeholder Mapping CRM", href: "/stakeholder-mapping-crm" },
-    { label: "Strategic Account Management Software", href: "/strategic-account-management-software" },
-    { label: "What should an account plan include?", href: "/guides/what-should-an-account-plan-include" },
+    {
+      label: "Strategic Account Management Software",
+      href: "/strategic-account-management-software",
+    },
+    {
+      label: "What should an account plan include?",
+      href: "/guides/what-should-an-account-plan-include",
+    },
   ],
 };
 
 export const Route = createFileRoute("/guides/how-to-map-stakeholders-in-a-strategic-account")({
-  head: () => pageHead({
-    title: "How to Map Stakeholders in a Strategic Account | Visioner",
-    description:
-      "A practical stakeholder mapping guide for strategic accounts: org structure, decision roles, unknown seats, relationship health, and KAM next actions.",
-    path: "/guides/how-to-map-stakeholders-in-a-strategic-account",
-    type: "article",
-  }),
+  head: () =>
+    pageHead({
+      title: "How to Map Stakeholders in a Strategic Account | Visioner",
+      description:
+        "A practical stakeholder mapping guide for strategic accounts: org structure, decision roles, unknown seats, relationship health, and KAM next actions.",
+      path: "/guides/how-to-map-stakeholders-in-a-strategic-account",
+      type: "article",
+    }),
   component: () => <GuidePage config={guide} />,
 });

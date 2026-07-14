@@ -112,7 +112,10 @@ const guide: GuidePageConfig = {
     { label: "CRM for Key Account Managers", href: "/crm-for-key-account-managers" },
     { label: "Key Account Manager Tools", href: "/key-account-manager-tools" },
     { label: "Account Planning CRM", href: "/account-planning-crm" },
-    { label: "How to choose KAM software", href: "/guides/how-to-choose-key-account-management-software" },
+    {
+      label: "How to choose KAM software",
+      href: "/guides/how-to-choose-key-account-management-software",
+    },
   ],
 };
 

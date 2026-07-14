@@ -75,12 +75,13 @@ const guide: GuidePageConfig = {
 };
 
 export const Route = createFileRoute("/guides/what-should-an-account-plan-include")({
-  head: () => pageHead({
-    title: "What Should an Account Plan Include? | Visioner",
-    description:
-      "A practical guide to what an account plan should include for Key Account Managers: revenue, projects, stakeholders, relationship health, risks, and next actions.",
-    path: "/guides/what-should-an-account-plan-include",
-    type: "article",
-  }),
+  head: () =>
+    pageHead({
+      title: "What Should an Account Plan Include? | Visioner",
+      description:
+        "A practical guide to what an account plan should include for Key Account Managers: revenue, projects, stakeholders, relationship health, risks, and next actions.",
+      path: "/guides/what-should-an-account-plan-include",
+      type: "article",
+    }),
   component: () => <GuidePage config={guide} />,
 });

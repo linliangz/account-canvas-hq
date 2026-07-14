@@ -22,8 +22,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "Built for small portfolios",
-      body:
-        "KAMs often own only a handful of large accounts. Visioner is optimized for depth inside each account instead of forcing a lead-volume sales workflow.",
+      body: "KAMs often own only a handful of large accounts. Visioner is optimized for depth inside each account instead of forcing a lead-volume sales workflow.",
       bullets: [
         "Portfolio metrics across key accounts",
         "Account tabs for overview, projects, contacts, org chart, and intelligence",
@@ -32,8 +31,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Tie projects to decision chains",
-      body:
-        "A project is only as strong as the people behind it. Visioner connects projects to stakeholder roles, activities, risks, and relationship health.",
+      body: "A project is only as strong as the people behind it. Visioner connects projects to stakeholder roles, activities, risks, and relationship health.",
       bullets: [
         "Stakeholder roles per project",
         "Relationship health and last-touch context",
@@ -42,8 +40,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Make planning lighter",
-      body:
-        "Visioner avoids mandatory-field pressure. Missing data becomes a useful signal: who is unknown, which relationship is cooling, and which project has gone quiet.",
+      body: "Visioner avoids mandatory-field pressure. Missing data becomes a useful signal: who is unknown, which relationship is cooling, and which project has gone quiet.",
       bullets: [
         "Soft completion instead of form blocking",
         "Local signals from account data",
@@ -71,11 +68,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/key-account-planning-software")({
-  head: () => pageHead({
-    title: "Key Account Planning Software | Visioner",
-    description:
-      "Visioner is key account planning software for KAM account overview, projects, stakeholders, org charts, relationship health, tasks, and signals.",
-    path: "/key-account-planning-software",
-  }),
+  head: () =>
+    pageHead({
+      title: "Key Account Planning Software | Visioner",
+      description:
+        "Visioner is key account planning software for KAM account overview, projects, stakeholders, org charts, relationship health, tasks, and signals.",
+      path: "/key-account-planning-software",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

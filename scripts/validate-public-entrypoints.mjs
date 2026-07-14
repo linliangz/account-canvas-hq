@@ -41,8 +41,8 @@ assert(
   "Landing page must link Basic plan CTA to app pricing.",
 );
 assert(
-  /https:\/\/app\.visioner\.cc\/signup\?plan=pro/.test(home),
-  "Landing page must link Pro waitlist CTA to signup.",
+  home.includes(`${appUrl}/pricing?plan=pro`) && home.includes(`${appUrl}/pricing?plan=team`),
+  "Landing page must link available Pro and Team plans to app pricing.",
 );
 assert(
   !/lovable\.app|lovable\.dev/i.test(home),
@@ -55,7 +55,10 @@ assert(appHome.includes("Visioner CRM"), "Web app root must render Visioner CRM 
 await checkPage("/privacy", "Privacy Policy");
 await checkPage("/terms", "Terms of Service");
 await checkPage("/support", "support@visioner.cc");
-const aboutPage = await checkPage("/about", "Visioner is an Account Planning CRM for Key Account Managers");
+const aboutPage = await checkPage(
+  "/about",
+  "Visioner is an Account Planning CRM for Key Account Managers",
+);
 assert(home.includes("/about"), "Landing page must internally link to /about.");
 assertCanonical(aboutPage, urlFor(landingUrl, "/about"), "/about");
 assert(
@@ -66,34 +69,30 @@ await checkPage("/robots.txt", "Sitemap: https://www.visioner.cc/sitemap.xml");
 await checkPage("/sitemap.xml", "https://www.visioner.cc/");
 const llmsText = await checkPage("/llms.txt", "Account Planning CRM for Key Account Managers");
 assert(
-  llmsText.includes("Visioner V1.0 is SaaS-first") && llmsText.includes("https://app.visioner.cc/"),
-  "/llms.txt must explain the SaaS-first app and web app URL.",
+  llmsText.includes("Visioner is SaaS-first") &&
+    llmsText.includes("https://app.visioner.cc/") &&
+    llmsText.includes("Pro: $29/month") &&
+    llmsText.includes("Team: $49/user/month"),
+  "/llms.txt must explain the current SaaS plans and web app URL.",
 );
+await checkPage("/llms-full.txt", "Visioner product facts");
 const manifest = await checkPage("/site.webmanifest", "Visioner CRM");
 assert(
   manifest.includes('"categories"') && manifest.includes('"business"'),
   "/site.webmanifest must describe Visioner as a business web app.",
 );
-assert(home.includes('/llms.txt'), "Landing page must expose /llms.txt as alternate context.");
-assert(home.includes('/site.webmanifest'), "Landing page must link the web app manifest.");
+assert(home.includes("/llms.txt"), "Landing page must expose /llms.txt as alternate context.");
+assert(home.includes("/site.webmanifest"), "Landing page must link the web app manifest.");
 
 const sitemap = await fetchText(urlFor(landingUrl, "/sitemap.xml"));
 const guidesIndex = await checkPage("/guides", "Practical guides for Key Account Managers");
-assert(
-  home.includes("/guides"),
-  "Landing page must internally link to the guides index.",
-);
-assert(
-  sitemap.includes(urlFor(landingUrl, "/guides")),
-  "Sitemap must include /guides.",
-);
-assert(
-  sitemap.includes(urlFor(landingUrl, "/about")),
-  "Sitemap must include /about.",
-);
+assert(home.includes("/guides"), "Landing page must internally link to the guides index.");
+assert(sitemap.includes(urlFor(landingUrl, "/guides")), "Sitemap must include /guides.");
+assert(sitemap.includes(urlFor(landingUrl, "/about")), "Sitemap must include /about.");
 assertCanonical(guidesIndex, urlFor(landingUrl, "/guides"), "/guides");
 assert(
-  guidesIndex.includes('"@type":"CollectionPage"') && guidesIndex.includes('"@type":"BreadcrumbList"'),
+  guidesIndex.includes('"@type":"CollectionPage"') &&
+    guidesIndex.includes('"@type":"BreadcrumbList"'),
   "/guides must include CollectionPage and BreadcrumbList JSON-LD.",
 );
 
@@ -141,14 +140,8 @@ const seoPages = [
 
 for (const [path, expectedText] of seoPages) {
   const body = await checkPage(path, expectedText);
-  assert(
-    home.includes(path),
-    `Landing page must internally link to SEO page ${path}.`,
-  );
-  assert(
-    sitemap.includes(urlFor(landingUrl, path)),
-    `Sitemap must include ${path}.`,
-  );
+  assert(home.includes(path), `Landing page must internally link to SEO page ${path}.`);
+  assert(sitemap.includes(urlFor(landingUrl, path)), `Sitemap must include ${path}.`);
   assertCanonical(body, urlFor(landingUrl, path), path);
   assert(
     body.includes('property="og:url"') && body.includes(urlFor(landingUrl, path)),
@@ -156,10 +149,16 @@ for (const [path, expectedText] of seoPages) {
   );
   if (path.startsWith("/guides/")) {
     assert(body.includes('"@type":"Article"'), `${path} must include Article JSON-LD.`);
-    assert(body.includes('"@type":"BreadcrumbList"'), `${path} must include BreadcrumbList JSON-LD.`);
+    assert(
+      body.includes('"@type":"BreadcrumbList"'),
+      `${path} must include BreadcrumbList JSON-LD.`,
+    );
   } else {
     assert(body.includes('"@type":"FAQPage"'), `${path} must include FAQPage JSON-LD.`);
-    assert(body.includes('"@type":"BreadcrumbList"'), `${path} must include BreadcrumbList JSON-LD.`);
+    assert(
+      body.includes('"@type":"BreadcrumbList"'),
+      `${path} must include BreadcrumbList JSON-LD.`,
+    );
   }
 }
 

@@ -22,8 +22,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "Built around the KAM day",
-      body:
-        "Visioner starts from the account owner's daily questions instead of a manager's forecast review. What matters today? Which project has risk? Which stakeholder has gone quiet?",
+      body: "Visioner starts from the account owner's daily questions instead of a manager's forecast review. What matters today? Which project has risk? Which stakeholder has gone quiet?",
       bullets: [
         "Portfolio home for revenue and priority work",
         "Task board for urgent and important account actions",
@@ -32,8 +31,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Relationship-first account planning",
-      body:
-        "Strategic account work usually fails because the real decision chain is incomplete. Visioner makes stakeholders, decision roles, org chart gaps, and relationship health visible.",
+      body: "Strategic account work usually fails because the real decision chain is incomplete. Visioner makes stakeholders, decision roles, org chart gaps, and relationship health visible.",
       bullets: [
         "Org chart and stakeholder coverage",
         "Relationship health and cadence reminders",
@@ -42,8 +40,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Less CRM data entry",
-      body:
-        "The goal is to reduce the feeling of 'feeding the CRM.' Visioner turns everyday work into useful account records: tasks, project notes, BCC email activity, and account signals.",
+      body: "The goal is to reduce the feeling of 'feeding the CRM.' Visioner turns everyday work into useful account records: tasks, project notes, BCC email activity, and account signals.",
       bullets: [
         "Optional fields instead of blocking required forms",
         "BCC capture beta for outbound email logging",
@@ -71,11 +68,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/crm-for-key-account-managers")({
-  head: () => pageHead({
-    title: "CRM for Key Account Managers | Visioner",
-    description:
-      "Visioner is an account planning CRM for Key Account Managers who manage strategic accounts, stakeholders, projects, tasks, and relationship health.",
-    path: "/crm-for-key-account-managers",
-  }),
+  head: () =>
+    pageHead({
+      title: "CRM for Key Account Managers | Visioner",
+      description:
+        "Visioner is an account planning CRM for Key Account Managers who manage strategic accounts, stakeholders, projects, tasks, and relationship health.",
+      path: "/crm-for-key-account-managers",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

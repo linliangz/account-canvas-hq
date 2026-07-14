@@ -10,7 +10,8 @@ const page: SeoLandingPageConfig = {
     "Visioner helps account owners see who matters, who influences whom, which relationships are healthy, and where the decision chain still has gaps.",
   path: "/relationship-mapping-software",
   primaryKeyword: "Relationship Mapping Software",
-  audience: "KAMs and strategic account owners who need stakeholder visibility inside complex customer organizations",
+  audience:
+    "KAMs and strategic account owners who need stakeholder visibility inside complex customer organizations",
   problem:
     "In large accounts, relationship risk is often invisible until a deal stalls or renewal pressure appears. The account owner may know a few friendly contacts, but not the reporting lines, missing decision roles, blockers, or executive sponsors. Visioner turns relationship mapping into part of the account plan.",
   outcomes: [
@@ -22,8 +23,7 @@ const page: SeoLandingPageConfig = {
   sections: [
     {
       title: "Org chart plus account context",
-      body:
-        "Visioner connects org chart structure to contacts, departments, reporting lines, and account work so the relationship map stays useful beyond a diagram.",
+      body: "Visioner connects org chart structure to contacts, departments, reporting lines, and account work so the relationship map stays useful beyond a diagram.",
       bullets: [
         "Account-level org chart",
         "Reporting lines and unknown seats",
@@ -32,8 +32,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Relationship health at a glance",
-      body:
-        "The relationship map should show more than names and titles. Visioner uses relationship health and cadence reminders to highlight which contacts need attention.",
+      body: "The relationship map should show more than names and titles. Visioner uses relationship health and cadence reminders to highlight which contacts need attention.",
       bullets: [
         "Health indicator per contact",
         "Last meaningful touch context",
@@ -42,8 +41,7 @@ const page: SeoLandingPageConfig = {
     },
     {
       title: "Decision coverage by project",
-      body:
-        "Different projects need different people. Visioner lets projects carry their own stakeholder roles, so the account owner can see whether the right decision chain is covered.",
+      body: "Different projects need different people. Visioner lets projects carry their own stakeholder roles, so the account owner can see whether the right decision chain is covered.",
       bullets: [
         "Executive sponsor, buyer, champion, blocker, and technical roles",
         "Project-specific risks and activities",
@@ -71,11 +69,12 @@ const page: SeoLandingPageConfig = {
 };
 
 export const Route = createFileRoute("/relationship-mapping-software")({
-  head: () => pageHead({
-    title: "Relationship Mapping Software | Visioner",
-    description:
-      "Visioner is relationship mapping software for strategic accounts: org charts, stakeholder roles, relationship health, reporting lines, and account signals.",
-    path: "/relationship-mapping-software",
-  }),
+  head: () =>
+    pageHead({
+      title: "Relationship Mapping Software | Visioner",
+      description:
+        "Visioner is relationship mapping software for strategic accounts: org charts, stakeholder roles, relationship health, reporting lines, and account signals.",
+      path: "/relationship-mapping-software",
+    }),
   component: () => <SeoLandingPage config={page} />,
 });

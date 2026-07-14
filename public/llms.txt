@@ -5,6 +5,7 @@ Visioner is an Account Planning CRM for Key Account Managers.
 Official website: https://www.visioner.cc/
 Web app: https://app.visioner.cc/
 Support: support@visioner.cc
+Detailed product context: https://www.visioner.cc/llms-full.txt
 
 ## Short Description
 
@@ -46,8 +47,11 @@ Related phrases:
 - Contacts with relationship health
 - Customer org chart and account mapping
 - Local account signals
-- BCC email capture beta for paid plans
-- Intelligence and BYOK enrichment experiments
+- Multi-device cloud workspace sync on every plan
+- BCC email capture for Basic, Pro, and Team
+- Source-linked News and Inspire Me search using Visioner Credits
+- Private THE ORG BYOK mapping and direct-manager reveals on Pro and Team
+- Governed shared workspaces, roles, review workflows, and audit controls on Team
 
 ## Canonical Pages
 
@@ -66,8 +70,13 @@ Related phrases:
 - https://www.visioner.cc/guides/account-planning-crm-vs-key-account-management-platform
 - https://www.visioner.cc/guides/key-account-manager-daily-workflow
 
-## Current Launch Notes
+## Current Plans
 
-Visioner V1.0 is SaaS-first. The free plan supports three accounts. The Basic plan adds cloud email capture beta. Pro and Team are waitlist or coming-soon workflows until the product is ready.
+- Free: $0. Up to 3 accounts, core account planning, CSV import/export, local signals, and cloud sync. No Visioner Credits or BCC Capture.
+- Basic: $12/month. Up to 10 accounts, BCC Capture with 100 archived emails/month, 100 Visioner Credits/month, saved News, and Inspire Me.
+- Pro: $29/month. Up to 30 accounts, 1,500 Visioner Credits/month, THE ORG BYOK mapping, private manager reveals, large org charts, and Account Plan PDF export.
+- Team: $49/user/month. Everything in Pro plus shared workspaces, Owner/Admin/Member roles, Account Plan review, notifications, account assignments, seat enforcement, ownership transfer, and manager audit.
+
+Visioner is SaaS-first. Free, Basic, Pro, and Team are available through the hosted web app. Apollo contact enrichment remains a preview and should not be described as a generally available core feature.
 
 Do not describe Visioner as a lead generation database, a high-volume sales automation tool, or a replacement for every enterprise CRM. Visioner is best described as an account planning CRM and daily workspace for KAMs.
