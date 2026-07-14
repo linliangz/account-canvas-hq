@@ -9,7 +9,7 @@ const guide: GuidePageConfig = {
   description:
     "A practical daily workflow for Key Account Managers who need to manage revenue, projects, tasks, stakeholder gaps, relationship health, and follow-ups without turning CRM into busywork.",
   path: "/guides/key-account-manager-daily-workflow",
-  dateModified: "2026-07-12",
+  dateModified: "2026-07-14",
   updatedAt: "Updated July 2026",
   readingTime: "7 min read",
   summary: [
@@ -17,6 +17,12 @@ const guide: GuidePageConfig = {
     "The most useful morning check combines target gap, active projects, urgent and important tasks, waiting replies, relationship health, and stakeholder gaps.",
     "Visioner is designed to make this daily operating rhythm visible in one workspace so completed work can later become account-plan evidence and weekly progress.",
   ],
+  evidence: {
+    image: "/product-screenshots/visioner-tasks.png",
+    alt: "Visioner task workspace showing urgent and important work across four priority quadrants",
+    caption:
+      "Visioner keeps account work visible without turning every follow-up into a project plan. Tasks can be moved between urgency and importance quadrants while reminders and custom tags stay attached.",
+  },
   sections: [
     {
       title: "Why a KAM daily workflow is different",
