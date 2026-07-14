@@ -1,8 +1,8 @@
 import { ArrowRight, Check, ChevronRight, Globe, Network, Signal } from "lucide-react";
 
 import { breadcrumbJsonLd, faqJsonLd } from "../lib/seo";
+import { marketingSignupUrl } from "../lib/marketing-links";
 
-const SIGNUP_URL = "https://app.visioner.cc/signup";
 const APP_URL = "https://app.visioner.cc/";
 
 export type SeoLandingPageConfig = {
@@ -76,6 +76,7 @@ const relatedPages = [
 ];
 
 export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
+  const signupUrl = marketingSignupUrl("seo_landing", config.path);
   const structuredData = [
     faqJsonLd(config.faq),
     breadcrumbJsonLd([
@@ -112,7 +113,7 @@ export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
               Open Web App
             </a>
             <a
-              href={SIGNUP_URL}
+              href={signupUrl}
               className="inline-flex h-10 items-center justify-center gap-1.5 rounded-lg bg-accent px-4 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] transition hover:brightness-105"
             >
               Start Free <ArrowRight className="h-4 w-4" />
@@ -135,7 +136,7 @@ export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={SIGNUP_URL}
+                href={signupUrl}
                 className="inline-flex h-11 items-center justify-center gap-1.5 rounded-lg bg-accent px-5 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] transition hover:brightness-105"
               >
                 Start your first 3 accounts <ArrowRight className="h-4 w-4" />
@@ -274,7 +275,7 @@ export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href={SIGNUP_URL}
+              href={signupUrl}
               className="inline-flex h-11 items-center justify-center gap-1.5 rounded-lg bg-accent px-5 text-sm font-semibold text-accent-foreground shadow-[var(--shadow-soft)] transition hover:brightness-105"
             >
               Start for Free <ArrowRight className="h-4 w-4" />

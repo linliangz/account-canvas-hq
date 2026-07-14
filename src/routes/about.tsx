@@ -11,8 +11,9 @@ import {
 } from "lucide-react";
 
 import { absoluteUrl, breadcrumbJsonLd, pageHead } from "../lib/seo";
+import { marketingSignupUrl } from "../lib/marketing-links";
 
-const SIGNUP_URL = "https://app.visioner.cc/signup";
+const SIGNUP_URL = marketingSignupUrl("about", "/about");
 const APP_URL = "https://app.visioner.cc/";
 
 const facts = [

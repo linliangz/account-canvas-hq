@@ -13,6 +13,7 @@ const robots = read("public/robots.txt");
 const sitemap = read("public/sitemap.xml");
 const llms = read("public/llms.txt");
 const llmsFull = read("public/llms-full.txt");
+const marketingLinks = read("src/lib/marketing-links.ts");
 
 const requiredRoutes = [
   "/",
@@ -95,6 +96,12 @@ assert(
 assert(
   root.includes('name: "Pro"') && root.includes('name: "Team"'),
   "SoftwareApplication offers must include Pro and Team.",
+);
+assert(
+  marketingLinks.includes('utm_source", "visioner.cc"') &&
+    marketingLinks.includes('utm_medium", "website"') &&
+    marketingLinks.includes("utm_campaign"),
+  "Website signup links must preserve first-party acquisition attribution.",
 );
 
 const guideDir = "src/routes/guides";

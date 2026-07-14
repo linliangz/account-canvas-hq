@@ -2,8 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, Check, ChevronRight } from "lucide-react";
 
 import { breadcrumbJsonLd, collectionPageJsonLd, pageHead } from "../../lib/seo";
+import { marketingSignupUrl } from "../../lib/marketing-links";
 
-const SIGNUP_URL = "https://app.visioner.cc/signup";
+const SIGNUP_URL = marketingSignupUrl("guides_hub", "/guides");
 
 const guides = [
   {

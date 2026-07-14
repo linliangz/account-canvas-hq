@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Globe, LifeBuoy, Mail, ShieldCheck } from "lucide-react";
+import { marketingSignupUrl } from "../lib/marketing-links";
+
+const SIGNUP_URL = marketingSignupUrl("support", "/support");
 
 export const Route = createFileRoute("/support")({
   head: () => ({
@@ -50,7 +53,7 @@ function SupportPage() {
           </a>
 
           <a
-            href="https://app.visioner.cc/signup"
+            href={SIGNUP_URL}
             className="rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-soft)]"
           >
             <Globe className="h-6 w-6 text-accent" />
@@ -108,7 +111,7 @@ function SupportPage() {
             </a>
             <a
               className="rounded-lg border border-border px-4 py-2 hover:bg-surface-muted"
-              href="https://app.visioner.cc/signup"
+              href={SIGNUP_URL}
             >
               Start Free
             </a>

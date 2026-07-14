@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 
 import { organizationJsonLd, pageHead, softwareApplicationJsonLd, websiteJsonLd } from "../lib/seo";
+import { marketingSignupUrl } from "../lib/marketing-links";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -39,7 +40,7 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const SIGNUP_URL = "https://app.visioner.cc/signup";
+const SIGNUP_URL = marketingSignupUrl("homepage", "/");
 const APP_URL = "https://app.visioner.cc/";
 const LOGIN_URL = "https://app.visioner.cc/login";
 /* ---------- Brand mark ---------- */
