@@ -87,9 +87,12 @@ assert(
     growthLinks.includes("utm_campaign") &&
     growthLinks.includes("utm_content") &&
     growthLinks.includes("privacyBoundary") &&
+    growthLinks.includes("productEvidence") &&
+    growthLinks.includes("Seven-day evidence") &&
+    growthLinks.includes("Do not invent customer results") &&
     weeklyGrowthSprint.includes("generate-growth-links.mjs") &&
     weeklyGrowthSprint.includes("growth-links.md"),
-  "Every weekly sprint must provide channel-specific, privacy-safe tracked links.",
+  "Every weekly sprint must provide a focused evidence brief, channel-specific tracked links, and a seven-day decision record.",
 );
 assert(
   attribution.includes("sessionStorage") &&

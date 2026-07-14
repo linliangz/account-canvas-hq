@@ -77,6 +77,9 @@ identity or workspace content:
 
 Each sprint also generates `artifacts/growth-links.md` with one distinct tracked URL for the two
 LinkedIn posts, community contribution, and KAM review request. Use those URLs exactly as generated.
+The same artifact includes that week's required product evidence, distribution commitment,
+measurement target, four content angles, and a seven-day decision record. This keeps execution
+grounded in first-hand evidence rather than auto-publishing generic marketing copy.
 The website keeps the latest campaign parameters in session storage and passes them to signup, so a
 visitor may browse another Visioner page before registering without becoming `direct / unknown`.
 Campaign URLs contain only channel metadata; never put a person's name, email, company, account, or

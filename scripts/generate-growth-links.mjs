@@ -26,6 +26,9 @@ const report = {
   campaign,
   primaryGoal: row.primaryGoal,
   canonicalPage: row.canonicalPage,
+  productEvidence: row.productEvidence,
+  distribution: row.distribution,
+  measurement: row.measurement,
   links,
   privacyBoundary: "Campaign metadata only; never add names, email addresses, or account data.",
 };
@@ -58,9 +61,17 @@ function selectedRoadmapWeek(date) {
 
 function roadmapRow(week) {
   for (const line of roadmap.split(/\r?\n/)) {
-    const match = line.match(/^(\d+),"([^"]*)","([^"]*)"/);
+    const match = line.match(
+      /^(\d+),"([^"]*)","([^"]*)","([^"]*)","([^"]*)","([^"]*)",([^,]+),([^,]+)$/,
+    );
     if (Number(match?.[1]) === week) {
-      return { primaryGoal: match[2], canonicalPage: match[3] };
+      return {
+        primaryGoal: match[2],
+        canonicalPage: match[3],
+        productEvidence: match[4],
+        distribution: match[5],
+        measurement: match[6],
+      };
     }
   }
   return null;
@@ -83,10 +94,32 @@ ${report.sprint} · roadmap week ${report.roadmapWeek}: **${report.primaryGoal}*
 
 Canonical page: ${report.canonicalPage}
 
+### This week's execution brief
+
+- **Evidence to add:** ${report.productEvidence}
+- **Distribution commitment:** ${report.distribution}
+- **Measurement:** ${report.measurement}
+
+Use these four angles:
+
+1. **Practical KAM insight:** explain the operating problem in your own experience; include one concrete lesson and one limitation. Link only if the page helps the reader continue.
+2. **Product workflow:** show the evidence above as a before → action → outcome workflow. Do not invent customer results.
+3. **Community contribution:** answer a real question first. Do not lead with Visioner or paste promotional copy.
+4. **Practitioner review:** ask one KAM to challenge the workflow. Record objections; request permission before quoting anyone.
+
 | Channel | Use this URL |
 | --- | --- |
 ${rows}
 
 Use the matching URL in each channel. Do not remove its UTM parameters and never add customer identity to a URL.
+
+### Seven-day evidence
+
+- [ ] LinkedIn insight URL and impressions:
+- [ ] LinkedIn workflow URL and impressions:
+- [ ] Community contribution URL and useful replies:
+- [ ] KAM review completed; objection recorded privately:
+- [ ] Attributed visits, signups, and first Accounts:
+- [ ] Decision: keep, strengthen evidence, revise snippet, consolidate, or retire:
 `;
 }
