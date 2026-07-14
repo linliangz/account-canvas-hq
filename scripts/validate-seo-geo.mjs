@@ -176,6 +176,11 @@ assert(
   "Weekly reporting must use read-only Search Console data for query, page, non-branded, and CTR-opportunity analysis.",
 );
 assert(
+  performanceReport.includes("Search Console reporting inactive") &&
+    performanceReport.includes('process.env.GITHUB_ACTIONS === "true"'),
+  "Missing Search Console credentials must be visible as a GitHub Actions warning, not a silent no-op.",
+);
+assert(
   weeklyAudit.includes("GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON") &&
     weeklyAudit.includes("report-seo-geo-performance.mjs") &&
     weeklyAudit.includes("upload-artifact@v4"),

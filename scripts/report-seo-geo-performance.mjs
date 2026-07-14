@@ -13,6 +13,9 @@ if (!credentialsJson) {
   const message =
     "Search Console performance reporting is ready but not connected. Add GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON after granting that service account access to the visioner.cc Search Console property.";
   console.log(message);
+  if (process.env.GITHUB_ACTIONS === "true") {
+    console.log(`::warning title=Search Console reporting inactive::${message}`);
+  }
   appendSummary(`## Visioner SEO/GEO performance\n\n⚪ ${message}\n`);
   if (required) process.exit(1);
   process.exit(0);
