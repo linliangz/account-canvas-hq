@@ -5,13 +5,14 @@ import { dirname } from "node:path";
 const siteUrl = process.env.SEO_GSC_SITE_URL?.trim() || "sc-domain:visioner.cc";
 const outputPath = process.env.SEO_REPORT_OUTPUT || "artifacts/seo-geo-performance.json";
 const required = process.env.SEO_GSC_REQUIRED === "true";
+const providedAccessToken = process.env.GOOGLE_SEARCH_CONSOLE_ACCESS_TOKEN?.trim();
 const credentialsJson =
   process.env.GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON?.trim() ||
   readOptional(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
-if (!credentialsJson) {
+if (!providedAccessToken && !credentialsJson) {
   const message =
-    "Search Console performance reporting is ready but not connected. Add GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON after granting that service account access to the visioner.cc Search Console property.";
+    "Search Console performance reporting is ready but not connected. Configure GitHub Workload Identity Federation or provide a local Search Console service-account credential.";
   console.log(message);
   if (process.env.GITHUB_ACTIONS === "true") {
     console.log(`::warning title=Search Console reporting inactive::${message}`);
@@ -27,18 +28,20 @@ if (!credentialsJson) {
   process.exit(0);
 }
 
-let credentials;
-try {
-  credentials = JSON.parse(credentialsJson);
-} catch {
-  throw new Error("GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON must contain valid JSON.");
-}
+let accessToken = providedAccessToken;
+if (!accessToken) {
+  let credentials;
+  try {
+    credentials = JSON.parse(credentialsJson);
+  } catch {
+    throw new Error("GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON must contain valid JSON.");
+  }
 
-if (!credentials.client_email || !credentials.private_key) {
-  throw new Error("Search Console service-account JSON is missing client_email or private_key.");
+  if (!credentials.client_email || !credentials.private_key) {
+    throw new Error("Search Console service-account JSON is missing client_email or private_key.");
+  }
+  accessToken = await createAccessToken(credentials);
 }
-
-const accessToken = await createAccessToken(credentials);
 const ranges = completedRanges(28, 3);
 const current = await fetchPeriod(accessToken, ranges.current);
 const previous = await fetchPeriod(accessToken, ranges.previous);

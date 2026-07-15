@@ -262,10 +262,12 @@ assert(
   "Missing Search Console credentials must be visible as a GitHub Actions warning, not a silent no-op.",
 );
 assert(
-  weeklyAudit.includes("GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON") &&
+  weeklyAudit.includes("google-github-actions/auth@v3") &&
+    weeklyAudit.includes("GOOGLE_SEARCH_CONSOLE_ACCESS_TOKEN") &&
+    weeklyAudit.includes("visioner-github-actions") &&
     weeklyAudit.includes("report-seo-geo-performance.mjs") &&
     weeklyAudit.includes("upload-artifact@v4"),
-  "The weekly live audit must publish Search Console evidence when credentials are configured.",
+  "The weekly live audit must use keyless GitHub authentication and publish Search Console evidence.",
 );
 assert(
   monthlyGeoReview.includes("schedule:") &&
