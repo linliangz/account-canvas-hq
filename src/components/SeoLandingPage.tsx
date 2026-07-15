@@ -133,7 +133,7 @@ export function SeoLandingPage({ config }: { config: SeoLandingPageConfig }) {
       <header className="border-b border-border/60 bg-background/90">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="/" className="inline-flex items-center gap-2.5">
-            <img src="/visioner-mark.svg" alt="" className="h-9 w-9" />
+            <img src="/visioner-mark.svg" alt="Visioner" className="h-9 w-9" />
             <div className="leading-none">
               <div className="font-bold tracking-tight">Visioner</div>
               <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">

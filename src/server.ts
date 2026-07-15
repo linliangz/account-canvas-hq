@@ -12,6 +12,7 @@ let serverEntryPromise: Promise<ServerEntry> | undefined;
 const PERMANENT_REDIRECTS = new Map([
   ["/guides/crm-for-key-account-managers", "/crm-for-key-account-managers"],
 ]);
+const CANONICAL_HOST = "www.visioner.cc";
 
 async function getServerEntry(): Promise<ServerEntry> {
   if (!serverEntryPromise) {
@@ -52,6 +53,11 @@ export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const url = new URL(request.url);
+      if (url.hostname === "visioner.cc") {
+        url.hostname = CANONICAL_HOST;
+        return Response.redirect(url, 301);
+      }
+
       const redirectPath = PERMANENT_REDIRECTS.get(url.pathname.replace(/\/$/, ""));
       if (redirectPath) {
         url.pathname = redirectPath;

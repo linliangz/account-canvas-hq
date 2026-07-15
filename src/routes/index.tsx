@@ -58,7 +58,7 @@ function Logo({
     <a href="/" className={`flex items-center gap-2.5 ${className}`} aria-label="Visioner home">
       <img
         src="/visioner-mark.svg"
-        alt=""
+        alt="Visioner"
         className="shrink-0 rounded-[9px]"
         style={{ width: size, height: size }}
       />
