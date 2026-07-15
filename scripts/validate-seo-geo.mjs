@@ -127,7 +127,7 @@ assert(
     weeklyGrowthSprint.includes("VISIONER_ADMIN_TOKEN") &&
     weeklyGrowthSprint.includes("visioner-growth-performance") &&
     weeklyGrowthSprint.includes("seo-geo-weekly-brief.md") &&
-    weeklyGrowthSprint.includes("gh issue comment"),
+    weeklyGrowthSprint.includes('gh issue edit "$EXISTING_ISSUE"'),
   "The weekly growth sprint must attach privacy-safe signup, first-Account, and paid conversion evidence.",
 );
 assert(
@@ -268,6 +268,11 @@ assert(
     weeklyAudit.includes("report-seo-geo-performance.mjs") &&
     weeklyAudit.includes("upload-artifact@v4"),
   "The weekly live audit must use keyless GitHub authentication and publish Search Console evidence.",
+);
+assert(
+  weeklyGrowthSprint.includes('gh issue edit "$EXISTING_ISSUE"') &&
+    !weeklyGrowthSprint.includes('gh issue comment "$EXISTING_ISSUE"'),
+  "Re-running the weekly growth sprint must refresh one issue instead of appending duplicate generated comments.",
 );
 assert(
   monthlyGeoReview.includes("schedule:") &&

@@ -56,19 +56,6 @@ jobs:
           WEEK="$(date -u +%G-W%V)"
           TITLE="SEO/GEO growth sprint — ${WEEK}"
           EXISTING_ISSUE="$(gh issue list --repo "$GH_REPO" --state all --search "${TITLE} in:title" --json number,title --jq '.[] | select(.title == "'"$TITLE"'") | .number' | head -1)"
-          if [ -n "$EXISTING_ISSUE" ]; then
-            echo "Weekly growth task already exists: #${EXISTING_ISSUE}"
-            if [ -f artifacts/seo-geo-weekly-brief.md ]; then
-              gh issue comment "$EXISTING_ISSUE" --repo "$GH_REPO" --body-file artifacts/seo-geo-weekly-brief.md
-            fi
-            if [ -f artifacts/growth-links.md ]; then
-              gh issue comment "$EXISTING_ISSUE" --repo "$GH_REPO" --body-file artifacts/growth-links.md
-            fi
-            if [ -f artifacts/seo-geo-content-kit.md ]; then
-              gh issue comment "$EXISTING_ISSUE" --repo "$GH_REPO" --body-file artifacts/seo-geo-content-kit.md
-            fi
-            exit 0
-          fi
           BODY_FILE="$(mktemp)"
           if [ -f artifacts/seo-geo-weekly-brief.md ]; then
             cat artifacts/seo-geo-weekly-brief.md >> "$BODY_FILE"
@@ -82,7 +69,12 @@ jobs:
             cat artifacts/seo-geo-content-kit.md >> "$BODY_FILE"
             printf '\n---\n\n' >> "$BODY_FILE"
           fi
-          gh issue create --repo "$GH_REPO" --title "$TITLE" --body-file "$BODY_FILE"
+          if [ -n "$EXISTING_ISSUE" ]; then
+            echo "Refreshing weekly growth task #${EXISTING_ISSUE}"
+            gh issue edit "$EXISTING_ISSUE" --repo "$GH_REPO" --body-file "$BODY_FILE"
+          else
+            gh issue create --repo "$GH_REPO" --title "$TITLE" --body-file "$BODY_FILE"
+          fi
       - name: Upload product acquisition evidence
         uses: actions/upload-artifact@v4
         with:

@@ -1,6 +1,6 @@
 # Visioner SEO and GEO execution plan
 
-Updated: 2026-07-14
+Updated: 2026-07-15
 Owner: Founder until a growth owner is assigned
 Primary category: Account Planning CRM for Key Account Managers
 
@@ -66,18 +66,20 @@ or positioning. Do not compensate by producing near-duplicate keyword pages.
 
 The immediate decision is to improve and distribute the existing canonical account-planning pages. Six impressions are directional evidence, not enough volume for title or CTR experiments.
 
-### Search Console automation setup
+### Search Console automation
 
-The weekly workflow is operational without credentials and becomes data-producing after this one-time setup:
+Search Console reporting is live through GitHub-to-Google Workload Identity Federation. GitHub
+receives a short-lived `webmasters.readonly` token for each run; no service-account JSON key is
+stored in GitHub or on a developer machine. The first keyless workflow passed on 2026-07-14 and the
+weekly growth sprint produced a connected report on 2026-07-15.
 
-1. Create a Google Cloud service account dedicated to Search Console reporting.
-2. Enable the Search Console API in that Google Cloud project.
-3. In the `visioner.cc` Search Console property, add the service account email as a user. Read-only access is sufficient.
-4. Download one JSON key and store its complete contents in the website GitHub repository secret `GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON`.
-5. Run the `Visioner live SEO audit` workflow manually once. Confirm that its summary contains 28-day metrics and that the `visioner-seo-performance` artifact is present.
-6. Delete any unencrypted local copy of the JSON key after the GitHub secret is verified.
+Keep these safeguards in place:
 
-The reporter requests only the official `webmasters.readonly` scope. It never changes sitemaps or Search Console settings.
+1. Restrict the Workload Identity provider to `linliangz/account-canvas-hq`.
+2. Keep the workflow scope at `webmasters.readonly`.
+3. Do not add a long-lived Google credential unless keyless authentication is unavailable and the
+   exception is documented.
+4. Confirm every weekly artifact reports `connected` before interpreting missing values as zero.
 
 ### Product acquisition automation setup
 
@@ -169,11 +171,12 @@ pages.
 Use the founder runbook's two-hour timebox: 15 minutes to read evidence, 30 minutes to improve one
 canonical answer, 60 minutes to distribute useful evidence, and 15 minutes to record a decision.
 
-Before creating the issue, the workflow now generates one consolidated operating brief from the live
+Before creating or refreshing the issue, the workflow generates one consolidated operating brief from the live
 technical audit, Search Console, aggregate signup-to-paid attribution, and the current row of the
-12-week roadmap. An unconnected source is labeled `Manual setup required`; it is never converted to
-zero. The resulting JSON and Markdown artifacts are retained for 90 days, while the manually updated
-scorecard remains the historical decision log.
+12-week roadmap. Re-running the workflow in the same week updates the existing issue body instead of
+adding duplicate comments. An unconnected source is labeled `Manual setup required`; it is never
+converted to zero. The resulting JSON and Markdown artifacts are retained for 90 days, while the
+manually updated scorecard remains the historical decision log.
 
 The week-by-week owner, deliverable, and completion evidence are tracked in
 `docs/seo-geo-90-day-roadmap.csv`. A row is complete only when its URL, distribution links, reviewer
