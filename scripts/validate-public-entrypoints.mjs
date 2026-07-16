@@ -3,6 +3,8 @@ const DEFAULT_APP_URL = "https://app.visioner.cc";
 
 const landingUrl = cleanBaseUrl(process.env.VISIONER_LANDING_URL || DEFAULT_LANDING_URL);
 const appUrl = cleanBaseUrl(process.env.VISIONER_APP_URL || DEFAULT_APP_URL);
+const landingProbeUrl = cleanBaseUrl(process.env.VISIONER_LANDING_PROBE_URL || landingUrl);
+const appProbeUrl = cleanBaseUrl(process.env.VISIONER_APP_PROBE_URL || appUrl);
 const failures = [];
 
 if (usesProductionOrigin(landingUrl, appUrl) && process.env.VISIONER_VALIDATE_LIVE !== "true") {
@@ -16,7 +18,7 @@ function assert(condition, message) {
   if (!condition) failures.push(message);
 }
 
-const home = await fetchText(urlFor(landingUrl, "/"));
+const home = await fetchText(urlFor(landingProbeUrl, "/"));
 
 assert(home.includes("CRM for Key Account Managers"), "Landing page must retain the KAM headline.");
 assertCanonical(home, `${landingUrl}/`, "Landing page");
@@ -56,7 +58,7 @@ assert(
   "Landing page must not expose Lovable project URLs.",
 );
 
-const appHome = await fetchText(urlFor(appUrl, "/"));
+const appHome = await fetchText(urlFor(appProbeUrl, "/"));
 assert(appHome.includes("Visioner CRM"), "Web app root must render Visioner CRM shell.");
 
 await checkPage("/privacy", "Privacy Policy");
@@ -91,7 +93,7 @@ assert(
 assert(home.includes("/llms.txt"), "Landing page must expose /llms.txt as alternate context.");
 assert(home.includes("/site.webmanifest"), "Landing page must link the web app manifest.");
 
-const sitemap = await fetchText(urlFor(landingUrl, "/sitemap.xml"));
+const sitemap = await fetchText(urlFor(landingProbeUrl, "/sitemap.xml"));
 const guidesIndex = await checkPage("/guides", "Practical guides for Key Account Managers");
 assert(home.includes("/guides"), "Landing page must internally link to the guides index.");
 assert(sitemap.includes(urlFor(landingUrl, "/guides")), "Sitemap must include /guides.");
@@ -178,7 +180,7 @@ if (failures.length) {
 console.log("Public entrypoint validation passed.");
 
 async function checkPage(path, expectedText) {
-  const body = await fetchText(urlFor(landingUrl, path));
+  const body = await fetchText(urlFor(landingProbeUrl, path));
   assert(body.includes(expectedText), `${path} must contain "${expectedText}".`);
   return body;
 }
