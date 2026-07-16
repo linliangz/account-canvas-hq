@@ -10,6 +10,7 @@
     "build:dev": "vite build --mode development",
     "deploy:cloudflare": "npm run build && node scripts/prepare-pages-deploy.mjs && npx wrangler pages deploy dist --project-name visioner-cc && node scripts/prepare-worker-deploy.mjs && npx nitro deploy --prebuilt",
     "validate:entrypoints": "node scripts/validate-public-entrypoints.mjs",
+    "validate:entrypoints:live": "VISIONER_VALIDATE_LIVE=true node scripts/validate-public-entrypoints.mjs",
     "validate:seo-geo": "node scripts/validate-seo-geo.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "validate:sitemap": "node scripts/generate-sitemap.mjs --check",

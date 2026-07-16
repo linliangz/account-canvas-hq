@@ -26,6 +26,7 @@ const sections = [
     title: "2. Information We Collect",
     body: [
       "Account and registration information may include your name, email address, company, role, plan interest, workspace identifier, and support messages.",
+      "Security information may include temporary one-time verification challenges, delivery status, failed-attempt counts, IP address, and browser information used to protect signup and login. Visioner stores one-time email codes only as cryptographic hashes, and codes expire after a short period.",
       "Product data may include account names, customer domains, contacts, titles, phone numbers, notes, tags, projects, tasks, org charts, files, relationship health, account signals, and activity logs that you choose to enter, import, or sync.",
       "If you use optional cloud features such as BCC email capture, sync, backup, contact enrichment, or intelligence workflows, Visioner may process the selected data needed to provide those features. For email capture, this can include sender, recipients, subject, timestamps, readable message text, attachment names and sizes, routing metadata, summaries, and project classification status. Visioner does not currently retain raw MIME or binary attachment files.",
       "Usage and device information may include page views, feature events, browser or app version, operating system, timestamps, IP-derived rough region, errors, and diagnostic logs.",
@@ -63,7 +64,7 @@ const sections = [
   {
     title: "7. Third-Party Integrations and BYOK",
     body: [
-      "Some enrichment features may allow you to enter your own third-party API key. During the current proof-of-concept design, Visioner does not store those API keys server-side and uses them only to perform the requested provider call.",
+      "Some enrichment features allow an authorized workspace Owner or Admin to connect a third-party API key. Visioner encrypts connected keys in the workspace credential vault, does not return the plaintext key to the browser after connection, and uses it only for authorized provider calls initiated for that workspace.",
       "You are responsible for ensuring your use of third-party APIs, customer data, and enrichment results complies with applicable laws, provider terms, and your company policies.",
     ],
   },
@@ -71,6 +72,7 @@ const sections = [
     title: "8. Security",
     body: [
       "We use reasonable technical and organizational measures to protect information, including HTTPS, access controls, secret management, audit logs for sensitive cloud calls, and limited internal access.",
+      "Signup and login use a standard automated security check with a globally available one-time email-code fallback when the standard check is unavailable. One-time codes are short-lived, single-use, rate limited, and stored only as cryptographic hashes.",
       "No online service can guarantee perfect security. Please do not use Visioner as the only copy of critical legal, contractual, financial, or compliance records.",
     ],
   },
@@ -113,7 +115,7 @@ function PrivacyPage() {
           Legal
         </p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">Privacy Policy</h1>
-        <p className="mt-4 text-muted-foreground">Last updated: July 10, 2026</p>
+        <p className="mt-4 text-muted-foreground">Last updated: July 16, 2026</p>
         <p className="mt-6 text-[17px] leading-7 text-muted-foreground">
           Visioner CRM is built for strategic account work. That can include sensitive customer and
           relationship information, so our privacy posture emphasizes data minimization, clear

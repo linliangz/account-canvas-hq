@@ -5,6 +5,13 @@ const landingUrl = cleanBaseUrl(process.env.VISIONER_LANDING_URL || DEFAULT_LAND
 const appUrl = cleanBaseUrl(process.env.VISIONER_APP_URL || DEFAULT_APP_URL);
 const failures = [];
 
+if (usesProductionOrigin(landingUrl, appUrl) && process.env.VISIONER_VALIDATE_LIVE !== "true") {
+  console.error(
+    "Public entrypoint validation would contact production. Run VISIONER_VALIDATE_LIVE=true npm run validate:entrypoints, or use npm run validate:entrypoints:live during a release window.",
+  );
+  process.exit(1);
+}
+
 function assert(condition, message) {
   if (!condition) failures.push(message);
 }
@@ -200,4 +207,16 @@ function assertCanonical(body, expectedUrl, label) {
     hrefs.length === 1 && hrefs[0] === expectedUrl,
     `${label} must include exactly one canonical URL: ${expectedUrl}. Found: ${hrefs.join(", ") || "none"}.`,
   );
+}
+
+function usesProductionOrigin(...urls) {
+  return urls.some((value) => {
+    try {
+      return ["visioner.cc", "www.visioner.cc", "app.visioner.cc"].includes(
+        new URL(value).hostname,
+      );
+    } catch {
+      return false;
+    }
+  });
 }

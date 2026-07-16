@@ -109,6 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
+      { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "icon", href: "/favicon-192x192.png", type: "image/png", sizes: "192x192" },
       { rel: "icon", href: "/visioner-mark.svg", type: "image/svg+xml", sizes: "any" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
@@ -153,7 +154,7 @@ function RootShell({ children }: { children: ReactNode }) {
                 "@type": "Organization",
                 name: "Visioner",
                 url: "https://www.visioner.cc/",
-                logo: "https://www.visioner.cc/visioner-mark.svg",
+                logo: "https://www.visioner.cc/favicon-512x512.png",
                 contactPoint: {
                   "@type": "ContactPoint",
                   email: "support@visioner.cc",

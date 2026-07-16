@@ -26,7 +26,13 @@ import {
   FileText,
 } from "lucide-react";
 
-import { organizationJsonLd, pageHead, softwareApplicationJsonLd, websiteJsonLd } from "../lib/seo";
+import {
+  faqJsonLd,
+  organizationJsonLd,
+  pageHead,
+  softwareApplicationJsonLd,
+  websiteJsonLd,
+} from "../lib/seo";
 import { marketingSignupUrl } from "../lib/marketing-links";
 
 export const Route = createFileRoute("/")({
@@ -43,6 +49,47 @@ export const Route = createFileRoute("/")({
 const SIGNUP_URL = marketingSignupUrl("homepage", "/");
 const APP_URL = "https://app.visioner.cc/";
 const LOGIN_URL = "https://app.visioner.cc/login";
+const HOME_FAQ = [
+  {
+    question: "Is Visioner replacing Salesforce?",
+    answer:
+      "No. Visioner is the account planning CRM KAMs use daily. Many customers keep Salesforce as the system of record for pipeline reporting and use Visioner for strategic account management.",
+  },
+  {
+    question: "Do I need to install a Mac app?",
+    answer: "No. Visioner is SaaS-first. Start in the browser with three free accounts.",
+  },
+  {
+    question: "What if the security check does not load?",
+    answer:
+      "Visioner uses Cloudflare Turnstile as the standard security check. If it is unavailable on your network or browser, you can switch to a six-digit email code. The fallback is available globally, expires after 10 minutes, and works once.",
+  },
+  {
+    question: "What is BCC Capture?",
+    answer:
+      "A paid cloud feature that archives outbound email against the right account and contact by verified sender and customer domain. When the project is unclear, Visioner creates a review item instead of guessing.",
+  },
+  {
+    question: "Who is Visioner for?",
+    answer:
+      "Visioner is built for Key Account Managers, Strategic Account Managers, and founders who personally work a small number of high-value accounts.",
+  },
+  {
+    question: "What makes Visioner different from a traditional CRM?",
+    answer:
+      "Traditional CRMs are optimized for records, forecasts, and manager reporting. Visioner is optimized for daily account work: relationships, stakeholder coverage, tasks, signals, and account planning.",
+  },
+  {
+    question: "Can I use Visioner for only 3–5 strategic accounts?",
+    answer:
+      "Yes. That is the ideal starting point. Visioner is designed for depth inside a few important accounts, not high-volume lead management.",
+  },
+  {
+    question: "What is free, and what requires a paid plan?",
+    answer:
+      "Free includes three accounts, core account planning, local signals, CSV import/export, and multi-device cloud sync. Basic adds BCC Capture, 100 monthly Visioner Credits, News, and Inspire Me. Pro adds private org intelligence and Account Plan export. Team adds governed shared workspaces.",
+  },
+];
 /* ---------- Brand mark ---------- */
 
 function Logo({
@@ -564,7 +611,12 @@ function DayStory() {
 /* ---------- Page ---------- */
 
 function LandingPage() {
-  const structuredData = [organizationJsonLd(), websiteJsonLd(), softwareApplicationJsonLd()];
+  const structuredData = [
+    organizationJsonLd(),
+    websiteJsonLd(),
+    softwareApplicationJsonLd(),
+    faqJsonLd(HOME_FAQ),
+  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -1042,45 +1094,16 @@ function LandingPage() {
             </h2>
           </div>
           <div className="mt-10 space-y-3">
-            {[
-              [
-                "Is Visioner replacing Salesforce?",
-                "No. Visioner is the account planning CRM KAMs use daily. Many customers keep Salesforce as the system of record for pipeline reporting and use Visioner for strategic account management.",
-              ],
-              [
-                "Do I need to install a Mac app?",
-                "No. Visioner is SaaS-first. Start in the browser with three free accounts.",
-              ],
-              [
-                "What is BCC Capture?",
-                "A paid cloud feature that archives outbound email against the right account and contact by verified sender and customer domain. When the project is unclear, Visioner creates a review item instead of guessing.",
-              ],
-              [
-                "Who is Visioner for?",
-                "Visioner is built for Key Account Managers, Strategic Account Managers, and founders who personally work a small number of high-value accounts.",
-              ],
-              [
-                "What makes Visioner different from a traditional CRM?",
-                "Traditional CRMs are optimized for records, forecasts, and manager reporting. Visioner is optimized for daily account work: relationships, stakeholder coverage, tasks, signals, and account planning.",
-              ],
-              [
-                "Can I use Visioner for only 3–5 strategic accounts?",
-                "Yes. That is the ideal starting point. Visioner is designed for depth inside a few important accounts, not high-volume lead management.",
-              ],
-              [
-                "What is free, and what requires a paid plan?",
-                "Free includes three accounts, core account planning, local signals, CSV import/export, and multi-device cloud sync. Basic adds BCC Capture, 100 monthly Visioner Credits, News, and Inspire Me. Pro adds private org intelligence and Account Plan export. Team adds governed shared workspaces.",
-              ],
-            ].map(([q, a]) => (
+            {HOME_FAQ.map(({ question, answer }) => (
               <details
-                key={q as string}
+                key={question}
                 className="group rounded-xl border border-border bg-card px-5 py-4 open:shadow-[var(--shadow-soft)]"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between text-foreground">
-                  <span className="font-semibold">{q}</span>
+                  <span className="font-semibold">{question}</span>
                   <ChevronRight className="h-4 w-4 text-muted-foreground transition group-open:rotate-90" />
                 </summary>
-                <p className="mt-3 text-[15px] text-muted-foreground">{a}</p>
+                <p className="mt-3 text-[15px] text-muted-foreground">{answer}</p>
               </details>
             ))}
           </div>
