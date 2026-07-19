@@ -7,7 +7,7 @@ export const Route = createFileRoute("/privacy")({
       {
         name: "description",
         content:
-          "Visioner CRM privacy policy for the iOS Personal and Work spaces, SaaS account planning, cloud services, Apple integrations, email capture, analytics, and support.",
+          "Visioner CRM privacy policy for Android and iOS Personal and Work spaces, SaaS account planning, cloud services, device integrations, email capture, analytics, and support.",
       },
     ],
   }),
@@ -18,7 +18,7 @@ const sections = [
   {
     title: "1. Scope",
     body: [
-      "This Privacy Policy explains how Visioner CRM collects, uses, stores, and protects information when you use the Visioner website, web app, iOS app, beta programs, support channels, and related cloud services.",
+      "This Privacy Policy explains how Visioner CRM collects, uses, stores, and protects information when you use the Visioner website, web app, Android app, iOS app, beta programs, support channels, and related cloud services.",
       "Visioner CRM is operated by Ronisens Inc. References to Visioner, we, us, or our mean Ronisens Inc. and the Visioner CRM product team.",
     ],
   },
@@ -40,13 +40,14 @@ const sections = [
     ],
   },
   {
-    title: "4. iOS App, Personal Space, and Apple Permissions",
+    title: "4. Mobile Apps, Personal Space, and Device Permissions",
     body: [
-      "The iOS app has separate Personal and Work spaces. Personal can be used without a Visioner account. Personal relationships, user-chosen cadence, importance, private context, snooze or pause state, and touch history are stored in a protected on-device vault by default and are not uploaded to Visioner Cloud merely because you use Personal.",
+      "The Android and iOS apps have separate Personal and Work spaces. Personal can be used without a Visioner account. Personal relationships, user-chosen cadence, importance, private context, snooze or pause state, and touch history are stored in a protected on-device vault by default and are not uploaded to Visioner Cloud merely because you use Personal.",
       "When you choose people from Apple Contacts, Visioner reads only the selected contact records needed for the feature, such as name, organization, title, email address, phone number, and linked profile URL. A device contact identifier may be stored locally to support explicit updates and avoid duplicates. Visioner does not upload your full address book or scan contacts you did not select.",
-      "Contacts access is requested when you choose an import or synchronization action. Calendar Full Access is requested only when you enable the optional Visioner task calendar, and Visioner uses a dedicated calendar for task title and due-date synchronization. Notification permission is requested only when you enable reminders, and notification preview text is designed not to name a contact, customer, or task.",
+      "On supported Android versions, the system Contact Picker returns only the person and fields you select without giving Visioner general Contacts permission. On earlier supported versions, Visioner requests read access only after you start an import and then reads the contact you choose. Sending a Visioner contact back to Android Contacts opens the system contact editor for your review and confirmation; Visioner does not request direct Contacts write permission.",
+      "Contacts access is requested only when needed for an import or synchronization action. Calendar access is requested only when you connect an optional Visioner task calendar. The mobile app uses dedicated Visioner Personal and Visioner Work calendars for task title and due-date synchronization and does not scan unrelated calendars. Notification permission is requested only when you enable reminders, and relationship reminder text is designed not to name a contact, customer, or task on the lock screen.",
       "Switching between Personal and Work does not move data. If you explicitly add a Personal person to a chosen Work Account, Visioner copies contact fields such as name, title, email address, phone number, and linked profile URL. Personal cadence, importance, last-touch time, context notes, and interaction history remain in Personal.",
-      "Visioner does not read iMessage or SMS history. Email, Message, and Call actions use Apple-provided compose or system interfaces and remain user initiated. BCC email capture processes only messages that a user deliberately sends to a Visioner capture address. The Share Extension processes text or URLs that you explicitly share and may hold a minimal protected draft on device until the main app imports it.",
+      "Visioner does not read iMessage, SMS, call-log, or mailbox history. Email, Message, and Call actions use platform-provided compose or external-app interfaces and remain user initiated. BCC email capture processes only messages that a user deliberately sends to a Visioner capture address. The iOS Share Extension and Android Share Target process text or URLs that you explicitly share and may hold a minimal protected draft on device until the main app imports it.",
       "Work is the Visioner Cloud companion. After you sign in, selected Work records, offline edits, and captures may synchronize with the workspace as described elsewhere in this policy. Personal data remains outside that sync unless you perform the explicit contact-fields-only action above.",
     ],
   },
@@ -91,14 +92,14 @@ const sections = [
     title: "10. Retention and Deletion",
     body: [
       "We retain information for as long as needed to provide the service, support users, comply with legal obligations, resolve disputes, prevent abuse, and improve the product.",
-      "Personal relationships can be removed in the iOS app together with their private Visioner touch history. This does not delete the separate Apple contact or a Work contact that you previously created through an explicit copy. On-device app data is also subject to your iOS device, backup, and app-removal settings.",
+      "Personal relationships can be removed in the Android or iOS app together with their private Visioner touch history. This does not delete the separate Android or Apple contact, external Visioner Calendar events, or a Work contact that you previously created through an explicit copy. On-device app data is also subject to your device, backup, and app-removal settings.",
       "You may request deletion of account information or cloud-stored workspace data by contacting support. Some records may remain in backups, logs, billing records, or legal archives for a limited period where required or reasonably necessary.",
     ],
   },
   {
     title: "11. Your Choices",
     body: [
-      "You can choose whether to use Personal on device, sign in to Work cloud services, enable sync, select contacts, enable Calendar or notifications, use BCC capture, share content into Visioner, upload files, or connect third-party APIs. You can change Apple permissions later in iOS Settings, although the related feature may stop working.",
+      "You can choose whether to use Personal on device, sign in to Work cloud services, enable sync, select contacts, enable Calendar or notifications, use BCC capture, share content into Visioner, upload files, or connect third-party APIs. You can change permissions later in Android or iOS Settings, although the related feature may stop working.",
       "You may export or delete local data using product controls where available. You may also contact support for help with cloud data access, correction, export, or deletion requests.",
     ],
   },
@@ -127,7 +128,7 @@ function PrivacyPage() {
           Legal
         </p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">Privacy Policy</h1>
-        <p className="mt-4 text-muted-foreground">Last updated: July 18, 2026</p>
+        <p className="mt-4 text-muted-foreground">Last updated: July 19, 2026</p>
         <p className="mt-6 text-[17px] leading-7 text-muted-foreground">
           Visioner CRM is built for strategic account work. That can include sensitive customer and
           relationship information, so our privacy posture emphasizes data minimization, clear
