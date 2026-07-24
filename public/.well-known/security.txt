@@ -1,0 +1,4 @@
+Contact: mailto:support@visioner.cc
+Canonical: https://www.visioner.cc/.well-known/security.txt
+Preferred-Languages: en, zh
+Expires: 2027-08-01T00:00:00.000Z

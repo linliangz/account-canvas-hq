@@ -84,11 +84,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Visioner is the account planning CRM for Key Account Managers. Manage relationships, projects, tasks, and account signals in one daily workspace.",
       },
-      {
-        name: "keywords",
-        content:
-          "CRM for Key Account Managers, Key Account Management software, Account planning CRM, Strategic account management, Account plan canvas, CRM for KAM",
-      },
       { property: "og:title", content: "Visioner — Account Planning CRM for Key Account Managers" },
       {
         property: "og:description",
@@ -109,6 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
+      { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "icon", href: "/favicon-192x192.png", type: "image/png", sizes: "192x192" },
       { rel: "icon", href: "/visioner-mark.svg", type: "image/svg+xml", sizes: "any" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
@@ -152,8 +148,9 @@ function RootShell({ children }: { children: ReactNode }) {
                 "@context": "https://schema.org",
                 "@type": "Organization",
                 name: "Visioner",
+                legalName: "Ronisens Inc.",
                 url: "https://www.visioner.cc/",
-                logo: "https://www.visioner.cc/visioner-mark.svg",
+                logo: "https://www.visioner.cc/favicon-512x512.png",
                 contactPoint: {
                   "@type": "ContactPoint",
                   email: "support@visioner.cc",

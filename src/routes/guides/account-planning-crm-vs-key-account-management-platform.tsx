@@ -9,9 +9,21 @@ const guide: GuidePageConfig = {
   description:
     "How to understand the difference between a daily account planning CRM for individual KAMs and an enterprise key account management platform.",
   path: "/guides/account-planning-crm-vs-key-account-management-platform",
-  dateModified: "2026-07-12",
-  updatedAt: "Updated July 2026",
+  dateModified: "2026-07-24",
+  updatedAt: "Updated July 24, 2026",
   readingTime: "6 min read",
+  sources: [
+    {
+      label: "Gartner: Key Account Management",
+      href: "https://www.gartner.com/en/sales/insights/key-account-management",
+      note: "Context for program-level selection, planning, and cross-functional key-account work.",
+    },
+    {
+      label: "McKinsey: Digital and key-account management",
+      href: "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/how-digital-is-powering-the-next-wave-of-growth-in-key-account-management",
+      note: "Research context for digital tools and changing Key Account Manager workflows.",
+    },
+  ],
   summary: [
     "A key account management platform usually supports a company-wide KAM program with governance, methodology, collaboration, reporting, and CRM integration.",
     "An account planning CRM is closer to the individual account owner's daily work: accounts, projects, stakeholders, tasks, relationship health, notes, and signals.",
@@ -102,7 +114,7 @@ export const Route = createFileRoute(
 )({
   head: () =>
     pageHead({
-      title: "Account Planning CRM vs Key Account Management Platform | Visioner",
+      title: "Account Planning CRM vs KAM Platform | Visioner",
       description:
         "Compare account planning CRM and key account management platforms. Learn when individual KAMs need a daily workspace versus an enterprise KAM program.",
       path: "/guides/account-planning-crm-vs-key-account-management-platform",

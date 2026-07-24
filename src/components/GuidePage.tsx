@@ -10,9 +10,15 @@ export type GuidePageConfig = {
   title: string;
   description: string;
   path: string;
+  author?: string;
   dateModified: string;
   updatedAt: string;
   readingTime: string;
+  sources?: Array<{
+    label: string;
+    href: string;
+    note: string;
+  }>;
   summary: string[];
   evidence?: {
     image: string;
@@ -117,10 +123,16 @@ export function GuidePage({ config }: { config: GuidePageConfig }) {
               {config.description}
             </p>
             <div className="mt-6 flex flex-wrap gap-3 text-sm text-muted-foreground">
-              <span>{config.updatedAt}</span>
+              <span>By {config.author || "Visioner product team"}</span>
+              <span aria-hidden>•</span>
+              <time dateTime={config.dateModified}>{config.updatedAt}</time>
               <span aria-hidden>•</span>
               <span>{config.readingTime}</span>
             </div>
+            <p className="mt-4 max-w-3xl text-sm leading-6 text-muted-foreground">
+              Reviewed against the current Visioner product and the sources linked in this guide. No
+              customer result, market rank, or performance outcome is implied.
+            </p>
           </div>
         </section>
 
@@ -349,6 +361,35 @@ export function GuidePage({ config }: { config: GuidePageConfig }) {
             </aside>
           </div>
         </section>
+
+        {config.sources && config.sources.length > 0 && (
+          <section className="border-t border-border/60 bg-surface/40">
+            <div className="mx-auto max-w-5xl px-6 py-12">
+              <h2 className="text-2xl font-bold tracking-tight text-foreground">
+                Sources and review basis
+              </h2>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">
+                These references support the guide's category definitions and operating context.
+                Visioner product details are checked against the current public product and pricing
+                pages.
+              </p>
+              <ul className="mt-6 space-y-4">
+                {config.sources.map((source) => (
+                  <li key={source.href}>
+                    <a
+                      href={source.href}
+                      rel="noreferrer"
+                      className="font-semibold text-accent hover:underline"
+                    >
+                      {source.label}
+                    </a>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{source.note}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
       </article>
 
       <footer className="border-t border-border/60 bg-surface/60">

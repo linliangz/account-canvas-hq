@@ -1,7 +1,7 @@
 const SITE_URL = "https://www.visioner.cc";
 const SITE_NAME = "Visioner";
 const PRODUCT_NAME = "Visioner CRM";
-const DEFAULT_IMAGE = `${SITE_URL}/visioner-mark.svg`;
+const DEFAULT_IMAGE = `${SITE_URL}/favicon-512x512.png`;
 
 type PageHeadOptions = {
   title: string;
@@ -29,7 +29,7 @@ export function pageHead({
   return {
     meta: [
       { title },
-      { name: "application-name", content: PRODUCT_NAME },
+      { name: "application-name", content: SITE_NAME },
       { name: "description", content: description },
       { name: "robots", content: "index,follow" },
       { property: "og:title", content: title },
@@ -52,6 +52,7 @@ function publisher() {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
+    legalName: "Ronisens Inc.",
     alternateName: [PRODUCT_NAME, "Visioner Account Planning CRM"],
     url: SITE_URL,
     logo: {

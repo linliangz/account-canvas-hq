@@ -1,0 +1,94 @@
+name: Trust and domain health
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 15 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  trust-health:
+    name: Canonical URL, TLS, and public trust files
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check canonical website
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          body="$(mktemp)"
+          headers="$(mktemp)"
+          curl --fail --silent --show-error \
+            --max-time 20 \
+            --dump-header "$headers" \
+            --output "$body" \
+            https://www.visioner.cc/
+
+          grep -qi "Visioner" "$body"
+          grep -qi '^strict-transport-security: max-age=31536000' "$headers"
+          grep -qi '^x-content-type-options: nosniff' "$headers"
+          grep -qi '^x-frame-options: DENY' "$headers"
+          grep -qi '^referrer-policy: strict-origin-when-cross-origin' "$headers"
+
+      - name: Check one-hop canonical redirects
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          check_redirect() {
+            local source="$1"
+            local expected="$2"
+            local headers
+            headers="$(mktemp)"
+
+            curl --silent --show-error \
+              --max-time 20 \
+              --output /dev/null \
+              --dump-header "$headers" \
+              "$source"
+
+            grep -Eq '^HTTP/[0-9.]+ 308' "$headers"
+            grep -Fqi "location: $expected" "$headers"
+          }
+
+          check_redirect \
+            "https://visioner.cc/guides?source=health" \
+            "https://www.visioner.cc/guides?source=health"
+          check_redirect \
+            "http://www.visioner.cc/guides?source=health" \
+            "https://www.visioner.cc/guides?source=health"
+
+      - name: Check public discovery and security files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          curl --fail --silent --show-error --max-time 20 \
+            https://www.visioner.cc/robots.txt |
+            grep -qi "sitemap"
+
+          curl --fail --silent --show-error --max-time 20 \
+            https://www.visioner.cc/sitemap.xml |
+            grep -qi "urlset"
+
+          security="$(curl --fail --silent --show-error --max-time 20 \
+            https://www.visioner.cc/.well-known/security.txt)"
+          grep -Fq "Contact: mailto:support@visioner.cc" <<<"$security"
+          grep -Fq "Canonical: https://www.visioner.cc/.well-known/security.txt" <<<"$security"
+
+      - name: Check product endpoints
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          curl --fail --silent --show-error --max-time 20 \
+            --output /dev/null \
+            https://app.visioner.cc/
+
+          curl --fail --silent --show-error --max-time 20 \
+            --output /dev/null \
+            https://staging.app.visioner.cc/

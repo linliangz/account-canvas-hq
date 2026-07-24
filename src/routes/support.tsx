@@ -1,20 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Globe, LifeBuoy, Mail, ShieldCheck } from "lucide-react";
 import { marketingSignupUrl } from "../lib/marketing-links";
+import { pageHead } from "../lib/seo";
 
 const SIGNUP_URL = marketingSignupUrl("support", "/support");
 
 export const Route = createFileRoute("/support")({
-  head: () => ({
-    meta: [
-      { title: "Support — Visioner CRM" },
-      {
-        name: "description",
-        content:
-          "Contact Visioner CRM support for SaaS beta access, account planning setup, billing, privacy, and product feedback.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: "Visioner CRM Support and Beta Help",
+      description:
+        "Contact Visioner CRM support for Android, iOS, SaaS access, account planning setup, billing, privacy requests, bugs, and product feedback.",
+      path: "/support",
+    }),
   component: SupportPage,
 });
 
@@ -34,8 +32,9 @@ function SupportPage() {
             We are still close to every early user.
           </h1>
           <p className="mt-5 text-[17px] leading-7 text-muted-foreground">
-            Visioner CRM is in beta. If something feels confusing, broken, or just not sharp enough
-            for real Key Account work, send it in. Early feedback directly shapes the product.
+            Visioner CRM is in beta on the web, Android, and iOS. If Personal relationship
+            follow-ups or a Work companion flow feels confusing, broken, or not sharp enough for
+            real use, send it in. Early feedback directly shapes the product.
           </p>
         </div>
 
@@ -47,7 +46,8 @@ function SupportPage() {
             <Mail className="h-6 w-6 text-accent" />
             <h2 className="mt-4 text-xl font-semibold">Email Support</h2>
             <p className="mt-2 text-muted-foreground">
-              For beta access, bugs, account questions, billing, privacy, or product feedback.
+              For Android, iOS, or SaaS beta access, bugs, account questions, billing, privacy, or
+              product feedback.
             </p>
             <p className="mt-4 font-semibold text-accent">support@visioner.cc</p>
           </a>
@@ -65,8 +65,13 @@ function SupportPage() {
           </a>
         </div>
 
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
           {[
+            {
+              icon: LifeBuoy,
+              title: "Mobile Beta",
+              body: "Tell us whether you were using Android or iOS, Personal or Work, the screen and action, device and OS version, whether you were offline, and what you expected. Redact customer-sensitive details from screenshots.",
+            },
             {
               icon: Globe,
               title: "SaaS Beta",
@@ -92,6 +97,16 @@ function SupportPage() {
               <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.body}</p>
             </section>
           ))}
+        </div>
+
+        <div className="mt-8 rounded-2xl border border-border bg-surface/60 p-5 text-sm leading-6 text-muted-foreground">
+          <ShieldCheck className="h-5 w-5 text-accent" />
+          <h2 className="mt-3 font-semibold text-foreground">Keep support requests private</h2>
+          <p className="mt-2">
+            Do not send access tokens, one-time codes, production credentials, unredacted customer
+            records, private relationship notes, or message history. A redacted screenshot and the
+            approximate time of the problem are usually enough to begin troubleshooting.
+          </p>
         </div>
 
         <div className="mt-10 rounded-2xl border border-border bg-card p-6">
@@ -120,6 +135,12 @@ function SupportPage() {
               href="/privacy"
             >
               Privacy Policy
+            </a>
+            <a
+              className="rounded-lg border border-border px-4 py-2 hover:bg-surface-muted"
+              href="/account-deletion"
+            >
+              Account Deletion
             </a>
             <a
               className="rounded-lg border border-border px-4 py-2 hover:bg-surface-muted"

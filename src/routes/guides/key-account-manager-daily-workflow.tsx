@@ -9,9 +9,21 @@ const guide: GuidePageConfig = {
   description:
     "A practical daily workflow for Key Account Managers who need to manage revenue, projects, tasks, stakeholder gaps, relationship health, and follow-ups without turning CRM into busywork.",
   path: "/guides/key-account-manager-daily-workflow",
-  dateModified: "2026-07-14",
-  updatedAt: "Updated July 2026",
+  dateModified: "2026-07-24",
+  updatedAt: "Updated July 24, 2026",
   readingTime: "7 min read",
+  sources: [
+    {
+      label: "Gartner: Increase Seller Account Planning Adoption",
+      href: "https://www.gartner.com/en/documents/5419563",
+      note: "Research summary on making account planning relevant and usable in daily workflows.",
+    },
+    {
+      label: "McKinsey: Digital and key-account management",
+      href: "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/how-digital-is-powering-the-next-wave-of-growth-in-key-account-management",
+      note: "Research context for digital support, personalization, and better KAM tools.",
+    },
+  ],
   summary: [
     "A strong KAM daily workflow starts with the account portfolio, not with a generic pipeline report.",
     "The most useful morning check combines target gap, active projects, urgent and important tasks, waiting replies, relationship health, and stakeholder gaps.",

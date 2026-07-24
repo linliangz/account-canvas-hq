@@ -31,6 +31,7 @@ writeFileSync(
         "/assets/*",
         "/downloads/*",
         "/product-screenshots/*",
+        "/.well-known/*",
         "/visioner-*.svg",
         "/favicon*",
         "/robots.txt",

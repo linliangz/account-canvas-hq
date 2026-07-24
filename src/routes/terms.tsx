@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageHead } from "../lib/seo";
 
 export const Route = createFileRoute("/terms")({
-  head: () => ({
-    meta: [
-      { title: "Terms of Service — Visioner CRM" },
-      {
-        name: "description",
-        content:
-          "Visioner CRM terms of service for SaaS account planning, beta access, cloud features, integrations, billing, and support.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: "Terms of Service — Visioner CRM",
+      description:
+        "Terms for using Visioner CRM account planning software, beta services, cloud features, integrations, subscriptions, billing, and support.",
+      path: "/terms",
+    }),
   component: TermsPage,
 });
 
@@ -32,7 +30,7 @@ const sections = [
   {
     title: "3. Accounts and Access",
     body: [
-      "You are responsible for the accuracy of registration information and for activity under your workspace. V1.0 uses cloud email/password accounts for access, billing, and entitlement checks.",
+      "You are responsible for the accuracy of registration information and for activity under your workspace. Visioner uses cloud accounts for access, billing, and entitlement checks.",
       "Cloud features may require sign-in, verified email addresses, plan entitlements, and additional permissions.",
     ],
   },

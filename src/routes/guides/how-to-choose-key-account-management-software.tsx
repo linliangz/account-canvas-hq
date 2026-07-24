@@ -9,9 +9,21 @@ const guide: GuidePageConfig = {
   description:
     "A practical guide for Key Account Managers and founders comparing CRM, account planning software, stakeholder mapping tools, and KAM platforms.",
   path: "/guides/how-to-choose-key-account-management-software",
-  dateModified: "2026-07-14",
-  updatedAt: "Updated July 14, 2026",
+  dateModified: "2026-07-24",
+  updatedAt: "Updated July 24, 2026",
   readingTime: "9 min read",
+  sources: [
+    {
+      label: "Gartner: Increase Seller Account Planning Adoption",
+      href: "https://www.gartner.com/en/documents/5419563",
+      note: "Research summary on aligning account-planning tools with account-manager workflows.",
+    },
+    {
+      label: "McKinsey: Digital and key-account management",
+      href: "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/how-digital-is-powering-the-next-wave-of-growth-in-key-account-management",
+      note: "Research context for evaluating digital support and tools in key-account work.",
+    },
+  ],
   summary: [
     "Choose the category before choosing the vendor: a system of record, enterprise KAM program, account intelligence product, and daily KAM workspace solve different jobs.",
     "Test each shortlist product with one real account for 30 minutes. A useful tool should expose the next action, stakeholder gaps, and relationship risk without demanding complete data first.",

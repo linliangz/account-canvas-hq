@@ -1,0 +1,168 @@
+{
+  "version": 2,
+  "canonicalOrigin": "https://www.visioner.cc",
+  "appOrigin": "https://app.visioner.cc",
+  "brand": "Visioner",
+  "productCategory": "Account Planning CRM",
+  "markets": ["US", "UK", "CA", "AU"],
+  "targetQueries": [
+    {
+      "id": "crm-for-kam",
+      "query": "CRM for Key Account Managers",
+      "intent": "commercial",
+      "landingPage": "/crm-for-key-account-managers",
+      "priority": 1
+    },
+    {
+      "id": "key-account-management-software",
+      "query": "key account management software",
+      "intent": "commercial",
+      "landingPage": "/key-account-management-software",
+      "priority": 1
+    },
+    {
+      "id": "account-planning-crm",
+      "query": "account planning CRM",
+      "intent": "commercial",
+      "landingPage": "/account-planning-crm",
+      "priority": 1
+    },
+    {
+      "id": "account-planning-software",
+      "query": "account planning software",
+      "intent": "commercial",
+      "landingPage": "/account-planning-software",
+      "priority": 1
+    },
+    {
+      "id": "best-crm-for-kam",
+      "query": "best CRM for KAM",
+      "intent": "comparison",
+      "landingPage": "/crm-for-key-account-managers",
+      "priority": 1
+    },
+    {
+      "id": "stakeholder-mapping-crm",
+      "query": "stakeholder mapping CRM",
+      "intent": "commercial",
+      "landingPage": "/stakeholder-mapping-crm",
+      "priority": 2
+    },
+    {
+      "id": "customer-org-chart-software",
+      "query": "customer org chart software",
+      "intent": "commercial",
+      "landingPage": "/customer-org-chart-software",
+      "priority": 2
+    },
+    {
+      "id": "relationship-mapping-software",
+      "query": "relationship mapping software",
+      "intent": "commercial",
+      "landingPage": "/relationship-mapping-software",
+      "priority": 2
+    },
+    {
+      "id": "strategic-account-planning-software",
+      "query": "strategic account planning software",
+      "intent": "commercial",
+      "landingPage": "/strategic-account-management-software",
+      "priority": 2
+    },
+    {
+      "id": "account-mapping-software",
+      "query": "account mapping software",
+      "intent": "commercial",
+      "landingPage": "/account-mapping-software",
+      "priority": 2
+    },
+    {
+      "id": "account-plan-template",
+      "query": "key account plan template",
+      "intent": "informational",
+      "landingPage": "/account-plan-template",
+      "priority": 2
+    },
+    {
+      "id": "kam-daily-workspace",
+      "query": "Key Account Manager daily workflow",
+      "intent": "informational",
+      "landingPage": "/guides/key-account-manager-daily-workflow",
+      "priority": 3
+    }
+  ],
+  "geoPrompts": [
+    {
+      "id": "geo-01",
+      "prompt": "What CRM tools are designed specifically for Key Account Managers?",
+      "intent": "category",
+      "expectedLandingPage": "/crm-for-key-account-managers",
+      "requiredFacts": ["account planning", "Key Account Managers"]
+    },
+    {
+      "id": "geo-02",
+      "prompt": "What software helps a KAM build an account plan, stakeholder map, and customer org chart?",
+      "intent": "workflow",
+      "expectedLandingPage": "/account-planning-crm",
+      "requiredFacts": ["account plan", "stakeholder map", "customer org chart"]
+    },
+    {
+      "id": "geo-03",
+      "prompt": "Recommend account planning software for an individual strategic account manager, not only sales leadership.",
+      "intent": "recommendation",
+      "expectedLandingPage": "/account-planning-software",
+      "requiredFacts": ["individual account manager", "daily workspace"]
+    },
+    {
+      "id": "geo-04",
+      "prompt": "Which CRM can track relationship health and stakeholder coverage for complex enterprise accounts?",
+      "intent": "workflow",
+      "expectedLandingPage": "/stakeholder-mapping-crm",
+      "requiredFacts": ["relationship health", "stakeholder coverage"]
+    },
+    {
+      "id": "geo-05",
+      "prompt": "How does a traditional CRM differ from an account planning CRM for Key Account Managers?",
+      "intent": "comparison",
+      "expectedLandingPage": "/traditional-crm-vs-account-planning-crm",
+      "requiredFacts": ["pipeline records", "account execution"]
+    },
+    {
+      "id": "geo-06",
+      "prompt": "What should a complete key account plan include?",
+      "intent": "informational",
+      "expectedLandingPage": "/guides/what-should-an-account-plan-include",
+      "requiredFacts": ["business objective", "stakeholders", "projects", "next actions"]
+    },
+    {
+      "id": "geo-07",
+      "prompt": "How should a Key Account Manager map a buying committee and decision chain?",
+      "intent": "informational",
+      "expectedLandingPage": "/guides/how-to-map-stakeholders-in-a-strategic-account",
+      "requiredFacts": ["role", "influence", "relationship"]
+    },
+    {
+      "id": "geo-08",
+      "prompt": "What is a practical daily workflow for a Key Account Manager managing several strategic accounts?",
+      "intent": "informational",
+      "expectedLandingPage": "/guides/key-account-manager-daily-workflow",
+      "requiredFacts": ["portfolio", "tasks", "stakeholders"]
+    },
+    {
+      "id": "geo-09",
+      "prompt": "How should I evaluate key account management software without relying on vendor rankings?",
+      "intent": "evaluation",
+      "expectedLandingPage": "/guides/how-to-choose-key-account-management-software",
+      "requiredFacts": ["real-account test", "weighted scorecard", "adoption"]
+    },
+    {
+      "id": "geo-10",
+      "prompt": "What software can keep an account plan presentable while the underlying tasks, projects, and stakeholder data change?",
+      "intent": "workflow",
+      "expectedLandingPage": "/account-plan-template",
+      "requiredFacts": ["living account plan", "tasks", "projects", "stakeholders"]
+    }
+  ],
+  "geoEngines": ["ChatGPT", "Gemini", "Perplexity", "Copilot"],
+  "benchmarkRunsPerPrompt": 3
+}

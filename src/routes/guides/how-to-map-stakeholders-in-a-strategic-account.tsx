@@ -9,9 +9,16 @@ const guide: GuidePageConfig = {
   description:
     "Stakeholder mapping helps a Key Account Manager see who influences the account, where relationships are weak, and which unknown seats create deal risk.",
   path: "/guides/how-to-map-stakeholders-in-a-strategic-account",
-  dateModified: "2026-07-12",
-  updatedAt: "Updated July 2026",
+  dateModified: "2026-07-24",
+  updatedAt: "Updated July 24, 2026",
   readingTime: "6 min read",
+  sources: [
+    {
+      label: "Asana: Project stakeholder analysis and mapping",
+      href: "https://asana.com/resources/project-stakeholder",
+      note: "Reference for identifying, categorizing, and planning communication with stakeholders.",
+    },
+  ],
   summary: [
     "Start with the people you know, then separate reporting lines from project decision roles.",
     "Use unknown stakeholder slots deliberately. An unknown executive sponsor or economic buyer is a visible risk, not an empty field to ignore.",

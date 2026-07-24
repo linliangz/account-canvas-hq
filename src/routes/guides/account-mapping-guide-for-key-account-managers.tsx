@@ -9,9 +9,21 @@ const guide: GuidePageConfig = {
   description:
     "A practical guide for Key Account Managers on building account maps with customer org charts, stakeholder roles, reporting lines, relationship health, projects, and next actions.",
   path: "/guides/account-mapping-guide-for-key-account-managers",
-  dateModified: "2026-07-12",
-  updatedAt: "Updated July 2026",
+  dateModified: "2026-07-24",
+  updatedAt: "Updated July 24, 2026",
   readingTime: "7 min read",
+  sources: [
+    {
+      label: "Gartner: Account Management Strategy Guide",
+      href: "https://www.gartner.com/en/sales/topics/account-management-and-growth",
+      note: "Account-planning context and the need to keep plans active rather than static.",
+    },
+    {
+      label: "Asana: Project stakeholder analysis and mapping",
+      href: "https://asana.com/resources/project-stakeholder",
+      note: "Reference for stakeholder identification, categorization, and communication planning.",
+    },
+  ],
   summary: [
     "An account map is not a contact list. It connects customer structure, decision roles, relationship health, projects, and next actions.",
     "The most useful account maps show both known relationships and unknown seats, so a KAM can see where coverage is weak.",

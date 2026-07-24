@@ -3,13 +3,30 @@ const DEFAULT_APP_URL = "https://app.visioner.cc";
 
 const landingUrl = cleanBaseUrl(process.env.VISIONER_LANDING_URL || DEFAULT_LANDING_URL);
 const appUrl = cleanBaseUrl(process.env.VISIONER_APP_URL || DEFAULT_APP_URL);
+const landingProbeUrl = cleanBaseUrl(process.env.VISIONER_LANDING_PROBE_URL || landingUrl);
+const appProbeUrl = cleanBaseUrl(process.env.VISIONER_APP_PROBE_URL || appUrl);
 const failures = [];
+
+if (usesProductionOrigin(landingUrl, appUrl) && process.env.VISIONER_VALIDATE_LIVE !== "true") {
+  console.error(
+    "Public entrypoint validation would contact production. Run VISIONER_VALIDATE_LIVE=true npm run validate:entrypoints, or use npm run validate:entrypoints:live during a release window.",
+  );
+  process.exit(1);
+}
+
+if (process.env.VISIONER_VALIDATE_LIVE === "true") {
+  await assertApexRedirect("http://visioner.cc/", `${landingUrl}/`);
+  await assertApexRedirect(
+    "https://visioner.cc/guides?source=apex-check",
+    `${landingUrl}/guides?source=apex-check`,
+  );
+}
 
 function assert(condition, message) {
   if (!condition) failures.push(message);
 }
 
-const home = await fetchText(urlFor(landingUrl, "/"));
+const home = await fetchText(urlFor(landingProbeUrl, "/"));
 
 assert(home.includes("CRM for Key Account Managers"), "Landing page must retain the KAM headline.");
 assertCanonical(home, `${landingUrl}/`, "Landing page");
@@ -49,12 +66,22 @@ assert(
   "Landing page must not expose Lovable project URLs.",
 );
 
-const appHome = await fetchText(urlFor(appUrl, "/"));
+const appHome = await fetchText(urlFor(appProbeUrl, "/"));
 assert(appHome.includes("Visioner CRM"), "Web app root must render Visioner CRM shell.");
 
-await checkPage("/privacy", "Privacy Policy");
-await checkPage("/terms", "Terms of Service");
-await checkPage("/support", "support@visioner.cc");
+const privacyPage = await checkPage("/privacy", "Privacy Policy");
+const termsPage = await checkPage("/terms", "Terms of Service");
+const supportPage = await checkPage("/support", "support@visioner.cc");
+const accountDeletionPage = await checkPage("/account-deletion", "Account and Data Deletion");
+assertCanonical(privacyPage, urlFor(landingUrl, "/privacy"), "/privacy");
+assertCanonical(termsPage, urlFor(landingUrl, "/terms"), "/terms");
+assertCanonical(supportPage, urlFor(landingUrl, "/support"), "/support");
+assertCanonical(accountDeletionPage, urlFor(landingUrl, "/account-deletion"), "/account-deletion");
+assert(
+  accountDeletionPage.includes("Visioner account deletion") &&
+    accountDeletionPage.includes("Disconnect is not account deletion"),
+  "/account-deletion must explain cloud deletion and the local disconnect boundary.",
+);
 const aboutPage = await checkPage(
   "/about",
   "Visioner is an Account Planning CRM for Key Account Managers",
@@ -66,7 +93,24 @@ assert(
   "/about must include AboutPage and BreadcrumbList JSON-LD.",
 );
 await checkPage("/robots.txt", "Sitemap: https://www.visioner.cc/sitemap.xml");
-await checkPage("/sitemap.xml", "https://www.visioner.cc/");
+const sitemapResult = await fetchResponse(urlFor(landingProbeUrl, "/sitemap.xml"));
+const sitemap = sitemapResult.body;
+const sitemapContentType = sitemapResult.response.headers.get("content-type") ?? "";
+const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+assert(
+  /(?:application|text)\/xml/i.test(sitemapContentType),
+  `/sitemap.xml must return an XML content type. Found: ${sitemapContentType || "none"}.`,
+);
+assert(
+  sitemap.trimStart().startsWith("<?xml") && sitemap.includes("<urlset"),
+  "/sitemap.xml must return a sitemap urlset, not an HTML fallback.",
+);
+assert(sitemapUrls.length > 0, "/sitemap.xml must contain at least one URL.");
+assert(
+  sitemapUrls.length === new Set(sitemapUrls).size,
+  "/sitemap.xml must not contain duplicate URLs.",
+);
+assert(sitemapUrls.includes(`${landingUrl}/`), "/sitemap.xml must include the canonical homepage.");
 const llmsText = await checkPage("/llms.txt", "Account Planning CRM for Key Account Managers");
 assert(
   llmsText.includes("Visioner is SaaS-first") &&
@@ -84,11 +128,14 @@ assert(
 assert(home.includes("/llms.txt"), "Landing page must expose /llms.txt as alternate context.");
 assert(home.includes("/site.webmanifest"), "Landing page must link the web app manifest.");
 
-const sitemap = await fetchText(urlFor(landingUrl, "/sitemap.xml"));
 const guidesIndex = await checkPage("/guides", "Practical guides for Key Account Managers");
 assert(home.includes("/guides"), "Landing page must internally link to the guides index.");
 assert(sitemap.includes(urlFor(landingUrl, "/guides")), "Sitemap must include /guides.");
 assert(sitemap.includes(urlFor(landingUrl, "/about")), "Sitemap must include /about.");
+assert(
+  sitemap.includes(urlFor(landingUrl, "/account-deletion")),
+  "Sitemap must include /account-deletion.",
+);
 assertCanonical(guidesIndex, urlFor(landingUrl, "/guides"), "/guides");
 assert(
   guidesIndex.includes('"@type":"CollectionPage"') &&
@@ -171,17 +218,22 @@ if (failures.length) {
 console.log("Public entrypoint validation passed.");
 
 async function checkPage(path, expectedText) {
-  const body = await fetchText(urlFor(landingUrl, path));
+  const body = await fetchText(urlFor(landingProbeUrl, path));
   assert(body.includes(expectedText), `${path} must contain "${expectedText}".`);
   return body;
 }
 
 async function fetchText(url) {
+  const { body } = await fetchResponse(url);
+  return body;
+}
+
+async function fetchResponse(url) {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`${url} returned ${response.status}`);
   }
-  return response.text();
+  return { response, body: await response.text() };
 }
 
 function cleanBaseUrl(value) {
@@ -199,5 +251,26 @@ function assertCanonical(body, expectedUrl, label) {
   assert(
     hrefs.length === 1 && hrefs[0] === expectedUrl,
     `${label} must include exactly one canonical URL: ${expectedUrl}. Found: ${hrefs.join(", ") || "none"}.`,
+  );
+}
+
+function usesProductionOrigin(...urls) {
+  return urls.some((value) => {
+    try {
+      return ["visioner.cc", "www.visioner.cc", "app.visioner.cc"].includes(
+        new URL(value).hostname,
+      );
+    } catch {
+      return false;
+    }
+  });
+}
+
+async function assertApexRedirect(sourceUrl, expectedLocation) {
+  const response = await fetch(sourceUrl, { redirect: "manual" });
+  const location = response.headers.get("location");
+  assert(
+    response.status === 308 && location === expectedLocation,
+    `${sourceUrl} must redirect with 308 to ${expectedLocation}. Found ${response.status} ${location || "without a Location header"}.`,
   );
 }
