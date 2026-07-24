@@ -1,0 +1,96 @@
+{
+  "generatedAt": "2026-07-24T08:57:42.297Z",
+  "reportDate": "2026-07-24",
+  "methodologyVersion": 1,
+  "verifiedScore": 33.03,
+  "maximumScore": 100,
+  "measuredMaximum": 41,
+  "measurementCoverage": 0.41,
+  "normalizedMeasuredScore": 80.56,
+  "interpretation": "verifiedScore is a conservative lower bound. Unmeasured evidence earns no points but is reported separately; normalizedMeasuredScore compares only measured criteria.",
+  "categories": {
+    "technicalSeo": {
+      "label": "Technical SEO",
+      "score": 28.5,
+      "maximum": 30,
+      "measuredMaximum": 30,
+      "status": "measured",
+      "evidence": "Live technical audit"
+    },
+    "organicSearch": {
+      "label": "Organic Search",
+      "score": 0,
+      "maximum": 30,
+      "measuredMaximum": 3,
+      "status": "partial",
+      "evidence": "GSC=missing; Bing=missing",
+      "criteria": {
+        "measurementConnection": {
+          "maximum": 3,
+          "measured": true,
+          "rate": 0,
+          "evidence": "GSC=missing; Bing=missing",
+          "score": 0
+        },
+        "indexCoverage": {
+          "maximum": 7,
+          "measured": false,
+          "rate": 0,
+          "evidence": "Index coverage not supplied",
+          "score": 0
+        },
+        "priorityQueryCoverage": {
+          "maximum": 7,
+          "measured": false,
+          "rate": 0,
+          "evidence": "0/6 priority queries with impressions",
+          "score": 0
+        },
+        "nonBrandVisibility": {
+          "maximum": 5,
+          "measured": false,
+          "rate": 0,
+          "evidence": "0/100 non-brand impressions in 28 days",
+          "score": 0
+        },
+        "qualifiedOrganicTraffic": {
+          "maximum": 4,
+          "measured": false,
+          "rate": 0,
+          "evidence": "0/20 non-brand clicks in 28 days",
+          "score": 0
+        },
+        "organicConversion": {
+          "maximum": 4,
+          "measured": false,
+          "rate": 0,
+          "evidence": "0/5 completed organic signups; 0 starts",
+          "score": 0
+        }
+      }
+    },
+    "geo": {
+      "label": "GEO",
+      "score": 0,
+      "maximum": 30,
+      "measuredMaximum": 0,
+      "status": "unmeasured",
+      "evidence": "No completed GEO benchmark rows"
+    },
+    "trustReputation": {
+      "label": "Trust / Reputation",
+      "score": 4.53,
+      "maximum": 10,
+      "measuredMaximum": 8,
+      "status": "partial",
+      "evidence": "7 passed; 5 failed; 1 unmeasured"
+    }
+  },
+  "missingEvidence": [
+    "Export GSC indexed/submitted URL coverage into the GSC baseline CSV.",
+    "Verify Bing Webmaster Tools and complete the Bing baseline CSV.",
+    "Add organic signup starts and completions from privacy-safe attribution.",
+    "Complete the fixed GEO benchmark rows with response and citation evidence.",
+    "Record Google/Bing security and third-party reputation checks in the reputation CSV."
+  ]
+}

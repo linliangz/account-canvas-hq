@@ -1,0 +1,36 @@
+name: Domain reputation smoke
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 15 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  reputation:
+    name: Domain, TLS, and public-page trust checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run reputation smoke checks
+        run: node scripts/domain-reputation-smoke.mjs
+
+      - name: Upload evidence report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: domain-reputation-report-${{ github.run_id }}
+          path: artifacts/domain-reputation-report.json
+          if-no-files-found: warn
+          retention-days: 30

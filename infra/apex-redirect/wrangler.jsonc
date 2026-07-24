@@ -1,0 +1,16 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "visioner-apex-redirect",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-19",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "visioner.cc/*",
+      "zone_name": "visioner.cc"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

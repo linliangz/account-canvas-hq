@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "maximumScore": 100,
+  "categories": {
+    "technicalSeo": {
+      "label": "Technical SEO",
+      "maximumScore": 30,
+      "criteria": {
+        "crawlDiscovery": 4,
+        "canonicalization": 5,
+        "pageAvailability": 4,
+        "metadataAndH1": 5,
+        "structuredData": 3,
+        "faviconAndManifest": 3,
+        "imageAlternatives": 3,
+        "guideDiscoveryAndLinks": 3
+      }
+    },
+    "organicSearch": {
+      "label": "Organic Search",
+      "maximumScore": 30,
+      "criteria": {
+        "measurementConnection": 3,
+        "indexCoverage": 7,
+        "priorityQueryCoverage": 7,
+        "nonBrandVisibility": 5,
+        "qualifiedOrganicTraffic": 4,
+        "organicConversion": 4
+      }
+    },
+    "geo": {
+      "label": "GEO",
+      "maximumScore": 30,
+      "criteria": {
+        "brandMentionRate": 8,
+        "citationRate": 8,
+        "linkedCitationRate": 5,
+        "positioningAccuracy": 4,
+        "landingPageFit": 5
+      }
+    },
+    "trustReputation": {
+      "label": "Trust / Reputation",
+      "maximumScore": 10,
+      "criteria": {
+        "canonicalRedirects": 2,
+        "transportAndHeaders": 2,
+        "publicTrustPages": 2,
+        "identityAndSupport": 2,
+        "externalReputationEvidence": 2
+      }
+    }
+  },
+  "day90Thresholds": {
+    "indexCoverage": 0.95,
+    "priorityQueriesWithImpressions": 6,
+    "nonBrandImpressions28d": 100,
+    "qualifiedOrganicClicks28d": 20,
+    "organicSignupCompletions28d": 5,
+    "geoMentionRate": 0.15,
+    "geoCitationRate": 0.1,
+    "geoPositioningAccuracy": 0.9
+  }
+}

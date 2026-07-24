@@ -52,6 +52,7 @@ function publisher() {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
+    legalName: "Ronisens Inc.",
     alternateName: [PRODUCT_NAME, "Visioner Account Planning CRM"],
     url: SITE_URL,
     logo: {

@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageHead } from "../lib/seo";
 
 export const Route = createFileRoute("/privacy")({
-  head: () => ({
-    meta: [
-      { title: "Privacy Policy — Visioner CRM" },
-      {
-        name: "description",
-        content:
-          "Visioner CRM privacy policy for Android and iOS Personal and Work spaces, SaaS account planning, cloud services, device integrations, email capture, analytics, and support.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: "Privacy Policy — Visioner CRM",
+      description:
+        "How Visioner CRM handles data across its website, SaaS workspace, Android and iOS apps, integrations, email capture, analytics, and support.",
+      path: "/privacy",
+    }),
   component: PrivacyPage,
 });
 
@@ -35,7 +33,7 @@ const sections = [
   {
     title: "3. Browser Workspace and Cloud Data",
     body: [
-      "Visioner V1.0 is SaaS-first, but the browser may keep a local workspace cache for speed and continuity. Data you enter, import, sync, upload, route through cloud features, or send to support may be processed by Visioner to provide the service.",
+      "Visioner is SaaS-first, but the browser may keep a local workspace cache for speed and continuity. Data you enter, import, sync, upload, route through cloud features, or send to support may be processed by Visioner to provide the service.",
       "Browser reset, cache clearing, or device loss may affect locally cached data. You are responsible for maintaining exports or backups for data that has not been synced or otherwise stored in the service.",
     ],
   },
@@ -156,6 +154,10 @@ function PrivacyPage() {
                 href="mailto:support@visioner.cc"
               >
                 support@visioner.cc
+              </a>
+              , or review the dedicated{" "}
+              <a className="font-medium text-accent hover:underline" href="/account-deletion">
+                Account and Data Deletion page
               </a>
               .
             </p>

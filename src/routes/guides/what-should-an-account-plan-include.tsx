@@ -9,9 +9,21 @@ const guide: GuidePageConfig = {
   description:
     "A practical account plan should help a Key Account Manager decide what to do next, not just produce a static document for a quarterly review.",
   path: "/guides/what-should-an-account-plan-include",
-  dateModified: "2026-07-12",
-  updatedAt: "Updated July 2026",
+  dateModified: "2026-07-24",
+  updatedAt: "Updated July 24, 2026",
   readingTime: "5 min read",
+  sources: [
+    {
+      label: "Gartner: Account Management Strategy Guide",
+      href: "https://www.gartner.com/en/sales/topics/account-management-and-growth",
+      note: "Account-planning context, including customer-centered planning and active plan use.",
+    },
+    {
+      label: "McKinsey: How to unlock growth in the largest accounts",
+      href: "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/how-to-unlock-growth-in-the-largest-accounts",
+      note: "Research context for relationship continuity and coordinated engagement in large accounts.",
+    },
+  ],
   summary: [
     "A useful account plan starts with revenue context: current ARR, target ARR, renewal timing, projected expansion, and the gap to target.",
     "The plan needs a living project view, a stakeholder map, relationship health, risks, and the next actions that move the account forward.",

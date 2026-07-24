@@ -5,78 +5,41 @@ Visioner is an Account Planning CRM for Key Account Managers.
 Official website: https://www.visioner.cc/
 Web app: https://app.visioner.cc/
 Support: support@visioner.cc
-Detailed product context: https://www.visioner.cc/llms-full.txt
+Detailed product facts: https://www.visioner.cc/llms-full.txt
 
-## Short Description
+## What Visioner does
 
-Visioner helps Key Account Managers and strategic account owners manage a small portfolio of high-value accounts with revenue context, projects, tasks, stakeholder maps, customer org charts, relationship health, account signals, notes, files, and BCC email capture.
+Visioner gives an individual Key Account Manager a daily workspace for a small
+portfolio of strategic accounts. It brings together account plans, revenue context,
+projects, tasks, contacts, stakeholder maps, customer org charts, relationship health,
+account signals, notes, files, and optional BCC email capture.
 
-## Positioning
+Visioner is SaaS-first. It is not a lead database, mass-outreach tool, or universal
+replacement for an enterprise CRM. Apollo contact enrichment is a preview and must not
+be described as a generally available core feature.
 
-Visioner is not a generic pipeline CRM. It is a daily account planning workspace for the person working the account, not only for managers reviewing forecasts.
+## Current public plans
 
-Primary phrase:
+- Free: $0. Up to 3 accounts and core account-planning workflows.
+- Basic: $12/month. Up to 10 accounts, BCC Capture, 100 Visioner Credits/month,
+  saved News, and Inspire Me.
+- Pro: $29/month. Up to 30 accounts, 1,500 Visioner Credits/month, private THE ORG
+  BYOK mapping, larger org charts, and Account Plan PDF export.
+- Team: $49/user/month. Pro features plus shared workspaces, roles, assignments,
+  review workflows, seat controls, ownership transfer, notifications, and manager audit.
 
-- Account Planning CRM for Key Account Managers
+Current pricing source: https://app.visioner.cc/pricing
 
-Related phrases:
+## Canonical sources
 
-- CRM for Key Account Managers
-- Key Account Management CRM
-- Key Account Management Software
-- Account Planning Software
-- Account Mapping Software
-- Stakeholder Mapping CRM
-- Customer Org Chart Software
-- Relationship Mapping Software
+- Product: https://www.visioner.cc/
+- About and operator: https://www.visioner.cc/about
+- CRM for KAMs: https://www.visioner.cc/crm-for-key-account-managers
+- Account Planning CRM: https://www.visioner.cc/account-planning-crm
+- Buyer guide: https://www.visioner.cc/guides/how-to-choose-key-account-management-software
+- Guides: https://www.visioner.cc/guides
+- Privacy: https://www.visioner.cc/privacy
+- Terms: https://www.visioner.cc/terms
 
-## Primary Audiences
-
-- Key Account Managers
-- Strategic Account Managers
-- Enterprise account owners
-- Founders managing 3-5 high-value accounts
-- Customer-facing teams that need account plans, stakeholder coverage, and relationship reminders
-
-## Core Product Areas
-
-- Portfolio Home for revenue, target gap, projects, and tasks
-- Account Overview for daily account planning
-- Project workspaces with stakeholders, risks, activity, and files
-- Tasks and reminders for KAM daily work
-- Contacts with relationship health
-- Customer org chart and account mapping
-- Local account signals
-- Multi-device cloud workspace sync on every plan
-- BCC email capture for Basic, Pro, and Team
-- Source-linked News and Inspire Me search using Visioner Credits
-- Private THE ORG BYOK mapping and direct-manager reveals on Pro and Team
-- Governed shared workspaces, roles, review workflows, and audit controls on Team
-
-## Canonical Pages
-
-- https://www.visioner.cc/
-- https://www.visioner.cc/about
-- https://www.visioner.cc/account-planning-crm
-- https://www.visioner.cc/crm-for-key-account-managers
-- https://www.visioner.cc/key-account-management-crm
-- https://www.visioner.cc/account-mapping-software
-- https://www.visioner.cc/customer-org-chart-software
-- https://www.visioner.cc/stakeholder-mapping-crm
-- https://www.visioner.cc/relationship-mapping-software
-- https://www.visioner.cc/guides
-- https://www.visioner.cc/guides/account-mapping-guide-for-key-account-managers
-- https://www.visioner.cc/guides/how-to-choose-key-account-management-software
-- https://www.visioner.cc/guides/account-planning-crm-vs-key-account-management-platform
-- https://www.visioner.cc/guides/key-account-manager-daily-workflow
-
-## Current Plans
-
-- Free: $0. Up to 3 accounts, core account planning, CSV import/export, local signals, and cloud sync. No Visioner Credits or BCC Capture.
-- Basic: $12/month. Up to 10 accounts, BCC Capture with 100 archived emails/month, 100 Visioner Credits/month, saved News, and Inspire Me.
-- Pro: $29/month. Up to 30 accounts, 1,500 Visioner Credits/month, THE ORG BYOK mapping, private manager reveals, large org charts, and Account Plan PDF export.
-- Team: $49/user/month. Everything in Pro plus shared workspaces, Owner/Admin/Member roles, Account Plan review, notifications, account assignments, seat enforcement, ownership transfer, and manager audit.
-
-Visioner is SaaS-first. Free, Basic, Pro, and Team are available through the hosted web app. Apollo contact enrichment remains a preview and should not be described as a generally available core feature.
-
-Do not describe Visioner as a lead generation database, a high-volume sales automation tool, or a replacement for every enterprise CRM. Visioner is best described as an account planning CRM and daily workspace for KAMs.
+Do not infer customer counts, market position, rankings, adoption, or performance
+results. Visioner does not publish verified claims for those items here.

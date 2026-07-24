@@ -35,6 +35,13 @@ const accountPlanningCrm = read("src/routes/account-planning-crm.tsx");
 const evaluationScorecard = read(
   "public/resources/key-account-management-software-evaluation-scorecard.csv",
 );
+const measurementConfig = JSON.parse(read("config/seo-geo-scorecard.json"));
+const targetConfig = JSON.parse(read("config/seo-geo-targets.json"));
+const technicalAudit = read("scripts/seo-technical-audit.mjs");
+const compositeScorecard = read("scripts/seo-geo-scorecard.mjs");
+const gscTemplate = read("docs/templates/gsc-baseline.csv");
+const bingTemplate = read("docs/templates/bing-baseline.csv");
+const geoTemplate = read("docs/templates/geo-benchmark.csv");
 
 const productMarketingSources = [
   "src/lib/seo.ts",
@@ -71,6 +78,7 @@ const authorityRoutes = [
 const requiredRoutes = [
   "/",
   "/about",
+  "/account-deletion",
   "/account-planning-crm",
   "/crm-for-key-account-managers",
   "/key-account-management-crm",
@@ -100,6 +108,49 @@ assert(
   weeklyBrief.includes("seo-geo-90-day-roadmap.csv") &&
     weeklyGrowthSprint.includes("generate-seo-geo-weekly-brief.mjs"),
   "The weekly growth task must link to the 90-day execution roadmap.",
+);
+assert(
+  Object.values(measurementConfig.categories).reduce(
+    (sum, category) => sum + category.maximumScore,
+    0,
+  ) === 100 &&
+    measurementConfig.categories.technicalSeo.maximumScore === 30 &&
+    measurementConfig.categories.organicSearch.maximumScore === 30 &&
+    measurementConfig.categories.geo.maximumScore === 30 &&
+    measurementConfig.categories.trustReputation.maximumScore === 10,
+  "The machine-readable scorecard must total 100 points across 30/30/30/10.",
+);
+assert(
+  targetConfig.targetQueries.length >= 10 &&
+    targetConfig.geoPrompts.length >= 10 &&
+    targetConfig.geoEngines.length === 4 &&
+    targetConfig.benchmarkRunsPerPrompt === 3,
+  "Target queries and the fixed multi-engine GEO prompt set must stay machine readable.",
+);
+assert(
+  technicalAudit.includes("IMAGE_ALT_MISSING") &&
+    technicalAudit.includes("CANONICAL_MISMATCH") &&
+    technicalAudit.includes("INVALID_JSON_LD") &&
+    technicalAudit.includes("FAVICON_LINK_MISSING") &&
+    technicalAudit.includes("MANIFEST_LINK_MISSING") &&
+    technicalAudit.includes("GUIDE_INDEX_LINK_MISSING"),
+  "The technical audit must cover canonical, schema, favicon, manifest, alt text, and guide discovery.",
+);
+assert(
+  compositeScorecard.includes("normalizedMeasuredScore") &&
+    compositeScorecard.includes("missingEvidence") &&
+    weeklyAudit.includes("schedule:") &&
+    weeklyAudit.includes("reports/scorecard") &&
+    weeklyAudit.includes("Preserve JSON and Markdown history"),
+  "The weekly workflow must produce a conservative 100-point score and preserve history.",
+);
+assert(
+  gscTemplate.includes("indexed_urls") &&
+    gscTemplate.includes("nonbrand_impressions") &&
+    bingTemplate.includes("crawl_errors") &&
+    geoTemplate.includes("positioning_accuracy") &&
+    geoTemplate.includes("cited_url"),
+  "GSC, Bing, and GEO baseline templates must retain their measurement fields.",
 );
 assert(
   founderRunbook.includes("Weekly two-hour cycle") &&

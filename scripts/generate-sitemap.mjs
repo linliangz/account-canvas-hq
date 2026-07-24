@@ -126,6 +126,7 @@ function priority(path) {
     "/traditional-crm-vs-account-planning-crm": "0.76",
     "/account-plan-template": "0.75",
     "/privacy": "0.4",
+    "/account-deletion": "0.4",
     "/terms": "0.4",
     "/support": "0.4",
   };

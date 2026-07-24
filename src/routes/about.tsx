@@ -17,6 +17,7 @@ const SIGNUP_URL = marketingSignupUrl("about", "/about");
 const APP_URL = "https://app.visioner.cc/";
 
 const facts = [
+  ["Operator", "Ronisens Inc."],
   ["Category", "Account Planning CRM"],
   [
     "Primary users",
@@ -26,7 +27,7 @@ const facts = [
     "Best fit",
     "Complex accounts where stakeholders, reporting lines, relationship health, projects, and follow-up timing matter",
   ],
-  ["Launch model", "SaaS-first V1.0 with a free three-account plan"],
+  ["Launch model", "SaaS-first with a free three-account plan"],
   ["Product status", "Early commercial beta"],
   ["Support", "support@visioner.cc"],
 ];
@@ -90,6 +91,12 @@ function AboutPage() {
         url: absoluteUrl("/"),
         description:
           "Account planning CRM for Key Account Managers to manage strategic accounts, projects, stakeholders, tasks, relationship health, and account signals.",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Visioner",
+        legalName: "Ronisens Inc.",
+        url: absoluteUrl("/"),
       },
     },
     breadcrumbJsonLd([

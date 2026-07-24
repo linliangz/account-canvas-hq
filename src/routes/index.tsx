@@ -53,7 +53,7 @@ const HOME_FAQ = [
   {
     question: "Is Visioner replacing Salesforce?",
     answer:
-      "No. Visioner is the account planning CRM KAMs use daily. Many customers keep Salesforce as the system of record for pipeline reporting and use Visioner for strategic account management.",
+      "No. Visioner is an account planning CRM for daily KAM work. A team can keep Salesforce as its pipeline system of record and use Visioner for strategic account planning.",
   },
   {
     question: "Do I need to install a Mac app?",

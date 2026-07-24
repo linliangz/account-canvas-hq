@@ -1,22 +1,46 @@
-name: Visioner live SEO audit
+name: Visioner weekly 100-point SEO and GEO audit
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "23 15 * * 1"
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: visioner-weekly-seo-geo-audit
+  cancel-in-progress: false
 
 jobs:
   audit:
-    permissions:
-      contents: read
-      id-token: write
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      - name: Create this week's evidence workbooks
+        run: node scripts/create-seo-geo-baselines.mjs
+
+      - id: technical
+        name: Audit the live technical surface
+        continue-on-error: true
+        run: node scripts/seo-technical-audit.mjs
+
+      - id: trust
+        name: Audit trust and reputation evidence
+        continue-on-error: true
+        run: node scripts/trust-health-check.mjs
+
       - id: google-auth
         name: Authenticate to Google without a stored key
+        continue-on-error: true
         uses: google-github-actions/auth@v3
         with:
           project_id: project-b7979721-bfa6-455f-997
@@ -25,19 +49,47 @@ jobs:
           token_format: access_token
           access_token_scopes: https://www.googleapis.com/auth/webmasters.readonly
           create_credentials_file: false
-      - run: node scripts/audit-live-seo.mjs
-      - name: Report Search Console performance
+
+      - name: Refresh the 28-day Search Console evidence
+        continue-on-error: true
         env:
           GOOGLE_SEARCH_CONSOLE_ACCESS_TOKEN: ${{ steps.google-auth.outputs.access_token }}
           SEO_GSC_SITE_URL: sc-domain:visioner.cc
-          SEO_GSC_REQUIRED: "true"
+          SEO_GSC_REQUIRED: "false"
         run: node scripts/report-seo-geo-performance.mjs
-      - name: Upload SEO performance evidence
+
+      - name: Build the 100-point scorecard
+        run: node scripts/seo-geo-scorecard.mjs
+
+      - name: Preserve JSON and Markdown history
+        run: |
+          git config user.name "visioner-seo-bot"
+          git config user.email "visioner-seo-bot@users.noreply.github.com"
+          git add reports/seo reports/trust reports/scorecard
+          if git diff --cached --quiet; then
+            echo "No report changes to preserve."
+          else
+            git commit -m "chore: preserve weekly SEO GEO audit"
+            git push
+          fi
+
+      - name: Upload weekly evidence
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: visioner-seo-performance
+          name: visioner-seo-geo-${{ github.run_id }}
           path: |
-            artifacts/seo-live-audit.json
+            reports/seo/
+            reports/trust/
+            reports/geo/
+            reports/scorecard/
             artifacts/seo-geo-performance.json
-          if-no-files-found: ignore
-          retention-days: 90
+            baselines/
+          if-no-files-found: warn
+          retention-days: 180
+
+      - name: Fail after preserving evidence when the live surface regresses
+        if: steps.technical.outcome == 'failure' || steps.trust.outcome == 'failure'
+        run: |
+          echo "A live SEO or trust check failed. The evidence was preserved above."
+          exit 1

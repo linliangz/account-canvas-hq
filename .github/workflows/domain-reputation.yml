@@ -1,0 +1,42 @@
+name: Domain reputation monitor
+
+on:
+  schedule:
+    - cron: "17 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: domain-reputation-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    name: Check public trust surface
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run domain reputation checks
+        run: node scripts/check-domain-reputation.mjs
+        env:
+          TARGET_ORIGIN: https://www.visioner.cc
+          EVIDENCE_DIR: .reputation-evidence
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: domain-reputation-${{ github.run_id }}
+          path: .reputation-evidence/
+          retention-days: 30
+          if-no-files-found: warn

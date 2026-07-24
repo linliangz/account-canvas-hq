@@ -84,11 +84,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Visioner is the account planning CRM for Key Account Managers. Manage relationships, projects, tasks, and account signals in one daily workspace.",
       },
-      {
-        name: "keywords",
-        content:
-          "CRM for Key Account Managers, Key Account Management software, Account planning CRM, Strategic account management, Account plan canvas, CRM for KAM",
-      },
       { property: "og:title", content: "Visioner — Account Planning CRM for Key Account Managers" },
       {
         property: "og:description",
@@ -153,6 +148,7 @@ function RootShell({ children }: { children: ReactNode }) {
                 "@context": "https://schema.org",
                 "@type": "Organization",
                 name: "Visioner",
+                legalName: "Ronisens Inc.",
                 url: "https://www.visioner.cc/",
                 logo: "https://www.visioner.cc/favicon-512x512.png",
                 contactPoint: {

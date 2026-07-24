@@ -1,0 +1,144 @@
+{
+  "generatedAt": "2026-07-24T08:57:38.477Z",
+  "reportDate": "2026-07-24",
+  "origin": "https://www.visioner.cc",
+  "trustScore": 4.53,
+  "scoreMaximum": 10,
+  "measuredMaximum": 8,
+  "criteria": {
+    "canonicalRedirects": {
+      "score": 1.33,
+      "maximum": 2,
+      "measured": true,
+      "passed": 2,
+      "checks": 3
+    },
+    "transportAndHeaders": {
+      "score": 1,
+      "maximum": 2,
+      "measured": true,
+      "passed": 1,
+      "checks": 2
+    },
+    "publicTrustPages": {
+      "score": 1.2,
+      "maximum": 2,
+      "measured": true,
+      "passed": 3,
+      "checks": 5
+    },
+    "identityAndSupport": {
+      "score": 1,
+      "maximum": 2,
+      "measured": true,
+      "passed": 1,
+      "checks": 2
+    },
+    "externalReputationEvidence": {
+      "score": 0,
+      "maximum": 2,
+      "measured": false,
+      "passed": 0,
+      "checks": 1
+    }
+  },
+  "summary": {
+    "checks": 13,
+    "passed": 7,
+    "failed": 5,
+    "unmeasured": 1
+  },
+  "checks": [
+    {
+      "group": "canonicalRedirects",
+      "name": "http://www.visioner.cc",
+      "passed": false,
+      "measured": true,
+      "evidence": "HTTP 200; Location missing"
+    },
+    {
+      "group": "canonicalRedirects",
+      "name": "http://visioner.cc",
+      "passed": true,
+      "measured": true,
+      "evidence": "HTTP 308; https://www.visioner.cc/guides?source=trust-audit"
+    },
+    {
+      "group": "canonicalRedirects",
+      "name": "https://visioner.cc",
+      "passed": true,
+      "measured": true,
+      "evidence": "HTTP 308; https://www.visioner.cc/guides?source=trust-audit"
+    },
+    {
+      "group": "transportAndHeaders",
+      "name": "Conservative response headers",
+      "passed": false,
+      "measured": true,
+      "evidence": "Missing or invalid: strict-transport-security, x-content-type-options, x-frame-options, referrer-policy, permissions-policy"
+    },
+    {
+      "group": "transportAndHeaders",
+      "name": "TLS certificate",
+      "passed": true,
+      "measured": true,
+      "evidence": "69 days remaining; expires Oct  2 05:24:52 2026 GMT"
+    },
+    {
+      "group": "publicTrustPages",
+      "name": "/privacy",
+      "passed": true,
+      "measured": true,
+      "evidence": "HTTP 200; marker=true"
+    },
+    {
+      "group": "publicTrustPages",
+      "name": "/terms",
+      "passed": true,
+      "measured": true,
+      "evidence": "HTTP 200; marker=true"
+    },
+    {
+      "group": "publicTrustPages",
+      "name": "/support",
+      "passed": true,
+      "measured": true,
+      "evidence": "HTTP 200; marker=true"
+    },
+    {
+      "group": "publicTrustPages",
+      "name": "/about",
+      "passed": false,
+      "measured": true,
+      "evidence": "HTTP 200; marker=false"
+    },
+    {
+      "group": "publicTrustPages",
+      "name": "/.well-known/security.txt",
+      "passed": false,
+      "measured": true,
+      "evidence": "HTTP 404; marker=false"
+    },
+    {
+      "group": "identityAndSupport",
+      "name": "Organization structured data",
+      "passed": true,
+      "measured": true,
+      "evidence": "HTTP 200; Organization=true"
+    },
+    {
+      "group": "identityAndSupport",
+      "name": "Operator and support identity",
+      "passed": false,
+      "measured": true,
+      "evidence": "operator=false; support=true"
+    },
+    {
+      "group": "externalReputationEvidence",
+      "name": "External reputation checks",
+      "passed": false,
+      "measured": false,
+      "evidence": "No completed rows in baselines/2026-07-24/reputation-baseline.csv"
+    }
+  ]
+}
